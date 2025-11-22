@@ -239,7 +239,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Links
 
-- **Website**: [moneyfactory.ai](https://moneyfactory.ai) *(coming soon)*
+- **Website**: [mfai.app](https://mfai.app)
 - **GitHub**: [github.com/cyranoaladin/Money_Factory](https://github.com/cyranoaladin/Money_Factory)
 - **Discord**: [discord.gg/shztvSg9](https://discord.gg/shztvSg9)
 - **Twitter**: [@MoneyFactoryAI](https://x.com/MoneyFactoryAI)
