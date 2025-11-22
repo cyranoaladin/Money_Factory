@@ -255,7 +255,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 For questions, partnerships, or support:
-- **Email**: contact@moneyfactory.ai
+- **Email**: contact@mfai.aapp
 - **Discord**: [Join our community](https://discord.gg/shztvSg9)
 - **Twitter**: [@MoneyFactoryAI](https://x.com/MoneyFactoryAI)
 
