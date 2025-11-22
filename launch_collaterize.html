@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Money Factory AI – Launch Collaterize & Bonding Curves</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      /* Solana brand colors */
+      --solana-purple: #9945FF;
+      --solana-green: #14F195;
+      --solana-blue: #00D4FF;
+
+      /* Dark theme */
+      --bg-primary: #0B0B15;
+      --bg-secondary: #15152A;
+      --bg-tertiary: #1F1F3A;
+      --text-primary: #FFFFFF;
+      --text-secondary: #B8B8D0;
+      --text-muted: #7A7A9E;
+      --border-color: rgba(153, 69, 255, 0.2);
+      --border-hover: rgba(153, 69, 255, 0.4);
+
+      /* Typography */
+      --font-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-display: 'Space Grotesk', sans-serif;
+
+      /* Spacing */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4rem;
+
+      /* Animation */
+      --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-base);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+
+    /* Animated background */
+    .mesh-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(153, 69, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(20, 241, 149, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 50%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: rgba(19, 19, 36, 0.95);
+      backdrop-filter: blur(10px);
+      border-right: 1px solid rgba(153, 69, 255, 0.2);
+      overflow-y: auto;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+      padding: 2rem 0;
+    }
+
+    .sidebar.collapsed {
+      transform: translateX(-100%);
+    }
+
+    .sidebar-logo {
+      padding: 0 1.5rem 1.5rem;
+      border-bottom: 1px solid rgba(153, 69, 255, 0.2);
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-logo h1 {
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, var(--solana-purple) 0%, var(--solana-green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .sidebar-logo p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+    }
+
+    .sidebar-nav li {
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-nav a:hover {
+      background: rgba(153, 69, 255, 0.2);
+      border-left-color: #9945FF;
+      transform: translateX(4px);
+    }
+
+    .sidebar-nav a.active {
+      background: rgba(20, 241, 149, 0.15);
+      color: #14F195;
+      border-left-color: #14F195;
+      font-weight: 600;
+    }
+
+    .sidebar-nav .icon {
+      font-size: 1.2rem;
+      min-width: 24px;
+    }
+
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Fixed Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 280px;
+      right: 0;
+      background: rgba(11, 11, 21, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      padding: var(--space-sm) var(--space-lg);
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: left 0.3s ease;
+    }
+
+    .nav.sidebar-collapsed {
+      left: 0;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0.5rem;
+      background: rgba(19, 19, 36, 0.6);
+      border: 1px solid rgba(153, 69, 255, 0.3);
+      border-radius: 8px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .nav-logo-badge {
+      font-size: 0.75rem;
+      background: var(--solana-purple);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-md);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color var(--transition);
+      padding: 0.5rem 1rem;
+      background: rgba(19, 19, 36, 0.6);
+      border: 1px solid rgba(153, 69, 255, 0.3);
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover {
+      color: var(--solana-green);
+      border-color: var(--solana-green);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+      margin-left: 280px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .container.sidebar-collapsed {
+      margin-left: 0;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: var(--space-2xl) 0 var(--space-xl);
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: var(--space-md);
+      background: linear-gradient(135deg, var(--solana-purple) 0%, var(--solana-green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subheadline {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+      line-height: 1.6;
+    }
+
+    .page-meta {
+      display: flex;
+      gap: var(--space-sm);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: var(--space-md);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(153, 69, 255, 0.2);
+      border: 1px solid rgba(153, 69, 255, 0.3);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .badge-primary {
+      background: rgba(20, 241, 149, 0.2);
+      border-color: var(--solana-green);
+      color: var(--solana-green);
+    }
+
+    /* Section Styles */
+    section {
+      margin-bottom: var(--space-2xl);
+      padding-top: var(--space-lg);
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: var(--space-lg);
+      color: var(--text-primary);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: var(--space-sm);
+    }
+
+    h3 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin: var(--space-xl) 0 var(--space-md);
+      color: var(--text-primary);
+    }
+
+    h4 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: var(--space-lg) 0 var(--space-sm);
+      color: var(--solana-purple);
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
+    }
+
+    ul,
+    ol {
+      margin: var(--space-md) 0;
+      padding-left: var(--space-lg);
+      color: var(--text-secondary);
+    }
+
+    li {
+      margin: var(--space-xs) 0;
+    }
+
+    strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    code {
+      background: rgba(153, 69, 255, 0.2);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      color: var(--solana-green);
+    }
+
+    /* Info Boxes */
+    .callout {
+      background: rgba(0, 212, 255, 0.1);
+      border-left: 4px solid var(--solana-blue);
+      border-radius: 8px;
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+    }
+
+    .callout-title {
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+      color: var(--text-primary);
+    }
+
+    .callout-warning {
+      background: rgba(255, 193, 7, 0.1);
+      border-left-color: #FFC107;
+    }
+
+    .callout-tip {
+      background: rgba(20, 241, 149, 0.1);
+      border-left-color: var(--solana-green);
+    }
+
+    .callout-info {
+      background: rgba(0, 212, 255, 0.1);
+      border-left-color: var(--solana-blue);
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+
+    .protocol-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .protocol-card {
+      background: rgba(21, 21, 42, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: var(--space-md);
+      transition: all var(--transition);
+    }
+
+    .protocol-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--solana-green);
+      box-shadow: 0 10px 30px rgba(153, 69, 255, 0.2);
+    }
+
+    .protocol-number {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--solana-purple) 0%, var(--solana-green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Timeline */
+    .timeline {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-lg) 0;
+    }
+
+    .timeline-step {
+      position: relative;
+      padding-left: var(--space-xl);
+      padding-bottom: var(--space-xl);
+      border-left: 2px solid var(--border-color);
+    }
+
+    .timeline-step:last-child {
+      border-left: none;
+      padding-bottom: 0;
+    }
+
+    .timeline-label {
+      position: absolute;
+      left: -1.5rem;
+      top: 0;
+      width: 3rem;
+      height: 3rem;
+      background: linear-gradient(135deg, var(--solana-purple) 0%, var(--solana-green) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .timeline-content h3 {
+      margin-top: 0;
+      color: var(--solana-green);
+    }
+
+    /* Checklist Grid */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+
+    .checklist-card {
+      background: rgba(21, 21, 42, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: var(--space-md);
+    }
+
+    .checklist-card h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      color: var(--solana-purple);
+      margin-bottom: var(--space-md);
+    }
+
+    .checklist-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .checklist-card li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: var(--space-sm);
+    }
+
+    .checklist-card li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--solana-green);
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: var(--space-xl) var(--space-lg);
+      margin-top: var(--space-2xl);
+      margin-left: 280px;
+      transition: margin-left 0.3s ease;
+    }
+
+    footer.sidebar-collapsed {
+      margin-left: 0;
+    }
+
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-lg);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-md);
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--solana-green);
+    }
+
+    .footer-note {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: var(--space-md);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        z-index: 1001;
+      }
+
+      .sidebar.active {
+        transform: translateX(0);
+      }
+
+      .container {
+        padding: 5rem 1.5rem 2rem;
+        margin-left: 0;
+      }
+
+      .nav {
+        padding: var(--space-sm);
+        left: 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero-subheadline {
+        font-size: 1.1rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      footer {
+        margin-left: 0;
+      }
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(153, 69, 255, 0.3);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mesh-bg"></div>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <a href="index.html" style="text-decoration: none;">
+        <h1>Money Factory AI</h1>
+      </a>
+      <p>Launch & Collaterize</p>
+    </div>
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="#overview" class="nav-link active"><span class="icon">🏠</span> Vue d'ensemble</a></li>
+        <li><a href="#bonding-curves" class="nav-link"><span class="icon">📈</span> Bonding curves</a></li>
+        <li><a href="#collaterize-architecture" class="nav-link"><span class="icon">🏗️</span> Architecture
+            Collaterize</a></li>
+        <li><a href="#launch-lifecycle" class="nav-link"><span class="icon">🔄</span> Cycle de launch</a></li>
+        <li><a href="#tokenomics" class="nav-link"><span class="icon">💰</span> Tokenomics & flux</a></li>
+        <li><a href="#mfa-integration" class="nav-link"><span class="icon">🤖</span> Rôle de MFAI</a></li>
+        <li><a href="#risks" class="nav-link"><span class="icon">⚠️</span> Risques & pratiques</a></li>
+        <li><a href="#summary" class="nav-link"><span class="icon">📋</span> Résumé opérationnel</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <nav class="nav" id="navbar">
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-logo">
+      Money Factory AI
+      <span class="nav-logo-badge">LAUNCH</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="documentation_hub.html">← Retour au hub</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </nav>
+
+  <div class="container" id="mainContent">
+    <section id="overview" class="hero">
+      <h1>Lancer un token via Collaterize avec Money Factory AI</h1>
+      <p class="hero-subheadline">
+        Cette page décrit, de bout en bout, le mécanisme de launch via bonding curve sur Collaterize,
+        son intégration avec Meteora, ainsi que la manière dont Money Factory AI structure un
+        lancement pour un projet sélectionné par la DAO.
+      </p>
+      <div class="page-meta">
+        <span class="badge badge-primary">Collaterize · Meteora · Solana</span>
+        <span class="badge">Niveau : avancé</span>
+        <span class="badge">Audience : investisseurs & builders</span>
+      </div>
+    </section>
+
+    <div class="callout callout-info">
+      <div class="callout-title">En une phrase</div>
+      <p>
+        Collaterize fournit l'infrastructure de bonding curve et la migration automatique vers
+        Meteora ; Money Factory AI se place au-dessus comme <strong>studio de launch</strong> :
+        sélection par la DAO, préparation du projet, structuration économique, communication et
+        partage de la valeur avec la communauté.
+      </p>
+    </div>
+
+    <section>
+      <h2>1. Objectifs de ce document</h2>
+      <p>Cette page répond à trois questions principales :</p>
+      <ul>
+        <li>
+          <strong>Compréhension :</strong> expliquer clairement comment fonctionnent les bonding
+          curves et le launchpad Collaterize.
+        </li>
+        <li>
+          <strong>Processus :</strong> détailler le cycle complet du launch, de la configuration
+          jusqu'à la « graduation » sur Meteora.
+        </li>
+        <li>
+          <strong>Intégration Money Factory AI :</strong> décrire où et comment
+          <strong>Money Factory AI</strong> intervient, comment le launch est financé, et comment
+          la DAO et le builder profitent de l'opération.
+        </li>
+      </ul>
+    </section>
+
+    <section id="bonding-curves">
+      <h2>2. Bonding curves : le moteur économique du launch</h2>
+      <p>
+        Une bonding curve est un smart contract qui joue à la fois le rôle d'<em>émetteur de
+          tokens</em> et de <em>market maker automatique</em>. Elle définit un lien mathématique
+        entre le <strong>prix</strong> d'un token et son <strong>offre en circulation</strong>.
+      </p>
+
+      <div class="grid-2">
+        <div>
+          <h3>2.1. Définition opérationnelle</h3>
+          <ul>
+            <li>
+              Le contrat détient une <strong>réserve de collatéral</strong> (ex. SOL, USDC).
+            </li>
+            <li>
+              Lorsqu'un investisseur <strong>achète</strong>, il envoie du collatéral au contrat,
+              qui <strong>mint</strong> de nouveaux tokens et les lui attribue.
+            </li>
+            <li>
+              Lorsqu'il <strong>vend</strong>, il renvoie des tokens au contrat, qui les
+              <strong>burn</strong> et libère du collatéral en retour.
+            </li>
+            <li>
+              Le prix est calculé selon une fonction prédéfinie :
+              <code>P(S) = f(S)</code>, où <code>S</code> est l'offre.
+            </li>
+          </ul>
+        </div>
+
+        <div class="callout callout-tip">
+          <div class="callout-title">Pourquoi c'est intéressant ?</div>
+          <p>
+            La bonding curve garantit une <strong>liquidité continue</strong> : il n'y a pas
+            besoin d'un carnet d'ordres ou de contrepartie humaine. Tout le monde peut entrer ou
+            sortir à tout moment, avec une règle de prix transparente.
+          </p>
+        </div>
+      </div>
+
+      <h3>2.2. Types de courbes (intuition)</h3>
+      <div class="protocol-grid">
+        <article class="protocol-card">
+          <div class="protocol-number">01</div>
+          <h4>Courbe linéaire</h4>
+          <p>
+            Le prix augmente proportionnellement à l'offre. C'est la forme la plus intuitive et
+            souvent la plus adaptée pour des <strong>actifs sérieux / RWA</strong> où l'on veut
+            éviter une volatilité excessive.
+          </p>
+        </article>
+
+        <article class="protocol-card">
+          <div class="protocol-number">02</div>
+          <h4>Courbe exponentielle</h4>
+          <p>
+            Le prix croît très vite avec les achats. Elle récompense fortement les early adopters
+            et crée un fort effet FOMO. Plus adaptée aux memecoins et aux lancements très
+            spéculatifs.
+          </p>
+        </article>
+
+        <article class="protocol-card">
+          <div class="protocol-number">03</div>
+          <h4>Courbe sigmoïde (S-curve)</h4>
+          <p>
+            Croissance lente au début, accélération, puis stabilisation. Utile pour équilibrer
+            l'entrée des premiers et des derniers investisseurs.
+          </p>
+        </article>
+
+        <article class="protocol-card">
+          <div class="protocol-number">04</div>
+          <h4>Courbes « sub-linéaires »</h4>
+          <p>
+            Le prix augmente mais plus lentement qu'en linéaire. Intéressant pour des actifs où
+            l'on veut favoriser l'entrée progressive de capitaux sans pénaliser trop tard les
+            nouveaux entrants.
+          </p>
+        </article>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">À retenir</div>
+        <p>
+          Collaterize utilise un moteur de bonding curve <strong>dynamique</strong> (via Meteora)
+          qui permet d'ajuster la forme de la courbe au <em>profil du projet</em> :
+          RWA conservateur, projet Web3 en croissance, narratif plus spéculatif, etc.
+        </p>
+      </div>
+    </section>
+
+    <section id="collaterize-architecture">
+      <h2>3. Architecture du launchpad Collaterize</h2>
+      <p>
+        Collaterize est un launchpad orienté Real-World Assets (RWA) qui s'appuie sur Solana,
+        un moteur de bonding curve dynamique et une migration automatique vers le DEX Meteora.
+      </p>
+
+      <h3>3.1. Acteurs</h3>
+      <ul>
+        <li>
+          <strong>Créateur / Builder :</strong> le projet qui souhaite tokeniser un actif ou
+          lancer un token.
+        </li>
+        <li>
+          <strong>Collaterize :</strong> fournit l'infrastructure de bonding curve, le cadre de
+          conformité et la logique de migration.
+        </li>
+        <li>
+          <strong>Meteora :</strong> DEX sur Solana où la liquidité est migrée une fois le
+          financement atteint.
+        </li>
+        <li>
+          <strong>Investisseurs :</strong> participants qui achètent / vendent le token sur la
+          bonding curve.
+        </li>
+        <li>
+          <strong>Money Factory AI :</strong> surcouche d'<em>orchestration</em> : sélection des
+          projets, accompagnement, structuration tokenomics, support DAO & communauté.
+        </li>
+      </ul>
+
+      <h3>3.2. Sur-collatéralisation à 120 %</h3>
+      <p>
+        Collaterize est conçu pour garantir à la fois le financement du projet et une liquidité
+        correcte au moment de la migration sur le DEX.
+      </p>
+
+      <div class="grid-2">
+        <div>
+          <ul>
+            <li><strong>100 %</strong> : financement cible du projet (capex, opex, etc.).</li>
+            <li><strong>15 %</strong> : alloué à la <strong>liquidité DEX</strong> (Meteora).</li>
+            <li><strong>5 %</strong> : frais de succès de migration (success fee Collaterize).</li>
+          </ul>
+        </div>
+        <div class="callout callout-info">
+          <div class="callout-title">Conséquence pratique</div>
+          <p>
+            Quand le projet « graduate », il dispose immédiatement d'un
+            <strong>pool de liquidité profond et verrouillé</strong> sur Meteora, ce qui réduit
+            fortement le risque de rug pull et de slippage extrême au listing.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="launch-lifecycle">
+      <h2>4. Cycle complet d'un launch Collaterize</h2>
+      <p>
+        Le cycle de vie d'un token Collaterize suit une séquence claire, de la configuration à
+        la liquidité sur Meteora. Money Factory AI s'imbrique dans ce cycle, mais ne modifie pas
+        la logique fondamentale du smart contract.
+      </p>
+
+      <ol class="timeline">
+        <li class="timeline-step">
+          <div class="timeline-label">Étape 1</div>
+          <div class="timeline-content">
+            <h3>Configuration & due diligence</h3>
+            <p>
+              Le builder fournit la documentation, les données financières (pour les RWA) et
+              complète les procédures KYC/KYB exigées par Collaterize. En parallèle, Money Factory
+              AI l'accompagne sur le narratif, la structure du token et le plan d'utilisation des
+              fonds.
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline-step">
+          <div class="timeline-label">Étape 2</div>
+          <div class="timeline-content">
+            <h3>Paramétrage de la bonding curve</h3>
+            <p>
+              Le créateur définit, avec l'équipe Collaterize et l'appui de Money Factory AI,
+              les paramètres principaux :
+            </p>
+            <ul>
+              <li>Forme de la courbe (plus ou moins agressive).</li>
+              <li>Seuil de graduation (capital à lever avant migration).</li>
+              <li>Tokenomics globales (parts équipe, communauté, trésoreries, etc.).</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline-step">
+          <div class="timeline-label">Étape 3</div>
+          <div class="timeline-content">
+            <h3>Phase de bonding curve (marché primaire)</h3>
+            <p>
+              Les investisseurs achètent le token directement sur la bonding curve. Le prix
+              augmente progressivement avec la demande. Les fonds restent <strong>bloqués dans le
+                contrat</strong> tant que le seuil de graduation n'est pas atteint.
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline-step">
+          <div class="timeline-label">Étape 4</div>
+          <div class="timeline-content">
+            <h3>Graduation & migration vers Meteora</h3>
+            <p>
+              Quand le seuil est atteint, la migration est déclenchée :
+            </p>
+            <ul>
+              <li>La courbe cesse d'émettre des tokens.</li>
+              <li>La réserve de collatéral est partagée : 100 % pour le projet, 15 % pour
+                la liquidité Meteora, 5 % pour les frais Collaterize.</li>
+              <li>Un pool de liquidité est créé sur Meteora et les LP tokens sont verrouillés.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline-step">
+          <div class="timeline-label">Étape 5</div>
+          <div class="timeline-content">
+            <h3>Marché secondaire & vie du projet</h3>
+            <p>
+              Le token est désormais librement échangeable sur Meteora. Le builder exécute sa
+              feuille de route, et les investisseurs peuvent trader ou conserver en fonction de
+              leur conviction. L'accompagnement Money Factory AI se poursuit sur le suivi, la
+              communication et la gouvernance.
+            </p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="callout">
+        <div class="callout-title">Point clé pour la communauté</div>
+        <p>
+          Le contrat de bonding curve agit comme un <strong>garde-fou</strong> : avant la
+          graduation, le builder ne touche pas un centime du capital levé. Cela protège les
+          investisseurs et aligne fortement les incitations sur la réussite du launch.
+        </p>
+      </div>
+    </section>
+
+    <section id="tokenomics">
+      <h2>5. Tokenomics du launch & flux économiques</h2>
+      <p>
+        Au-dessus de la mécanique Collaterize, Money Factory AI définit un schéma de
+        <strong>répartition du token</strong> et des <strong>flux financiers</strong> cohérent
+        avec son propre token et avec la DAO.
+      </p>
+
+      <h3>5.1. Répartition indicative du supply projet</h3>
+
+      <div class="protocol-grid">
+        <article class="protocol-card">
+          <div class="protocol-number">A</div>
+          <h4>Bonding curve & marché</h4>
+          <p>
+            Part du supply vendue via la bonding curve Collaterize
+            (<strong>ex. 30–50 %</strong>). C'est la distribution publique initiale auprès
+            des investisseurs.
+          </p>
+        </article>
+
+        <article class="protocol-card">
+          <div class="protocol-number">B</div>
+          <h4>Builder & équipe</h4>
+          <p>
+            Part allouée au créateur du projet et à son équipe
+            (<strong>ex. 20–30 %</strong>), vestée dans le temps. Garantit l'alignement
+            long terme.
+          </p>
+        </article>
+
+        <article class="protocol-card">
+          <div class="protocol-number">C</div>
+          <h4>Trésorerie Money Factory AI + DAO</h4>
+          <p>
+            Part réservée à <strong>Money Factory AI</strong> et à sa communauté
+            (<strong>ex. 10–20 %</strong>) selon une clef de répartition votée par la
+            gouvernance (trésorerie protocolaire vs. rewards/airdrops).
+          </p>
+        </article>
+
+        <article class="protocol-card">
+          <div class="protocol-number">D</div>
+          <h4>Partenaires & incentives</h4>
+          <p>
+            Pool destiné aux partenaires stratégiques, aux market-makers complémentaires, et aux
+            incentives spécifiques (ex. liquidity mining après la graduation).
+          </p>
+        </article>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Paramètres gouvernés</div>
+        <p>
+          Les pourcentages précis ne sont <strong>pas figés</strong> dans le code Money Factory AI
+          : ils doivent être approuvés par la DAO projet par projet, selon le niveau de risque, la
+          maturité du builder et l'intérêt stratégique pour l'écosystème.
+        </p>
+      </div>
+
+      <h3>5.2. Flux financiers lors d'un launch</h3>
+
+      <div class="grid-2">
+        <div>
+          <h4>Entrées de fonds</h4>
+          <ul>
+            <li>
+              <strong>Capital levé sur Collaterize :</strong> alimente le projet (100 %)
+              + la liquidité Meteora (15 %) + les frais de succès (5 %).
+            </li>
+            <li>
+              <strong>Apport éventuel de Money Factory AI :</strong> le protocole peut choisir
+              d'injecter une petite partie de sa trésorerie comme <em>early buyer</em> sur la
+              bonding curve pour sécuriser une part du supply stratégique.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Sorties & captures de valeur</h4>
+          <ul>
+            <li>
+              <strong>Builder :</strong> perçoit le capital levé (100 %) selon un plan
+              d'utilisation encadré, et conserve sa part de tokens vestés.
+            </li>
+            <li>
+              <strong>Money Factory AI :</strong> capte de la valeur via la
+              <strong>part de tokens projet</strong> qui lui est allouée (vesting) et
+              éventuellement des <strong>fees d'accompagnement</strong> payés par le projet.
+            </li>
+            <li>
+              <strong>DAO / communauté :</strong> bénéficie de distributions ciblées (airdrops,
+              rewards de participation au process de sélection, etc.), financées à partir de la
+              part de supply réservée au protocole.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="mfa-integration">
+      <h2>6. Intégration de Money Factory AI dans le launch Collaterize</h2>
+      <p>
+        Money Factory AI ne remplace pas Collaterize : il apporte une
+        <strong>couche d'orchestration, de sélection et de support</strong> qui rend le launch
+        compréhensible, structuré et attractif pour les builders comme pour les investisseurs.
+      </p>
+
+      <h3>6.1. Pipeline côté Money Factory AI</h3>
+
+      <ol class="timeline">
+        <li class="timeline-step">
+          <div class="timeline-label">Phase A</div>
+          <div class="timeline-content">
+            <h3>Appel à projets & pré-filtrage</h3>
+            <p>
+              Money Factory AI lance un <strong>appel à projets</strong> (Web3, RWA, outils IA,
+              etc.). L'équipe filtre les candidatures sur des critères de sérieux, de potentiel
+              et de cohérence avec l'écosystème Solana.
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline-step">
+          <div class="timeline-label">Phase B</div>
+          <div class="timeline-content">
+            <h3>Vote de la DAO & élection du projet à launcher</h3>
+            <p>
+              La DAO Money Factory AI vote pour sélectionner le projet qui bénéficiera du
+              pipeline Collaterize. Les membres peuvent être incentivés (rewards en token, NFT
+              de gouvernance, etc.) pour leur participation.
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline-step">
+          <div class="timeline-label">Phase C</div>
+          <div class="timeline-content">
+            <h3>Cadrage & structuration</h3>
+            <p>
+              L'équipe Money Factory AI accompagne le builder sur :
+            </p>
+            <ul>
+              <li>le narratif et la documentation (litepaper, docs techniques) ;</li>
+              <li>la proposition de valeur et la roadmap ;</li>
+              <li>la tokenomics et l'adaptation aux contraintes Collaterize ;</li>
+              <li>la préparation des éléments de conformité (si RWA).</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline-step">
+          <div class="timeline-label">Phase D</div>
+          <div class="timeline-content">
+            <h3>Launch Collaterize co-brandé</h3>
+            <p>
+              Le projet est lancé sur Collaterize, mais présenté comme un
+              <strong>« Money Factory AI Launch »</strong>. La communication met en
+              avant :
+            </p>
+            <ul>
+              <li>la sélection par la DAO,</li>
+              <li>le support de Money Factory AI,</li>
+              <li>l'intégration à l'écosystème Solana.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline-step">
+          <div class="timeline-label">Phase E</div>
+          <div class="timeline-content">
+            <h3>Post-launch & suivi</h3>
+            <p>
+              Après la migration sur Meteora, Money Factory AI aide à suivre les métriques
+              clés (liquidité, volume, adoption), à organiser des updates réguliers avec la
+              communauté et à préparer d'éventuels <em>follow-on rounds</em>.
+            </p>
+          </div>
+        </li>
+      </ol>
+
+      <h3>6.2. Comment le builder sélectionné profite du launch</h3>
+
+      <div class="grid-2">
+        <div>
+          <h4>Avantages concrets pour le projet</h4>
+          <ul>
+            <li>
+              <strong>Accès à une infrastructure de launch complète</strong> sans devoir
+              réinventer la bonding curve, la migration DEX ou la gestion de liquidité.
+            </li>
+            <li>
+              <strong>Accompagnement méthodologique</strong> : narratif, doc, tokenomics,
+              stratégie de communication.
+            </li>
+            <li>
+              <strong>Effet réseau Money Factory AI</strong> : visibilité auprès de la
+              communauté, des ambassadeurs, des partenaires et des premiers investisseurs.
+            </li>
+            <li>
+              <strong>Pas de besoin de fournir la liquidité initiale</strong> : la bonding
+              curve finance la migration vers Meteora.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contribution attendue du builder</h4>
+          <ul>
+            <li>
+              Fournir un projet sérieux, documenté, avec un modèle économique crédible.
+            </li>
+            <li>
+              Accepter une <strong>allocation de tokens</strong> à Money Factory AI et à la DAO
+              en échange de l'accompagnement et de l'accès au pipeline.
+            </li>
+            <li>
+              S'engager sur la durée (vesting, reporting, transparence vis-à-vis de la
+              communauté).
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>6.3. Comment Money Factory AI crée de la valeur durable</h3>
+      <ul>
+        <li>
+          <strong>Stack de lancements de qualité :</strong> chaque launch réussi renforce la
+          crédibilité du protocole auprès des investisseurs et des partenaires.
+        </li>
+        <li>
+          <strong>Trésorerie diversifiée :</strong> la part de tokens projet allouée à Money
+          Factory AI diversifie la trésorerie et permet de soutenir d'autres initiatives.
+        </li>
+        <li>
+          <strong>Alignement avec son propre token :</strong> une partie de la valeur captée
+          peut être recyclée vers le token natif (buybacks, staking rewards, incentives), selon
+          les décisions de gouvernance.
+        </li>
+      </ul>
+    </section>
+
+    <section id="risks">
+      <h2>7. Risques, limites et bonnes pratiques</h2>
+      <p>
+        Un launch via bonding curve reste un mécanisme de marché. Il apporte de la transparence
+        et de la liquidité, mais n'élimine pas le risque. Il est essentiel d'être explicite sur
+        les limites du modèle.
+      </p>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Avertissement général</div>
+        <p>
+          Rien dans ce document ne constitue une recommandation d'investissement. Le rôle de Money
+          Factory AI est pédagogique et structurant : chaque participant reste responsable de
+          ses décisions.
+        </p>
+      </div>
+
+      <h3>7.1. Risques principaux</h3>
+      <ul>
+        <li>
+          <strong>Volatilité du marché :</strong> même avec une courbe raisonnable, le prix peut
+          varier fortement en fonction du comportement des investisseurs.
+        </li>
+        <li>
+          <strong>Qualité du sous-jacent :</strong> un RWA mal structuré ou mal évalué reste un
+          mauvais actif, quel que soit le mécanisme de launch.
+        </li>
+        <li>
+          <strong>Complexité cognitive :</strong> les bonding curves sont difficiles à
+          comprendre pour un public non technique ; la pédagogie est donc cruciale.
+        </li>
+        <li>
+          <strong>Risque d'exécution :</strong> même bien financé, un projet peut échouer sur
+          l'exécution opérationnelle.
+        </li>
+      </ul>
+
+      <h3>7.2. Bonnes pratiques côté Money Factory AI</h3>
+      <ul>
+        <li>Limiter le nombre de launches simultanés pour garder un suivi sérieux.</li>
+        <li>Documenter clairement les paramètres de chaque launch (seuils, tokenomics, courbe).</li>
+        <li>Imposer des vestings réalistes pour les équipes et le protocole.</li>
+        <li>
+          Organiser des <strong>sessions pédagogiques</strong> (docs, vidéos, lives) avant
+          chaque launch pour expliquer la mécanique aux utilisateurs.
+        </li>
+      </ul>
+    </section>
+
+    <section id="summary">
+      <h2>8. Résumé opérationnel pour la mise en prod</h2>
+      <p>
+        Cette section synthétise les éléments à vérifier avant d'ouvrir publiquement un launch
+        Collaterize sous le label Money Factory AI.
+      </p>
+
+      <div class="checklist-grid">
+        <div class="checklist-card">
+          <h3>Checklist « Tech & Process »</h3>
+          <ul>
+            <li>Paramètres de bonding curve validés (forme, seuil, ratio 100 / 15 / 5).</li>
+            <li>Contrats Collaterize & Meteora correctement configurés et testés.</li>
+            <li>Docs projet, litepaper et page de launch à jour et cohérents.</li>
+            <li>Intégration front Money Factory AI → page Collaterize finalisée.</li>
+          </ul>
+        </div>
+
+        <div class="checklist-card">
+          <h3>Checklist « Tokenomics & Gouvernance »</h3>
+          <ul>
+            <li>Répartition du supply projet votée par la DAO.</li>
+            <li>Part Money Factory AI / DAO clairement documentée.</li>
+            <li>Calendrier de vesting défini et communiqué.</li>
+            <li>
+              Règles de communication post-launch (reporting, KPI, roadmaps) définies avec le
+              builder.
+            </li>
+          </ul>
+        </div>
+
+        <div class="checklist-card">
+          <h3>Checklist « Communication »</h3>
+          <ul>
+            <li>Storytelling autour de la sélection par la DAO.</li>
+            <li>
+              Explication simplifiée des bonding curves pour le grand public (fiches, threads,
+              vidéos).
+            </li>
+            <li>Calendrier de contenu (avant, pendant, après le launch).</li>
+            <li>FAQ publiques préparées et alignées avec ce document.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">Message final</div>
+        <p>
+          Collaterize apporte une mécanique de launch robuste. Money Factory AI apporte la
+          sélection, la pédagogie et la cohérence d'ensemble. La combinaison des deux doit être
+          présentée comme un <strong>pipeline de lancement complet</strong> pour des projets
+          sérieux dans l'écosystème Solana.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <footer id="footer">
+    <div class="footer-content">
+      <p style="text-align: center; color: var(--text-secondary); margin-bottom: 1rem;">&copy; 2025 Money Factory AI.
+        Built on Solana.</p>
+      <div class="footer-links">
+        <a href="index.html">Platform</a>
+        <a href="docs.html">User Guide</a>
+        <a href="documentation_hub.html">Documentation Hub</a>
+        <a href="litepaper.html">Litepaper</a>
+        <a href="https://github.com/moneyfactoryai" target="_blank">GitHub</a>
+        <a href="https://discord.gg/moneyfactoryai" target="_blank">Discord</a>
+        <a href="https://x.com/MoneyFactoryAI" target="_blank">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sidebar toggle for mobile
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const navbar = document.getElementById('navbar');
+    const container = document.getElementById('mainContent');
+    const footer = document.getElementById('footer');
+
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      sidebarOverlay.classList.toggle('active');
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      sidebarOverlay.classList.remove('active');
+    });
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            const offset = 100;
+            const targetPosition = target.offsetTop - offset;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+
+            // Close sidebar on mobile after clicking
+            if (window.innerWidth <= 768) {
+              sidebar.classList.remove('active');
+              sidebarOverlay.classList.remove('active');
+            }
+          }
+        }
+      });
+    });
+
+    // Highlight active section in sidebar
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
+
+    function highlightActiveSection() {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+
+      // If at the top, highlight the overview link
+      if (pageYOffset < 300) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        document.querySelector('.sidebar-nav a[href="#overview"]')?.classList.add('active');
+      }
+    }
+
+    window.addEventListener('scroll', highlightActiveSection);
+    highlightActiveSection(); // Run on page load
+  </script>
+</body>
+
+</html>

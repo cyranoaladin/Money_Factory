@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Factory AI - Zyno AI Engine | Multi-Agent System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Solana brand colors */
+            --solana-purple: #9945FF;
+            --solana-green: #14F195;
+            --solana-blue: #00D4FF;
+
+            /* Dark theme */
+            --bg-primary: #0B0B15;
+            --bg-secondary: #15152A;
+            --bg-tertiary: #1F1F3A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B8B8D0;
+            --text-muted: #7A7A9E;
+            --border-color: rgba(153, 69, 255, 0.2);
+            --border-hover: rgba(153, 69, 255, 0.4);
+
+            /* Typography */
+            --font-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+
+            /* Animation */
+            --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-base);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .mesh-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(153, 69, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(20, 241, 149, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Fixed Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 11, 21, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--space-sm) var(--space-lg);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .nav-logo-badge {
+            font-size: 0.75rem;
+            background: var(--solana-purple);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-md);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--solana-green);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: var(--space-2xl) 0 var(--space-xl);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: var(--space-xl);
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+            background: linear-gradient(135deg, var(--solana-purple) 0%, var(--solana-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subheadline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: var(--space-2xl);
+            padding-top: var(--space-lg);
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: var(--space-sm);
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin: var(--space-xl) 0 var(--space-md);
+            color: var(--text-primary);
+        }
+
+        h4 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: var(--space-lg) 0 var(--space-sm);
+            color: var(--solana-purple);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        ul,
+        ol {
+            margin: var(--space-md) 0;
+            padding-left: var(--space-lg);
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin: var(--space-xs) 0;
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid var(--solana-blue);
+            border-radius: 8px;
+            padding: var(--space-md);
+            margin: var(--space-md) 0;
+        }
+
+        .info-box.warning {
+            background: rgba(255, 193, 7, 0.1);
+            border-left-color: #FFC107;
+        }
+
+        .info-box.success {
+            background: rgba(20, 241, 149, 0.1);
+            border-left-color: var(--solana-green);
+        }
+
+        .info-box.error {
+            background: rgba(244, 67, 54, 0.1);
+            border-left-color: #F44336;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+
+        .card {
+            background: rgba(21, 21, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--space-md);
+            transition: all var(--transition);
+        }
+
+        .card:hover {
+            border-color: var(--solana-purple);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(153, 69, 255, 0.2);
+        }
+
+        .card h4 {
+            margin-top: 0;
+            margin-bottom: var(--space-xs);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            margin: var(--space-xs) 0;
+        }
+
+        /* Agent Grid */
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-xl) 0;
+        }
+
+        .agent-card {
+            background: rgba(21, 21, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--space-md);
+            transition: all var(--transition);
+        }
+
+        .agent-card:hover {
+            border-color: var(--solana-green);
+            transform: translateY(-4px);
+        }
+
+        .agent-name {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--solana-green);
+            margin-bottom: var(--space-xs);
+        }
+
+        .agent-category {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: var(--space-sm);
+            display: block;
+        }
+
+        .agent-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Orchestration Flow */
+        .flow-container {
+            background: rgba(21, 21, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+            overflow-x: auto;
+        }
+
+        .flow-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            padding: var(--space-md);
+            background: rgba(31, 31, 58, 0.6);
+            border-radius: 8px;
+            border-left: 4px solid var(--solana-purple);
+        }
+
+        .flow-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: var(--solana-purple);
+            border-radius: 50%;
+            margin-right: var(--space-md);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .flow-content {
+            flex: 1;
+        }
+
+        /* Call to Action */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--solana-purple) 0%, var(--solana-green) 100%);
+            color: white;
+            padding: var(--space-md) var(--space-xl);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(153, 69, 255, 0.3);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: var(--space-xl) 0;
+            margin: var(--space-2xl) 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: var(--space-xl) var(--space-lg);
+            margin-top: var(--space-2xl);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--solana-green);
+        }
+
+        .footer-note {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: var(--space-md);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 5rem 1.5rem 2rem;
+            }
+
+            .nav {
+                padding: var(--space-sm);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subheadline {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            .card-grid,
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .mesh-bg,
+            .nav {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                color: black;
+            }
+
+            p,
+            li {
+                color: #333;
+            }
+
+            .card,
+            .info-box,
+            .agent-card {
+                border: 1px solid #ddd;
+                break-inside: avoid;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mesh-bg"></div>
+
+    <nav class="nav">
+        <a href="index.html#home" style="text-decoration: none; color: inherit;">
+            <div class="nav-logo">
+                Money Factory AI
+                <span class="nav-logo-badge">ZYNO</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="product.html">Product</a></li>
+            <li><a href="token.html">Token</a></li>
+            <li><a href="documentation_hub.html">Docs</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Zyno AI Engine<br>Multi-Agent System</h1>
+            <p class="hero-subheadline">The 17-agent orchestration system that transforms user intent into on-chain
+                artifacts.</p>
+        </section>
+
+        <section>
+            <h2>Overview</h2>
+            <p><strong>Zyno</strong> is the AI core of Money Factory AI. It's an orchestration system that coordinates
+                17 specialized agents to transform natural language intents into production-ready on-chain artifacts.
+            </p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>LLM Base</h4>
+                    <p>GPT-5.1 with Structured Outputs (JSON Schema validation)</p>
+                </div>
+                <div class="card">
+                    <h4>Knowledge Base</h4>
+                    <p>RAG (Retrieval-Augmented Generation) with vector database</p>
+                </div>
+                <div class="card">
+                    <h4>Orchestration</h4>
+                    <p>AEPO (AI-Enhanced Pathway Orchestration) for individual paths + AECO (AI-Enhanced Cohort
+                        Orchestration) for groups</p>
+                </div>
+                <div class="card">
+                    <h4>Output Format</h4>
+                    <p>JSON Schema-validated UI Blocks for consistent user experience</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Agent Categories & Capabilities</h2>
+            <p>Zyno coordinates 17 specialized agents across three categories:</p>
+
+            <div class="agents-grid">
+                <div class="agent-card">
+                    <span class="agent-name">Architect</span>
+                    <span class="agent-category">Core Agent</span>
+                    <p class="agent-description">System design, technical architecture, Solana program structure</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">Engineer</span>
+                    <span class="agent-category">Core Agent</span>
+                    <p class="agent-description">Smart contract generation, Anchor program scaffolding, code auditing
+                    </p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">CFO</span>
+                    <span class="agent-category">Core Agent</span>
+                    <p class="agent-description">Tokenomics modeling, financial projections, treasury management</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">Legal</span>
+                    <span class="agent-category">Specialized Agent</span>
+                    <p class="agent-description">Compliance frameworks, regulatory guidance, terms drafting</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">Marketing</span>
+                    <span class="agent-category">Specialized Agent</span>
+                    <p class="agent-description">GTM strategy, content creation, narrative development</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">Growth</span>
+                    <span class="agent-category">Specialized Agent</span>
+                    <p class="agent-description">Distribution strategy, channel optimization, metrics tracking</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">Risk</span>
+                    <span class="agent-category">Specialized Agent</span>
+                    <p class="agent-description">Security analysis, threat modeling, vulnerability assessment</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">DAO</span>
+                    <span class="agent-category">Specialized Agent</span>
+                    <p class="agent-description">Governance design, voting mechanisms, proposal templates</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">Data Analyst</span>
+                    <span class="agent-category">Specialized Agent</span>
+                    <p class="agent-description">Metrics dashboards, business intelligence, predictive analytics</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">Community</span>
+                    <span class="agent-category">Specialized Agent</span>
+                    <p class="agent-description">Engagement strategy, moderation, Discord/X management</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">Auditor</span>
+                    <span class="agent-category">Specialized Agent</span>
+                    <p class="agent-description">Code security, smart contract audits, vulnerability reports</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">Education</span>
+                    <span class="agent-category">Specialized Agent</span>
+                    <p class="agent-description">Learning content creation, onboarding flows, documentation</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">Coach</span>
+                    <span class="agent-category">Specialized Agent</span>
+                    <p class="agent-description">Personal guidance, progress tracking, motivation</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">RWA</span>
+                    <span class="agent-category">Specialized Agent</span>
+                    <p class="agent-description">Real-world asset tokenization, compliance, legal structures</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">Evaluator</span>
+                    <span class="agent-category">Support Agent</span>
+                    <p class="agent-description">Project assessment, scoring, recommendation generation</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">Integration</span>
+                    <span class="agent-category">Support Agent</span>
+                    <p class="agent-description">External protocol connection, API orchestration</p>
+                </div>
+                <div class="agent-card">
+                    <span class="agent-name">DevOps</span>
+                    <span class="agent-category">Support Agent</span>
+                    <p class="agent-description">Infrastructure management, deployment automation, monitoring</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Orchestration Flow</h2>
+            <p>Zyno follows a sophisticated orchestration pattern to deliver the right expertise at the right time:</p>
+
+            <div class="flow-container">
+                <div class="flow-diagram">
+                    <div class="flow-step">
+                        <div class="flow-number">1</div>
+                        <div class="flow-content">
+                            <strong>User Natural Language Input</strong><br>
+                            User describes their project, question, or request in plain language
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-number">2</div>
+                        <div class="flow-content">
+                            <strong>Zyno Core (Intent Analysis)</strong><br>
+                            Analyzes user intent, classification, and context
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-number">3</div>
+                        <div class="flow-content">
+                            <strong>Agent Selection & Routing</strong><br>
+                            Routes to relevant agents (e.g. Architect, Engineer, CFO)
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-number">4</div>
+                        <div class="flow-content">
+                            <strong>RAG Knowledge Base Query</strong><br>
+                            Retrieves relevant information from Solana/Web3 knowledge base
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-number">5</div>
+                        <div class="flow-content">
+                            <strong>Parallel Agent Execution</strong><br>
+                            Agents work simultaneously on their specialized tasks
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-number">6</div>
+                        <div class="flow-content">
+                            <strong>Output Synthesis</strong><br>
+                            Merges and validates outputs, resolves conflicts
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-number">7</div>
+                        <div class="flow-content">
+                            <strong>Journey Step UI Generation</strong><br>
+                            Creates structured UI elements for user consumption
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>API Integration</h2>
+            <p>Zyno exposes a powerful API for direct integration:</p>
+
+            <h3>Endpoint: <code
+                    style="background: var(--bg-tertiary); padding: 0.2rem 0.5rem; border-radius: 4px;">POST /api/zyno/orchestrate</code>
+            </h3>
+            <ul>
+                <li><strong>Authentication:</strong> Sign-In With Solana (SIWS) JWT</li>
+                <li><strong>Rate Limits:</strong> 100 requests/hour (free tier), unlimited (Zyno Pro)</li>
+            </ul>
+
+            <h3>Example Request</h3>
+            <pre
+                style="background: var(--bg-tertiary); padding: var(--space-md); border-radius: 8px; overflow-x: auto; color: var(--text-secondary);"><code>{
+  "userId": "string",
+  "journeyId": "string",
+  "userInput": "I want to create a DeFi lending protocol with collateral management",
+  "context": {
+    "currentPhase": "build",
+    "completedSteps": ["intro-defi", "defi-risk"],
+    "userSkills": ["defi-basics", "smart-contracts"]
+  }
+}</code></pre>
+
+            <h3>Example Response</h3>
+            <pre
+                style="background: var(--bg-tertiary); padding: var(--space-md); border-radius: 8px; overflow-x: auto; color: var(--text-secondary);"><code>{
+  "journeyStepResponse": {
+    "blocks": [/* UI Blocks Array */],
+    "xpAwarded": 50,
+    "nextActions": ["review-architectural-plan", "examine-code-templates"],
+    "zynoReasoning": "User has Defi knowledge, providing advanced lending protocol architecture..."
+  },
+  "agentsInvolved": ["Architect", "Engineer", "Risk", "Legal"],
+  "processingTimeMs": 1850
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>Use Cases</h2>
+            <p>Zyno enables a wide range of use cases across the Web3 development lifecycle:</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Tokenomics Design</h4>
+                    <p>CFO Agent creates financial models with vesting schedules, allocation strategies, and revenue
+                        projections</p>
+                </div>
+                <div class="card">
+                    <h4>Smart Contract Development</h4>
+                    <p>Engineer Agent generates Anchor program templates with security audits and test suites</p>
+                </div>
+                <div class="card">
+                    <h4>Security Assessment</h4>
+                    <p>Risk Agent analyzes potential vulnerabilities and compliance requirements</p>
+                </div>
+                <div class="card">
+                    <h4>Market Strategy</h4>
+                    <p>Marketing Agent develops go-to-market strategies and community engagement plans</p>
+                </div>
+                <div class="card">
+                    <h4>Governance Framework</h4>
+                    <p>DAO Agent designs voting mechanisms and proposal processes</p>
+                </div>
+                <div class="card">
+                    <h4>RWA Tokenization</h4>
+                    <p>RWA Agent structures real-world asset tokenization with legal compliance</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Experience Zyno AI</h2>
+            <p>Try the Zyno Terminal to interact directly with our multi-agent AI system.</p>
+            <div
+                style="margin-top: var(--space-lg); display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+                <a href="/terminal" class="cta-button" style="margin-right: var(--space-md);">Access Terminal</a>
+                <a href="docs.html#zyno-overview" class="cta-button">Technical Spec</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 1rem;">&copy; 2025 Money Factory
+                AI. Built on Solana.</p>
+            <p style="text-align: center;">
+                <a href="index.html#home" style="color: var(--solana-green); margin: 0 1rem;">Home</a>
+                <a href="product.html" style="color: var(--solana-green); margin: 0 1rem;">Product</a>
+                <a href="token.html" style="color: var(--solana-green); margin: 0 1rem;">Token</a>
+                <a href="documentation_hub.html" style="color: var(--solana-green); margin: 0 1rem;">Documentation</a>
+                <a href="https://discord.gg/shztvSg9" target="_blank"
+                    style="color: var(--solana-green); margin: 0 1rem;">Discord</a>
+            </p>
+            <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">
+                <strong>Disclaimer:</strong> Nothing on this site constitutes financial or investment advice. Always do
+                your own research.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const offset = 100;
+                        const targetPosition = target.offsetTop - offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

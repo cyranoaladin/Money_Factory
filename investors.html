@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Factory AI - For Investors | Investor Brief & Funding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Solana brand colors */
+            --solana-purple: #9945FF;
+            --solana-green: #14F195;
+            --solana-blue: #00D4FF;
+
+            /* Dark theme */
+            --bg-primary: #0B0B15;
+            --bg-secondary: #15152A;
+            --bg-tertiary: #1F1F3A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B8B8D0;
+            --text-muted: #7A7A9E;
+            --border-color: rgba(153, 69, 255, 0.2);
+            --border-hover: rgba(153, 69, 255, 0.4);
+
+            /* Typography */
+            --font-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+
+            /* Animation */
+            --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-base);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .mesh-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(153, 69, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(20, 241, 149, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Fixed Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 11, 21, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--space-sm) var(--space-lg);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .nav-logo-badge {
+            font-size: 0.75rem;
+            background: var(--solana-purple);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-md);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--solana-green);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: var(--space-2xl) 0 var(--space-xl);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: var(--space-xl);
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+            background: linear-gradient(135deg, var(--solana-purple) 0%, var(--solana-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subheadline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: var(--space-2xl);
+            padding-top: var(--space-lg);
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: var(--space-sm);
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin: var(--space-xl) 0 var(--space-md);
+            color: var(--text-primary);
+        }
+
+        h4 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: var(--space-lg) 0 var(--space-sm);
+            color: var(--solana-purple);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        ul,
+        ol {
+            margin: var(--space-md) 0;
+            padding-left: var(--space-lg);
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin: var(--space-xs) 0;
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid var(--solana-blue);
+            border-radius: 8px;
+            padding: var(--space-md);
+            margin: var(--space-md) 0;
+        }
+
+        .info-box.warning {
+            background: rgba(255, 193, 7, 0.1);
+            border-left-color: #FFC107;
+        }
+
+        .info-box.success {
+            background: rgba(20, 241, 149, 0.1);
+            border-left-color: var(--solana-green);
+        }
+
+        .info-box.error {
+            background: rgba(244, 67, 54, 0.1);
+            border-left-color: #F44336;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+
+        .card {
+            background: rgba(21, 21, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--space-md);
+            transition: all var(--transition);
+        }
+
+        .card:hover {
+            border-color: var(--solana-purple);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(153, 69, 255, 0.2);
+        }
+
+        .card h4 {
+            margin-top: 0;
+            margin-bottom: var(--space-xs);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            margin: var(--space-xs) 0;
+        }
+
+        /* Call to Action */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--solana-purple) 0%, var(--solana-green) 100%);
+            color: white;
+            padding: var(--space-md) var(--space-xl);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(153, 69, 255, 0.3);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: var(--space-xl) 0;
+            margin: var(--space-2xl) 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: var(--space-xl) var(--space-lg);
+            margin-top: var(--space-2xl);
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--solana-green);
+        }
+
+        .footer-note {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: var(--space-md);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 5rem 1.5rem 2rem;
+            }
+
+            .nav {
+                padding: var(--space-sm);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subheadline {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .mesh-bg,
+            .nav {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                color: black;
+            }
+
+            p,
+            li {
+                color: #333;
+            }
+
+            .card,
+            .info-box {
+                border: 1px solid #ddd;
+                break-inside: avoid;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mesh-bg"></div>
+
+    <nav class="nav">
+        <a href="index.html#home" style="text-decoration: none; color: inherit;">
+            <div class="nav-logo">
+                Money Factory AI
+                <span class="nav-logo-badge">INVESTORS</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#journey">Journey</a></li>
+            <li><a href="product.html">Product</a></li>
+            <li><a href="docs.html#zyno-overview">Agents & API</a></li>
+            <li><a href="token.html">Token</a></li>
+            <li><a href="investors.html">Investors</a></li>
+            <li><a href="documentation_hub.html">Docs</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Money Factory AI<br>For Investors</h1>
+            <p class="hero-subheadline">A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated
+                businesses.</p>
+        </section>
+
+        <section>
+            <h2>Investment Highlights</h2>
+            <p>Money Factory AI (MFAI) is a Solana-native <strong>venture engine</strong> that turns ideas into
+                launch-ready on-chain protocols, using a 17-agent AI system (Zyno) plus a structured 4-phase journey:
+            </p>
+            <p><strong>Learn → Build → DAO Approve → Launch & Liquidity</strong></p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Dual Revenue Model</h4>
+                    <p><strong>SaaS subscriptions</strong> (Builder/Pro/Enterprise) in
+                        USD/USDC<br><strong>On-chain</strong> launchpad fees, bonding curves, DAO revenue shares</p>
+                </div>
+                <div class="card">
+                    <h4>Fixed Supply & Deflationary Design</h4>
+                    <p>1,000,000,000 $MFAI (SPL Token, 9 decimals, immutable supply)<br>Structured burn mechanisms +
+                        buyback program from fiat revenues</p>
+                </div>
+                <div class="card">
+                    <h4>Initial Valuation</h4>
+                    <p>TGE price: <strong>$0.01</strong><br>Initial FDV: <strong>$10M</strong><br>Initial circulating:
+                        10% (100M tokens) → initial market cap: <strong>$1M</strong></p>
+                </div>
+                <div class="card">
+                    <h4>Economics & Scaling</h4>
+                    <p>Monthly cost base ~€36k (infra + team + ops)<br>Break-even at ~735 "Builder-equivalent"
+                        seats<br>Conservative Year 1 total revenues in the <strong>mid-seven figures</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Problem & Vision</h2>
+            <h3>Market Problem</h3>
+            <p>The Web3 / Solana ecosystem suffers from a <strong>fragmented and inefficient venture formation
+                    process</strong>:</p>
+            <ul>
+                <li>Builders must navigate <strong>50+ tools, 20+ protocols</strong>, and inconsistent documentation
+                </li>
+                <li>Capital access remains <strong>opaque, slow and network-dependent</strong> (6–12 month fundraising
+                    cycles)</li>
+                <li>No coherent pipeline exists from <strong>idea to launch</strong> with technical and governance
+                    support</li>
+                <li>In practice, a majority of projects fail <strong>before</strong> the mainnet, by execution friction
+                    rather than lack of merit</li>
+            </ul>
+
+            <h3>Vision</h3>
+            <p><strong>Money Factory AI</strong> aims to become the <strong>"production layer" of the Internet Capital
+                    Market on Solana</strong>:</p>
+            <ul>
+                <li>An <strong>AI co-founder</strong> for every builder, orchestrating 17 specialized agents</li>
+                <li>A <strong>structured journey</strong> of education, construction, governance and launch</li>
+                <li>A <strong>hub of incubation</strong> where the DAO filters, funds and supports the most solid
+                    projects</li>
+                <li>A <strong>programmatic portfolio</strong> of graduated protocols that sustainably feed the treasury
+                    and $MFAI holders</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Product & Platform</h2>
+            <h3>4-Phase Journey</h3>
+            <ul>
+                <li><strong>Phase 1 – Learn & Earn</strong>: Modules, missions, earn $MFAI and Proof-of-Skill NFTs</li>
+                <li><strong>Phase 2 – Build with Zyno</strong>: Describe your project, Zyno produces Project Canvas</li>
+                <li><strong>Phase 3 – DAO Approval</strong>: Submit to DAO with voting power based on stake + skills
+                </li>
+                <li><strong>Phase 4 – Incubation & Launch</strong>: 8–12 week program with Collaterize bonding curves
+                </li>
+            </ul>
+
+            <h3>Zyno – Multi-Agent Orchestration Kernel</h3>
+            <p><strong>Zyno</strong> is the multi-agent orchestration kernel that powers both AEPO and AECO:</p>
+            <ul>
+                <li><strong>AEPO (AI-Enhanced Pathway Orchestration)</strong> – Orchestrates individual learning and
+                    building paths</li>
+                <li><strong>AECO (AI-Enhanced Cohort Orchestration)</strong> – Orchestrates group dynamics and cohort
+                    programs</li>
+                <li>Routes tasks to 17 specialized agents (Architect, Engineer, CFO, etc.)</li>
+                <li>Accesses RAG knowledge base (Solana/Web3 documentation)</li>
+                <li>Synthesizes responses into UI blocks and actionable artifacts</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Business Model & Revenues</h2>
+            <h3>Off-Chain Revenues – SaaS (Zyno Pro)</h3>
+            <p>Subscription plans:</p>
+            <ul>
+                <li><strong>Free</strong> – Learning modules, limited Zyno, 1 project slot</li>
+                <li><strong>Builder – $49 / month</strong> – Unlimited Zyno, 5 project slots, advanced agents</li>
+                <li><strong>Pro – $149 / month</strong> – Everything Builder + custom journeys, white-label options</li>
+                <li><strong>Enterprise – Custom pricing</strong> – Dedicated agents, on-premise, specific integrations
+                </li>
+            </ul>
+
+            <h3>On-Chain Revenues – Launchpad, Bonding Curves, DAO</h3>
+            <p>For each graduated project:</p>
+            <ul>
+                <li><strong>Fixed Launch Fee</strong> – typically $25k (USDC or $MFAI)</li>
+                <li><strong>Success Fee</strong> – 2–5% of raise (in project tokens, vested)</li>
+                <li><strong>Bonding Curve Fees</strong> – 1–3% per trade (shared: treasury, creators, LPs)</li>
+                <li><strong>DAO Governance Revenues</strong> – potential revenue shares (5–10%), appreciation of tokens
+                    held by treasury</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Token Design & Synaptic Governance</h2>
+            <h3>Token Specifications</h3>
+            <ul>
+                <li><strong>Token</strong>: $MFAI</li>
+                <li><strong>Symbol</strong>: MFAI</li>
+                <li><strong>Name</strong>: Money Factory AI</li>
+                <li><strong>Blockchain</strong>: Solana (SPL Token)</li>
+                <li><strong>Total Supply</strong>: 1,000,000,000 (1 billion, fixed cap)</li>
+                <li><strong>Decimals</strong>: 9</li>
+                <li><strong>Contract Address</strong>: [TBD at TGE]</li>
+                <li><strong>TGE Price</strong>: $0.01</li>
+                <li><strong>Initial FDV</strong>: $10M</li>
+                <li><strong>Circulating at TGE</strong>: 10% (100M) → $1M initial market cap</li>
+            </ul>
+
+            <h3>Allocation & Distribution</h3>
+            <ul>
+                <li><strong>Community Rewards</strong> – 40% (400M) – Learning rewards, airdrops, merit-based incentives
+                </li>
+                <li><strong>Treasury & Ecosystem</strong> – 25% (250M) – DAO-governed, flexible</li>
+                <li><strong>Team & Advisors</strong> – 15% (150M) – 1 year cliff, 3 years vesting</li>
+                <li><strong>Private Sale</strong> – 10% (100M) – ~18 months linear vesting</li>
+                <li><strong>Public Sale (TGE)</strong> – 10% (100M) – Unlocked at launch</li>
+            </ul>
+
+            <h3>Synaptic Governance</h3>
+            <p>Voting power ≈ staked $MFAI × Proof-of-Skill NFTs × participation score</p>
+            <p>Parameters: 10% quorum, 60% YES threshold, 48h execution timelock</p>
+
+            <h3>Neuro-Dividends™</h3>
+            <p>Protocol revenues (off-chain and on-chain) feed a Community Rewards Pool. Eligible stakers receive
+                periodic distributions.</p>
+        </section>
+
+        <section>
+            <h2>Risks & Mitigation Strategy</h2>
+            <ul>
+                <li><strong>Technical Risks</strong>: Multi-agent systems have complexity; we mitigate with extensive
+                    testing and modular architecture.</li>
+                <li><strong>Market Risks</strong>: Crypto winter impact; we focus on utility and builder value
+                    regardless of market conditions.</li>
+                <li><strong>Competition</strong>: Other platforms may emerge; our moat is deep Solana integration and
+                    proven builder traction.</li>
+                <li><strong>Regulatory Risks</strong>: Evolving landscape; we maintain compliance-first approach and
+                    legal advisory board.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Roadmap & Funding</h2>
+            <h3>Roadmap</h3>
+            <ul>
+                <li><strong>Q2 2025</strong> – Testnet Zyno deployment, Private sale, Community building</li>
+                <li><strong>Q3 2025</strong> – TGE at $0.01, DEX listings (Raydium, Orca), First 10 Collaterize projects
+                </li>
+                <li><strong>Q4 2025</strong> – Zyno Pro launch, Mobile app (iOS + Android), First Neuro-Dividends™</li>
+                <li><strong>2026+</strong> – 100+ graduated projects, Proof-of-Skill standard, White-label licensing
+                </li>
+            </ul>
+
+            <h3>Funding & Use of Proceeds</h3>
+            <p><strong>Target</strong>: $2M – $5M in private round</p>
+            <p><strong>Use of funds</strong>:</p>
+            <ul>
+                <li>40% – Product & Engineering (agents, infrastructure, audits)</li>
+                <li>25% – Go-To-Market (growth, content, hackathons, education partnerships)</li>
+                <li>20% – Liquidity reserve (Collaterize bonds, LPs)</li>
+                <li>10% – Compliance & Legal (legal structure, licenses, audits)</li>
+                <li>5% – Miscellaneous reserves</li>
+            </ul>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to explore the opportunity?</h2>
+            <p>Download the litepaper or join our community to learn more about the Internet Capital Market vision.</p>
+            <div
+                style="margin-top: var(--space-lg); display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+                <a href="litepaper.html" class="cta-button" style="margin-right: var(--space-md);">Read Litepaper</a>
+                <a href="https://discord.gg/moneyfactoryai" class="cta-button">Join Discord Community</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Money Factory AI. Built on Solana.</p>
+            <p>
+                <a href="index.html#home" style="color: var(--solana-green); margin: 0 1rem;">Home</a>
+                <a href="product.html" style="color: var(--solana-green); margin: 0 1rem;">Product</a>
+                <a href="token.html" style="color: var(--solana-green); margin: 0 1rem;">Token</a>
+                <a href="documentation_hub.html" style="color: var(--solana-green); margin: 0 1rem;">Documentation</a>
+                <a href="litepaper.html" style="color: var(--solana-green); margin: 0 1rem;">Litepaper</a>
+            </p>
+            <p class="footer-note" style="margin-top: 1rem; font-size: 0.85rem;"><strong>Disclaimer:</strong> Nothing on
+                this site constitutes financial or investment advice. Always do your own research.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "@moneyfactoryai/shared",
+  "version": "1.0.0",
+  "description": "Shared TypeScript models and schemas for Money Factory AI platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "moneyfactoryai",
+    "zyno",
+    "typescript",
+    "models",
+    "schemas",
+    "solana",
+    "web3"
+  ],
+  "author": "Money Factory AI",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^4.9.0"
+  },
+  "dependencies": {}
+}

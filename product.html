@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Factory AI – Product | AEPO, AECO & Zyno Platform</title>
+    <meta name="description"
+        content="Discover the Money Factory AI platform: AEPO for individual pathways, AECO for cohort orchestration, and Zyno's multi-agent system.">
+    <meta name="keywords" content="AEPO, AECO, Zyno, AI Agents, Solana, Web3, DAO, Money Factory AI">
+    <meta name="author" content="Money Factory AI">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        solana: {
+                            purple: '#9945FF',
+                            green: '#14F195',
+                            dark: '#0B0B15',
+                            card: '#131324'
+                        },
+                        mfai: {
+                            primary: '#6366F1',
+                            secondary: '#8B5CF6',
+                            accent: '#06B6D4',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #E2E8F0;
+        }
+
+        .glass {
+            background: rgba(19, 19, 36, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: linear-gradient(180deg, rgba(30, 30, 50, 0.85) 0%, rgba(20, 20, 35, 0.7) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px -10px rgba(99, 102, 241, 0.3);
+        }
+
+        .text-gradient-mfai {
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #06B6D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-solana {
+            background: linear-gradient(90deg, #9945FF 0%, #14F195 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            position: relative;
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, #6366F1, #14F195);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-mfai-primary selection:text-white">
+
+    <!-- Dynamic Background -->
+    <div class="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(99,102,241,0.12),transparent_30%)]">
+        </div>
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(139,92,246,0.08),transparent_25%)]">
+        </div>
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_80%,rgba(6,182,212,0.06),transparent_30%)]">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 transition-all duration-300"
+        aria-label="Main Navigation">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html#home" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
+                <div class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
+                    aria-hidden="true">
+                    <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none">Money Factory AI</span>
+                    <span class="text-xs text-gray-400 font-sans">Venture Engine</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-8" id="nav-links">
+                <a href="index.html#home"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="index.html#journey"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Journey</a>
+                <a href="product.html" class="nav-link text-sm text-white transition-colors">Product</a>
+                <a href="docs.html#zyno-overview"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Agents & API</a>
+                <a href="token.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Token</a>
+                <a href="investors.html"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Investors</a>
+                <a href="documentation_hub.html"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Docs</a>
+            </div>
+
+            <!-- Right Side Actions -->
+            <div class="flex items-center gap-4">
+                <a href="litepaper.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-gray-400 hover:text-white transition-colors">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    Litepaper
+                </a>
+                <a href="documentation_hub.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-gray-400 hover:text-white transition-colors">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    Docs
+                </a>
+                <a href="/terminal"
+                    class="cta-button px-6 py-2.5 bg-gradient-to-r from-mfai-primary to-mfai-secondary border border-white/20 text-white font-bold rounded-lg text-sm relative z-10">
+                    Access Terminal
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-toggle" class="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
+                    aria-label="Toggle mobile menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-lg border-t border-white/5">
+            <div class="container mx-auto px-6 py-4 space-y-3">
+                <a href="index.html#home" class="block py-2 text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="index.html#journey"
+                    class="block py-2 text-gray-300 hover:text-white transition-colors">Journey</a>
+                <a href="product.html" class="block py-2 text-white transition-colors">Product</a>
+                <a href="docs.html#zyno-overview"
+                    class="block py-2 text-gray-300 hover:text-white transition-colors">Agents & API</a>
+                <a href="token.html" class="block py-2 text-gray-300 hover:text-white transition-colors">Token</a>
+                <a href="investors.html"
+                    class="block py-2 text-gray-300 hover:text-white transition-colors">Investors</a>
+                <a href="documentation_hub.html"
+                    class="block py-2 text-gray-300 hover:text-white transition-colors">Docs</a>
+                <a href="litepaper.html"
+                    class="block py-2 text-gray-300 hover:text-white transition-colors">Litepaper</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="py-32 relative overflow-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-mfai-primary/30 bg-mfai-primary/10 backdrop-blur-sm mb-8">
+                    <i data-lucide="layers" class="w-4 h-4 text-mfai-accent"></i>
+                    <span class="text-xs uppercase tracking-widest text-gray-200 font-semibold">The Money Factory AI
+                        Platform</span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-display font-black tracking-tight mb-8 leading-[1.1]">
+                    Build, Learn & Launch<br>
+                    <span class="text-gradient-mfai">with AI Orchestration</span>
+                </h1>
+
+                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+                    Money Factory AI combines <strong class="text-white">AEPO</strong> (individual pathways),
+                    <strong class="text-white">AECO</strong> (cohort orchestration), and
+                    <strong class="text-white">Zyno</strong> (multi-agent kernel) to transform raw ideas into funded,
+                    AI-orchestrated businesses on Solana.
+                </p>
+            </div>
+        </section>
+
+        <!-- AEPO Section -->
+        <section id="aepo" class="py-20 bg-gradient-to-b from-transparent to-[#080810]">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2
+                            class="text-sm font-bold text-mfai-primary tracking-widest uppercase mb-4 flex items-center justify-center gap-2">
+                            <i data-lucide="user" class="w-4 h-4"></i>
+                            AEPO
+                        </h2>
+                        <h3 class="text-4xl md:text-6xl font-display font-bold mb-6">
+                            <span class="text-gradient-mfai">AI-Enhanced Pathway Orchestration</span>
+                        </h3>
+                        <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+                            AEPO orchestrates <strong class="text-white">individual learning and building
+                                paths</strong>.
+                            Each user gets a personalized journey through Discovery → Design → Prototype → Launch →
+                            Growth phases,
+                            guided by Zyno's AI agents.
+                        </p>
+                    </div>
+
+                    <!-- AEPO Journey Phases -->
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-12">
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                                <i data-lucide="search" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-2">Discovery</h4>
+                            <p class="text-sm text-gray-400">Explore ideas, validate concepts, learn fundamentals</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                                <i data-lucide="pen-tool" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-2">Design</h4>
+                            <p class="text-sm text-gray-400">Architecture, tokenomics, governance models</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                                <i data-lucide="code" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-2">Prototype</h4>
+                            <p class="text-sm text-gray-400">Build MVP, test smart contracts, iterate</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                                <i data-lucide="rocket" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-2">Launch</h4>
+                            <p class="text-sm text-gray-400">Deploy on Solana, activate liquidity</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-mfai-primary to-mfai-secondary rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                                <i data-lucide="trending-up" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-2">Growth</h4>
+                            <p class="text-sm text-gray-400">Scale, optimize, expand community</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-2xl">
+                        <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-solana-green"></i>
+                            How AEPO Works
+                        </h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="arrow-right" class="w-5 h-5 text-mfai-accent mt-0.5 flex-shrink-0"></i>
+                                <span><strong class="text-white">Personalized Assessment:</strong> Zyno analyzes your
+                                    skills, goals, and project idea</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="arrow-right" class="w-5 h-5 text-mfai-accent mt-0.5 flex-shrink-0"></i>
+                                <span><strong class="text-white">Dynamic Path Generation:</strong> AI creates a custom
+                                    roadmap with milestones and tasks</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="arrow-right" class="w-5 h-5 text-mfai-accent mt-0.5 flex-shrink-0"></i>
+                                <span><strong class="text-white">Continuous Guidance:</strong> 17 specialized agents
+                                    provide support at each phase</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="arrow-right" class="w-5 h-5 text-mfai-accent mt-0.5 flex-shrink-0"></i>
+                                <span><strong class="text-white">Proof-of-Skill™:</strong> Earn verifiable credentials
+                                    and $MFAI as you progress</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AECO Section -->
+        <section id="aeco" class="py-20 bg-[#080810]">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2
+                            class="text-sm font-bold text-solana-green tracking-widest uppercase mb-4 flex items-center justify-center gap-2">
+                            <i data-lucide="users" class="w-4 h-4"></i>
+                            AECO
+                        </h2>
+                        <h3 class="text-4xl md:text-6xl font-display font-bold mb-6">
+                            <span class="text-gradient-solana">AI-Enhanced Cohort Orchestration</span>
+                        </h3>
+                        <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+                            AECO orchestrates <strong class="text-white">group dynamics and cohort programs</strong>.
+                            Perfect for bootcamps, accelerators, DAOs, and communities that want to launch projects
+                            together
+                            with shared milestones and cross-user feedback loops.
+                        </p>
+                    </div>
+
+                    <!-- AECO Features Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                        <div class="glass-card p-8 rounded-2xl">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="calendar" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3">Cohort Programs</h4>
+                            <p class="text-gray-400 leading-relaxed mb-4">
+                                Launch 8-12 week programs with synchronized milestones, group sessions, and peer
+                                reviews.
+                                Perfect for accelerators and educational initiatives.
+                            </p>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Synchronized schedules
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Group workshops & sessions
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Peer feedback loops
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="glass-card p-8 rounded-2xl">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="git-branch" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3">Cross-User Dynamics</h4>
+                            <p class="text-gray-400 leading-relaxed mb-4">
+                                AI analyzes group interactions, identifies collaboration opportunities, and facilitates
+                                knowledge sharing between participants.
+                            </p>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Smart team matching
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Skill complementarity
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Collaborative projects
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="glass-card p-8 rounded-2xl">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="target" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3">Shared Milestones</h4>
+                            <p class="text-gray-400 leading-relaxed mb-4">
+                                Define collective goals and track progress across the entire cohort.
+                                Celebrate wins together and maintain momentum.
+                            </p>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Group objectives
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Progress dashboards
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Collective achievements
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="glass-card p-8 rounded-2xl">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3">Agent-Guided Sessions</h4>
+                            <p class="text-gray-400 leading-relaxed mb-4">
+                                Zyno agents facilitate group workshops, provide real-time feedback, and ensure
+                                every participant gets the support they need.
+                            </p>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Live AI facilitation
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Real-time Q&A
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Personalized support
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-2xl border-2 border-solana-green/30">
+                        <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="lightbulb" class="w-5 h-5 text-solana-green"></i>
+                            Use Cases for AECO
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-300">
+                            <div>
+                                <h5 class="font-bold text-white mb-2">Accelerators</h5>
+                                <p class="text-sm">Run structured programs with multiple startups, shared mentorship,
+                                    and demo days.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-2">DAO Initiatives</h5>
+                                <p class="text-sm">Coordinate community-driven projects with transparent governance and
+                                    collective decision-making.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-2">Educational Programs</h5>
+                                <p class="text-sm">Deliver bootcamps and courses with hands-on projects, peer learning,
+                                    and certification.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zyno Multi-Agent System -->
+        <section id="zyno" class="py-20 bg-gradient-to-b from-[#080810] to-transparent">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2
+                            class="text-sm font-bold text-mfai-accent tracking-widest uppercase mb-4 flex items-center justify-center gap-2">
+                            <i data-lucide="cpu" class="w-4 h-4"></i>
+                            Zyno
+                        </h2>
+                        <h3 class="text-4xl md:text-6xl font-display font-bold mb-6">
+                            The <span class="text-gradient-mfai">Multi-Agent Orchestration Kernel</span>
+                        </h3>
+                        <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+                            Zyno is the layer that coordinates Builder, Growth, DAO, and other specialized agents.
+                            It powers both AEPO and AECO by routing tasks, accessing knowledge, and synthesizing
+                            responses into actionable UI blocks and artifacts.
+                        </p>
+                    </div>
+
+                    <!-- Agent Categories -->
+                    <div class="mb-12">
+                        <h4 class="text-2xl font-bold text-white mb-8 text-center">17 Specialized AI Agents</h4>
+
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+                            <!-- Core Agents -->
+                            <div class="glass-card p-4 rounded-xl text-center border-2 border-mfai-primary/50">
+                                <div class="text-2xl mb-2">🏗️</div>
+                                <div class="font-bold text-sm text-white">Architect</div>
+                                <div class="text-xs text-gray-400 mt-1">System Design</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center border-2 border-mfai-primary/50">
+                                <div class="text-2xl mb-2">⚙️</div>
+                                <div class="font-bold text-sm text-white">Engineer</div>
+                                <div class="text-xs text-gray-400 mt-1">Smart Contracts</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center border-2 border-mfai-primary/50">
+                                <div class="text-2xl mb-2">💰</div>
+                                <div class="font-bold text-sm text-white">CFO</div>
+                                <div class="text-xs text-gray-400 mt-1">Tokenomics</div>
+                            </div>
+
+                            <!-- Specialized Agents -->
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">⚖️</div>
+                                <div class="font-bold text-sm text-white">Legal</div>
+                                <div class="text-xs text-gray-400 mt-1">Compliance</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">📢</div>
+                                <div class="font-bold text-sm text-white">Marketing</div>
+                                <div class="text-xs text-gray-400 mt-1">GTM Strategy</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">📈</div>
+                                <div class="font-bold text-sm text-white">Growth</div>
+                                <div class="text-xs text-gray-400 mt-1">Distribution</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🛡️</div>
+                                <div class="font-bold text-sm text-white">Risk</div>
+                                <div class="text-xs text-gray-400 mt-1">Security</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🗳️</div>
+                                <div class="font-bold text-sm text-white">DAO</div>
+                                <div class="text-xs text-gray-400 mt-1">Governance</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">📊</div>
+                                <div class="font-bold text-sm text-white">Data Analyst</div>
+                                <div class="text-xs text-gray-400 mt-1">Metrics</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">👥</div>
+                                <div class="font-bold text-sm text-white">Community</div>
+                                <div class="text-xs text-gray-400 mt-1">Engagement</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🔍</div>
+                                <div class="font-bold text-sm text-white">Auditor</div>
+                                <div class="text-xs text-gray-400 mt-1">Code Security</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">📚</div>
+                                <div class="font-bold text-sm text-white">Education</div>
+                                <div class="text-xs text-gray-400 mt-1">Learning</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🎯</div>
+                                <div class="font-bold text-sm text-white">Coach</div>
+                                <div class="text-xs text-gray-400 mt-1">Guidance</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🏛️</div>
+                                <div class="font-bold text-sm text-white">RWA</div>
+                                <div class="text-xs text-gray-400 mt-1">Real Assets</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">✅</div>
+                                <div class="font-bold text-sm text-white">Evaluator</div>
+                                <div class="text-xs text-gray-400 mt-1">Assessment</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🔗</div>
+                                <div class="font-bold text-sm text-white">Integration</div>
+                                <div class="text-xs text-gray-400 mt-1">Protocols</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🚀</div>
+                                <div class="font-bold text-sm text-white">DevOps</div>
+                                <div class="text-xs text-gray-400 mt-1">Infrastructure</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- How Zyno Ties to AEPO/AECO -->
+                    <div class="glass-card p-10 rounded-3xl">
+                        <h4 class="text-2xl font-bold text-white mb-6 text-center">How Zyno Powers AEPO & AECO</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h5 class="font-bold text-lg text-mfai-primary mb-3 flex items-center gap-2">
+                                    <i data-lucide="user" class="w-5 h-5"></i>
+                                    For AEPO (Individual Paths)
+                                </h5>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Analyzes user intent and skills to create personalized roadmaps</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Routes tasks to the right specialized agent (Architect, CFO, etc.)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Generates UI blocks, artifacts, and actionable next steps</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Tracks progress and adapts the journey dynamically</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg text-solana-green mb-3 flex items-center gap-2">
+                                    <i data-lucide="users" class="w-5 h-5"></i>
+                                    For AECO (Cohort Programs)
+                                </h5>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Coordinates group schedules and shared milestones</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Facilitates peer feedback loops and collaboration</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Identifies team synergies and skill complementarity</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Provides real-time support during group sessions</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Pipeline Visualization -->
+        <section class="py-20 bg-[#080810]">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto text-center">
+                    <h3 class="text-3xl md:text-5xl font-display font-bold mb-12">
+                        The Complete <span class="text-gradient-mfai">Journey Pipeline</span>
+                    </h3>
+
+                    <div class="glass-card p-10 rounded-3xl">
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                            <!-- Learn & Earn -->
+                            <div class="flex-1 text-center">
+                                <div
+                                    class="w-20 h-20 mx-auto bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl flex items-center justify-center mb-4">
+                                    <i data-lucide="graduation-cap" class="w-10 h-10 text-white"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-2">Learn & Earn</h4>
+                                <p class="text-sm text-gray-400">Complete modules, earn $MFAI and Proof-of-Skill NFTs
+                                </p>
+                            </div>
+
+                            <i data-lucide="arrow-right" class="w-8 h-8 text-mfai-primary hidden md:block"></i>
+
+                            <!-- Build with Zyno -->
+                            <div class="flex-1 text-center">
+                                <div
+                                    class="w-20 h-20 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center mb-4">
+                                    <i data-lucide="cpu" class="w-10 h-10 text-white"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-2">Build with Zyno</h4>
+                                <p class="text-sm text-gray-400">Describe your project, get Project Canvas</p>
+                            </div>
+
+                            <i data-lucide="arrow-right" class="w-8 h-8 text-mfai-primary hidden md:block"></i>
+
+                            <!-- DAO Approval -->
+                            <div class="flex-1 text-center">
+                                <div
+                                    class="w-20 h-20 mx-auto bg-gradient-to-br from-green-500 to-emerald-500 rounded-3xl flex items-center justify-center mb-4">
+                                    <i data-lucide="vote" class="w-10 h-10 text-white"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-2">DAO Approval</h4>
+                                <p class="text-sm text-gray-400">Submit to DAO with merit-based voting</p>
+                            </div>
+
+                            <i data-lucide="arrow-right" class="w-8 h-8 text-mfai-primary hidden md:block"></i>
+
+                            <!-- Launch -->
+                            <div class="flex-1 text-center">
+                                <div
+                                    class="w-20 h-20 mx-auto bg-gradient-to-br from-solana-purple to-solana-green rounded-3xl flex items-center justify-center mb-4">
+                                    <i data-lucide="rocket" class="w-10 h-10 text-white"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-2">Launch</h4>
+                                <p class="text-sm text-gray-400">8-12 week incubation with Collaterize</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-32 relative overflow-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">
+                    Ready to Start Your <span class="text-gradient-mfai">Journey</span>?
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-12">
+                    Explore the technical details, read the documentation, or jump straight into the Zyno Terminal.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="documentation_hub.html"
+                        class="cta-button px-8 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-xl relative z-10">
+                        <i data-lucide="book-open" class="w-5 h-5 inline mr-2"></i>
+                        Read the Docs
+                    </a>
+                    <a href="/terminal"
+                        class="cta-button px-8 py-4 bg-gradient-to-r from-mfai-primary via-mfai-secondary to-mfai-accent text-white font-bold rounded-xl relative z-10">
+                        <i data-lucide="terminal" class="w-5 h-5 inline mr-2"></i>
+                        Access Zyno Terminal
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-[#020205] py-16" aria-label="Footer">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                            <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-display font-bold text-lg tracking-tight leading-none">Money Factory
+                                AI</span>
+                            <span class="text-xs text-gray-500">Venture Engine</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
+                    </p>
+                </div>
+
+                <!-- Platform Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="product.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Product</a></li>
+                        <li><a href="index.html#journey"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Journey</a></li>
+                        <li><a href="/terminal" class="text-gray-400 hover:text-white transition-colors text-sm">Zyno
+                                Terminal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="documentation_hub.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Documentation</a></li>
+                        <li><a href="docs.html" class="text-gray-400 hover:text-white transition-colors text-sm">API
+                                Docs</a></li>
+                        <li><a href="litepaper.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Litepaper</a>
+                        </li>
+                        <li><a href="user_guide.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">User Guide</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Community Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
+                    <ul class="space-y-3">
+                        <li><a href="token.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Token</a></li>
+                        <li><a href="investors.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">For Investors</a></li>
+                        <li><a href="https://discord.gg/shztvSg9" target="_blank" rel="noopener"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Discord</a></li>
+                        <li><a href="https://x.com/MoneyFactoryAI" target="_blank" rel="noopener"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-white/5">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+                    <div class="text-gray-500 text-sm">
+                        &copy; 2025 Money Factory AI. Built on Solana.
+                    </div>
+                    <div class="flex gap-6 text-sm">
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Terms</a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Privacy</a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Disclaimer</a>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-600 text-center md:text-left">
+                    <strong>Disclaimer:</strong> Nothing on this site constitutes financial or investment advice. Always
+                    do your own research.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-toggle')?.addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const offset = 100;
+                        const targetPosition = target.offsetTop - offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

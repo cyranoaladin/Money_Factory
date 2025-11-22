@@ -1,0 +1,247 @@
+<!-- 
+    REUSABLE COMPONENTS FOR MONEY FACTORY AI
+    Copy these into each page as needed
+-->
+
+<!-- ============================================ -->
+<!-- HEADER / NAVBAR -->
+<!-- ============================================ -->
+<nav class="fixed top-0 w-full z-50 glass border-b border-white/5 transition-all duration-300"
+    aria-label="Main Navigation">
+    <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="index.html#home" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
+            <div class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
+                aria-hidden="true">
+                <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+            </div>
+            <div class="flex flex-col">
+                <span class="font-display font-bold text-xl tracking-tight leading-none">Money Factory AI</span>
+                <span class="text-xs text-gray-400 font-sans">Venture Engine</span>
+            </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-8" id="nav-links">
+            <a href="index.html#home" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
+            <a href="index.html#journey"
+                class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Journey</a>
+            <a href="product.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Product</a>
+            <a href="docs.html#zyno-overview"
+                class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Agents & API</a>
+            <a href="token.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Token</a>
+            <a href="investors.html"
+                class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Investors</a>
+            <a href="documentation_hub.html"
+                class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Docs</a>
+        </div>
+
+        <!-- Right Side Actions -->
+        <div class="flex items-center gap-4">
+            <a href="litepaper.html"
+                class="hidden md:flex items-center gap-1 text-sm text-gray-400 hover:text-white transition-colors">
+                <i data-lucide="file-text" class="w-4 h-4"></i>
+                Litepaper
+            </a>
+            <a href="documentation_hub.html"
+                class="hidden md:flex items-center gap-1 text-sm text-gray-400 hover:text-white transition-colors">
+                <i data-lucide="book-open" class="w-4 h-4"></i>
+                Docs
+            </a>
+            <a href="/terminal"
+                class="cta-button px-6 py-2.5 bg-gradient-to-r from-mfai-primary to-mfai-secondary border border-white/20 text-white font-bold rounded-lg text-sm relative z-10">
+                Access Terminal
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" class="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
+                aria-label="Toggle mobile menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-lg border-t border-white/5">
+        <div class="container mx-auto px-6 py-4 space-y-3">
+            <a href="index.html#home" class="block py-2 text-gray-300 hover:text-white transition-colors">Home</a>
+            <a href="index.html#journey" class="block py-2 text-gray-300 hover:text-white transition-colors">Journey</a>
+            <a href="product.html" class="block py-2 text-gray-300 hover:text-white transition-colors">Product</a>
+            <a href="docs.html#zyno-overview" class="block py-2 text-gray-300 hover:text-white transition-colors">Agents
+                & API</a>
+            <a href="token.html" class="block py-2 text-gray-300 hover:text-white transition-colors">Token</a>
+            <a href="investors.html" class="block py-2 text-gray-300 hover:text-white transition-colors">Investors</a>
+            <a href="documentation_hub.html"
+                class="block py-2 text-gray-300 hover:text-white transition-colors">Docs</a>
+            <a href="litepaper.html" class="block py-2 text-gray-300 hover:text-white transition-colors">Litepaper</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu Toggle Script -->
+<script>
+    document.getElementById('mobile-menu-toggle')?.addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
+</script>
+
+<!-- ============================================ -->
+<!-- FOOTER -->
+<!-- ============================================ -->
+<footer class="bg-slate-950 border-t border-white/5 py-16">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <!-- Brand Column -->
+            <div class="md:col-span-1">
+                <div class="flex items-center gap-3 mb-4">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center">
+                        <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display font-bold text-lg">Money Factory AI</span>
+                        <span class="text-xs text-gray-500">Venture Engine</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
+                <ul class="space-y-2">
+                    <li><a href="index.html#home"
+                            class="text-sm text-gray-400 hover:text-white transition-colors">Home</a></li>
+                    <li><a href="product.html"
+                            class="text-sm text-gray-400 hover:text-white transition-colors">Product</a></li>
+                    <li><a href="index.html#journey"
+                            class="text-sm text-gray-400 hover:text-white transition-colors">Journey</a></li>
+                    <li><a href="/terminal" class="text-sm text-gray-400 hover:text-white transition-colors">Zyno
+                            Terminal</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources -->
+            <div>
+                <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
+                <ul class="space-y-2">
+                    <li><a href="documentation_hub.html"
+                            class="text-sm text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+                    <li><a href="docs.html" class="text-sm text-gray-400 hover:text-white transition-colors">API
+                            Docs</a></li>
+                    <li><a href="litepaper.html"
+                            class="text-sm text-gray-400 hover:text-white transition-colors">Litepaper</a></li>
+                    <li><a href="user_guide.html" class="text-sm text-gray-400 hover:text-white transition-colors">User
+                            Guide</a></li>
+                </ul>
+            </div>
+
+            <!-- Community -->
+            <div>
+                <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
+                <ul class="space-y-2">
+                    <li><a href="token.html" class="text-sm text-gray-400 hover:text-white transition-colors">Token</a>
+                    </li>
+                    <li><a href="investors.html" class="text-sm text-gray-400 hover:text-white transition-colors">For
+                            Investors</a></li>
+                    <li><a href="https://discord.gg/moneyfactoryai" target="_blank" rel="noopener"
+                            class="text-sm text-gray-400 hover:text-white transition-colors">Discord</a></li>
+                    <li><a href="https://x.com/MoneyFactoryAI" target="_blank" rel="noopener"
+                            class="text-sm text-gray-400 hover:text-white transition-colors">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="pt-8 border-t border-white/5">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500">
+                    © 2025 Money Factory AI. Built on Solana.
+                </p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-sm text-gray-500 hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="text-sm text-gray-500 hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="text-sm text-gray-500 hover:text-white transition-colors">Disclaimer</a>
+                </div>
+            </div>
+            <p class="text-xs text-gray-600 mt-4 text-center md:text-left">
+                <strong>Disclaimer:</strong> Nothing on this site constitutes financial or investment advice. Always do
+                your own research.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================ -->
+<!-- COMMON STYLES (Include in <head>) -->
+<!-- ============================================ -->
+<!--
+<style>
+    /* Nav Link Enhanced */
+    .nav-link {
+        position: relative;
+        padding-bottom: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(90deg, #6366F1, #14F195);
+        transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 100%;
+    }
+
+    .nav-link.active {
+        color: #ffffff;
+    }
+
+    /* Glassmorphism */
+    .glass {
+        background: rgba(19, 19, 36, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* CTA Button Enhanced */
+    .cta-button {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .cta-button::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    .cta-button:hover::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+    }
+</style>
+-->

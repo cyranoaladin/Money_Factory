@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Factory AI – Solana-Native Venture Engine Litepaper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Solana brand colors */
+            --solana-purple: #9945FF;
+            --solana-green: #14F195;
+            --solana-blue: #00D4FF;
+
+            /* Dark theme */
+            --bg-primary: #0B0B15;
+            --bg-secondary: #15152A;
+            --bg-tertiary: #1F1F3A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B8B8D0;
+            --text-muted: #7A7A9E;
+            --border-color: rgba(153, 69, 255, 0.2);
+            --border-hover: rgba(153, 69, 255, 0.4);
+
+            /* Typography */
+            --font-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+
+            /* Animation */
+            --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-base);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .mesh-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(153, 69, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(20, 241, 149, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Fixed Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 11, 21, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--space-sm) var(--space-lg);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .nav-logo-badge {
+            font-size: 0.75rem;
+            background: var(--solana-purple);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-md);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--solana-green);
+        }
+
+        /* Table of Contents Sidebar */
+        .toc {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(21, 21, 42, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--space-md);
+            max-width: 250px;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .toc-title {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--solana-purple);
+            margin-bottom: var(--space-sm);
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-list a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 0.35rem 0;
+            transition: color var(--transition);
+            border-left: 2px solid transparent;
+            padding-left: var(--space-xs);
+        }
+
+        .toc-list a:hover,
+        .toc-list a.active {
+            color: var(--solana-green);
+            border-left-color: var(--solana-green);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: var(--space-2xl) 0 var(--space-xl);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: var(--space-xl);
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+            background: linear-gradient(135deg, var(--solana-purple) 0%, var(--solana-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subheadline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+        }
+
+        .hero-abstract {
+            background: rgba(21, 21, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--solana-purple);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            text-align: left;
+            margin-top: var(--space-xl);
+        }
+
+        .hero-abstract p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-abstract ul {
+            list-style: none;
+            margin-top: var(--space-md);
+        }
+
+        .hero-abstract li {
+            padding: var(--space-xs) 0 var(--space-xs) var(--space-lg);
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .hero-abstract li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--solana-green);
+            font-weight: bold;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: var(--space-2xl);
+            padding-top: var(--space-lg);
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: var(--space-sm);
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin: var(--space-xl) 0 var(--space-md);
+            color: var(--text-primary);
+        }
+
+        h4 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: var(--space-lg) 0 var(--space-sm);
+            color: var(--solana-purple);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        ul,
+        ol {
+            margin: var(--space-md) 0;
+            padding-left: var(--space-lg);
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin: var(--space-xs) 0;
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Code Blocks */
+        code {
+            background: var(--bg-tertiary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            color: var(--solana-green);
+        }
+
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: var(--space-md);
+            overflow-x: auto;
+            margin: var(--space-md) 0;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--space-lg) 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: rgba(153, 69, 255, 0.1);
+        }
+
+        th {
+            padding: var(--space-sm) var(--space-md);
+            text-align: left;
+            font-weight: 600;
+            color: var(--solana-purple);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: var(--space-sm) var(--space-md);
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: rgba(153, 69, 255, 0.05);
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid var(--solana-blue);
+            border-radius: 8px;
+            padding: var(--space-md);
+            margin: var(--space-md) 0;
+        }
+
+        .info-box.warning {
+            background: rgba(255, 193, 7, 0.1);
+            border-left-color: #FFC107;
+        }
+
+        .info-box.success {
+            background: rgba(20, 241, 149, 0.1);
+            border-left-color: var(--solana-green);
+        }
+
+        .info-box.error {
+            background: rgba(244, 67, 54, 0.1);
+            border-left-color: #F44336;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+
+        .card {
+            background: rgba(21, 21, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--space-md);
+            transition: all var(--transition);
+        }
+
+        .card:hover {
+            border-color: var(--solana-purple);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(153, 69, 255, 0.2);
+        }
+
+        .card h4 {
+            margin-top: 0;
+            margin-bottom: var(--space-xs);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            margin: var(--space-xs) 0;
+        }
+
+        /* Diagram Images */
+        .diagram {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            text-align: center;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .diagram-caption {
+            margin-top: var(--space-sm);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Roadmap Timeline */
+        .roadmap {
+            position: relative;
+            padding-left: var(--space-xl);
+            margin: var(--space-lg) 0;
+        }
+
+        .roadmap:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--solana-purple) 0%, var(--solana-green) 100%);
+        }
+
+        .roadmap-item {
+            position: relative;
+            margin-bottom: var(--space-xl);
+            padding-left: var(--space-lg);
+        }
+
+        .roadmap-item:before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 16px;
+            height: 16px;
+            background: var(--solana-purple);
+            border: 3px solid var(--bg-primary);
+            border-radius: 50%;
+        }
+
+        .roadmap-quarter {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--solana-green);
+            margin-bottom: var(--space-xs);
+        }
+
+        .roadmap-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .roadmap-content {
+            color: var(--text-secondary);
+        }
+
+        .roadmap-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .roadmap-list li {
+            padding: 0.25rem 0;
+            padding-left: var(--space-md);
+            position: relative;
+        }
+
+        .roadmap-list li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--solana-green);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: var(--space-xl) var(--space-lg);
+            margin-top: var(--space-2xl);
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--solana-green);
+        }
+
+        .footer-note {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: var(--space-md);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1400px) {
+            .toc {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 5rem 1.5rem 2rem;
+            }
+
+            .nav {
+                padding: var(--space-sm);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subheadline {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roadmap {
+                padding-left: var(--space-lg);
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .mesh-bg,
+            .nav,
+            .toc {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                color: black;
+            }
+
+            p,
+            li,
+            td {
+                color: #333;
+            }
+
+            .card,
+            .info-box,
+            .diagram {
+                border: 1px solid #ddd;
+                break-inside: avoid;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mesh-bg"></div>
+
+    <nav class="nav">
+        <a href="index.html#home" style="text-decoration: none; color: inherit;">
+            <div class="nav-logo">
+                Money Factory AI
+                <span class="nav-logo-badge">LITEPAPER</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="product.html">Product</a></li>
+            <li><a href="token.html">Token</a></li>
+            <li><a href="documentation_hub.html">Docs</a></li>
+        </ul>
+    </nav>
+
+    <aside class="toc">
+        <div class="toc-title">Contents</div>
+        <ul class="toc-list">
+            <li><a href="#introduction">1. Introduction</a></li>
+            <li><a href="#architecture">2. Architecture</a></li>
+            <li><a href="#journey">3. Journey Protocol</a></li>
+            <li><a href="#tokenomics">4. Tokenomics</a></li>
+            <li><a href="#launchpad">5. Launchpad</a></li>
+            <li><a href="#risks">6. Risks &amp; Roadmap</a></li>
+        </ul>
+    </aside>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Money Factory AI<br>Solana-Native Venture Engine</h1>
+            <p class="hero-subheadline">A technical and economic overview of how MFAI turns intent into governed,
+                launch-ready assets on Solana.</p>
+
+            <div class="hero-abstract">
+                <p><strong>This litepaper presents the core architecture, economic design and governance model behind
+                        Money Factory AI, a venture engine built specifically for the Solana ecosystem.</strong></p>
+                <p>We describe:</p>
+                <ul>
+                    <li><strong>The Cognitive Activation Protocol</strong> – a 4-phase journey that connects learning,
+                        simulation, DAO governance and launch</li>
+                    <li><strong>The Zyno Agentic System</strong> – a network of 17 AI agents coordinated to transform
+                        natural-language intents into on-chain artefacts</li>
+                    <li><strong>The MFAI tokenomics and governance</strong> – including Synaptic Governance,
+                        Proof-of-Skill NFTs and Collaterize bonding curves</li>
+                    <li><strong>The Internet Capital Market thesis</strong> – why venture formation is migrating
+                        on-chain and how MFAI positions itself within that shift</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="introduction">
+            <h2>1. Introduction &amp; Problem Statement</h2>
+
+            <h3>1.1 The Current State of Web3 Building</h3>
+            <p>The Web3 ecosystem faces a fundamental infrastructure problem. Despite the promise of democratized
+                innovation, the path from idea to launch remains fragmented, opaque, and prohibitively difficult:</p>
+
+            <ul>
+                <li><strong>73% of Web3 projects fail</strong> due to fragmented tooling and unclear paths to market
+                </li>
+                <li>Builders must navigate <strong>50+ tools, 20+ protocols</strong>, and inconsistent documentation
+                </li>
+                <li>Capital access remains <strong>opaque, network-based, and slow</strong> (6-12 month fundraising
+                    cycles)</li>
+                <li>No coherent pipeline exists from <strong>idea to launch</strong> with technical and governance
+                    support</li>
+            </ul>
+
+            <p>This fragmentation creates a critical inefficiency: talented builders with viable ideas abandon projects
+                before reaching production, not due to lack of merit, but due to lack of coherent infrastructure.</p>
+
+            <h3>1.2 Why Solana?</h3>
+            <p>Money Factory AI is built exclusively for Solana, not as a limitation but as a strategic advantage:</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Performance</h4>
+                    <p><strong>65,000 TPS</strong> theoretical capacity<br><strong>2,000+ TPS</strong> practical
+                        sustained throughput<br><strong>400ms</strong> average block time</p>
+                </div>
+                <div class="card">
+                    <h4>Economics</h4>
+                    <p><strong>$0.00025</strong> average transaction cost<br><strong>1000x cheaper</strong> than
+                        Ethereum<br>Enables micro-transactions and iterative development</p>
+                </div>
+                <div class="card">
+                    <h4>Ecosystem</h4>
+                    <p><strong>Mature infrastructure:</strong> Jupiter, Raydium, Metaplex,
+                        Orca<br><strong>300M+</strong> active addresses<br>Growing institutional adoption</p>
+                </div>
+                <div class="card">
+                    <h4>Developer Experience</h4>
+                    <p><strong>Anchor framework:</strong> Solana's Rails<br><strong>Comprehensive tooling:</strong> CLI,
+                        SDKs, libraries<br><strong>Native composability:</strong> program interoperability</p>
+                </div>
+            </div>
+
+            <p>By focusing exclusively on Solana, MFAI achieves deep integration with ecosystem primitives, eliminating
+                the complexity and security risks of multi-chain architectures.</p>
+
+            <h3>1.3 The Need for an Agentic Venture Engine</h3>
+            <p>Traditional venture formation mechanisms are fundamentally misaligned with the pace and scale of on-chain
+                innovation:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Timeline</th>
+                        <th>Acceptance Rate</th>
+                        <th>Limitations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Traditional VCs</strong></td>
+                        <td>6-12 months</td>
+                        <td>2-5%</td>
+                        <td>Network-based, opaque, slow</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Existing Launchpads</strong></td>
+                        <td>2-4 months</td>
+                        <td>10-20%</td>
+                        <td>Marketing-focused, lack substance, high failure</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MFAI Venture Engine</strong></td>
+                        <td>8-12 weeks</td>
+                        <td>60%+ (DAO-approved)</td>
+                        <td>Merit-based, transparent, structured</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Gap Analysis</h4>
+            <p>No existing platform combines:</p>
+            <ul>
+                <li><strong>Education:</strong> Structured learning with on-chain credentials</li>
+                <li><strong>AI Assistance:</strong> Multi-agent coordination for all venture functions</li>
+                <li><strong>Governance:</strong> Transparent, merit-based DAO evaluation</li>
+                <li><strong>Programmatic Liquidity:</strong> Instant tradability via bonding curves</li>
+            </ul>
+
+            <div class="info-box success">
+                <strong>MFAI Thesis:</strong> Programmable venture formation through multi-agent AI + DAO + on-chain
+                primitives creates a new category: the <em>Internet Capital Market production layer</em>.
+            </div>
+
+            <h3>1.4 Our Positioning</h3>
+            <p><strong>Money Factory AI is NOT:</strong></p>
+            <ul>
+                <li>A simple launchpad (we're an end-to-end venture engine)</li>
+                <li>A chatbot (we're a coordinated 17-agent swarm with specialized expertise)</li>
+                <li>Multi-chain (we're Solana-native by design for deep integration)</li>
+            </ul>
+
+            <p><strong>Money Factory AI IS:</strong></p>
+            <ul>
+                <li>An AI co-founder for every builder on Solana</li>
+                <li>A transparent, merit-based incubation protocol</li>
+                <li>A production layer for the Internet Capital Market</li>
+            </ul>
+        </section>
+
+        <section id="architecture">
+            <h2>2. Architectural Overview: Zyno &amp; Agents</h2>
+
+            <h3>2.1 Zyno Core Architecture</h3>
+
+            <p><strong>Role:</strong> Zyno is the orchestrator that coordinates 17 specialized agents to transform
+                natural language intents into production-ready on-chain artifacts.</p>
+
+            <h4>Tech Stack</h4>
+            <ul>
+                <li><strong>LLM Base:</strong> GPT-5.1 with Structured Outputs (JSON Schema validation)</li>
+                <li><strong>Knowledge Base:</strong> RAG (Retrieval-Augmented Generation) with vector database</li>
+                <li><strong>Orchestration:</strong> AEPO (Adaptive Evolutionary Potential Analysis) + AECO (Answer
+                    Engine Clarity Optimization)</li>
+                <li><strong>Output Format:</strong> JSON Schema-validated UI Blocks for consistent user experience</li>
+            </ul>
+
+            <h4>Orchestration Pattern</h4>
+            <div class="diagram">
+                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/c6f99f44-8e97-4378-b36d-8429d4079173"
+                    alt="Zyno Orchestration Flow">
+                <div class="diagram-caption">Figure 1: Zyno orchestration pattern showing intent analysis, agent
+                    routing, and output synthesis</div>
+            </div>
+
+            <pre><code>User Natural Language Input
+    ↓
+Zyno Core (AEPO: Intent Analysis)
+    ↓
+Agent Selection &amp; Routing
+    ├─→ Architect Agent
+    ├─→ Engineer Agent  
+    ├─→ CFO Agent
+    └─→ [Context-specific agents]
+    ↓
+RAG Knowledge Base Query
+    ↓
+Parallel Agent Execution
+    ↓
+Output Synthesis (AECO)
+    ↓
+Journey Step UI Generation</code></pre>
+
+            <h3>2.2 Agent Categories</h3>
+
+            <h4>CORE AGENTS (3)</h4>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Architect</h4>
+                    <p>System design, technical architecture, Solana program structure</p>
+                </div>
+                <div class="card">
+                    <h4>Engineer</h4>
+                    <p>Smart contract generation, Anchor program scaffolding, code auditing</p>
+                </div>
+                <div class="card">
+                    <h4>CFO</h4>
+                    <p>Tokenomics modeling, financial projections, treasury management</p>
+                </div>
+            </div>
+
+            <h4>SPECIALIZED AGENTS (11)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Agent</th>
+                        <th>Responsibility</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Legal</strong></td>
+                        <td>Compliance frameworks, regulatory guidance, terms drafting</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marketing</strong></td>
+                        <td>GTM strategy, content creation, narrative development</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Growth</strong></td>
+                        <td>Distribution strategy, channel optimization, metrics tracking</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Risk</strong></td>
+                        <td>Security analysis, threat modeling, vulnerability assessment</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DAO</strong></td>
+                        <td>Governance design, voting mechanisms, proposal templates</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Analyst</strong></td>
+                        <td>Metrics dashboards, business intelligence, predictive analytics</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Community</strong></td>
+                        <td>Engagement strategy, moderation, Discord/X management</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Auditor</strong></td>
+                        <td>Code security, smart contract audits, vulnerability reports</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Education</strong></td>
+                        <td>Learning content creation, onboarding flows, documentation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Coach</strong></td>
+                        <td>Personal guidance, progress tracking, motivation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RWA</strong></td>
+                        <td>Real-world asset tokenization, compliance, legal structures</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>SUPPORT AGENTS (3)</h4>
+            <ul>
+                <li><strong>Evaluator:</strong> Project assessment, scoring, recommendation generation</li>
+                <li><strong>Integration:</strong> External protocol connection, API orchestration</li>
+                <li><strong>DevOps:</strong> Infrastructure management, deployment automation, monitoring</li>
+            </ul>
+
+            <h3>2.3 Agent Input/Output Schemas (Technical Spec)</h3>
+
+            <h4>Example: CFO Agent</h4>
+
+            <p><strong>Input Schema:</strong></p>
+            <pre><code>{
+  "projectGoals": {
+    "fundingTarget": "number (USD)",
+    "runwayMonths": "number",
+    "teamSize": "number"
+  },
+  "tokenDesign": {
+    "totalSupply": "number",
+    "distributionTargets": {
+      "community": "percentage",
+      "team": "percentage",
+      "investors": "percentage",
+      "treasury": "percentage"
+    },
+    "utility": ["string array"],
+    "deflationary": "boolean"
+  }
+}</code></pre>
+
+            <p><strong>Output Schema:</strong></p>
+            <pre><code>{
+  "tokenomics": {
+    "supply": "number",
+    "distribution": "TokenAllocation[]",
+    "vesting": "VestingSchedule[]",
+    "emissionCurve": {
+      "type": "linear | exponential | logarithmic",
+      "parameters": "object"
+    }
+  },
+  "financialModel": {
+    "revenueProjections": "TimeSeries",
+    "expenseProjections": "TimeSeries",
+    "treasuryBalance": "TimeSeries",
+    "burnSchedule": "TimeSeries"
+  },
+  "bondingCurveParams": {
+    "reserveRatio": "0.2-0.5",
+    "initialReserve": "50k-500k USDC",
+    "feeStructure": {"buy": "1-3%", "sell": "1-3%"}
+  },
+  "risks": ["string array"]
+}</code></pre>
+
+            <h3>2.4 API Surface</h3>
+
+            <p><strong>Endpoint:</strong> <code>POST /api/zyno/orchestrate</code></p>
+            <p><strong>Authentication:</strong> Sign-In With Solana (SIWS) JWT</p>
+            <p><strong>Rate Limits:</strong> 100 requests/hour (free tier), unlimited (Zyno Pro)</p>
+
+            <pre><code>// Request
+{
+  "userId": "string",
+  "journeyId": "string",
+  "userInput": "string",
+  "context": {
+    "currentPhase": "learn | build | govern | launch",
+    "completedSteps": ["string"],
+    "userSkills": ["string"]
+  }
+}
+
+// Response
+{
+  "journeyStepResponse": {
+    "blocks": "UIBlock[]",
+    "xpAwarded": "number",
+    "nextActions": ["string"],
+    "zynoReasoning": "string"
+  },
+  "agentsInvolved": ["string"],
+  "processingTimeMs": "number"
+}</code></pre>
+        </section>
+
+        <section id="journey">
+            <h2>3. Cognitive Activation Protocol (Journey 4 Phases)</h2>
+
+            <p><strong>Overview:</strong> A structured 4-phase protocol that transforms intent into on-chain assets.
+                Each phase has clear objectives, inputs/outputs, on-chain state changes, and graduation criteria.</p>
+
+            <h3>Phase 1: Learn &amp; Earn</h3>
+
+            <h4>Objectives</h4>
+            <ul>
+                <li>Master Solana fundamentals (wallets, transactions, programs)</li>
+                <li>Understand DeFi primitives (AMMs, lending, governance)</li>
+                <li>Build on-chain reputation via Proof-of-Skill NFTs</li>
+                <li>Earn $MFAI rewards for progress</li>
+            </ul>
+
+            <h4>Process</h4>
+            <ul>
+                <li>User selects persona (Web2 Entrepreneur, Web3 Builder, Learner, Investor, Agency)</li>
+                <li>Curated learning tracks (10-15 modules per track)</li>
+                <li>Interactive content: TextBlocks, QuizBlocks, MissionBlocks</li>
+                <li>Hands-on missions: Deploy test wallet, mint NFT on devnet, execute swap on Jupiter</li>
+            </ul>
+
+            <h4>Outputs</h4>
+            <ul>
+                <li><strong>Proof-of-Skill NFTs</strong> (on-chain Metaplex NFTs)</li>
+                <li><strong>$MFAI token rewards</strong> (5-50 tokens per module)</li>
+                <li><strong>XP points</strong> (governance reputation score)</li>
+                <li><strong>Skill badges</strong> displayed on profile</li>
+            </ul>
+
+            <h4>On-Chain State Changes</h4>
+            <pre><code>struct ProofOfSkill {
+    address holder;
+    uint256 tokenId;
+    string skillDomain; // &quot;Solana Fundamentals&quot;, &quot;DeFi Basics&quot;
+    uint256 score; // 0-100
+    uint256 timestamp;
+    bool soulbound; // Non-transferable initially
+}</code></pre>
+
+            <div class="info-box success">
+                <strong>Graduation Criteria:</strong>
+                <ul>
+                    <li>Complete ≥80% of assigned modules</li>
+                    <li>Pass final assessment (score ≥70%)</li>
+                    <li>Mint at least 1 Proof-of-Skill NFT</li>
+                    <li>Earn minimum 500 XP</li>
+                </ul>
+            </div>
+
+            <h3>Phase 2: Build with Zyno</h3>
+
+            <h4>Objectives</h4>
+            <ul>
+                <li>Transform idea into structured project</li>
+                <li>Generate technical artifacts with AI assistance</li>
+                <li>Simulate and stress-test design</li>
+                <li>Prepare comprehensive dossier for DAO</li>
+            </ul>
+
+            <h4>Process</h4>
+            <ul>
+                <li>User describes project in natural language</li>
+                <li>Zyno routes to 5-10 relevant agents based on project type</li>
+                <li>Iterative refinement through feedback loops</li>
+                <li>Simulation tools for tokenomics and governance impact</li>
+                <li>Output consolidation into Project Canvas (8 sections)</li>
+            </ul>
+
+            <h4>Project Canvas Sections</h4>
+            <ol>
+                <li><strong>Overview</strong> (problem, solution, market)</li>
+                <li><strong>Architecture</strong> (system design, smart contracts, integrations)</li>
+                <li><strong>Tokenomics</strong> (supply, distribution, utility, emissions)</li>
+                <li><strong>Governance</strong> (voting mechanism, proposal process, thresholds)</li>
+                <li><strong>Launch Plan</strong> (milestones, GTM, partnerships)</li>
+                <li><strong>Risks</strong> (technical, market, regulatory)</li>
+                <li><strong>Team</strong> (credentials, Proof-of-Skill history)</li>
+                <li><strong>Financials</strong> (projections, budget, runway)</li>
+            </ol>
+
+            <div class="diagram">
+                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/de4c07c3-f673-4672-924c-222ccaf20682"
+                    alt="Journey Validation Process">
+                <div class="diagram-caption">Figure 2: Journey validation process showing project submission and DAO
+                    review workflow</div>
+            </div>
+
+            <h4>Outputs</h4>
+            <ul>
+                <li>Complete Project Canvas (IPFS-stored, hash on-chain)</li>
+                <li>Architecture diagrams (Mermaid format)</li>
+                <li>Tokenomics model (validated formulas)</li>
+                <li>Smart contract templates (Anchor/Rust)</li>
+                <li>Governance framework (DAO-ready)</li>
+                <li>Launch playbook (step-by-step)</li>
+            </ul>
+
+            <div class="info-box success">
+                <strong>Graduation Criteria:</strong>
+                <ul>
+                    <li>Complete all 8 Project Canvas sections (100%)</li>
+                    <li>Pass automated checks (smart contract lint, tokenomics validation)</li>
+                    <li>Minimum 3 iterations with Zyno feedback incorporated</li>
+                    <li>Receive "Build Phase Complete" NFT</li>
+                </ul>
+            </div>
+
+            <h3>Phase 3: DAO Vote (Synaptic Governance)</h3>
+
+            <h4>Objectives</h4>
+            <ul>
+                <li>Community evaluation of project quality and viability</li>
+                <li>Transparent, merit-based selection for incubation</li>
+                <li>Structured feedback from DAO members</li>
+                <li>Earn incubation approval or actionable rejection feedback</li>
+            </ul>
+
+            <h4>Voting Power Formula (On-Chain)</h4>
+            <pre><code>pub fn calculate_voting_power(
+    staked_mfai: u64,
+    proof_of_skill_nfts: Vec&lt;Pubkey&gt;,
+    participation_score: u64,
+) -&gt; u64 {
+    let vp_staked = staked_mfai; // 1:1 ratio
+    let vp_skills = (proof_of_skill_nfts.len() as u64) * 50;
+    let vp_reputation = participation_score / 2;
+    
+    vp_staked + vp_skills + vp_reputation
+}</code></pre>
+
+            <h4>Example Calculation</h4>
+            <ul>
+                <li>Alice stakes 10,000 $MFAI → 10,000 VP</li>
+                <li>Alice has 3 Proof-of-Skill NFTs → 150 VP</li>
+                <li>Alice participation score: 200 → 100 VP</li>
+                <li><strong>Total: 10,250 VP</strong></li>
+            </ul>
+
+            <h4>Evaluation Criteria (Weighted)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Criteria</th>
+                        <th>Weight</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Technical Soundness</td>
+                        <td>30%</td>
+                        <td>Code quality, architecture feasibility, security</td>
+                    </tr>
+                    <tr>
+                        <td>Market Viability</td>
+                        <td>25%</td>
+                        <td>Problem-solution fit, competitive analysis, TAM</td>
+                    </tr>
+                    <tr>
+                        <td>Team Credibility</td>
+                        <td>20%</td>
+                        <td>Proof-of-Skill, track record, iteration quality</td>
+                    </tr>
+                    <tr>
+                        <td>Strategic Fit</td>
+                        <td>15%</td>
+                        <td>Aligns with MFAI ecosystem thesis</td>
+                    </tr>
+                    <tr>
+                        <td>Innovation</td>
+                        <td>10%</td>
+                        <td>Novel approach, technical uniqueness</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Process</h4>
+            <ol>
+                <li><strong>Submission:</strong> Creator submits Project Canvas to DAO (requires 1,000 $MFAI stake)</li>
+                <li><strong>Review Period (7 days):</strong> Community reads dossier, asks questions, provides feedback
+                </li>
+                <li><strong>Voting Window (3 days):</strong> Token holders cast weighted votes (YES/NO/ABSTAIN)</li>
+                <li><strong>Quorum Check:</strong> Minimum 10% of circulating $MFAI must participate</li>
+                <li><strong>Threshold Check:</strong> ≥60% YES votes required for approval</li>
+                <li><strong>Execution:</strong> Approved projects receive incubation funding and support</li>
+            </ol>
+
+            <div class="info-box success">
+                <strong>Graduation Criteria:</strong>
+                <ul>
+                    <li>DAO approval (≥60% YES votes)</li>
+                    <li>Quorum met (≥10% participation)</li>
+                    <li>Acceptance of incubation terms (treasury funding, reporting requirements)</li>
+                </ul>
+            </div>
+
+            <h3>Phase 4: Launch &amp; Liquidity</h3>
+
+            <h4>Objectives</h4>
+            <ul>
+                <li>Complete 8-12 week incubation program</li>
+                <li>Deploy protocol to Solana mainnet</li>
+                <li>Establish programmatic liquidity via Collaterize</li>
+                <li>Transition governance to community</li>
+            </ul>
+
+            <h4>Incubation Timeline</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Focus</th>
+                        <th>Deliverables</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1-2</td>
+                        <td>Kickoff &amp; Refinement</td>
+                        <td>Architecture review, tokenomics finalization, team setup</td>
+                    </tr>
+                    <tr>
+                        <td>3-4</td>
+                        <td>Development Support</td>
+                        <td>Smart contract development, testnet deployment</td>
+                    </tr>
+                    <tr>
+                        <td>5-6</td>
+                        <td>Security &amp; Audits</td>
+                        <td>Internal/external audits, vulnerability remediation</td>
+                    </tr>
+                    <tr>
+                        <td>7-8</td>
+                        <td>Go-to-Market Prep</td>
+                        <td>Marketing materials, community building, partnerships</td>
+                    </tr>
+                    <tr>
+                        <td>9-10</td>
+                        <td>Collaterize Integration</td>
+                        <td>Bonding curve parameters, liquidity provision strategy</td>
+                    </tr>
+                    <tr>
+                        <td>11-12</td>
+                        <td>Launch</td>
+                        <td>Mainnet deployment, TGE, initial liquidity</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Collaterize Bonding Curve Mechanics</h4>
+
+            <p><strong>Formula (Bancor-inspired):</strong></p>
+            <pre><code>Token Price = Reserve Balance / (Token Supply × Reserve Ratio)
+
+Buy Price = Reserve / ((Supply + Amount) × Ratio)
+Sell Price = Reserve / ((Supply - Amount) × Ratio)</code></pre>
+
+            <h4>Parameter Ranges</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Range</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Reserve Ratio</strong></td>
+                        <td>0.2 - 0.5</td>
+                        <td>Lower = steeper curve, higher volatility<br>Higher = gentler curve, more stable</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Initial Reserve</strong></td>
+                        <td>50k - 500k USDC</td>
+                        <td>Based on project size and DAO approval</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Buy Fee</strong></td>
+                        <td>1-3%</td>
+                        <td>60% Treasury, 20% Creator, 20% LP rewards</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sell Fee</strong></td>
+                        <td>1-3%</td>
+                        <td>Same allocation as buy fee</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Example Launch</h4>
+            <ul>
+                <li><strong>Project:</strong> DeFi lending protocol</li>
+                <li><strong>Reserve:</strong> 200,000 USDC</li>
+                <li><strong>Ratio:</strong> 0.35</li>
+                <li><strong>Initial Supply:</strong> 1,000,000 tokens</li>
+                <li><strong>Starting Price:</strong> 200,000 / (1,000,000 × 0.35) = $0.571 per token</li>
+            </ul>
+
+            <h4>Rug-Pull Prevention</h4>
+            <ul>
+                <li>Reserve locked in smart contract (no admin withdrawal keys)</li>
+                <li>Mathematical price discovery (no manipulation possible)</li>
+                <li>Transparent on-chain reserves (verifiable by anyone)</li>
+                <li>Liquidity lock periods enforced (6-12 months minimum)</li>
+            </ul>
+
+            <div class="info-box success">
+                <strong>Graduation Criteria:</strong>
+                <ul>
+                    <li>Mainnet deployment successful (verified contracts)</li>
+                    <li>Token tradeable on ≥2 DEXs (Raydium + Orca)</li>
+                    <li>Bonding curve active with initial liquidity ($50k+ reserve)</li>
+                    <li>Community governance transitioned (token distribution &gt;50% public)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tokenomics">
+            <h2>4. Token Design &amp; Synaptic Governance</h2>
+
+            <h3>4.1 $MFAI Token Specifications</h3>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td><strong>Symbol</strong></td>
+                        <td>MFAI</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Name</strong></td>
+                        <td>Money Factory AI</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Blockchain</strong></td>
+                        <td>Solana (SPL Token)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Supply</strong></td>
+                        <td>1,000,000,000 (1 billion, fixed cap)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Decimals</strong></td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contract Address</strong></td>
+                        <td>[TBD at TGE]</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>4.2 Token Distribution</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Allocation</th>
+                        <th>Percentage</th>
+                        <th>Tokens</th>
+                        <th>Vesting Schedule</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Community Rewards</td>
+                        <td>40%</td>
+                        <td>400,000,000</td>
+                        <td>4 years linear unlock</td>
+                    </tr>
+                    <tr>
+                        <td>Treasury &amp; Ecosystem</td>
+                        <td>25%</td>
+                        <td>250,000,000</td>
+                        <td>DAO-governed, dynamic</td>
+                    </tr>
+                    <tr>
+                        <td>Team &amp; Advisors</td>
+                        <td>15%</td>
+                        <td>150,000,000</td>
+                        <td>3 years, 1-year cliff</td>
+                    </tr>
+                    <tr>
+                        <td>Private Sale</td>
+                        <td>10%</td>
+                        <td>100,000,000</td>
+                        <td>18 months linear</td>
+                    </tr>
+                    <tr>
+                        <td>Public Sale (TGE)</td>
+                        <td>10%</td>
+                        <td>100,000,000</td>
+                        <td>Unlocked at launch</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Rationale</h4>
+            <ul>
+                <li><strong>40% Community:</strong> Largest allocation ensures long-term community ownership</li>
+                <li><strong>25% Treasury:</strong> Flexible capital for partnerships, grants, development</li>
+                <li><strong>15% Team:</strong> Competitive retention, aligned incentives via cliff</li>
+                <li><strong>10% Private:</strong> Early supporters with moderate unlock timeline</li>
+                <li><strong>10% Public:</strong> Fair launch accessibility, immediate liquidity</li>
+            </ul>
+
+            <h3>4.3 Token Utility</h3>
+
+            <ol>
+                <li><strong>Learning Rewards:</strong> Earn 5-50 $MFAI per module completed in Journey</li>
+                <li><strong>NFT Minting:</strong> Pay 10-100 $MFAI to mint Proof-of-Skill NFTs</li>
+                <li><strong>Governance Staking:</strong> Lock $MFAI to gain voting power (minimum 100 tokens)</li>
+                <li><strong>Launchpad Access:</strong> Stake 1,000+ $MFAI to submit projects for DAO review</li>
+                <li><strong>Zyno Pro Subscription:</strong> Pay 50 $MFAI/month for advanced features</li>
+                <li><strong>Neuro-Dividends™:</strong> Earn recurring rewards from ecosystem revenue</li>
+            </ol>
+
+            <h3>4.4 Deflationary Mechanisms</h3>
+
+            <h4>Burn Events</h4>
+            <ul>
+                <li><strong>NFT Minting:</strong> 10% of $MFAI spent on Proof-of-Skill NFTs is burned</li>
+                <li><strong>Zyno Pro Subscription:</strong> 25% of monthly fees burned quarterly</li>
+                <li><strong>Launchpad Fees:</strong> Projects pay 2% of raised capital in $MFAI, 15% burned</li>
+            </ul>
+
+            <h4>Cognitive Lock (Time-Locked Staking)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lock Period</th>
+                        <th>Governance Weight Multiplier</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>30 days</td>
+                        <td>1.0x</td>
+                    </tr>
+                    <tr>
+                        <td>90 days</td>
+                        <td>1.2x</td>
+                    </tr>
+                    <tr>
+                        <td>180 days</td>
+                        <td>1.5x</td>
+                    </tr>
+                    <tr>
+                        <td>365 days</td>
+                        <td>2.0x</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>4.5 Synaptic Governance</h3>
+
+            <p><strong>Governance Philosophy:</strong> Merit-based system that rewards skills, stake, and participation.
+                Designed to prevent plutocracy and ensure builders have a voice.</p>
+
+            <h4>Voting Power Components</h4>
+            <ol>
+                <li><strong>Staked $MFAI (1:1 ratio):</strong> Direct economic alignment</li>
+                <li><strong>Proof-of-Skill NFTs (×50 per NFT):</strong> Proven competence multiplier</li>
+                <li><strong>Historical Participation (×0.5 score):</strong> Long-term engagement reward</li>
+            </ol>
+
+            <h4>Proposal Types</h4>
+            <ol>
+                <li><strong>Project Incubation:</strong> Approve/reject projects for Phase 4 launch support</li>
+                <li><strong>Parameter Changes:</strong> Adjust fees, thresholds, vesting schedules</li>
+                <li><strong>Treasury Allocation:</strong> Grants, partnerships, marketing spend</li>
+                <li><strong>Protocol Upgrades:</strong> Smart contract changes, feature additions</li>
+            </ol>
+
+            <h4>Voting Mechanics</h4>
+            <ul>
+                <li><strong>Voting Period:</strong> 3 days after 7-day review</li>
+                <li><strong>Quorum:</strong> 10% of circulating $MFAI must vote</li>
+                <li><strong>Approval Threshold:</strong> 60% YES votes required</li>
+                <li><strong>Execution Timelock:</strong> 48 hours after approval (security buffer)</li>
+            </ul>
+
+            <h4>Guardrails Against Governance Attacks</h4>
+            <ul>
+                <li><strong>Delegation Limits:</strong> Max 10% of total VP can be delegated to one address</li>
+                <li><strong>Proposal Cooldown:</strong> 7 days between proposals from same address</li>
+                <li><strong>Emergency Pause:</strong> 5/9 multi-sig can pause protocol in critical scenarios</li>
+                <li><strong>Sybil Resistance:</strong> Proof-of-Skill NFTs are soulbound (non-transferable)</li>
+            </ul>
+
+            <h3>4.6 Proof-of-Skill NFTs</h3>
+
+            <h4>Technical Specification</h4>
+            <ul>
+                <li><strong>Standard:</strong> Metaplex (Solana NFT)</li>
+                <li><strong>Metadata:</strong> On-chain + IPFS (images, descriptions, skill proofs)</li>
+                <li><strong>Soulbound:</strong> Non-transferable by default (governance can enable trading)</li>
+                <li><strong>Governance Weight:</strong> Each NFT adds +50 voting power</li>
+            </ul>
+
+            <h4>Tiered System (Planned)</h4>
+            <ul>
+                <li><strong>Bronze (basic skills):</strong> 1.0x multiplier</li>
+                <li><strong>Silver (intermediate):</strong> 1.5x multiplier</li>
+                <li><strong>Gold (advanced):</strong> 2.0x multiplier</li>
+            </ul>
+        </section>
+
+        <section id="launchpad">
+            <h2>5. Launchpad &amp; Internet Capital Market</h2>
+
+            <h3>5.1 From DAO Approval to Launch (Detailed Incubation)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Focus</th>
+                        <th>Deliverables</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1-2</td>
+                        <td>Architecture Finalization</td>
+                        <td>System design diagrams, tech stack confirmed, dependencies mapped</td>
+                    </tr>
+                    <tr>
+                        <td>3-4</td>
+                        <td>Smart Contract Development</td>
+                        <td>Anchor programs written, unit tests passed, devnet deployment</td>
+                    </tr>
+                    <tr>
+                        <td>5-6</td>
+                        <td>Security Audits</td>
+                        <td>Internal audit complete, external audit initiated, vulnerabilities addressed</td>
+                    </tr>
+                    <tr>
+                        <td>7-8</td>
+                        <td>Frontend &amp; UX</td>
+                        <td>React app scaffolded, wallet integration, responsive design</td>
+                    </tr>
+                    <tr>
+                        <td>9-10</td>
+                        <td>Marketing &amp; Community</td>
+                        <td>Discord 1,000+ members, X following 5,000+, partnerships announced</td>
+                    </tr>
+                    <tr>
+                        <td>11-12</td>
+                        <td>Collaterize Setup &amp; Launch</td>
+                        <td>Bonding curve parameters set, mainnet deployment, TGE executed</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Incubation Support Provided</h4>
+            <ul>
+                <li><strong>Technical Mentorship:</strong> Weekly 1:1s with MFAI core engineering team</li>
+                <li><strong>Security Funding:</strong> Up to $50,000 for external audits (CertiK, Trail of Bits)</li>
+                <li><strong>Marketing Budget:</strong> Up to $25,000 for campaigns</li>
+                <li><strong>Legal Guidance:</strong> Access to Legal Agent + human legal advisors</li>
+                <li><strong>Partnership Introductions:</strong> Warm intros to VCs, exchanges, protocols</li>
+            </ul>
+
+            <h3>5.2 Collaterize Bonding Curve Deep Dive</h3>
+
+            <h4>Mathematical Foundation</h4>
+            <pre><code>Price(t) = Reserve(t) / (Supply(t) × Reserve_Ratio)
+
+When user BUYS x tokens:
+  Reserve_new = Reserve_old + (x × Price_avg)
+  Supply_new = Supply_old + x
+  Price_new = Reserve_new / (Supply_new × Ratio)
+
+When user SELLS x tokens:
+  Supply_new = Supply_old - x
+  Reserve_new = Reserve_old - (x × Price_avg)
+  Price_new = Reserve_new / (Supply_new × Ratio)</code></pre>
+
+            <h4>Parameter Impact Analysis</h4>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reserve Ratio</th>
+                        <th>Characteristics</th>
+                        <th>Use Case</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>0.2 (Steep)</strong></td>
+                        <td>High volatility, faster price growth<br>10% supply increase → 12.5% price increase</td>
+                        <td>High-growth speculative projects</td>
+                    </tr>
+                    <tr>
+                        <td><strong>0.5 (Gentle)</strong></td>
+                        <td>Low volatility, stable pricing<br>10% supply increase → 5% price increase</td>
+                        <td>Mature, utility-focused projects</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Fee Structure Allocation</h4>
+            <ul>
+                <li><strong>60% Treasury:</strong> Sustains ecosystem operations, grants, development</li>
+                <li><strong>20% Creator:</strong> Revenue share for project team</li>
+                <li><strong>20% LP Rewards:</strong> Incentivizes liquidity providers on secondary AMMs</li>
+            </ul>
+
+            <h3>5.3 Internet Capital Market (ICM) Thesis</h3>
+
+            <p><strong>Core Argument:</strong> Capital formation is migrating from opaque, centralized intermediaries
+                (VCs, investment banks) to transparent, programmable on-chain primitives.</p>
+
+            <h4>Historical Parallel</h4>
+            <ul>
+                <li><strong>1990s:</strong> E-commerce (Amazon) disrupted retail by moving transactions online</li>
+                <li><strong>2000s:</strong> Social networks (Facebook) disrupted media by moving connections online</li>
+                <li><strong>2020s:</strong> DeFi disrupted finance by moving value transfer online</li>
+                <li><strong>2025+:</strong> MFAI disrupts venture formation by moving capital coordination online</li>
+            </ul>
+
+            <h4>MFAI's Three-Layer Role</h4>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Production Layer</h4>
+                    <p><strong>Journey + Zyno</strong><br>Generate and validate projects through structured 4-phase
+                        protocol with AI agents ensuring baseline quality</p>
+                </div>
+                <div class="card">
+                    <h4>Coordination Layer</h4>
+                    <p><strong>Synaptic Governance</strong><br>DAO governs which assets enter the capital market with
+                        merit-based voting</p>
+                </div>
+                <div class="card">
+                    <h4>Liquidity Layer</h4>
+                    <p><strong>Collaterize</strong><br>Algorithmic bonding curves ensure tradability from day one with
+                        programmatic price discovery</p>
+                </div>
+            </div>
+
+            <h4>Ecosystem Flywheel</h4>
+            <pre><code>More Learners
+    ↓
+More Proof-of-Skill Holders
+    ↓
+Better DAO Decisions (higher signal-to-noise)
+    ↓
+Higher Quality Launches
+    ↓
+More Liquidity &amp; Volume
+    ↓
+Higher $MFAI Value
+    ↓
+More Rewards for Learners
+    ↓
+[Loop repeats, compounding growth]</code></pre>
+
+            <h4>Market Sizing</h4>
+            <ul>
+                <li><strong>TAM (Total Addressable Market):</strong> $50B+ in venture capital moving on-chain by 2030
+                </li>
+                <li><strong>SAM (Serviceable Addressable Market):</strong> 5M+ Web3 builders globally</li>
+                <li><strong>SOM (Serviceable Obtainable Market):</strong> 1% market share = $500M in coordinated capital
+                    by 2027</li>
+            </ul>
+        </section>
+
+        <section id="risks">
+            <h2>6. Risks, Limitations &amp; Roadmap</h2>
+
+            <h3>6.1 Technical Risks</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk</th>
+                        <th>Mitigation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>AI Hallucination</strong><br>Agents generate incorrect code or financial models</td>
+                        <td>Multi-agent verification, human-in-loop for critical decisions, mandatory external audits
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Smart Contract Vulnerabilities</strong><br>Exploitable bugs lead to fund loss</td>
+                        <td>Auditor Agent, external audits (CertiK, Trail of Bits), bug bounties (Immunefi)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oracle Dependencies</strong><br>Price feeds fail, causing system disruption</td>
+                        <td>Multi-oracle design (Pyth + Switchboard), fallback mechanisms, circuit breakers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Infrastructure Scalability</strong><br>High GPT-5.1 API costs exceed revenue</td>
+                        <td>Tiered pricing, aggressive caching (Redis), model optimization via fine-tuning</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>6.2 Market Risks</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk</th>
+                        <th>Mitigation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Adoption Challenges</strong><br>Insufficient users to sustain ecosystem</td>
+                        <td>Competitive learn-to-earn rewards, university partnerships, hackathon sponsorships</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Liquidity Constraints</strong><br>Bonding curves have insufficient reserves</td>
+                        <td>Treasury liquidity provisions, incentivized LP programs, dynamic fee adjustments</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bear Market Conditions</strong><br>Reduced activity during crypto winters</td>
+                        <td>Focus on education (counter-cyclical demand), long-term builder retention</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>6.3 Regulatory Risks</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk</th>
+                        <th>Mitigation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Token Classification</strong><br>$MFAI classified as security</td>
+                        <td>Utility-first design, legal opinions (multiple jurisdictions), jurisdictional flexibility
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>DAO Governance Liability</strong><br>Members held personally liable</td>
+                        <td>Legal wrapper (Foundation + DAO LLC hybrid), liability disclaimers, D&amp;O insurance</td>
+                    </tr>
+                    <tr>
+                        <td><strong>KYC/AML Requirements</strong><br>Regulators force identity checks</td>
+                        <td>Phased approach (permissionless learning, KYC for large launches), geofencing</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>6.4 Assumptions</h3>
+
+            <div class="info-box warning">
+                <strong>We assume:</strong>
+                <ul>
+                    <li>Solana maintains 99%+ uptime and competitive fees (&lt;$1 per transaction)</li>
+                    <li>AI model quality continues improving (GPT-6, multimodal capabilities)</li>
+                    <li>Regulatory clarity improves for DAOs and utility tokens</li>
+                    <li>Web3 adoption continues growing (5-10% annually, reaching 1B+ users by 2030)</li>
+                    <li>Community governance matures without centralization</li>
+                </ul>
+            </div>
+
+            <h3>6.5 Roadmap</h3>
+
+            <div class="roadmap">
+                <div class="roadmap-item">
+                    <div class="roadmap-quarter">Q2 2025</div>
+                    <div class="roadmap-title">Alpha Launch (Foundation)</div>
+                    <div class="roadmap-content">
+                        <ul class="roadmap-list">
+                            <li><strong>April:</strong> Zyno 17-agent swarm deployment on testnet, Journey simulator
+                                alpha</li>
+                            <li><strong>May:</strong> Private sale round ($500k raised), DAO governance framework
+                                testnet</li>
+                            <li><strong>June:</strong> Journey simulator beta (all 5 persona tracks), Community Discord
+                                launch</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-quarter">Q3 2025</div>
+                    <div class="roadmap-title">Public Launch (Growth)</div>
+                    <div class="roadmap-content">
+                        <ul class="roadmap-list">
+                            <li><strong>July:</strong> Token Generation Event (TGE), $MFAI launches on Solana mainnet,
+                                DEX listings (Raydium, Orca)</li>
+                            <li><strong>August:</strong> Collaterize integration live, First projects launch via MFAI
+                                launchpad</li>
+                            <li><strong>September:</strong> Mobile app alpha (iOS/Android), 10,000+ users milestone,
+                                $10M+ TVL</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-quarter">Q4 2025</div>
+                    <div class="roadmap-title">Ecosystem Expansion (Scale)</div>
+                    <div class="roadmap-content">
+                        <ul class="roadmap-list">
+                            <li><strong>October:</strong> Zyno Pro SaaS launch, SDK for developers, 10+ projects
+                                launched</li>
+                            <li><strong>November:</strong> NFT marketplace launch, Advanced analytics dashboard, 50,000+
+                                users</li>
+                            <li><strong>December:</strong> Year-end community event, Quarterly Neuro-Dividends™
+                                distribution</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-quarter">2026+</div>
+                    <div class="roadmap-title">Institutional Scale &amp; Sovereignty</div>
+                    <div class="roadmap-content">
+                        <ul class="roadmap-list">
+                            <li><strong>Q1:</strong> 50+ protocols in MFAI ecosystem, White-label licensing for agencies
+                            </li>
+                            <li><strong>Q2:</strong> Decentralized AI training, Governance token swap (MFAI v2)</li>
+                            <li><strong>Q3:</strong> MFAI AppChain exploration (Solana SVM), 100+ launched projects</li>
+                            <li><strong>Q4:</strong> DAO complete decentralization, Self-improving agents via ML</li>
+                            <li><strong>2027-2030:</strong> Become default OS for Internet Capital Market, 1M+ projects
+                                launched</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <h2>7. Conclusion</h2>
+
+            <p>Money Factory AI represents a paradigm shift in how Web3 projects are conceived, validated, and launched.
+            </p>
+
+            <h4>Our Core Innovation</h4>
+            <ul>
+                <li><strong>AI Co-Founder (Zyno + 17 Agents):</strong> Removes boilerplate, compresses months of work
+                    into weeks</li>
+                <li><strong>Structured Journey (4 Phases):</strong> Learn → Build → Govern → Launch pipeline ensures
+                    quality</li>
+                <li><strong>Merit-Based Governance (Synaptic):</strong> Skills + stake + participation, not pure
+                    plutocracy</li>
+                <li><strong>Programmatic Liquidity (Collaterize):</strong> Instant tradability from day one</li>
+            </ul>
+
+            <h4>Our Solana-Native Approach</h4>
+            <ul>
+                <li><strong>Speed:</strong> 2,000+ TPS practical, sub-second finality</li>
+                <li><strong>Cost:</strong> $0.00025 average transaction, 1000x cheaper than Ethereum</li>
+                <li><strong>Ecosystem:</strong> Deep integration with Jupiter, Raydium, Metaplex, Orca</li>
+                <li><strong>Culture:</strong> Aligned with Solana's builder-first ethos, not rent-seeking</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>Our Positioning</strong>
+                <p>We are NOT building another launchpad. We are building the production layer for the Internet Capital
+                    Market.</p>
+                <p>Traditional VCs are opaque, slow, and network-based. Existing launchpads are marketing-focused and
+                    lack substance.</p>
+                <p><strong>MFAI is transparent (on-chain governance), fast (4-phase structured protocol), and
+                        merit-based (Proof-of-Skill + Synaptic Governance).</strong></p>
+            </div>
+
+            <h3>The Internet Capital Market is emerging. MFAI is building the rails.</h3>
+
+            <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem; color: var(--solana-green);"><strong>Join
+                    us in democratizing access to capital and empowering the next generation of Solana
+                    builders.</strong></p>
+        </section>
+
+        <section id="appendices">
+            <h2>8. Appendices</h2>
+
+            <h3>Appendix A: Glossary</h3>
+            <ul>
+                <li><strong>Agentic System:</strong> AI architecture where specialized agents coordinate to solve
+                    complex tasks</li>
+                <li><strong>Bonding Curve:</strong> Algorithmic pricing mechanism determining token cost based on supply
+                </li>
+                <li><strong>Cognitive Lock:</strong> Time-locked staking mechanism reducing circulating supply</li>
+                <li><strong>DAO:</strong> Decentralized Autonomous Organization - on-chain governance entity</li>
+                <li><strong>ICM:</strong> Internet Capital Market - on-chain ecosystem for capital formation</li>
+                <li><strong>Proof-of-Skill:</strong> Verifiable on-chain credential earned through learning</li>
+                <li><strong>RAG:</strong> Retrieval-Augmented Generation - AI technique using knowledge bases</li>
+                <li><strong>Synaptic Governance:</strong> Merit-based DAO voting system weighing skills + stake +
+                    reputation</li>
+            </ul>
+
+            <h3>Appendix B: Technical Specifications</h3>
+            <ul>
+                <li><strong>Blockchain:</strong> Solana (mainnet-beta)</li>
+                <li><strong>Smart Contract Language:</strong> Rust (Anchor framework)</li>
+                <li><strong>Frontend:</strong> React + TypeScript + Next.js</li>
+                <li><strong>Backend:</strong> Node.js + Express + Prisma</li>
+                <li><strong>AI:</strong> GPT-5.1 + Structured Outputs</li>
+                <li><strong>Database:</strong> PostgreSQL + Redis (caching)</li>
+                <li><strong>IPFS:</strong> Pinata (metadata storage)</li>
+            </ul>
+
+            <h3>Appendix C: Contact &amp; Resources</h3>
+            <ul>
+                <li><strong>Website:</strong> <a href="index.html" target="_blank">https://moneyfactory.ai</a></li>
+                <li><strong>Documentation:</strong> <a href="docs.html" target="_blank">docs.html</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/moneyfactoryai"
+                        target="_blank">https://github.com/moneyfactoryai</a></li>
+                <li><strong>Discord:</strong> <a href="https://discord.gg/moneyfactoryai"
+                        target="_blank">https://discord.gg/moneyfactoryai</a></li>
+                <li><strong>X (Twitter):</strong> <a href="https://x.com/moneyfactoryai"
+                        target="_blank">https://x.com/moneyfactoryai</a></li>
+                <li><strong>Email:</strong> <a href="mailto:contact@moneyfactory.ai">contact@moneyfactory.ai</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html#home">Home</a>
+                <a href="product.html">Product</a>
+                <a href="token.html">Token</a>
+                <a href="documentation_hub.html">Documentation</a>
+                <a href="https://github.com/moneyfactoryai" target="_blank">GitHub</a>
+                <a href="https://discord.gg/shztvSg9" target="_blank">Discord</a>
+            </div>
+            <div class="footer-note">
+                <p>© 2025 Money Factory AI. Built on Solana.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;"><strong>Disclaimer:</strong> Nothing on this site
+                    constitutes financial or investment advice. Always do your own research.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const offset = 100;
+                        const targetPosition = target.offsetTop - offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Update active TOC link on scroll
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('section[id]');
+
+        function updateActiveTOC() {
+            const scrollPosition = window.pageYOffset + 150;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    tocLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveTOC);
+        updateActiveTOC();
+    </script>
+</body>
+
+</html>
