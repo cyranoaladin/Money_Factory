@@ -170,7 +170,7 @@ All pages include:
 
 ### Custom Domain
 
-1. Add `CNAME` file with your domain
+1. Add a `CNAME` file with your domain (`mfai.app`).
 2. Configure DNS:
    ```
    A     @     185.199.108.153
@@ -179,6 +179,7 @@ All pages include:
    A     @     185.199.111.153
    CNAME www   cyranoaladin.github.io
    ```
+3. After DNS propagation, your site will be accessible at **https://mfai.app**.
 
 ### Vercel / Netlify
 
