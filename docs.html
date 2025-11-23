@@ -1,1334 +1,693 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Factory AI - User Guide for Investors & Community</title>
+    <meta name="description"
+        content="Complete user guide for Money Factory AI. Learn about the ecosystem, Zyno, and the 5-phase journey.">
+
+    <!-- Tailwind & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        solana: {
+                            purple: '#9945FF',
+                            green: '#14F195',
+                            dark: '#0B0B15',
+                            card: '#131324'
+                        },
+                        mfai: {
+                            primary: '#6366F1',
+                            secondary: '#8B5CF6',
+                            accent: '#06B6D4',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                        'draw': 'draw 2s ease-out forwards',
+                        'flow': 'flow 3s linear infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        draw: {
+                            '0%': { strokeDasharray: '1000', strokeDashoffset: '1000' },
+                            '100%': { strokeDashoffset: '0' }
+                        },
+                        flow: {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '100%': { backgroundPosition: '100% 50%' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(99, 102, 241, 0.6), 0 0 60px rgba(139, 92, 246, 0.4)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        :root {
-            /* Solana brand colors */
-            --solana-purple: #9945FF;
-            --solana-green: #14F195;
-            --solana-blue: #00D4FF;
-
-            /* Dark theme */
-            --bg-primary: #0B0B15;
-            --bg-secondary: #15152A;
-            --bg-tertiary: #1F1F3A;
-            --text-primary: #FFFFFF;
-            --text-secondary: #B8B8D0;
-            --text-muted: #7A7A9E;
-            --border-color: rgba(153, 69, 255, 0.2);
-            --border-hover: rgba(153, 69, 255, 0.4);
-
-            /* Semantic colors - Dark mode */
-            --color-background: var(--bg-primary);
-            --color-surface: var(--bg-secondary);
-            --color-text: var(--text-primary);
-            --color-text-secondary: var(--text-secondary);
-            --color-primary: var(--solana-green);
-            --color-border: var(--border-color);
-            --color-card-border: var(--border-color);
-            --color-success: var(--solana-green);
-            --color-error: #F44336;
-            --gradient-primary: linear-gradient(135deg, var(--solana-purple) 0%, var(--solana-green) 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
+            background-color: #050505;
+            color: #E2E8F0;
             overflow-x: hidden;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-        }
-
-        .bg-mesh {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.3;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(153, 69, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(20, 241, 149, 0.15) 0%, transparent 50%);
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 280px;
-            height: 100vh;
-            background: rgba(19, 19, 36, 0.95);
-            backdrop-filter: blur(10px);
-            border-right: 1px solid rgba(153, 69, 255, 0.2);
-            overflow-y: auto;
-            z-index: 1000;
-            transition: transform 0.3s ease;
-            padding: 2rem 0;
-        }
-
-        .sidebar.collapsed {
-            transform: translateX(-100%);
-        }
-
-        .sidebar-logo {
-            padding: 0 1.5rem 1.5rem;
-            border-bottom: 1px solid rgba(153, 69, 255, 0.2);
-            margin-bottom: 1.5rem;
-        }
-
-        .sidebar-logo h1 {
-            font-size: 1.5rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .sidebar-logo p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 0.25rem;
-        }
-
-        .sidebar-progress {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 0%;
-            background: linear-gradient(180deg, var(--solana-purple) 0%, var(--solana-green) 100%);
-            transition: height 0.1s ease;
-            z-index: 10;
-        }
-
-        .sidebar-nav {
-            list-style: none;
-        }
-
-        .sidebar-nav>li {
-            margin-bottom: 0.5rem;
-        }
-
-        .sidebar-nav a {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 1.5rem;
-            color: #ffffff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            font-weight: 500;
-            border-left: 3px solid transparent;
-        }
-
-        .sidebar-nav a:hover {
-            background: rgba(153, 69, 255, 0.2);
-            border-left-color: #9945FF;
-            transform: translateX(4px);
-        }
-
-        .sidebar-nav a.active {
-            background: rgba(20, 241, 149, 0.15);
-            color: #14F195;
-            border-left-color: #14F195;
-            font-weight: 600;
-        }
-
-        .sidebar-nav .icon {
-            font-size: 1.2rem;
-            min-width: 24px;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 280px;
-            right: 0;
-            z-index: 999;
-            background: rgba(11, 11, 21, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            border-bottom: 1px solid rgba(153, 69, 255, 0.2);
-            transition: left 0.3s ease;
-        }
-
-        nav.sidebar-collapsed {
-            left: 0;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .github-link {
-            padding: 0.5rem 1rem;
-            background: rgba(19, 19, 36, 0.6);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 8px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .github-link:hover {
-            border-color: var(--solana-green);
-            color: var(--solana-green);
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 0.5rem;
-            background: rgba(19, 19, 36, 0.6);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 8px;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--text-primary);
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .sidebar-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-
-        .main-content {
-            margin-left: 280px;
-            margin-top: 80px;
-            transition: margin-left 0.3s ease;
-        }
-
-        .main-content.sidebar-collapsed {
-            margin-left: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        section {
-            padding: 4rem 0;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        section:first-of-type {
-            padding-top: 2rem;
-        }
-
-        .section-header {
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid rgba(153, 69, 255, 0.2);
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        .callout {
-            padding: 1rem 1.5rem;
-            border-left: 4px solid;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-        }
-
-        .callout-info {
-            background: rgba(59, 130, 246, 0.1);
-            border-color: #3B82F6;
-        }
-
-        .callout-tip {
-            background: rgba(20, 241, 149, 0.1);
-            border-color: var(--solana-green);
-        }
-
-        .callout-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .stat-card {
-            background: rgba(19, 19, 36, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--solana-green);
-        }
-
-        .stat-value {
-            font-size: 3rem;
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        .glass-card {
-            background: rgba(19, 19, 36, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .component-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .component-card {
-            background: rgba(19, 19, 36, 0.6);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .component-card:hover {
-            border-color: var(--solana-green);
-            transform: translateY(-5px);
-        }
-
-        .component-card h4 {
-            color: var(--solana-green);
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-        }
-
-        .protocol-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .protocol-card {
-            background: rgba(19, 19, 36, 0.6);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .protocol-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--solana-green);
-        }
-
-        .protocol-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .protocol-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--solana-green);
-        }
-
-        .agents-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-            background: rgba(19, 19, 36, 0.6);
-            border-radius: 16px;
-            overflow: hidden;
-        }
-
-        .agents-table thead {
-            background: rgba(153, 69, 255, 0.2);
-        }
-
-        .agents-table th,
-        .agents-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(153, 69, 255, 0.2);
-        }
-
-        .agents-table th {
-            font-weight: 600;
-            color: var(--solana-green);
-        }
-
-        .agents-table tr {
-            transition: background 0.3s ease;
-        }
-
-        .agents-table tbody tr:hover {
-            background: rgba(153, 69, 255, 0.1);
-        }
-
-        .diagram {
-            padding: 2rem;
-            background: rgba(19, 19, 36, 0.6);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 12px;
-            margin: 2rem 0;
-            font-family: monospace;
-            font-size: 0.85rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            white-space: pre;
-        }
-
-        .workflow-diagram {
-            max-width: 100%;
-            border-radius: 12px;
-            margin: 2rem 0;
-            box-shadow: 0 8px 32px rgba(153, 69, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: block;
-        }
-
-        .diagram-container {
-            background: rgba(19, 19, 36, 0.5);
-            padding: 2rem;
-            border-radius: 16px;
-            margin: 2rem 0;
-            border: 1px solid rgba(153, 69, 255, 0.2);
-        }
-
-        .diagram-caption {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 1rem;
-            text-align: center;
-            font-style: italic;
-            line-height: 1.6;
-        }
-
+        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
+            background: #0B0B15;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: rgba(153, 69, 255, 0.3);
+            background: #333;
             border-radius: 4px;
         }
 
-        @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-                z-index: 1001;
-            }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366F1;
+        }
 
-            .sidebar.active {
-                transform: translateX(0);
-            }
+        /* Glassmorphism */
+        .glass {
+            background: rgba(19, 19, 36, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
 
-            .main-content {
-                margin-left: 0;
-                margin-top: 70px;
-            }
+        .glass-card {
+            background: linear-gradient(180deg, rgba(30, 30, 50, 0.85) 0%, rgba(20, 20, 35, 0.7) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-            nav {
-                left: 0;
-            }
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px -10px rgba(99, 102, 241, 0.3);
+        }
 
-            .menu-toggle {
-                display: flex;
-            }
+        /* Text Gradients */
+        .text-gradient-solana {
+            background: linear-gradient(90deg, #9945FF 0%, #14F195 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-            .container {
-                padding: 0 1.5rem;
-            }
+        .text-gradient-mfai {
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #06B6D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-            .section-header h2 {
-                font-size: 2rem;
-            }
+        /* Nav Link */
+        .nav-link {
+            position: relative;
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, #6366F1, #14F195);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: #ffffff;
+        }
+
+        /* Reveal on Scroll */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Sidebar Link Active State */
+        .sidebar-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #9CA3AF;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            color: #ffffff;
+            background: rgba(99, 102, 241, 0.1);
+            border-left-color: #6366F1;
         }
     </style>
 </head>
 
-<body>
-    <div class="bg-mesh"></div>
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+<body class="antialiased selection:bg-mfai-primary selection:text-white">
 
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-progress" id="sidebarProgress"></div>
-        <div class="sidebar-logo">
-            <a href="index.html" style="text-decoration: none;">
-                <h1>Money Factory AI</h1>
-            </a>
-            <p>User & Investor Guide</p>
+    <!-- Background Mesh -->
+    <div class="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(99,102,241,0.12),transparent_30%)]">
         </div>
-        <nav>
-            <ul class="sidebar-nav">
-                <li><a href="#welcome" class="nav-link"><span class="icon">🏠</span> Welcome & Overview</a></li>
-                <li><a href="#journey" class="nav-link"><span class="icon">🗺️</span> Your Journey with Zyno</a></li>
-                <li><a href="#zyno-interaction" class="nav-link"><span class="icon">🤖</span> Interacting with Zyno
-                        AI</a></li>
-                <li><a href="#workflow" class="nav-link"><span class="icon">📋</span> Journey Workflow in Detail</a>
-                </li>
-                <li><a href="#dao" class="nav-link"><span class="icon">🏛️</span> DAO Governance & Staking</a></li>
-                <li><a href="#tokenomics" class="nav-link"><span class="icon">💎</span> Tokenomics & Rewards</a></li>
-            </ul>
-        </nav>
-    </aside>
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(139,92,246,0.08),transparent_25%)]">
+        </div>
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_80%,rgba(6,182,212,0.06),transparent_30%)]">
+        </div>
+    </div>
 
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 transition-all duration-300"
+        aria-label="Main Navigation">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
+                <div
+                    class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none">Money Factory AI</span>
+                    <span class="text-xs text-gray-400 font-sans">Venture Engine</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8" id="nav-links">
+                <a href="index.html#home"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="index.html#journey"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Journey</a>
+                <a href="product.html"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Product</a>
+                <a href="docs.html#zyno-overview"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Agents & API</a>
+                <a href="token.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Token</a>
+                <a href="investors.html"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Investors</a>
+                <a href="documentation_hub.html"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Docs</a>
             </div>
-            <div class="breadcrumb">
-                <a href="#welcome">Docs</a>
-                <span>/</span>
-                <span id="currentSection">Welcome</span>
-            </div>
-            <div class="nav-actions">
-                <a href="https://discord.gg/shztvSg9" target="_blank" class="github-link">
-                    <span>💬</span> Join Discord
+
+            <div class="flex items-center gap-4">
+                <a href="litepaper.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-gray-400 hover:text-white transition-colors">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    Litepaper
                 </a>
+                <a href="/terminal"
+                    class="px-6 py-2.5 bg-gradient-to-r from-mfai-primary to-mfai-secondary border border-white/20 text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-mfai-primary/20 transition-all">
+                    Access Terminal
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-toggle" class="md:hidden p-2 text-gray-400 hover:text-white transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0B0B15] border-t border-white/10 p-6 space-y-4">
+            <a href="index.html#home" class="block text-gray-300 hover:text-white">Home</a>
+            <a href="index.html#journey" class="block text-gray-300 hover:text-white">Journey</a>
+            <a href="product.html" class="block text-gray-300 hover:text-white">Product</a>
+            <a href="token.html" class="block text-gray-300 hover:text-white">Token</a>
+            <a href="investors.html" class="block text-gray-300 hover:text-white">Investors</a>
+            <a href="documentation_hub.html" class="block text-gray-300 hover:text-white">Docs</a>
+            <div class="pt-4 border-t border-white/10">
+                <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">Documentation</p>
+                <a href="#welcome" class="block text-sm text-gray-400 hover:text-white py-1">Welcome & Overview</a>
+                <a href="#journey" class="block text-sm text-gray-400 hover:text-white py-1">Your Journey with Zyno</a>
+                <a href="#zyno-interaction" class="block text-sm text-gray-400 hover:text-white py-1">Interacting with
+                    Zyno AI</a>
+                <a href="#workflow" class="block text-sm text-gray-400 hover:text-white py-1">Journey Workflow</a>
+                <a href="#dao" class="block text-sm text-gray-400 hover:text-white py-1">DAO Governance</a>
+                <a href="#tokenomics" class="block text-sm text-gray-400 hover:text-white py-1">Tokenomics</a>
             </div>
         </div>
     </nav>
 
-    <main class="main-content" id="mainContent">
-
-        <section id="welcome" class="visible">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Welcome to Money Factory AI</h2>
-                    <p>Your complete guide to understanding and using the platform</p>
+    <div class="flex min-h-screen pt-20">
+        <!-- Sidebar (Desktop) -->
+        <aside
+            class="fixed left-0 top-20 h-[calc(100vh-5rem)] w-72 overflow-y-auto border-r border-white/10 bg-[#0B0B15]/95 backdrop-blur-xl hidden lg:block z-40">
+            <div class="p-6">
+                <div class="mb-6">
+                    <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Documentation</h5>
+                    <nav class="space-y-1">
+                        <a href="#welcome" class="sidebar-link active">Welcome & Overview</a>
+                        <a href="#journey" class="sidebar-link">Your Journey with Zyno</a>
+                        <a href="#zyno-interaction" class="sidebar-link">Interacting with Zyno AI</a>
+                        <a href="#workflow" class="sidebar-link">Journey Workflow</a>
+                        <a href="#dao" class="sidebar-link">DAO Governance</a>
+                        <a href="#tokenomics" class="sidebar-link">Tokenomics</a>
+                    </nav>
                 </div>
 
-                <div class="callout callout-info">
-                    <div class="callout-title">📘 What is Money Factory AI?</div>
-                    <p><strong>Money Factory AI (MFAI)</strong> is your AI-powered co-founder that helps you learn Web3,
-                        build projects, and access funding. Whether you're a complete beginner or an experienced
-                        entrepreneur, our platform guides you step-by-step through your journey with personalized AI
-                        assistance from Zyno and 17 specialized AI experts.</p>
-                </div>
-
-                <h3>Our Mission</h3>
-                <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    We're making blockchain and Web3 accessible to everyone by removing the complexity and providing
-                    AI-guided learning, building, and funding opportunities. No technical background required - just
-                    bring your passion and ideas.
-                </p>
-
-                <h3>What You Can Do on Money Factory AI</h3>
-                <div class="component-grid">
-                    <div class="component-card">
-                        <h4>🎯 Learn & Earn</h4>
-                        <p style="color: var(--text-secondary);">Complete educational journeys about Web3, earn $MFAI
-                            tokens, and gain verifiable on-chain credentials</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>🤖 Get AI Assistance</h4>
-                        <p style="color: var(--text-secondary);">Chat with Zyno and 17 expert AI agents who help you
-                            with everything from coding to marketing</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>⚡ Build Your Project</h4>
-                        <p style="color: var(--text-secondary);">Create business plans, pitch decks, and smart contracts
-                            with AI guidance - even with no technical experience</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>🏆 Participate in Governance</h4>
-                        <p style="color: var(--text-secondary);">Vote on which projects get funded, stake your tokens,
-                            and earn rewards for your contributions</p>
-                    </div>
-                </div>
-
-                <h3>Who Is This Platform For?</h3>
-                <div class="glass-card">
-                    <div style="display: grid; gap: 2rem;">
-                        <div>
-                            <h4 style="color: var(--solana-green); margin-bottom: 0.5rem;">🎓 Beginners & Learners
-                            </h4>
-                            <p style="color: var(--text-secondary);">New to Web3? Start with our Learn & Earn
-                                journeys to understand blockchain, crypto, and decentralized finance while earning
-                                tokens.</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--solana-green); margin-bottom: 0.5rem;">🚀 Entrepreneurs &
-                                Builders</h4>
-                            <p style="color: var(--text-secondary);">Have a project idea? Use our AI agents to create
-                                professional business plans, pitch decks, and technical documentation to attract
-                                funding.</p>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--solana-green); margin-bottom: 0.5rem;">💰 Investors & Community
-                                Members</h4>
-                            <p style="color: var(--text-secondary);">Want to participate in the Web3 economy? Stake
-                                tokens, vote on promising projects, and earn rewards as the ecosystem grows.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>Platform Statistics</h3>
-                <div class="hero-stats">
-                    <div class="stat-card">
-                        <div class="stat-value">17</div>
-                        <div class="stat-label">Specialized AI Agents</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">5</div>
-                        <div class="stat-label">Journey Phases</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">6</div>
-                        <div class="stat-label">User Personas</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">100%</div>
-                        <div class="stat-label">AI-Powered Guidance</div>
-                    </div>
+                <div class="bg-mfai-primary/10 rounded-xl p-4 border border-mfai-primary/20">
+                    <h6 class="text-sm font-bold text-white mb-2">Need Help?</h6>
+                    <p class="text-xs text-gray-400 mb-3">Join our Discord community for real-time support.</p>
+                    <a href="https://discord.gg/moneyfactoryai" target="_blank"
+                        class="block w-full py-2 text-center bg-mfai-primary/20 hover:bg-mfai-primary/30 text-mfai-primary text-xs font-bold rounded-lg transition-colors">
+                        Join Discord
+                    </a>
                 </div>
             </div>
-        </section>
+        </aside>
 
-        <section id="journey">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Your Journey with Zyno</h2>
-                    <p>Understand the 5-phase progression and what to expect at each step</p>
-                </div>
+        <!-- Main Content -->
+        <main class="flex-1 lg:ml-72 p-6 lg:p-12 w-full max-w-[100vw] overflow-x-hidden">
+            <div class="max-w-4xl mx-auto">
 
-                <div class="callout callout-tip">
-                    <div class="callout-title">💡 Meet Zyno: Your AI Co-Founder</div>
-                    <p>Zyno is your personal AI guide throughout your journey. Think of Zyno as a knowledgeable mentor
-                        who's available 24/7 to answer questions, provide guidance, evaluate your work, and connect you
-                        with specialized experts when you need specific help.</p>
-                </div>
+                <!-- Welcome -->
+                <section id="welcome" class="mb-20 reveal-on-scroll">
+                    <h1 class="text-4xl md:text-5xl font-bold font-display mb-6 text-white">Welcome to Money Factory AI
+                    </h1>
+                    <p class="text-xl text-gray-400 leading-relaxed mb-8">
+                        Your complete guide to understanding and using the platform.
+                    </p>
 
-                <h3>The 5-Phase Journey Explained</h3>
-                <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    Your journey on Money Factory AI follows a clear progression designed to take you from learning
-                    basics to launching your own projects. Here's what to expect at each phase:
-                </p>
-
-                <div class="protocol-grid">
-                    <div class="protocol-card">
-                        <div class="protocol-number">01</div>
-                        <h3>Phase 1: Learn & Earn</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;"><strong>Build your
-                                foundation</strong></p>
-                        <ul style="color: var(--text-secondary); line-height: 1.8;">
-                            <li>Complete interactive lessons about Web3 and blockchain</li>
-                            <li>Take quizzes to test your knowledge</li>
-                            <li>Earn $MFAI tokens as you progress</li>
-                            <li>Mint NFT badges to prove your skills</li>
-                            <li><strong>Time:</strong> 2-4 weeks depending on your pace</li>
-                        </ul>
-                    </div>
-
-                    <div class="protocol-card">
-                        <div class="protocol-number">02</div>
-                        <h3>Phase 2: Build</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;"><strong>Turn your idea into
-                                reality</strong></p>
-                        <ul style="color: var(--text-secondary); line-height: 1.8;">
-                            <li>Work with AI agents to create your business plan</li>
-                            <li>Generate professional pitch decks</li>
-                            <li>Model your project's finances with the CFO Agent</li>
-                            <li>Get technical architecture from the Engineer Agent</li>
-                            <li><strong>Time:</strong> 4-8 weeks to build a complete project</li>
-                        </ul>
-                    </div>
-
-                    <div class="protocol-card">
-                        <div class="protocol-number">03</div>
-                        <h3>Phase 3: Prove</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;"><strong>Validate your
-                                expertise</strong></p>
-                        <ul style="color: var(--text-secondary); line-height: 1.8;">
-                            <li>Complete real-world missions and challenges</li>
-                            <li>Submit your work for AI evaluation</li>
-                            <li>Receive detailed feedback and improvement suggestions</li>
-                            <li>Earn XP points and unlock advanced content</li>
-                            <li><strong>Time:</strong> Ongoing as you grow your skills</li>
-                        </ul>
-                    </div>
-
-                    <div class="protocol-card">
-                        <div class="protocol-number">04</div>
-                        <h3>Phase 4: Activate</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;"><strong>Join the governance
-                                community</strong></p>
-                        <ul style="color: var(--text-secondary); line-height: 1.8;">
-                            <li>Stake your $MFAI tokens to gain voting power</li>
-                            <li>Review and vote on project submissions</li>
-                            <li>Participate in DAO proposals and decisions</li>
-                            <li>Earn staking rewards (Neuro-Dividends™)</li>
-                            <li><strong>Time:</strong> Continuous participation</li>
-                        </ul>
-                    </div>
-
-                    <div class="protocol-card">
-                        <div class="protocol-number">05</div>
-                        <h3>Phase 5: Scale</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;"><strong>Grow your impact</strong>
+                    <div class="bg-blue-500/10 border-l-4 border-blue-500 p-6 rounded-r-xl mb-8">
+                        <h3 class="text-lg font-bold text-blue-400 mb-2">📘 What is Money Factory AI?</h3>
+                        <p class="text-gray-300">
+                            <strong>Money Factory AI (MFAI)</strong> is your AI-powered co-founder that helps you learn
+                            Web3, build projects, and access funding. Whether you're a complete beginner or an
+                            experienced entrepreneur, our platform guides you step-by-step through your journey with
+                            personalized AI assistance from Zyno and 17 specialized AI experts.
                         </p>
-                        <ul style="color: var(--text-secondary); line-height: 1.8;">
-                            <li>Launch your project on the MFAI launchpad</li>
-                            <li>Mentor newcomers and earn reputation</li>
-                            <li>Become a thought leader in the community</li>
-                            <li>Access exclusive opportunities and partnerships</li>
-                            <li><strong>Time:</strong> Long-term growth phase</li>
-                        </ul>
                     </div>
-                </div>
+
+                    <h3 class="text-2xl font-bold font-display mb-4 text-white">Platform Statistics</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-2">
+                                17</div>
+                            <div class="text-sm text-gray-400">AI Agents</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-2">
+                                4</div>
+                            <div class="text-sm text-gray-400">Journey Phases</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-2">
+                                6</div>
+                            <div class="text-sm text-gray-400">User Personas</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-2">
+                                100%</div>
+                            <div class="text-sm text-gray-400">AI Guidance</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Journey -->
+                <section id="journey" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Your
+                        Journey with Zyno</h2>
+
+                    <div class="bg-solana-green/10 border-l-4 border-solana-green p-6 rounded-r-xl mb-8">
+                        <h3 class="text-lg font-bold text-solana-green mb-2">💡 Meet Zyno: Your AI Co-Founder</h3>
+                        <p class="text-gray-300">
+                            Zyno is your personal AI guide throughout your journey. Think of Zyno as a knowledgeable
+                            mentor who's available 24/7 to answer questions, provide guidance, evaluate your work, and
+                            connect you with specialized experts when you need specific help.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <div
+                                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-4">
+                                01</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Phase 1: Learn & Earn</h3>
+                            <p class="text-gray-400 mb-4"><strong>Build your foundation</strong></p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-400 text-sm">
+                                <li>Complete interactive lessons</li>
+                                <li>Take quizzes to test knowledge</li>
+                                <li>Earn $MFAI tokens</li>
+                                <li>Mint NFT badges</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <div
+                                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-4">
+                                02</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Phase 2: Build</h3>
+                            <p class="text-gray-400 mb-4"><strong>Turn your idea into reality</strong></p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-400 text-sm">
+                                <li>Create business plans with AI</li>
+                                <li>Generate pitch decks</li>
+                                <li>Model finances with CFO Agent</li>
+                                <li>Get technical architecture</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <div
+                                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-4">
+                                03</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Phase 3: DAO Approval</h3>
+                            <p class="text-gray-400 mb-4"><strong>Get funded by the community</strong></p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-400 text-sm">
+                                <li>Submit project for DAO review</li>
+                                <li>Community votes on proposal</li>
+                                <li>Receive incubation grants</li>
+                                <li>Gain launchpad access</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <div
+                                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-4">
+                                04</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Phase 4: Launch & Liquidity</h3>
+                            <p class="text-gray-400 mb-4"><strong>Go to market</strong></p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-400 text-sm">
+                                <li>Launch on bonding curve</li>
+                                <li>Instant liquidity via Collaterize</li>
+                                <li>Automatic DEX migration</li>
+                                <li>Live protocol status</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Zyno Interaction -->
+                <section id="zyno-interaction" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">
+                        Interacting with Zyno AI</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Zyno is designed to be intuitive and helpful. You can interact with Zyno through the chat
+                        interface in the bottom right corner or through the dedicated Terminal page.
+                    </p>
+
+                    <div class="glass-card p-8 rounded-2xl border border-white/10 mb-8">
+                        <h4 class="text-xl font-bold text-solana-green mb-4">Key Features</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h5 class="font-bold text-white mb-2">Context Awareness</h5>
+                                <p class="text-sm text-gray-400">Zyno remembers your project details and previous
+                                    conversations, so you don't have to repeat yourself.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-2">Expert Routing</h5>
+                                <p class="text-sm text-gray-400">If you ask a specialized question (e.g., legal or
+                                    technical), Zyno will bring in the relevant expert agent.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-2">Proactive Suggestions</h5>
+                                <p class="text-sm text-gray-400">Zyno will suggest next steps and improvements based on
+                                    your progress.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-2">Real-time Generation</h5>
+                                <p class="text-sm text-gray-400">Zyno can generate documents, code snippets, and
+                                    diagrams instantly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Workflow -->
+                <section id="workflow" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Journey
+                        Workflow</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        The journey is designed to be iterative. You can move back and forth between phases as needed,
+                        but you must complete specific milestones to unlock subsequent phases.
+                    </p>
+
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/10 text-center">
+                        <p class="text-gray-400 italic">
+                            [Workflow Diagram Placeholder: Visualizing the flow from Idea -> Learn -> Build -> Launch]
+                        </p>
+                    </div>
+                </section>
+
+                <!-- DAO -->
+                <section id="dao" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">DAO
+                        Governance</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Money Factory AI is governed by its community. The DAO (Decentralized Autonomous Organization)
+                        ensures that decisions are made transparently and democratically.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <h4 class="text-xl font-bold text-solana-purple mb-2">Propose</h4>
+                            <p class="text-sm text-gray-400">Any member with sufficient voting power can submit a
+                                proposal.</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <h4 class="text-xl font-bold text-solana-purple mb-2">Vote</h4>
+                            <p class="text-sm text-gray-400">Members vote on proposals using their staked $MFAI and
+                                reputation.</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <h4 class="text-xl font-bold text-solana-purple mb-2">Execute</h4>
+                            <p class="text-sm text-gray-400">Approved proposals are automatically executed by smart
+                                contracts.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tokenomics -->
+                <section id="tokenomics" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Tokenomics
+                    </h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        The $MFAI token captures the value created by the ecosystem. It is used for governance, staking,
+                        and accessing premium features.
+                    </p>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-white/5 border-b border-white/10">
+                                    <th class="p-4 text-sm font-bold text-white uppercase">Utility</th>
+                                    <th class="p-4 text-sm font-bold text-white uppercase">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-400">
+                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                    <td class="p-4 font-bold text-white">Governance</td>
+                                    <td class="p-4">Vote on DAO proposals and project funding.</td>
+                                </tr>
+                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                    <td class="p-4 font-bold text-white">Staking</td>
+                                    <td class="p-4">Earn yield and increase voting power.</td>
+                                </tr>
+                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                    <td class="p-4 font-bold text-white">Access</td>
+                                    <td class="p-4">Unlock Zyno Pro features and advanced analytics.</td>
+                                </tr>
+                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                    <td class="p-4 font-bold text-white">Launchpad</td>
+                                    <td class="p-4">Participate in early-stage project launches.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
             </div>
-        </section>
+        </main>
+    </div>
 
-        <section id="zyno-interaction">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Interacting with Zyno AI</h2>
-                    <p>How to communicate with your AI co-founder and get the help you need</p>
-                </div>
-
-                <div class="callout callout-info">
-                    <div class="callout-title">💬 How to Communicate with Zyno</div>
-                    <p>Interacting with Zyno is as simple as having a conversation. You can ask questions in plain
-                        language, request help with specific tasks, or simply tell Zyno what you're trying to
-                        accomplish. Zyno understands context and remembers your previous conversations, so you don't
-                        have to repeat yourself.</p>
-                </div>
-
-                <h3>Multi-Agent Workflow: How Zyno Orchestrates Your Success</h3>
-                <div class="diagram-container">
-                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/c6f99f44-8e97-4378-b36d-8429d4079173"
-                        alt="Zyno Multi-Agent Workflow Diagram" class="workflow-diagram">
-                    <p class="diagram-caption">Zyno Core orchestrates specialized agents (Architect, Engineer, CFO) with
-                        RAG Knowledge Base to generate personalized Journey Step UI based on your requests</p>
-                </div>
-                <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    When you interact with Zyno, here's what happens behind the scenes: Your request is analyzed by Zyno
-                    Core, which activates the most relevant specialized agents (like the Architect for system design or
-                    CFO for financial modeling). These agents consult our RAG Knowledge Base to provide accurate,
-                    context-aware guidance. Finally, Zyno synthesizes all this expertise into a personalized UI that
-                    guides your next steps.
-                </p>
-
-                <h3>Meet the 17 AI Experts</h3>
-                <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    Behind Zyno are 17 specialized AI agents, each an expert in their field. When you need specific
-                    help, Zyno connects you with the right expert automatically. Here's who's on your team:
-                </p>
-
-                <table class="agents-table">
-                    <thead>
-                        <tr>
-                            <th>Agent</th>
-                            <th>Role</th>
-                            <th>Expertise</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>🏗️ Architect</strong></td>
-                            <td>System Design</td>
-                            <td>Tokenomics, architecture, protocols</td>
-                        </tr>
-                        <tr>
-                            <td><strong>💻 Engineer</strong></td>
-                            <td>Smart Contract Dev</td>
-                            <td>Solana programs, deployment, testing</td>
-                        </tr>
-                        <tr>
-                            <td><strong>💰 CFO</strong></td>
-                            <td>Financial Modeling</td>
-                            <td>Projections, valuations, DCF analysis</td>
-                        </tr>
-                        <tr>
-                            <td><strong>🛡️ Auditor</strong></td>
-                            <td>Security Analysis</td>
-                            <td>Code audits, vulnerability assessment</td>
-                        </tr>
-                        <tr>
-                            <td><strong>⚖️ Legal</strong></td>
-                            <td>Compliance</td>
-                            <td>Regulatory frameworks, legal docs</td>
-                        </tr>
-                        <tr>
-                            <td><strong>📣 Marketing</strong></td>
-                            <td>Narrative & GTM</td>
-                            <td>Brand strategy, campaigns, storytelling</td>
-                        </tr>
-                        <tr>
-                            <td><strong>👥 Community</strong></td>
-                            <td>Engagement</td>
-                            <td>Social growth, moderation, support</td>
-                        </tr>
-                        <tr>
-                            <td><strong>📊 Data Analyst</strong></td>
-                            <td>Metrics & Insights</td>
-                            <td>KPIs, dashboards, predictive analytics</td>
-                        </tr>
-                        <tr>
-                            <td><strong>🎨 Designer</strong></td>
-                            <td>Visual Creation</td>
-                            <td>Branding, UI/UX, graphic assets</td>
-                        </tr>
-                        <tr>
-                            <td><strong>📝 Content Writer</strong></td>
-                            <td>Documentation</td>
-                            <td>Whitepapers, blogs, copy</td>
-                        </tr>
-                        <tr>
-                            <td><strong>🔐 Security</strong></td>
-                            <td>Cybersecurity</td>
-                            <td>Penetration testing, data protection</td>
-                        </tr>
-                        <tr>
-                            <td><strong>💱 Treasury</strong></td>
-                            <td>Capital Management</td>
-                            <td>Asset allocation, yield optimization</td>
-                        </tr>
-                        <tr>
-                            <td><strong>🤝 Partnership</strong></td>
-                            <td>Business Development</td>
-                            <td>Integrations, negotiations, deals</td>
-                        </tr>
-                        <tr>
-                            <td><strong>🎓 Educator</strong></td>
-                            <td>User Training</td>
-                            <td>Tutorials, courses, onboarding</td>
-                        </tr>
-                        <tr>
-                            <td><strong>🌐 Translator</strong></td>
-                            <td>Localization</td>
-                            <td>Multilingual content, cultural adaptation</td>
-                        </tr>
-                        <tr>
-                            <td><strong>📧 Communications</strong></td>
-                            <td>Outreach</td>
-                            <td>Email campaigns, newsletters, PR</td>
-                        </tr>
-                        <tr>
-                            <td><strong>🧠 Zyno Core</strong></td>
-                            <td>Central Orchestration</td>
-                            <td>Agent coordination, routing, learning</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3 style="margin-top: 3rem;">How Zyno Evaluates Your Work</h3>
-                <div class="callout callout-tip">
-                    <div class="callout-title">🎯 Merit-Based Assessment</div>
-                    <p>Zyno evaluates your work based on clear criteria: understanding of concepts, quality of
-                        execution, creativity, and practical applicability. You'll receive a score and detailed feedback
-                        explaining what you did well and where you can improve.</p>
-                </div>
-
-                <div class="diagram">You Submit Your Work
-                    ↓
-                    Zyno Reviews & Analyze
-                    ↓
-                    You Receive Detailed Feedback
-                    - What you did well
-                    - Areas for improvement
-                    - Specific suggestions
-                    - Score & XP earned
-                    ↓
-                    You Can:
-                    • Accept & move forward
-                    • Ask clarifying questions
-                    • Revise & resubmit
-                    ↓
-                    Continue Your Journey!</div>
-            </div>
-        </section>
-
-        <section id="workflow">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Journey Workflow in Detail</h2>
-                    <p>A step-by-step walkthrough of how you'll progress through the platform</p>
-                </div>
-
-                <h3>Starting Your Journey</h3>
-                <div class="callout callout-info">
-                    <div class="callout-title">🚀 Your First Steps</div>
-                    <p>Getting started is easy! Connect your Solana wallet, choose your journey type, and complete a
-                        quick assessment so Zyno can personalize your experience.</p>
-                </div>
-
-                <h3 style="margin-top: 3rem;">Working Through Journey Steps</h3>
-                <div class="component-grid">
-                    <div class="component-card">
-                        <h4>📚 Reading Educational Content</h4>
-                        <p style="color: var(--text-secondary);">Zyno explains concepts in simple language with real
-                            examples. Feel free to ask questions anytime!</p>
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-[#020205] py-16 lg:ml-72" aria-label="Footer">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                            <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-display font-bold text-lg tracking-tight leading-none">Money Factory
+                                AI</span>
+                            <span class="text-xs text-gray-500">Venture Engine</span>
+                        </div>
                     </div>
-                    <div class="component-card">
-                        <h4>✅ Completing Missions</h4>
-                        <p style="color: var(--text-secondary);">Hands-on tasks like "Research 3 DeFi protocols" or
-                            "Draft your project vision statement"</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>🧠 Taking Quizzes</h4>
-                        <p style="color: var(--text-secondary);">Quick assessments to test your understanding. Don't
-                            worry - you can retake them!</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>📝 Submitting Deliverables</h4>
-                        <p style="color: var(--text-secondary);">Upload your work for Zyno to review and provide
-                            feedback</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://x.com/MoneyFactoryAI" target="_blank"
+                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-mfai-primary transition-all"><i
+                                data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://github.com/moneyfactoryai" target="_blank"
+                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-mfai-primary transition-all"><i
+                                data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="https://discord.gg/shztvSg9" target="_blank"
+                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-mfai-primary transition-all"><i
+                                data-lucide="message-circle" class="w-5 h-5"></i></a>
                     </div>
                 </div>
 
-                <h3 style="margin-top: 3rem;">Validation Process: Submit, Review, Improve</h3>
-                <div class="callout callout-info">
-                    <div class="callout-title">🔄 The Feedback Loop</div>
-                    <p>When you complete a mission or deliverable, Zyno provides detailed, constructive feedback to help
-                        you improve. This isn't just a pass/fail system - it's a learning experience designed to
-                        accelerate your growth.</p>
-                </div>
-
-                <div class="diagram-container">
-                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/de4c07c3-f673-4672-924c-222ccaf20682"
-                        alt="Submission & Feedback Workflow" class="workflow-diagram">
-                    <p class="diagram-caption">The validation workflow: Submit your work → Zyno reviews → Receive
-                        detailed feedback (strengths, improvements, score, XP) → Accept, ask questions, or revise →
-                        Continue your journey</p>
-                </div>
-
-                <h4 style="margin-top: 2rem; margin-bottom: 1rem;">What Happens After You Submit</h4>
-                <div class="component-grid">
-                    <div class="component-card">
-                        <h4>✅ Strengths Identified</h4>
-                        <p style="color: var(--text-secondary);">Zyno highlights what you did well and what demonstrates
-                            your understanding</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>📈 Areas for Improvement</h4>
-                        <p style="color: var(--text-secondary);">Clear, actionable suggestions on how to enhance your
-                            work</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>💡 Specific Recommendations</h4>
-                        <p style="color: var(--text-secondary);">Detailed guidance on concepts to review or techniques
-                            to apply</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>🎯 Score & XP Earned</h4>
-                        <p style="color: var(--text-secondary);">Your performance score and experience points to track
-                            your progress</p>
-                    </div>
-                </div>
-
-                <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Your Options After Feedback</h4>
-                <div class="glass-card">
-                    <ul style="color: var(--text-secondary); line-height: 2;">
-                        <li><strong>Accept & Move Forward:</strong> If you're satisfied with your score and
-                            feedback, proceed to the next step</li>
-                        <li><strong>Ask Questions:</strong> Need clarification? Zyno is available to explain the
-                            feedback in more detail</li>
-                        <li><strong>Revise & Resubmit:</strong> Improve your work based on feedback and submit again
-                            for a better score</li>
+                <!-- Platform Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="product.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Product</a></li>
+                        <li><a href="index.html#journey"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Journey</a></li>
+                        <li><a href="/terminal" class="text-gray-400 hover:text-white transition-colors text-sm">Zyno
+                                Terminal</a></li>
                     </ul>
                 </div>
 
-                <h3 style="margin-top: 3rem;">Earning Rewards & Recognition</h3>
-                <div class="glass-card">
-                    <p style="color: var(--text-secondary); line-height: 1.8;">
-                        As you complete each step, you earn $MFAI tokens, XP points, and unlock new content. Major
-                        milestones let you mint NFT badges that prove your skills on-chain. These credentials are
-                        permanent, verifiable, and truly yours.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="dao">
-            <div class="container">
-                <div class="section-header">
-                    <h2>DAO Governance & Staking</h2>
-                    <p>Participate in decision-making and earn rewards by staking your tokens</p>
-                </div>
-
-                <div class="callout callout-info">
-                    <div class="callout-title">🏛️ What is Synaptic Governance™?</div>
-                    <p>The MFAI DAO is a community-governed system where YOU help decide which projects get funded, how
-                        the platform evolves, and where resources are allocated. Your voice grows stronger as you
-                        contribute and learn.</p>
-                </div>
-
-                <h3>How Governance Works</h3>
-                <div class="component-grid">
-                    <div class="component-card">
-                        <h4>🚀 Project Approvals</h4>
-                        <p style="color: var(--text-secondary);">Review and vote on which new projects should be
-                            incubated and funded</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>💰 Treasury Decisions</h4>
-                        <p style="color: var(--text-secondary);">Help decide how community funds are allocated and
-                            invested</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>⚙️ Platform Upgrades</h4>
-                        <p style="color: var(--text-secondary);">Vote on new features and platform improvements</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>🤝 Partnership Proposals</h4>
-                        <p style="color: var(--text-secondary);">Approve strategic partnerships with other Web3 projects
-                        </p>
-                    </div>
-                </div>
-
-                <h3 style="margin-top: 3rem;">Staking Your $MFAI Tokens</h3>
-                <div class="glass-card">
-                    <h4 style="margin-bottom: 1rem;">How to Stake</h4>
-                    <p style="color: var(--text-secondary); line-height: 1.8;">
-                        Go to the Staking page, choose how many tokens to stake, confirm in your wallet, and start
-                        earning rewards immediately!
-                    </p>
-
-                    <h4 style="margin-top: 1.5rem; margin-bottom: 1rem;">Staking Rewards</h4>
-                    <p style="color: var(--text-secondary); line-height: 1.8;">
-                        Earn Neuro-Dividends™ based on amount staked, duration, platform activity, and governance
-                        participation.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="tokenomics">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Tokenomics & Rewards</h2>
-                    <p>Understanding $MFAI token utility, earning opportunities, and NFT benefits</p>
-                </div>
-
-                <h3>$MFAI Token Utility</h3>
-                <div class="component-grid">
-                    <div class="component-card">
-                        <h4>🎓 Learning Rewards</h4>
-                        <p style="color: var(--text-secondary);">Earn $MFAI as you complete journeys and educational
-                            modules</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>🗳️ Governance Voting</h4>
-                        <p style="color: var(--text-secondary);">Stake $MFAI to participate in DAO decisions</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>🎭 NFT Minting</h4>
-                        <p style="color: var(--text-secondary);">Use $MFAI to mint your Proof-of-Skill™ badges</p>
-                    </div>
-                    <div class="component-card">
-                        <h4>🚀 Launchpad Access</h4>
-                        <p style="color: var(--text-secondary);">Submit your project and access funding opportunities
-                        </p>
-                    </div>
-                </div>
-
-                <h3 style="margin-top: 3rem;">How to Earn $MFAI</h3>
-                <div class="glass-card">
-                    <ul style="color: var(--text-secondary); line-height: 2;">
-                        <li><strong>Complete Journeys:</strong> Earn rewards based on difficulty and performance</li>
-                        <li><strong>Governance Participation:</strong> Active voters receive bonus rewards</li>
-                        <li><strong>Staking Rewards:</strong> Earn Neuro-Dividends™ by staking long-term</li>
-                        <li><strong>Referral Program:</strong> Invite friends and earn a percentage of their rewards
-                        </li>
-                        <li><strong>Community Contributions:</strong> Help others and create content</li>
+                <!-- Resources Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="documentation_hub.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Documentation</a></li>
+                        <li><a href="docs.html" class="text-gray-400 hover:text-white transition-colors text-sm">API
+                                Docs</a></li>
+                        <li><a href="litepaper.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Litepaper</a></li>
+                        <li><a href="user_guide.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">User Guide</a></li>
                     </ul>
                 </div>
 
-                <h3 style="margin-top: 3rem;">Proof-of-Skill™ NFT Badges</h3>
-                <div class="callout callout-tip">
-                    <div class="callout-title">🎖️ What Are Proof-of-Skill™ NFTs?</div>
-                    <p>These are unique digital badges minted on Solana that prove you've completed a journey and gained
-                        specific skills. They're permanent, verifiable credentials that you truly own.</p>
+                <!-- Community Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
+                    <ul class="space-y-3">
+                        <li><a href="token.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Token</a></li>
+                        <li><a href="investors.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">For Investors</a></li>
+                        <li><a href="https://discord.gg/shztvSg9" target="_blank"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Discord</a></li>
+                    </ul>
                 </div>
             </div>
-        </section>
 
-    </main>
-
-    <footer
-        style="background: rgba(19, 19, 36, 0.95); padding: 3rem 0; border-top: 1px solid rgba(153, 69, 255, 0.2); margin-left: 280px; transition: margin-left 0.3s ease;">
-        <div class="container">
-            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 1rem;">&copy; 2025 Money Factory
-                AI. Built on Solana.</p>
-            <p style="text-align: center;">
-                <a href="index.html#home" style="color: var(--solana-green); margin: 0 1rem;">Home</a>
-                <a href="product.html" style="color: var(--solana-green); margin: 0 1rem;">Product</a>
-                <a href="token.html" style="color: var(--solana-green); margin: 0 1rem;">Token</a>
-                <a href="documentation_hub.html" style="color: var(--solana-green); margin: 0 1rem;">Docs Hub</a>
-                <a href="https://discord.gg/shztvSg9" target="_blank"
-                    style="color: var(--solana-green); margin: 0 1rem;">Discord</a>
-            </p>
-            <p style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">
-                <strong>Disclaimer:</strong> Nothing on this site constitutes financial or investment advice. Always do
-                your own research.
-            </p>
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-white/5">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+                    <div class="text-gray-500 text-sm">
+                        &copy; 2025 Money Factory AI. Built on Solana.
+                    </div>
+                    <div class="flex gap-6 text-sm">
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Terms</a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Privacy</a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('mainContent');
-        const navbar = document.getElementById('navbar');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        lucide.createIcons();
 
-        function toggleSidebar() {
-            sidebar.classList.toggle('collapsed');
-            sidebar.classList.toggle('active');
-            mainContent.classList.toggle('sidebar-collapsed');
-            navbar.classList.toggle('sidebar-collapsed');
-            sidebarOverlay.classList.toggle('active');
-        }
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-        menuToggle.addEventListener('click', toggleSidebar);
-        sidebarOverlay.addEventListener('click', toggleSidebar);
-
-        document.querySelectorAll('.sidebar-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth < 768 && sidebar.classList.contains('active')) {
-                    toggleSidebar();
-                }
-            });
-        });
-
-        const navLinks = document.querySelectorAll('.sidebar-nav a');
-        const sections = document.querySelectorAll('section');
-
-        function updateActiveSection() {
-            let currentSection = '';
-            let scrollPosition = window.pageYOffset + 200;
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                const href = link.getAttribute('href');
-                if (href === `#${currentSection}`) {
-                    link.classList.add('active');
-                    const sectionTitle = link.textContent.trim();
-                    if (currentSectionSpan) {
-                        currentSectionSpan.textContent = sectionTitle;
-                    }
-                }
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
         }
 
-        const currentSectionSpan = document.getElementById('currentSection');
-
-        window.addEventListener('scroll', updateActiveSection);
-        updateActiveSection();
-
-        const progressBar = document.getElementById('sidebarProgress');
-        function updateScrollProgress() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            if (progressBar) {
-                progressBar.style.height = scrolled + '%';
-            }
-        }
-
-        window.addEventListener('scroll', updateScrollProgress);
-        updateScrollProgress();
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = window.innerWidth < 768 ? 80 : 100;
-                    const targetPosition = target.offsetTop - offset;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // Reveal on Scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        sections.forEach(section => {
-            observer.observe(section);
+        document.querySelectorAll('.reveal-on-scroll').forEach((element) => {
+            observer.observe(element);
         });
 
-        function handleResize() {
-            if (window.innerWidth < 768) {
-                sidebar.classList.add('collapsed');
-                mainContent.classList.add('sidebar-collapsed');
-                navbar.classList.add('sidebar-collapsed');
-            } else {
-                // For documentation pages, keep sidebar visible by default on desktop
-                sidebar.classList.remove('collapsed');
-                sidebar.classList.remove('active'); // Only apply 'active' when explicitly toggled open on mobile
-                mainContent.classList.remove('sidebar-collapsed');
-                navbar.classList.remove('sidebar-collapsed');
-                sidebarOverlay.classList.remove('active');
-            }
-        }
+        // Sidebar Active Link Logic
+        const sections = document.querySelectorAll('section[id]');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
 
-        // Initialize sidebar as visible on desktop by default when page loads
-        function initializeSidebar() {
-            // Explicitly ensure sidebar is visible by default on desktop, overriding any initial state
-            if (window.innerWidth >= 768) {
-                sidebar.classList.remove('collapsed');
-                mainContent.classList.remove('sidebar-collapsed');
-                navbar.classList.remove('sidebar-collapsed');
-                // Remove overlay active state as well
-                sidebarOverlay.classList.remove('active');
-            } else {
-                // On mobile, ensure it starts collapsed for better mobile UX
-                sidebar.classList.add('collapsed');
-            }
-        }
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-        // Wait for DOM to be fully loaded before initializing sidebar state
-        document.addEventListener('DOMContentLoaded', function () {
-            // Give a little time for the window size to be properly calculated
-            setTimeout(function () {
-                handleResize();
-                initializeSidebar();
-            }, 100);
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
-
-        // Also add regular resize listener
-        window.addEventListener('resize', handleResize);
     </script>
 </body>
 
