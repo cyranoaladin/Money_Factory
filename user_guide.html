@@ -1,2282 +1,692 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Guide – Investors &amp; Community on Money Factory AI</title>
+    <title>User Guide – Investors & Community on Money Factory AI</title>
+    <meta name="description"
+        content="Comprehensive user guide for Money Factory AI. Learn about the ecosystem, Zyno, and the 4-phase journey.">
+
+    <!-- Tailwind & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        solana: {
+                            purple: '#9945FF',
+                            green: '#14F195',
+                            dark: '#0B0B15',
+                            card: '#131324'
+                        },
+                        mfai: {
+                            primary: '#6366F1',
+                            secondary: '#8B5CF6',
+                            accent: '#06B6D4',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                        'draw': 'draw 2s ease-out forwards',
+                        'flow': 'flow 3s linear infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        draw: {
+                            '0%': { strokeDasharray: '1000', strokeDashoffset: '1000' },
+                            '100%': { strokeDashoffset: '0' }
+                        },
+                        flow: {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '100%': { backgroundPosition: '100% 50%' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(99, 102, 241, 0.6), 0 0 60px rgba(139, 92, 246, 0.4)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        :root {
-            /* Solana brand colors */
-            --solana-purple: #9945FF;
-            --solana-green: #14F195;
-            --solana-blue: #00D4FF;
-
-            /* Dark theme */
-            --bg-primary: #0B0B15;
-            --bg-secondary: #15152A;
-            --bg-tertiary: #1F1F3A;
-            --text-primary: #FFFFFF;
-            --text-secondary: #B8B8D0;
-            --text-muted: #7A7A9E;
-            --border-color: rgba(153, 69, 255, 0.2);
-            --border-hover: rgba(153, 69, 255, 0.4);
-
-            /* Semantic colors - Dark mode */
-            --color-background: var(--bg-primary);
-            --color-surface: var(--bg-secondary);
-            --color-text: var(--text-primary);
-            --color-text-secondary: var(--text-secondary);
-            --color-primary: var(--solana-green);
-            --color-border: var(--border-color);
-            --color-card-border: var(--border-color);
-            --color-success: var(--solana-green);
-            --color-error: #F44336;
-            --gradient-primary: linear-gradient(135deg, var(--solana-purple) 0%, var(--solana-green) 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--color-background);
-            color: var(--color-text);
-            line-height: 1.8;
+            background-color: #050505;
+            color: #E2E8F0;
             overflow-x: hidden;
-            font-size: 15px;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            color: var(--color-text);
-            line-height: 1.3;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin: 3rem 0 1.5rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin: 2rem 0 1rem;
-        }
-
-        h4 {
-            font-size: 1.2rem;
-            margin: 1.5rem 0 0.75rem;
-        }
-
-        .bg-mesh {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .top-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: var(--color-surface);
-            border-bottom: 1px solid var(--color-border);
-            padding: 1.25rem 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .top-nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--color-text);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-        }
-
-        .logo-link {
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-version {
-            font-size: 0.75rem;
-            color: var(--color-text-secondary);
-            font-weight: 400;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-            font-weight: 400;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--color-primary);
-        }
-
-        .btn {
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            border: 1px solid var(--color-border);
-            font-size: 0.9rem;
-            background: var(--color-surface);
-            color: var(--color-text);
-        }
-
-        .btn:hover {
-            background: rgba(50, 184, 198, 0.1);
-            border-color: var(--color-primary);
-        }
-
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 70px;
-            width: 280px;
-            height: calc(100vh - 70px);
-            background: var(--color-surface);
-            border-right: 1px solid var(--color-border);
-            overflow-y: auto;
-            padding: 2rem 0;
-            z-index: 100;
-        }
-
-        .sidebar-section {
-            margin-bottom: 1.5rem;
-            padding: 0 1.5rem;
-        }
-
-        .sidebar-title {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--color-text-secondary);
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-
-        .sidebar-nav a {
-            display: block;
-            padding: 0.5rem 0;
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-            line-height: 1.4;
-        }
-
-        .sidebar-nav a:hover,
-        .sidebar-nav a.active {
-            color: var(--color-primary);
-        }
-
-        .sidebar-nav a.active {
-            font-weight: 500;
-        }
-
-        .main-wrapper {
-            margin-left: 280px;
-            padding-top: 70px;
-        }
-
-        .hero {
-            padding: 3rem 0 2rem;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 2.25rem;
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-            color: var(--color-text);
-        }
-
-        .hero-meta {
-            font-size: 0.85rem;
-            color: var(--color-text-secondary);
-            margin-bottom: 2rem;
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .abstract {
-            background: rgba(50, 184, 198, 0.08);
-            border-left: 3px solid var(--color-primary);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-
-        .abstract h3 {
-            font-size: 1rem;
-            margin: 0 0 1rem 0;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--color-primary);
-        }
-
-        .toc {
-            background: var(--color-surface);
-            border: 1px solid var(--color-card-border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .toc h3 {
-            font-size: 1rem;
-            margin: 0 0 1rem 0;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .toc ol {
-            list-style: none;
-            counter-reset: section;
-            padding: 0;
-            margin: 0;
-        }
-
-        .toc li {
-            counter-increment: section;
-            margin: 0.5rem 0;
-        }
-
-        .toc li a {
-            color: var(--color-text);
-            text-decoration: none;
-            display: block;
-            padding: 0.25rem 0;
-        }
-
-        .toc li a:hover {
-            color: var(--color-primary);
-        }
-
-        .toc li a::before {
-            content: counter(section) ". ";
-            color: var(--color-text-secondary);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-            background: var(--color-surface);
-            border: 1px solid var(--color-card-border);
-        }
-
-        thead {
-            background: rgba(50, 184, 198, 0.1);
-        }
-
-        th,
-        td {
-            padding: 0.75rem 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--color-card-border);
-        }
-
-        th {
-            font-weight: 600;
-            color: var(--color-text);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-
-        td {
-            color: var(--color-text-secondary);
-        }
-
-        tbody tr:hover {
-            background: rgba(50, 184, 198, 0.05);
-        }
-
-        code {
-            background: rgba(50, 184, 198, 0.15);
-            padding: 0.15rem 0.4rem;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-            color: var(--color-primary);
-        }
-
-        pre {
-            background: var(--color-surface);
-            border: 1px solid var(--color-card-border);
-            border-radius: 6px;
-            padding: 1rem;
-            overflow-x: auto;
-            margin: 1.5rem 0;
-        }
-
-        pre code {
-            background: none;
-            padding: 0;
-            color: var(--color-text);
-            font-size: 0.85rem;
-            line-height: 1.6;
-        }
-
-        .formula {
-            background: var(--color-surface);
-            border: 1px solid var(--color-card-border);
-            border-left: 3px solid var(--color-primary);
-            padding: 1rem 1.5rem;
-            margin: 1.5rem 0;
-            font-family: 'Courier New', monospace;
-            font-size: 1rem;
-            text-align: center;
-            border-radius: 4px;
-        }
-
-        .info-box {
-            background: rgba(59, 130, 246, 0.1);
-            border-left: 3px solid #3B82F6;
-            padding: 1rem 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 4px;
-        }
-
-        .info-box strong {
-            color: #3B82F6;
-        }
-
-        .section-number {
-            color: var(--color-primary);
-            font-weight: 600;
-            margin-right: 0.5rem;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        section {
-            padding: 2rem 0;
-            page-break-inside: avoid;
-        }
-
-        .section-header {
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .section-header h2 {
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            color: var(--color-text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .subsection {
-            margin: 2rem 0;
-        }
-
-        .subsection h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-        }
-
-        ul,
-        ol {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-            color: var(--color-text-secondary);
-            line-height: 1.8;
-        }
-
-        ul li,
-        ol li {
-            margin: 0.5rem 0;
-        }
-
-        p {
-            margin: 1rem 0;
-            color: var(--color-text-secondary);
-            line-height: 1.8;
-        }
-
-        strong {
-            color: var(--color-text);
-            font-weight: 600;
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .stat-card {
-            background: rgba(19, 19, 36, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--solana-green);
-        }
-
-        .stat-value {
-            font-size: 3rem;
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        .glass-card {
-            background: rgba(19, 19, 36, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .component-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .component-card {
-            background: rgba(19, 19, 36, 0.6);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .component-card:hover {
-            border-color: var(--solana-green);
-            transform: translateY(-5px);
-        }
-
-        .component-card h4 {
-            color: var(--solana-green);
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-        }
-
-        .phases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .protocol-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .phase-card {
-            background: rgba(19, 19, 36, 0.6);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .phase-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--solana-green);
-        }
-
-        .phase-number {
-            font-size: 2rem;
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .phase-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--solana-green);
-        }
-
-        .phase-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        .protocol-card {
-            background: rgba(19, 19, 36, 0.6);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .protocol-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--solana-green);
-        }
-
-        .protocol-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .protocol-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--solana-green);
-        }
-
-        .personas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .persona-card {
-            background: rgba(19, 19, 36, 0.6);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .persona-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--solana-green);
-        }
-
-        .persona-card h4 {
-            color: var(--solana-purple);
-            margin-bottom: 0.75rem;
-            font-size: 1.3rem;
-        }
-
-        .persona-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .faq-container {
-            max-width: 900px;
-            margin: 2rem auto;
-        }
-
-        .faq-item {
-            background: rgba(19, 19, 36, 0.6);
-            border: 1px solid rgba(153, 69, 255, 0.3);
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: rgba(153, 69, 255, 0.1);
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 0 1.5rem 1.5rem;
-            max-height: 500px;
-        }
-
-        .faq-icon {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
-        }
-
-        .feature-list {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .feature-list li {
-            padding: 1rem 0;
-            padding-left: 2rem;
-            position: relative;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .feature-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--solana-green);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .vision-bullets {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .vision-bullets li {
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            padding-left: 2.5rem;
-            position: relative;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            background: rgba(19, 19, 36, 0.4);
-            border-radius: 8px;
-            border-left: 3px solid var(--solana-purple);
-        }
-
-        .vision-bullets li:before {
-            content: "→";
-            position: absolute;
-            left: 1rem;
-            color: var(--solana-green);
-            font-weight: bold;
-        }
-
+        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
+            background: #0B0B15;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: rgba(153, 69, 255, 0.3);
+            background: #333;
             border-radius: 4px;
         }
 
-        @media (max-width: 1024px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s;
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .main-wrapper {
-                margin-left: 0;
-            }
-
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            table {
-                font-size: 0.8rem;
-            }
-
-            th,
-            td {
-                padding: 0.5rem;
-            }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366F1;
         }
 
-        @media print {
+        /* Glassmorphism */
+        .glass {
+            background: rgba(19, 19, 36, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
 
-            .sidebar,
-            .top-nav,
-            .btn {
-                display: none;
-            }
+        .glass-card {
+            background: linear-gradient(180deg, rgba(30, 30, 50, 0.85) 0%, rgba(20, 20, 35, 0.7) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-            .main-wrapper {
-                margin-left: 0;
-                padding-top: 0;
-            }
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px -10px rgba(99, 102, 241, 0.3);
+        }
 
-            body {
-                background: white;
-                color: black;
-            }
+        /* Text Gradients */
+        .text-gradient-solana {
+            background: linear-gradient(90deg, #9945FF 0%, #14F195 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-mfai {
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #06B6D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Nav Link */
+        .nav-link {
+            position: relative;
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, #6366F1, #14F195);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: #ffffff;
+        }
+
+        /* Reveal on Scroll */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Sidebar Link Active State */
+        .sidebar-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #9CA3AF;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            color: #ffffff;
+            background: rgba(99, 102, 241, 0.1);
+            border-left-color: #6366F1;
         }
     </style>
 </head>
 
-<body>
-    <div class="bg-mesh"></div>
+<body class="antialiased selection:bg-mfai-primary selection:text-white">
 
-    <!-- TOP NAV Updated for Litepaper -->
-    <nav class="top-nav">
-        <div class="top-nav-container">
-            <a href="index.html" class="logo-link">
-                <div class="logo">
-                    Money Factory AI
-                    <span class="logo-version">User Guide | Investors &amp; Community</span>
+    <!-- Background Mesh -->
+    <div class="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(99,102,241,0.12),transparent_30%)]">
+        </div>
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(139,92,246,0.08),transparent_25%)]">
+        </div>
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_80%,rgba(6,182,212,0.06),transparent_30%)]">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 transition-all duration-300"
+        aria-label="Main Navigation">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
+                <div
+                    class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none">Money Factory AI</span>
+                    <span class="text-xs text-gray-400 font-sans">Venture Engine</span>
                 </div>
             </a>
-            <a href="#" class="btn" id="downloadPdfBtn" style="margin-left: auto;">Download PDF</a>
+
+            <div class="hidden md:flex items-center gap-8" id="nav-links">
+                <a href="index.html#home"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="index.html#journey"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Journey</a>
+                <a href="product.html"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Product</a>
+                <a href="docs.html#zyno-overview"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Agents & API</a>
+                <a href="token.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Token</a>
+                <a href="investors.html"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Investors</a>
+                <a href="documentation_hub.html"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Docs</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="litepaper.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-gray-400 hover:text-white transition-colors">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    Litepaper
+                </a>
+                <a href="/terminal"
+                    class="px-6 py-2.5 bg-gradient-to-r from-mfai-primary to-mfai-secondary border border-white/20 text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-mfai-primary/20 transition-all">
+                    Access Terminal
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-toggle" class="md:hidden p-2 text-gray-400 hover:text-white transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0B0B15] border-t border-white/10 p-6 space-y-4">
+            <a href="index.html#home" class="block text-gray-300 hover:text-white">Home</a>
+            <a href="index.html#journey" class="block text-gray-300 hover:text-white">Journey</a>
+            <a href="product.html" class="block text-gray-300 hover:text-white">Product</a>
+            <a href="token.html" class="block text-gray-300 hover:text-white">Token</a>
+            <a href="investors.html" class="block text-gray-300 hover:text-white">Investors</a>
+            <a href="documentation_hub.html" class="block text-gray-300 hover:text-white">Docs</a>
+            <div class="pt-4 border-t border-white/10">
+                <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">On this page</p>
+                <a href="#intro" class="block text-sm text-gray-400 hover:text-white py-1">Introduction</a>
+                <a href="#vision" class="block text-sm text-gray-400 hover:text-white py-1">Vision & Mission</a>
+                <a href="#journey" class="block text-sm text-gray-400 hover:text-white py-1">The 4-Phase Journey</a>
+                <a href="#zyno" class="block text-sm text-gray-400 hover:text-white py-1">Zyno: The AI Engine</a>
+                <a href="#token" class="block text-sm text-gray-400 hover:text-white py-1">Tokenomics ($MFAI)</a>
+                <a href="#governance" class="block text-sm text-gray-400 hover:text-white py-1">Governance</a>
+                <a href="#faq" class="block text-sm text-gray-400 hover:text-white py-1">FAQ</a>
+            </div>
         </div>
     </nav>
-    <!-- Left Sidebar Table of Contents -->
-    <aside class="sidebar">
-        <div class="sidebar-section">
-            <div class="sidebar-title">Table of Contents</div>
-            <nav class="sidebar-nav">
-                <a href="#section-1">1. Welcome &amp; Overview</a>
-                <a href="#section-2">2. Your Journey as an Investor</a>
-                <a href="#section-3">3. Interacting with Zyno Outputs</a>
-                <a href="#section-4">4. Governance Basics</a>
-                <a href="#section-5">5. Launchpad Participation</a>
-                <a href="#section-6">6. Staking &amp; Alignment</a>
-                <a href="#section-7">7. Security, Risks &amp; Best Practices</a>
-            </nav>
-        </div>
-    </aside>
-    <div class="main-wrapper">
 
-        <main class="main-content" id="mainContent">
-
-            <section id="hero" class="hero">
-                <div class="container hero-content">
-                    <h1>User Guide – Investors &amp; Community on Money Factory AI</h1>
-                    <div class="hero-meta">
-                        <span>For Investors, DAO Members &amp; Community Contributors</span>
-                    </div>
-                    <p class="hero-subheadline"><strong>How to participate, govern and align with builders on Solana
-                            using $MFAI, Journey and Zyno.</strong></p>
-                    <div
-                        style="margin-top: 2rem; padding: 1.5rem; background: rgba(50, 184, 198, 0.08); border-left: 3px solid var(--color-primary); border-radius: 6px;">
-                        <p style="margin: 0 0 1rem 0; line-height: 1.8;">This guide is written for investors, DAO
-                            members and community contributors who want to understand how to use Money Factory AI
-                            effectively.</p>
-                        <p style="margin: 0; line-height: 1.8; font-weight: 500;">You will learn:</p>
-                        <ul style="margin: 0.5rem 0 0 0; padding-left: 1.5rem; line-height: 1.8;">
-                            <li>How Journey tracks work and how they generate signal about teams and individuals</li>
-                            <li>How Zyno and its agents assist projects from idea to launch</li>
-                            <li>How Synaptic Governance uses $MFAI, Proof-of-Skill NFTs and track history to structure
-                                voting power</li>
-                            <li>How the MFAI launchpad and Collaterize curves turn approved projects into on-chain
-                                opportunities</li>
-                            <li>How to engage safely, without conflating platform participation with guaranteed
-                                financial returns</li>
-                        </ul>
-                    </div>
+    <div class="flex min-h-screen pt-20">
+        <!-- Sidebar (Desktop) -->
+        <aside
+            class="fixed left-0 top-20 h-[calc(100vh-5rem)] w-72 overflow-y-auto border-r border-white/10 bg-[#0B0B15]/95 backdrop-blur-xl hidden lg:block z-40">
+            <div class="p-6">
+                <div class="mb-6">
+                    <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">User Guide</h5>
+                    <nav class="space-y-1">
+                        <a href="#intro" class="sidebar-link active">Introduction</a>
+                        <a href="#vision" class="sidebar-link">Vision & Mission</a>
+                        <a href="#journey" class="sidebar-link">The 4-Phase Journey</a>
+                        <a href="#zyno" class="sidebar-link">Zyno: The AI Engine</a>
+                        <a href="#token" class="sidebar-link">Tokenomics ($MFAI)</a>
+                        <a href="#governance" class="sidebar-link">Governance</a>
+                        <a href="#faq" class="sidebar-link">FAQ</a>
+                    </nav>
                 </div>
-            </section>
 
-            <div class="container">
-                <div class="info-box"
-                    style="margin: 2rem 0; background: rgba(255, 84, 89, 0.1); border-left-color: #FF5459;">
-                    <strong style="color: #FF5459;">⚠️ IMPORTANT DISCLAIMER:</strong> This guide is for informational
-                    purposes only and does not constitute financial, investment, legal, or tax advice. Cryptocurrency
-                    investments carry significant risks, including the potential loss of principal. MFAI provides
-                    infrastructure and governance, not financial advice. Always conduct your own research (DYOR) and
-                    consult with qualified professionals before making investment decisions.
+                <div class="bg-mfai-primary/10 rounded-xl p-4 border border-mfai-primary/20">
+                    <h6 class="text-sm font-bold text-white mb-2">Need Help?</h6>
+                    <p class="text-xs text-gray-400 mb-3">Join our Discord community for real-time support.</p>
+                    <a href="https://discord.gg/moneyfactoryai" target="_blank"
+                        class="block w-full py-2 text-center bg-mfai-primary/20 hover:bg-mfai-primary/30 text-mfai-primary text-xs font-bold rounded-lg transition-colors">
+                        Join Discord
+                    </a>
                 </div>
             </div>
+        </aside>
 
-            <!-- 1. WELCOME & OVERVIEW -->
-            <section id="section-1">
-                <div class="container">
-                    <div class="section-header"><span class="section-number">1.</span>
-                        <h2>Welcome &amp; Overview</h2>
-                        <p>What is MFAI in one page, from an investor's perspective?</p>
-                    </div>
+        <!-- Main Content -->
+        <main class="flex-1 lg:ml-72 p-6 lg:p-12 w-full max-w-[100vw] overflow-x-hidden">
+            <div class="max-w-4xl mx-auto">
 
-                    <div class="subsection">
-                        <h3>What is Money Factory AI?</h3>
-                        <p>MFAI is a Solana-native venture engine that combines education, AI-assisted building, DAO
-                            governance, and programmatic liquidity into a single coherent pipeline.</p>
-                        <p>Unlike traditional venture capital firms, MFAI provides:</p>
-                        <ul>
-                            <li><strong>Transparent signal on teams</strong> through on-chain credentials and public
-                                track records</li>
-                            <li><strong>Verifiable proof of learning and iteration,</strong> not just pitch decks</li>
-                            <li><strong>Structured project artifacts</strong> generated by Zyno AI that you can review
-                                before voting</li>
-                            <li><strong>Algorithmic liquidity</strong> via Collaterize bonding curves, reducing reliance
-                                on market makers</li>
-                        </ul>
-                    </div>
+                <!-- Introduction -->
+                <section id="intro" class="mb-20 reveal-on-scroll">
+                    <h1 class="text-4xl md:text-5xl font-bold font-display mb-6 text-white">User Guide</h1>
+                    <p class="text-xl text-gray-400 leading-relaxed mb-8">
+                        Welcome to the Money Factory AI User Guide. This document provides a comprehensive overview of
+                        the ecosystem, designed for investors, community members, and builders.
+                    </p>
 
-                    <div class="subsection">
-                        <h3>Key Points for Investors</h3>
-                        <div class="component-grid">
-                            <div class="component-card" style="background: var(--color-bg-1);">
-                                <h4>Signal Over Hype</h4>
-                                <p style="color: var(--color-text-secondary);">Track records are on-chain:
-                                    Proof-of-Skill NFTs, Journey completion rates, and participation history provide
-                                    verifiable indicators of team quality.</p>
-                            </div>
-                            <div class="component-card" style="background: var(--color-bg-2);">
-                                <h4>Structured Evaluation</h4>
-                                <p style="color: var(--color-text-secondary);">Projects go through standardized 4-phase
-                                    validation (Learn → Build → Govern → Launch) with clear graduation criteria at each
-                                    stage.</p>
-                            </div>
-                            <div class="component-card" style="background: var(--color-bg-3);">
-                                <h4>Merit-Based Governance</h4>
-                                <p style="color: var(--color-text-secondary);">Voting power reflects your stake + your
-                                    own skills + your participation history, not just token holdings.</p>
-                            </div>
-                            <div class="component-card" style="background: var(--color-bg-4);">
-                                <h4>Programmable Liquidity</h4>
-                                <p style="color: var(--color-text-secondary);">Bonding curves eliminate dependency on
-                                    CEX listings and provide instant liquidity from day one.</p>
-                            </div>
-                            <div class="component-card" style="background: var(--color-bg-5);">
-                                <h4>Community Alignment</h4>
-                                <p style="color: var(--color-text-secondary);">You govern what gets incubated and how
-                                    resources are allocated through Synaptic Governance.</p>
-                            </div>
-                            <div class="component-card" style="background: var(--color-bg-6);">
-                                <h4>Solana-Native</h4>
-                                <p style="color: var(--color-text-secondary);">Built specifically for Solana's speed
-                                    (2,000+ TPS), low fees ($0.00025), and mature ecosystem (Jupiter, Raydium,
-                                    Metaplex).</p>
-                            </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-2">
+                                17</div>
+                            <div class="text-sm text-gray-400">Specialized AI Agents</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-2">
+                                4</div>
+                            <div class="text-sm text-gray-400">Phase Journey</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-2">
+                                DAO</div>
+                            <div class="text-sm text-gray-400">Community Governed</div>
                         </div>
                     </div>
-
-                    <div class="subsection">
-                        <h3>How MFAI Works: The Pipeline</h3>
-                        <div class="phases-grid">
-                            <div class="phase-card">
-                                <div class="phase-number">01</div>
-                                <h3>Journey</h3>
-                                <p>Builders complete educational tracks and earn Proof-of-Skill NFTs. This creates
-                                    verifiable on-chain credentials you can review.</p>
-                            </div>
-                            <div class="phase-card">
-                                <div class="phase-number">02</div>
-                                <h3>Zyno AI</h3>
-                                <p>17 specialized AI agents help builders generate structured project artifacts:
-                                    architecture, tokenomics, governance, and launch plans.</p>
-                            </div>
-                            <div class="phase-card">
-                                <div class="phase-number">03</div>
-                                <h3>DAO Governance</h3>
-                                <p>You and other community members vote on which projects get incubated using Synaptic
-                                    Governance (weighted by stake + skills + participation).</p>
-                            </div>
-                            <div class="phase-card">
-                                <div class="phase-number">04</div>
-                                <h3>Launchpad</h3>
-                                <p>Approved projects launch via Collaterize bonding curves with transparent parameters
-                                    set by the DAO.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-            <!-- 2. YOUR JOURNEY AS AN INVESTOR / COMMUNITY MEMBER -->
-            <section id="section-2">
-                <div class="container">
-                    <div class="section-header"><span class="section-number">2.</span>
-                        <h2>Your Journey as an Investor / Community Member</h2>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>2.1 Following Builder Tracks</h3>
-                        <p>As an investor or DAO member, you can observe builder activity and track records in
-                            real-time:</p>
-
-                        <h4 style="margin-top: 2rem;">Public Journey Data</h4>
-                        <ul>
-                            <li>Which users are completing which tracks (Web3 Builder, DeFi Architect, DAO Operator,
-                                etc.)</li>
-                            <li>Proof-of-Skill NFTs minted (on-chain credentials)</li>
-                            <li>XP progression and milestone achievements</li>
-                            <li>Project submissions and iteration history</li>
-                        </ul>
-
-                        <h4 style="margin-top: 2rem;">Signal Generation</h4>
-                        <p>Journey tracks create verifiable indicators of commitment and competence:</p>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Indicator</th>
-                                    <th>What It Tells You</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Proof-of-Skill NFTs</td>
-                                    <td>Verified knowledge in specific domains (Solana basics, tokenomics, smart
-                                        contracts)</td>
-                                </tr>
-                                <tr>
-                                    <td>Track Completion Rate</td>
-                                    <td>How thoroughly they engage with educational content</td>
-                                </tr>
-                                <tr>
-                                    <td>Iteration Count</td>
-                                    <td>How many times they refined their project with Zyno</td>
-                                </tr>
-                                <tr>
-                                    <td>Community Feedback</td>
-                                    <td>Ratings and comments from other users</td>
-                                </tr>
-                                <tr>
-                                    <td>DAO Participation</td>
-                                    <td>Historical voting record and proposal quality</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h4 style="margin-top: 2rem;">Spotting High-Signal Teams</h4>
-                        <div class="glass-card"
-                            style="background: rgba(33, 128, 141, 0.08); border-color: var(--color-success);">
-                            <h4 style="color: var(--color-success); margin-bottom: 1rem;">✅ Positive Indicators</h4>
-                            <ul style="margin: 0; line-height: 2;">
-                                <li>Multiple Proof-of-Skill NFTs across relevant domains</li>
-                                <li>High completion rate (&gt;80%) on assigned modules</li>
-                                <li>Multiple project iterations (shows responsiveness to feedback)</li>
-                                <li>Active DAO participation (votes, proposals, discussions)</li>
-                                <li>Public testimonials from other community members</li>
-                            </ul>
-                        </div>
-
-                        <div class="glass-card"
-                            style="background: rgba(192, 21, 47, 0.08); border-color: var(--color-error); margin-top: 1.5rem;">
-                            <h4 style="color: var(--color-error); margin-bottom: 1rem;">❌ Red Flags</h4>
-                            <ul style="margin: 0; line-height: 2;">
-                                <li>Rushed through Journey with minimal engagement</li>
-                                <li>No iteration history (submitted once and never refined)</li>
-                                <li>Anonymous with no track record</li>
-                                <li>Over-promising in proposals without technical backing</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>2.2 Investor-Specific Pathways</h3>
-                        <p>MFAI offers an <strong>"Investor/Angel" track</strong> that teaches you:</p>
-                        <ul class="feature-list">
-                            <li>How to read Zyno-generated project artifacts</li>
-                            <li>How to evaluate tokenomics models</li>
-                            <li>How to assess governance designs</li>
-                            <li>How to participate in DAO votes effectively</li>
-                            <li>How to use Collaterize analytics</li>
-                        </ul>
-                        <p><strong>Complete this track to earn Proof-of-Skill NFTs that increase your governance voting
-                                power.</strong></p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 3. INTERACTING WITH ZYNO OUTPUTS -->
-            <section id="section-3">
-                <div class="container">
-                    <div class="section-header"><span class="section-number">3.</span>
-                        <h2>Interacting with Zyno Outputs</h2>
-                        <p>How to read and evaluate AI-generated project dossiers</p>
-                    </div>
-                    <div class="subsection">
-                        <h3>3.1 Reading a "Zyno Dossier"</h3>
-                        <p>When a project completes Phase 2 (Build with Zyno), it submits a comprehensive dossier to the
-                            DAO for review. This dossier includes:</p>
-
-                        <h4>1. Project Overview</h4>
-                        <ul>
-                            <li>Problem statement</li>
-                            <li>Solution architecture</li>
-                            <li>Target market and competitors</li>
-                            <li>Team credentials (Proof-of-Skill NFTs)</li>
-                        </ul>
-
-                        <h4 style="margin-top: 1.5rem;">2. Technical Architecture</h4>
-                        <ul>
-                            <li>System design diagrams</li>
-                            <li>Smart contract specifications</li>
-                            <li>Security considerations</li>
-                            <li>Scalability plan</li>
-                        </ul>
-
-                        <h4 style="margin-top: 1.5rem;">3. Tokenomics Model</h4>
-                        <ul>
-                            <li>Token distribution (pie chart)</li>
-                            <li>Vesting schedules</li>
-                            <li>Utility mechanisms</li>
-                            <li>Emissions curve</li>
-                            <li>Treasury allocation</li>
-                        </ul>
-
-                        <h4 style="margin-top: 1.5rem;">4. Governance Framework</h4>
-                        <ul>
-                            <li>Voting mechanisms (token-weighted, quadratic, etc.)</li>
-                            <li>Proposal submission criteria</li>
-                            <li>Decision thresholds</li>
-                            <li>Upgrade process</li>
-                        </ul>
-
-                        <h4 style="margin-top: 1.5rem;">5. Launch Plan</h4>
-                        <ul>
-                            <li>Roadmap and milestones</li>
-                            <li>Marketing &amp; GTM strategy</li>
-                            <li>Partnership pipeline</li>
-                            <li>Collaterize bonding curve parameters</li>
-                        </ul>
-
-                        <h4 style="margin-top: 1.5rem;">6. Risk Assessment</h4>
-                        <ul>
-                            <li>Technical risks identified by Zyno</li>
-                            <li>Market risks and mitigations</li>
-                            <li>Regulatory considerations</li>
-                            <li>Dependencies and assumptions</li>
-                        </ul>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>3.2 How to Evaluate a Dossier</h3>
-                        <p>Use these weighted criteria when reviewing projects:</p>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Criteria</th>
-                                    <th>Weight</th>
-                                    <th>Key Questions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Technical Soundness</strong></td>
-                                    <td>30%</td>
-                                    <td>Are smart contracts audited or audit-ready? Is the architecture scalable and
-                                        secure? Are dependencies clearly identified?</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Market Viability</strong></td>
-                                    <td>25%</td>
-                                    <td>Is the problem real and significant? Is there product-market fit evidence? Is
-                                        the competitive analysis realistic?</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Team Credibility</strong></td>
-                                    <td>20%</td>
-                                    <td>Do they have relevant Proof-of-Skill NFTs? Have they completed Journey tracks
-                                        thoroughly? Are they responsive to feedback?</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Strategic Fit</strong></td>
-                                    <td>15%</td>
-                                    <td>Does it align with MFAI ecosystem vision? Does it complement existing projects?
-                                        Does it expand the Internet Capital Market?</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Innovation</strong></td>
-                                    <td>10%</td>
-                                    <td>Does it introduce novel primitives? Does it solve problems in new ways? Does it
-                                        push the ecosystem forward?</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h4 style="margin-top: 2rem;">Evaluation Checklist</h4>
-                        <div class="glass-card">
-                            <p><strong>Technical Soundness (30%):</strong></p>
-                            <ul style="list-style: none; padding-left: 0;">
-                                <li>☐ Are smart contracts audited or audit-ready?</li>
-                                <li>☐ Is the architecture scalable and secure?</li>
-                                <li>☐ Are dependencies clearly identified?</li>
-                                <li>☐ Does the code quality meet standards?</li>
-                            </ul>
-
-                            <p style="margin-top: 1.5rem;"><strong>Market Viability (25%):</strong></p>
-                            <ul style="list-style: none; padding-left: 0;">
-                                <li>☐ Is the problem real and significant?</li>
-                                <li>☐ Is there product-market fit evidence?</li>
-                                <li>☐ Is the competitive analysis realistic?</li>
-                                <li>☐ Is the go-to-market strategy credible?</li>
-                            </ul>
-
-                            <p style="margin-top: 1.5rem;"><strong>Team Credibility (20%):</strong></p>
-                            <ul style="list-style: none; padding-left: 0;">
-                                <li>☐ Do they have relevant Proof-of-Skill NFTs?</li>
-                                <li>☐ Have they completed Journey tracks thoroughly?</li>
-                                <li>☐ Do they have prior building experience?</li>
-                                <li>☐ Are they responsive to feedback?</li>
-                            </ul>
-
-                            <p style="margin-top: 1.5rem;"><strong>Strategic Fit (15%):</strong></p>
-                            <ul style="list-style: none; padding-left: 0;">
-                                <li>☐ Does it align with MFAI ecosystem vision?</li>
-                                <li>☐ Does it complement existing projects?</li>
-                                <li>☐ Does it expand the Internet Capital Market?</li>
-                            </ul>
-
-                            <p style="margin-top: 1.5rem;"><strong>Innovation (10%):</strong></p>
-                            <ul style="list-style: none; padding-left: 0;">
-                                <li>☐ Does it introduce novel primitives?</li>
-                                <li>☐ Does it solve problems in new ways?</li>
-                                <li>☐ Does it push the ecosystem forward?</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 4. GOVERNANCE BASICS: SYNAPTIC GOVERNANCE -->
-            <section id="section-4">
-                <div class="container">
-                    <div class="section-header"><span class="section-number">4.</span>
-                        <h2>Governance Basics: Synaptic Governance</h2>
-                        <p>How voting power works and how to participate in DAO decisions</p>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>4.1 Voting Power Calculation</h3>
-                        <p>Your voting power in Synaptic Governance is calculated using three components:</p>
-                        <div class="formula">
-                            Voting Power = (Staked $MFAI × 1.0) +<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Your
-                            Proof-of-Skill NFTs × 50) +<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Your
-                            Historical Participation × 0.5)
-                        </div>
-
-                        <h4 style="margin-top: 2rem;">Example Calculation:</h4>
-                        <div class="glass-card">
-                            <ul style="margin: 0; line-height: 2;">
-                                <li>You stake 10,000 $MFAI → <strong>10,000 VP</strong></li>
-                                <li>You have 3 Proof-of-Skill NFTs → <strong>150 VP</strong></li>
-                                <li>Your participation score is 200 → <strong>100 VP</strong></li>
-                                <li
-                                    style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">
-                                    <strong>Total Voting Power: 10,250</strong>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <h4 style="margin-top: 2rem;">Why This Matters:</h4>
-                        <ul>
-                            <li>Pure token holders have power, but skilled contributors have proportionally more</li>
-                            <li>Active participants who learn and engage get rewarded</li>
-                            <li>Long-term alignment is incentivized over pure speculation</li>
-                        </ul>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>4.2 How to Vote on Project Incubations</h3>
-                        <div class="phases-grid">
-                            <div class="phase-card">
-                                <div class="phase-number">01</div>
-                                <h3>Review Period</h3>
-                                <p><strong>7 days</strong><br>Read the Zyno dossier, check team credentials, review
-                                    community comments, and use the evaluation criteria from Section 3.2.</p>
-                            </div>
-                            <div class="phase-card">
-                                <div class="phase-number">02</div>
-                                <h3>Voting Window</h3>
-                                <p><strong>3 days</strong><br>Cast your vote: YES (approve for incubation) or NO
-                                    (reject). Your vote is weighted by your Voting Power. You can change your vote
-                                    during the window.</p>
-                            </div>
-                            <div class="phase-card">
-                                <div class="phase-number">03</div>
-                                <h3>Results</h3>
-                                <p><strong>Quorum:</strong> 10% of circulating $MFAI must
-                                    participate<br><strong>Approval:</strong> 60% YES votes needed<br>Results are
-                                    on-chain and transparent.</p>
-                            </div>
-                            <div class="phase-card">
-                                <div class="phase-number">04</div>
-                                <h3>Execution</h3>
-                                <p>Approved projects enter incubation (8-12 weeks). Treasury allocates resources. You
-                                    can track incubation progress via public updates.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>4.3 Proposing Improvements</h3>
-                        <p>Any holder with <strong>10,000+ $MFAI</strong> can submit proposals.</p>
-
-                        <h4 style="margin-top: 1.5rem;">Proposal Types:</h4>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Description</th>
-                                    <th>Examples</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Parameter Changes</td>
-                                    <td>Adjust fees, thresholds, vesting schedules</td>
-                                    <td>Change launchpad fee from 2% to 1.5%</td>
-                                </tr>
-                                <tr>
-                                    <td>Treasury Allocations</td>
-                                    <td>Grants, partnerships, marketing budgets</td>
-                                    <td>Allocate 50,000 $MFAI for university partnership</td>
-                                </tr>
-                                <tr>
-                                    <td>Protocol Upgrades</td>
-                                    <td>Smart contract changes, new features</td>
-                                    <td>Add quadratic voting option</td>
-                                </tr>
-                                <tr>
-                                    <td>Ecosystem Initiatives</td>
-                                    <td>Hackathons, partnerships, integrations</td>
-                                    <td>Sponsor Solana Breakpoint conference</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h4 style="margin-top: 2rem;">Proposal Requirements:</h4>
-                        <ul class="feature-list">
-                            <li>Clear title and summary</li>
-                            <li>Detailed specification</li>
-                            <li>Rationale and expected impact</li>
-                            <li>Implementation plan</li>
-                            <li>Risk assessment</li>
-                        </ul>
-
-                        <h4 style="margin-top: 2rem;">Guardrails:</h4>
-                        <div class="glass-card">
-                            <ul style="margin: 0; line-height: 2;">
-                                <li><strong>7-day cooldown</strong> between proposals from same address</li>
-                                <li><strong>48-hour timelock</strong> on approved proposals before execution</li>
-                                <li><strong>Multi-sig (5/9)</strong> can pause protocol in emergencies</li>
-                                <li><strong>Max 10% delegation</strong> to prevent centralization</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>4.4 Delegation</h3>
-                        <p>You can delegate your voting power to trusted community members:</p>
-                        <ul>
-                            <li>Maximum <strong>10% of total VP</strong> can be delegated to one entity (prevents
-                                centralization)</li>
-                            <li>Delegation is <strong>revocable at any time</strong></li>
-                            <li>Delegates <strong>cannot move your tokens,</strong> only vote</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 5. LAUNCHPAD PARTICIPATION -->
-            <section id="section-5">
-                <div class="container">
-                    <div class="section-header"><span class="section-number">5.</span>
-                        <h2>Launchpad Participation</h2>
-                        <p>How to participate in project launches and understand Collaterize bonding curves</p>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>5.1 Launchpad Phases</h3>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Phase</th>
-                                    <th>Duration</th>
-                                    <th>Activities</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Pre-Launch</strong></td>
-                                    <td>Weeks 1-12</td>
-                                    <td>Project is in incubation; weekly progress updates posted; community provides
-                                        feedback; security audits conducted; marketing materials prepared</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Launch Week</strong></td>
-                                    <td>7 days</td>
-                                    <td>Bonding curve contract deployed; initial parameters set by DAO; Token Generation
-                                        Event (TGE) occurs; DEX listings go live (Raydium, Orca); trading begins
-                                        immediately</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Post-Launch</strong></td>
-                                    <td>Ongoing</td>
-                                    <td>Community monitors metrics (TVL, users, volume); quarterly reports from project
-                                        teams; DAO can propose parameter adjustments; long-term governance transitions
-                                        to project's own DAO</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>5.2 Collaterize Parameters</h3>
-                        <p>When a project launches via Collaterize, key parameters include:</p>
-
-                        <h4 style="margin-top: 1.5rem;">Reserve Ratio (0.2 - 0.5)</h4>
-                        <ul>
-                            <li>Lower ratio = steeper price curve</li>
-                            <li>Higher ratio = more stable pricing</li>
-                            <li>Typical: 0.3 - 0.4 for most projects</li>
-                        </ul>
-
-                        <h4 style="margin-top: 1.5rem;">Initial Reserve (USDC)</h4>
-                        <ul>
-                            <li>Set based on project size and goals</li>
-                            <li>Range: 50,000 - 500,000 USDC</li>
-                            <li>Locked in smart contract (no admin withdrawal)</li>
-                        </ul>
-
-                        <h4 style="margin-top: 1.5rem;">Fee Structure (1-3%)</h4>
-                        <ul>
-                            <li>Applied on buys and sells</li>
-                            <li>Allocated to: Treasury (60%), Creator (20%), LP incentives (20%)</li>
-                            <li>DAO can adjust fees via governance</li>
-                        </ul>
-
-                        <h4 style="margin-top: 2rem;">Example Launch:</h4>
-                        <div class="glass-card">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Reserve:</strong></td>
-                                        <td>200,000 USDC</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Ratio:</strong></td>
-                                        <td>0.35</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Fee:</strong></td>
-                                        <td>2% (1.2% treasury, 0.4% creator, 0.4% LPs)</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Initial Token Supply:</strong></td>
-                                        <td>1,000,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Starting Price:</strong></td>
-                                        <td>~$0.63 per token</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <h4 style="margin-top: 2rem;">Price Discovery:</h4>
-                        <ul>
-                            <li>As users <strong>buy</strong>, reserve increases and supply increases → price rises
-                                algorithmically</li>
-                            <li>As users <strong>sell</strong>, reserve decreases and supply decreases → price falls
-                                algorithmically</li>
-                        </ul>
-
-                        <h4 style="margin-top: 2rem;">Rug-Pull Prevention:</h4>
-                        <div class="glass-card"
-                            style="background: rgba(33, 128, 141, 0.08); border-color: var(--color-success);">
-                            <ul style="margin: 0; line-height: 2;">
-                                <li>✅ Reserve is locked in contract</li>
-                                <li>✅ No admin keys to withdraw liquidity</li>
-                                <li>✅ Mathematical price discovery (no manipulation)</li>
-                                <li>✅ Transparent on-chain reserves</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>5.3 Participation Opportunities</h3>
-
-                        <h4>As a Community Member:</h4>
-                        <ul class="feature-list">
-                            <li>Vote on which projects get incubated</li>
-                            <li>Provide feedback during pre-launch</li>
-                            <li>Participate in token launches (buy via bonding curve)</li>
-                            <li>Earn rewards for early support and engagement</li>
-                        </ul>
-
-                        <div class="info-box"
-                            style="margin-top: 2rem; background: rgba(255, 84, 89, 0.1); border-left-color: #FF5459;">
-                            <strong style="color: #FF5459;">⚠️ Risk Disclaimer:</strong> Launching tokens via bonding
-                            curves does NOT guarantee success. Markets are volatile. Always DYOR (Do Your Own Research).
-                            MFAI provides infrastructure and governance, not financial advice.
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 6. STAKING & ALIGNMENT -->
-            <section id="section-6">
-                <div class="container">
-                    <div class="section-header"><span class="section-number">6.</span>
-                        <h2>Staking &amp; Alignment</h2>
-                        <p>How staking gives access to governance, signals, and ecosystem growth</p>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>6.1 Why Stake $MFAI?</h3>
-                        <div class="component-grid">
-                            <div class="component-card" style="background: var(--color-bg-1);">
-                                <h4>Governance Access</h4>
-                                <p style="color: var(--color-text-secondary);">Unlock voting power in Synaptic
-                                    Governance. Influence which projects get incubated. Shape platform parameters and
-                                    treasury allocation.</p>
-                            </div>
-                            <div class="component-card" style="background: var(--color-bg-2);">
-                                <h4>Signal Access</h4>
-                                <p style="color: var(--color-text-secondary);">Early visibility into project
-                                    submissions. Access to private community channels. Direct communication with
-                                    building teams.</p>
-                            </div>
-                            <div class="component-card" style="background: var(--color-bg-3);">
-                                <h4>Alignment Incentives</h4>
-                                <p style="color: var(--color-text-secondary);">Earn Neuro-Dividends™ (revenue share from
-                                    platform fees). Participate in ecosystem growth upside. Build reputation as active
-                                    contributor.</p>
-                            </div>
-                            <div class="component-card" style="background: var(--color-bg-4);">
-                                <h4>Cognitive Lock</h4>
-                                <p style="color: var(--color-text-secondary);">Staked tokens are time-locked (minimum 30
-                                    days). Reduces circulating supply. Incentivizes long-term thinking.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>6.2 How to Stake</h3>
-                        <div class="phases-grid">
-                            <div class="phase-card">
-                                <div class="phase-number">01</div>
-                                <h3>Connect Wallet</h3>
-                                <p>Supported: Phantom, Solflare, Backpack. Ensure you have $MFAI tokens.</p>
-                            </div>
-                            <div class="phase-card">
-                                <div class="phase-number">02</div>
-                                <h3>Choose Duration</h3>
-                                <p>30 days (1.0x) | 90 days (1.2x) | 180 days (1.5x) | 365 days (2.0x multiplier)</p>
-                            </div>
-                            <div class="phase-card">
-                                <div class="phase-number">03</div>
-                                <h3>Confirm Transaction</h3>
-                                <p>Approve staking contract. Tokens are locked for chosen duration. Voting power is
-                                    activated immediately.</p>
-                            </div>
-                            <div class="phase-card">
-                                <div class="phase-number">04</div>
-                                <h3>Participate</h3>
-                                <p>Vote on DAO proposals. Review project dossiers. Engage in community discussions.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>6.3 Neuro-Dividends™</h3>
-                        <p>A revenue-sharing mechanism where stakers receive a portion of platform fees.</p>
-
-                        <h4 style="margin-top: 1.5rem;">What They Are:</h4>
-                        <ul>
-                            <li>15% of launchpad project token allocations</li>
-                            <li>10% of Zyno Pro subscription revenues</li>
-                            <li>20% of NFT minting fees</li>
-                        </ul>
-
-                        <h4 style="margin-top: 1.5rem;">Distribution:</h4>
-                        <ul>
-                            <li>Calculated quarterly</li>
-                            <li>Proportional to your staked amount and duration multiplier</li>
-                            <li>Distributed in $MFAI or USDC (governance decides)</li>
-                        </ul>
-
-                        <div class="info-box" style="margin-top: 2rem;">
-                            <strong>⚠️ Important:</strong> Neuro-Dividends are NOT guaranteed. They are dependent on
-                            platform usage and revenue, and subject to DAO governance decisions.
-                        </div>
-
-                        <h4 style="margin-top: 2rem;">Example (Hypothetical):</h4>
-                        <div class="glass-card">
-                            <ul style="margin: 0; line-height: 2;">
-                                <li>You stake <strong>50,000 $MFAI</strong> for 180 days (1.5x multiplier)</li>
-                                <li>Effective stake: <strong>75,000 $MFAI-equivalent</strong></li>
-                                <li>Total staked in pool: <strong>10,000,000 $MFAI-equivalent</strong></li>
-                                <li>Your share: <strong>0.75%</strong></li>
-                                <li>If quarterly revenue is 500,000 $MFAI → you receive <strong>~3,750 $MFAI</strong>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>6.4 Unstaking</h3>
-                        <ul>
-                            <li>Unstaking <strong>before lock period</strong> incurs <strong>10% penalty</strong> (sent
-                                to treasury)</li>
-                            <li>Penalty-free unstaking after lock period expires</li>
-                            <li><strong>7-day cooldown</strong> before tokens are liquid again</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <!-- 7. SECURITY, RISKS & BEST PRACTICES -->
-            <section id="section-7">
-                <div class="container">
-                    <div class="section-header"><span class="section-number">7.</span>
-                        <h2>Security, Risks &amp; Best Practices</h2>
-                        <p>Critical information about risks and how to engage safely</p>
-                    </div>
-
-                    <div class="info-box"
-                        style="background: rgba(192, 21, 47, 0.1); border-left-color: var(--color-error); margin-bottom: 3rem;">
-                        <strong style="color: var(--color-error); font-size: 1.2rem;">⚠️ CRITICAL: UNDERSTAND THESE
-                            RISKS</strong>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>7.1 Explicit Risk Disclosure</h3>
-
-                        <h4>Token Volatility</h4>
-                        <ul>
-                            <li>$MFAI price can fluctuate significantly</li>
-                            <li>No price floor or guaranteed value</li>
-                            <li>Market conditions impact all crypto assets</li>
-                        </ul>
-
-                        <h4 style="margin-top: 1.5rem;">Smart Contract Risks</h4>
-                        <ul>
-                            <li>Despite audits, bugs may exist</li>
-                            <li>Exploits could result in loss of funds</li>
-                            <li>Use only what you can afford to lose</li>
-                        </ul>
-
-                        <h4 style="margin-top: 1.5rem;">Governance Risks</h4>
-                        <ul>
-                            <li>DAO decisions may not align with your preferences</li>
-                            <li>Contentious proposals can divide community</li>
-                            <li>Voter apathy can lead to suboptimal outcomes</li>
-                        </ul>
-
-                        <h4 style="margin-top: 1.5rem;">Project Risks</h4>
-                        <ul>
-                            <li>Incubated projects may fail despite DAO approval</li>
-                            <li>Collaterize bonding curves do not guarantee liquidity depth</li>
-                            <li>Teams may not deliver on promises</li>
-                        </ul>
-
-                        <h4 style="margin-top: 1.5rem;">Regulatory Risks</h4>
-                        <ul>
-                            <li>Crypto regulations are evolving globally</li>
-                            <li>MFAI may face restrictions in certain jurisdictions</li>
-                            <li>Token classification could change</li>
-                        </ul>
-
-                        <h4 style="margin-top: 1.5rem;">Platform Risks</h4>
-                        <ul>
-                            <li>Zyno AI may generate incorrect outputs</li>
-                            <li>Platform infrastructure could face downtime</li>
-                            <li>Community may not grow as expected</li>
-                        </ul>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>7.2 Best Practices for Investors</h3>
-
-                        <div class="glass-card"
-                            style="background: rgba(33, 128, 141, 0.08); border-color: var(--color-success); margin-bottom: 2rem;">
-                            <h4 style="color: var(--color-success); margin-bottom: 1rem;">✅ DO:</h4>
-                            <ul style="margin: 0; line-height: 2;">
-                                <li>Complete the Investor track on Journey to understand the platform</li>
-                                <li>Read full project dossiers before voting</li>
-                                <li>Engage in community discussions and ask questions</li>
-                                <li>Diversify across multiple projects, not just one</li>
-                                <li>Start with small amounts while learning the system</li>
-                                <li>Track your voting history and performance</li>
-                                <li>Participate in governance actively</li>
-                                <li>Use official channels (mfai.app, verified Discord/X)</li>
-                            </ul>
-                        </div>
-
-                        <div class="glass-card"
-                            style="background: rgba(192, 21, 47, 0.08); border-color: var(--color-error);">
-                            <h4 style="color: var(--color-error); margin-bottom: 1rem;">❌ DON'T:</h4>
-                            <ul style="margin: 0; line-height: 2;">
-                                <li>Invest more than you can afford to lose</li>
-                                <li>Follow hype without due diligence</li>
-                                <li>Expect guaranteed returns from staking</li>
-                                <li>Trust unverified third-party platforms</li>
-                                <li>Share your private keys or seed phrases</li>
-                                <li>Rush into votes without research</li>
-                                <li>Ignore red flags in project proposals</li>
-                                <li>Treat MFAI as financial advice</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>7.3 DYOR Checklist</h3>
-                        <p>Before voting YES on a project incubation:</p>
-
-                        <div class="glass-card">
-                            <h4>Team</h4>
-                            <ul style="list-style: none; padding-left: 0;">
-                                <li>☐ Verified on-chain track record (Proof-of-Skill NFTs)</li>
-                                <li>☐ Completed Journey modules with high scores</li>
-                                <li>☐ Public profile and social media presence</li>
-                                <li>☐ Responsive to community questions</li>
-                            </ul>
-
-                            <h4 style="margin-top: 1.5rem;">Technical</h4>
-                            <ul style="list-style: none; padding-left: 0;">
-                                <li>☐ Architecture is sound and scalable</li>
-                                <li>☐ Smart contracts are audit-ready or audited</li>
-                                <li>☐ Code is open-source or reviewable</li>
-                                <li>☐ Dependencies are well-documented</li>
-                            </ul>
-
-                            <h4 style="margin-top: 1.5rem;">Economic</h4>
-                            <ul style="list-style: none; padding-left: 0;">
-                                <li>☐ Tokenomics are sustainable and fair</li>
-                                <li>☐ Vesting schedules prevent dumps</li>
-                                <li>☐ Treasury allocation is reasonable</li>
-                                <li>☐ Revenue model is credible</li>
-                            </ul>
-
-                            <h4 style="margin-top: 1.5rem;">Market</h4>
-                            <ul style="list-style: none; padding-left: 0;">
-                                <li>☐ Problem is real and validated</li>
-                                <li>☐ Competitors are identified and analyzed</li>
-                                <li>☐ GTM strategy is specific and actionable</li>
-                                <li>☐ Community shows organic interest</li>
-                            </ul>
-
-                            <h4 style="margin-top: 1.5rem;">Legal</h4>
-                            <ul style="list-style: none; padding-left: 0;">
-                                <li>☐ Compliance considerations are addressed</li>
-                                <li>☐ Terms of service are clear</li>
-                                <li>☐ Jurisdictional risks are disclosed</li>
-                                <li>☐ IP and trademarks are sorted</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="subsection">
-                        <h3>7.4 Reporting Issues</h3>
-                        <p>If you encounter suspicious projects, scams, technical bugs, inappropriate behavior, or
-                            platform abuse:</p>
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Channel</th>
-                                    <th>Contact</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Discord</td>
-                                    <td>#report-issues channel</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>security@mfai.app</td>
-                                </tr>
-                                <tr>
-                                    <td>X (Twitter)</td>
-                                    <td>@MoneyFactoryAI DM</td>
-                                </tr>
-                                <tr>
-                                    <td>Bug Bounty</td>
-                                    <td>bugs.mfai.app</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="info-box"
-                            style="margin-top: 2rem; background: rgba(255, 84, 89, 0.1); border-left-color: #FF5459;">
-                            <strong style="color: #FF5459;">⚠️ Security Tip:</strong> MFAI will NEVER ask for your
-                            private keys, seed phrases, or wallet passwords. Beware of phishing attempts.
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-
-            <section id="vision" style="display:none;">
-                <div class="container">
-                    <div class="section-header"><span class="section-number">LEGACY</span>
-                        <h2>A Venture Engine for the Internet Capital Market</h2>
-                        <p>Capital formation is moving on-chain. MFAI gives builders, learners and investors a common
-                            engine – fully aligned with Solana.</p>
-                    </div>
-
-                    <div class="glass-card" style="margin-bottom: 3rem;">
-                        <p
-                            style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
-                            Today, launching a Web3 project means juggling fragmented tools, contradictory advice and
-                            opaque incentives. Most founders are forced to choose between DIY chaos or giving up control
-                            to third parties.
-                        </p>
-                        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary);">
-                            Money Factory AI takes a different stance: the Internet Capital Market needs a transparent,
-                            programmable and AI-assisted venture layer. By anchoring everything on Solana, MFAI turns
-                            scattered primitives – DeFi, NFTs, DAOs, RWAs – into a coherent pipeline: learn → simulate →
-                            govern → launch.
+                </section>
+
+                <!-- Vision -->
+                <section id="vision" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Vision &
+                        Mission</h2>
+                    <div class="bg-mfai-primary/5 border-l-4 border-mfai-primary p-6 rounded-r-xl mb-8">
+                        <h3 class="text-lg font-bold text-mfai-primary mb-2 uppercase tracking-wider">The Problem</h3>
+                        <p class="text-gray-300">
+                            The Web3 venture formation process is fragmented, inefficient, and opaque. Builders struggle
+                            with tooling overload, while investors face high risks and slow capital deployment.
                         </p>
                     </div>
 
-                    <div class="callout callout-info">
-                        <p style="font-size: 1.05rem; line-height: 1.8;">
-                            Our vision is simple: whether you are a Web2 founder, a DeFi degenerate, a student or an
-                            angel investor, you should be able to plug into one engine, speak in natural language, and
-                            see AI-orchestrated agents transform your intent into a governed, launch-ready asset.
-                        </p>
-                    </div>
-
-                    <ul class="vision-bullets">
-                        <li><strong>Lower the barrier to building on Solana</strong> – Replace "read 50 docs" with
-                            guided tracks and agentic workflows.</li>
-                        <li><strong>Re-align incentives</strong> – Reward skills, iteration and long-term contribution
-                            instead of pure speculation.</li>
-                        <li><strong>Standardize the Journey</strong> – Apply a clear 4-phase path so every project is
-                            evaluated on the same criteria.</li>
-                        <li><strong>Make governance real</strong> – Give real power to those who learn, build and stake,
-                            through Synaptic Governance.</li>
-                        <li><strong>Make liquidity programmable, not magical</strong> – Use Collaterize bonding curves
-                            and protocol fees instead of hype only.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="legacy-journey" style="display:none;">
-                <div class="container">
-                    <div class="section-header">
-                        <h2>The Journey: From First Question to Launched Project</h2>
-                        <p>A four-phase Solana-native protocol that merges learning, simulation, governance and launch.
-                        </p>
-                    </div>
-
-                    <div class="glass-card" style="margin-bottom: 3rem;">
-                        <p
-                            style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
-                            The MFAI Journey is not a marketing funnel; it is a protocol for transforming ideas into
-                            on-chain assets.
-                        </p>
-                        <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary);">
-                            Every user – learner, founder, investor – is mapped to one of our tracks and follows the
-                            same backbone:
-                        </p>
-                    </div>
-
-                    <div class="phases-grid">
-                        <div class="phase-card">
-                            <div class="phase-number">01</div>
-                            <h3>Learn &amp; Earn</h3>
-                            <p>Complete curated paths to understand Solana, DeFi, NFTs, DAOs and tokenomics. Earn
-                                Proof-of-Skill NFTs and $MFAI rewards for real progress.</p>
-                        </div>
-
-                        <div class="phase-card">
-                            <div class="phase-number">02</div>
-                            <h3>Build with Zyno</h3>
-                            <p>Describe your project to Zyno. Agents generate architectures, tokenomics, treasury
-                                models, launch plans and stress-tested scenarios.</p>
-                        </div>
-
-                        <div class="phase-card">
-                            <div class="phase-number">03</div>
-                            <h3>DAO Vote (Synaptic Governance)</h3>
-                            <p>Your skills and track record unlock participation in reviewing and prioritizing projects
-                                for incubation. Projects earn a go/no-go and an incubation path.</p>
-                        </div>
-
-                        <div class="phase-card">
-                            <div class="phase-number">04</div>
-                            <h3>Launch &amp; Liquidity</h3>
-                            <p>Approved projects go through the MFAI launchpad, using Collaterize bonding curves and
-                                protocol-defined parameters to align creators, early supporters and the DAO.</p>
-                        </div>
-                    </div>
-
-                    <h3 style="margin-top: 3rem; margin-bottom: 1.5rem;">What you get along the journey</h3>
-                    <ul class="feature-list">
-                        <li>Structured tracks, adapted to your persona (Web2 founder, Web3 builder, learner, investor)
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Money Factory AI aims to be the <strong>"Production Layer"</strong> of the Internet Capital
+                        Market on Solana. We provide:
+                    </p>
+                    <ul class="space-y-3 text-gray-400 mb-8">
+                        <li class="flex items-start gap-3 bg-white/5 p-4 rounded-lg">
+                            <span class="text-solana-green font-bold">→</span>
+                            <span>An <strong>AI Co-Founder</strong> for every builder (Zyno).</span>
                         </li>
-                        <li>Integrated simulation tools for tokenomics, emissions and governance impact (inside Journey
-                            &amp; Zyno)</li>
-                        <li>On-chain reputation via Proof-of-Skill NFTs and participation history</li>
-                        <li>Fair selection process for incubation through DAO voting, not closed-door committees</li>
-                        <li>Clear graduation criteria from "learning" to "launch-ready"</li>
+                        <li class="flex items-start gap-3 bg-white/5 p-4 rounded-lg">
+                            <span class="text-solana-green font-bold">→</span>
+                            <span>A <strong>Structured Journey</strong> from idea to liquidity.</span>
+                        </li>
+                        <li class="flex items-start gap-3 bg-white/5 p-4 rounded-lg">
+                            <span class="text-solana-green font-bold">→</span>
+                            <span>A <strong>Meritocratic DAO</strong> that filters and funds the best projects.</span>
+                        </li>
                     </ul>
+                </section>
 
-                    <div class="cta-group" style="margin-top: 3rem;">
-                        <a href="#ecosystem" class="btn btn-primary">Explore Journey Tracks</a>
-                        <a href="#journey" class="btn btn-secondary">Start with Learn &amp; Earn</a>
-                    </div>
-                </div>
-            </section>
+                <!-- Journey -->
+                <section id="journey" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">The
+                        4-Phase Journey</h2>
 
-            <section id="legacy-terminal" style="display:none;">
-                <div class="container">
-                    <div class="section-header">
-                        <h2>Zyno Terminal: Your AI Co-Founder on Solana</h2>
-                        <p>One interface where 17 specialized AI agents turn your natural-language vision into
-                            Solana-ready projects.</p>
-                    </div>
-
-                    <div class="glass-card" style="margin-bottom: 3rem;">
-                        <h3 style="margin-bottom: 1rem;">Zyno Terminal is your mission control for building on Solana.
-                        </h3>
-                        <p
-                            style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
-                            Instead of opening 10 tabs and reverse-engineering other protocols, you:
-                        </p>
-                        <ul style="color: var(--text-secondary); line-height: 2; margin-bottom: 1rem;">
-                            <li><strong>Tell Zyno what you want to build</strong> – in your own words.</li>
-                            <li><strong>Zyno routes your request</strong> across a swarm of 17 agents: Architect,
-                                Engineer, Tokenomics, Treasury, Legal-Ops, DAO, Growth, Risk and more.</li>
-                            <li><strong>You get structured outputs:</strong> architectures, tokenomics matrices,
-                                governance templates, launch playbooks, content drafts and on-chain integration
-                                checklists.</li>
-                        </ul>
-                        <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary);">
-                            Zyno doesn't replace founders; it removes the boilerplate. You stay in charge of vision,
-                            decisions and values, while agents compress months of research into actionable proposals
-                            tailored for Solana.
-                        </p>
-                    </div>
-
-                    <div class="component-grid">
-                        <div class="component-card">
-                            <h4>17+ specialized agents</h4>
-                            <p style="color: var(--text-secondary);">Orchestrated by Zyno in real time, covering design,
-                                engineering, finance, legal, marketing, and more.</p>
-                        </div>
-                        <div class="component-card">
-                            <h4>Natural-language interface</h4>
-                            <p style="color: var(--text-secondary);">No need to speak Solidity or Rust to start
-                                designing.</p>
-                        </div>
-                        <div class="component-card">
-                            <h4>Project canvases</h4>
-                            <p style="color: var(--text-secondary);">From NFT collections to DeFi protocols, RWAs, DAOs
-                                and tooling.</p>
-                        </div>
-                        <div class="component-card">
-                            <h4>Tokenomics &amp; governance simulators</h4>
-                            <p style="color: var(--text-secondary);">Integrated with Journey tracks for stress-testing
-                                your economic models.</p>
-                        </div>
-                        <div class="component-card">
-                            <h4>DAO-ready outputs</h4>
-                            <p style="color: var(--text-secondary);">Proposals, snapshots, governance hooks
-                                pre-structured for Synaptic Governance.</p>
-                        </div>
-                        <div class="component-card">
-                            <h4>Launchpad integration</h4>
-                            <p style="color: var(--text-secondary);">Send validated designs into the MFAI launchpad when
-                                your project is ready.</p>
-                        </div>
-                    </div>
-
-                    <div class="cta-group" style="margin-top: 3rem;">
-                        <a href="https://mfai.app" target="_blank" class="btn btn-primary">Describe Your Project to
-                            Zyno</a>
-                        <a href="#ecosystem" class="btn btn-secondary">See the Agents in Action</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="legacy-ecosystem" style="display:none;">
-                <div class="container">
-                    <div class="section-header">
-                        <h2>Choose Your Path into the Solana Builder Economy</h2>
-                        <p>Journey adapts to your starting point – whether you are a beginner, a founder, or an
-                            investor.</p>
-                    </div>
-
-                    <div class="callout callout-info">
-                        <p style="font-size: 1.05rem; line-height: 1.8;">
-                            Not everyone arrives at the same stage – and that's fine. MFAI offers Tailored Pathways that
-                            plug you into the same engine from different angles:
-                        </p>
-                    </div>
-
-                    <div class="personas-grid">
-                        <div class="persona-card">
-                            <h4>Web2 Entrepreneur</h4>
-                            <p>You have a business or idea and want to "go Web3" without breaking everything. Journey
-                                helps you map your model to Solana primitives and simulate risk before committing.</p>
-                        </div>
-
-                        <div class="persona-card">
-                            <h4>Web3 Builder</h4>
-                            <p>You know crypto, but you need structured help for tokenomics, governance and launch
-                                mechanics that don't rug your community.</p>
-                        </div>
-
-                        <div class="persona-card">
-                            <h4>Learner / Student</h4>
-                            <p>You want to build skills and reputation before launching anything. Learn &amp; Earn
-                                tracks plus Proof-of-Skill NFTs are your entry ticket.</p>
-                        </div>
-
-                        <div class="persona-card">
-                            <h4>Investor / Angel / DAO Member</h4>
-                            <p>You want curated dealflow and a signal on which teams are actually learning, building and
-                                iterating.</p>
-                        </div>
-
-                        <div class="persona-card">
-                            <h4>Agency / Service Provider / RWA Owner</h4>
-                            <p>You bring assets or clients off-chain; MFAI helps you design compliant, viable Solana
-                                integrations.</p>
-                        </div>
-                    </div>
-
-                    <h3 style="margin-top: 3rem; margin-bottom: 1.5rem;">For each path, Journey provides:</h3>
-                    <ul class="feature-list">
-                        <li>A recommended track with milestones and assessments</li>
-                        <li>A personalized interaction model with Zyno &amp; agents</li>
-                        <li>Checkpoint-based unlocks (access to DAO votes, launchpad eligibility, etc.)</li>
-                        <li>Integrated resources: docs, templates, and examples</li>
-                    </ul>
-
-                    <div class="cta-group" style="margin-top: 3rem;">
-                        <a href="https://mfai.app" target="_blank" class="btn btn-primary">Pick Your Path and Start</a>
-                    </div>
-                </div>
-            </section>
-
-            <footer
-                style="background: var(--color-surface); padding: 3rem 0; border-top: 1px solid var(--color-border); margin-left: 280px; margin-top: 4rem;">
-                <div class="container">
-                    <div class="subsection" style="text-align: center; margin-bottom: 2rem;">
-                        <h3>Connect With Us</h3>
+                    <div class="space-y-6">
                         <div
-                            style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 1.5rem;">
-                            <a href="https://mfai.app" target="_blank"
-                                style="color: var(--color-primary); text-decoration: none;">Website: mfai.app</a>
-                            <a href="https://x.com/MoneyFactoryAI" target="_blank"
-                                style="color: var(--color-primary); text-decoration: none;">X (Twitter):
-                                @MoneyFactoryAI</a>
-                            <a href="https://discord.gg/shztvSg9" target="_blank"
-                                style="color: var(--color-primary); text-decoration: none;">Discord:
-                                discord.gg/shztvSg9</a>
-                            <a href="https://t.me/MoneyFacoryAI_Portal" target="_blank"
-                                style="color: var(--color-primary); text-decoration: none;">Telegram:
-                                t.me/MoneyFacoryAI_Portal</a>
+                            class="glass-card p-8 rounded-2xl border border-white/10 hover:border-solana-green/50 transition-colors">
+                            <div
+                                class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-4">
+                                Phase 1: Learn & Earn</div>
+                            <p class="text-gray-400">
+                                Users complete educational modules on Solana, DeFi, and Web3. They earn $MFAI tokens and
+                                Proof-of-Skill NFTs for their achievements.
+                            </p>
+                        </div>
+                        <div
+                            class="glass-card p-8 rounded-2xl border border-white/10 hover:border-solana-green/50 transition-colors">
+                            <div
+                                class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-4">
+                                Phase 2: Build with Zyno</div>
+                            <p class="text-gray-400">
+                                Builders interact with Zyno to define their project. Zyno generates a "Project Canvas" –
+                                a comprehensive blueprint including technical specs, tokenomics, and roadmap.
+                            </p>
+                        </div>
+                        <div
+                            class="glass-card p-8 rounded-2xl border border-white/10 hover:border-solana-green/50 transition-colors">
+                            <div
+                                class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-4">
+                                Phase 3: DAO Approval</div>
+                            <p class="text-gray-400">
+                                Projects are submitted to the DAO. Stakers and experts (NFT holders) vote on which
+                                projects to incubate. Approved projects receive initial support.
+                            </p>
+                        </div>
+                        <div
+                            class="glass-card p-8 rounded-2xl border border-white/10 hover:border-solana-green/50 transition-colors">
+                            <div
+                                class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-4">
+                                Phase 4: Launch & Liquidity</div>
+                            <p class="text-gray-400">
+                                Projects undergo an incubation period and then launch via Collaterize bonding curves,
+                                ensuring instant liquidity and fair price discovery.
+                            </p>
                         </div>
                     </div>
+                </section>
 
-                    <div class="info-box"
-                        style="background: rgba(192, 21, 47, 0.1); border-left-color: var(--color-error); margin: 2rem 0;">
-                        <strong style="color: var(--color-error);">Disclaimer</strong><br>
-                        <p style="margin-top: 0.5rem; line-height: 1.8;">This user guide is for informational purposes
-                            only and does not constitute financial, investment, legal, or tax advice. Cryptocurrency
-                            investments carry significant risks, including the potential loss of principal. Always
-                            conduct your own research and consult with qualified professionals before making investment
-                            decisions. Past performance does not guarantee future results.</p>
+                <!-- Zyno -->
+                <section id="zyno" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Zyno: The
+                        AI Engine</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Zyno is the multi-agent orchestration kernel at the heart of Money Factory AI. It coordinates 17
+                        specialized agents to assist builders.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <h4 class="text-xl font-bold text-solana-green mb-2">AEPO</h4>
+                            <p class="text-sm text-gray-400">AI-Enhanced Pathway Orchestration. Guides individual users
+                                through personalized learning and building paths.</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <h4 class="text-xl font-bold text-solana-green mb-2">AECO</h4>
+                            <p class="text-sm text-gray-400">AI-Enhanced Cohort Orchestration. Manages group dynamics,
+                                hackathons, and cohort-based programs.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tokenomics -->
+                <section id="token" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Tokenomics
+                        ($MFAI)</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        The $MFAI token is the fuel of the ecosystem. It is used for rewards, governance, and access to
+                        premium features.
+                    </p>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-white/5 border-b border-white/10">
+                                    <th class="p-4 text-sm font-bold text-white uppercase">Metric</th>
+                                    <th class="p-4 text-sm font-bold text-white uppercase">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-400">
+                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                    <td class="p-4">Total Supply</td>
+                                    <td class="p-4">1,000,000,000 (1 Billion)</td>
+                                </tr>
+                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                    <td class="p-4">Blockchain</td>
+                                    <td class="p-4">Solana (SPL)</td>
+                                </tr>
+                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                    <td class="p-4">TGE Price</td>
+                                    <td class="p-4">$0.01</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
-                    <p
-                        style="text-align: center; color: var(--color-text-secondary); margin-top: 2rem; font-size: 0.9rem;">
-                        &copy; 2025 Money Factory AI. Built on Solana. User Guide for Investors &amp; Community.</p>
-                </div>
-            </footer>
+                    <div class="mt-8">
+                        <a href="token.html"
+                            class="text-mfai-primary hover:text-white font-bold flex items-center gap-2 transition-colors">
+                            View Full Tokenomics <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </section>
 
+                <!-- Governance -->
+                <section id="governance" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Governance
+                    </h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Money Factory AI uses <strong>Synaptic Governance</strong>, a merit-based system. Voting power
+                        is derived from:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-400 mb-6 pl-4">
+                        <li><strong>Staked $MFAI</strong> (1:1 ratio)</li>
+                        <li><strong>Proof-of-Skill NFTs</strong> (Multiplier based on expertise)</li>
+                        <li><strong>Participation Score</strong> (Reward for active engagement)</li>
+                    </ul>
+                </section>
+
+                <!-- FAQ -->
+                <section id="faq" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">FAQ</h2>
+
+                    <div class="space-y-4">
+                        <div class="border border-white/10 rounded-xl overflow-hidden">
+                            <button
+                                class="w-full p-6 text-left bg-white/5 hover:bg-white/10 transition-colors flex justify-between items-center"
+                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">
+                                <span class="font-bold text-white">How do I start earning $MFAI?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform"></i>
+                            </button>
+                            <div class="hidden p-6 bg-[#0B0B15] text-gray-400 border-t border-white/10">
+                                You can start earning by completing the "Learn & Earn" modules in the Journey section.
+                                Connect your wallet and start the first mission.
+                            </div>
+                        </div>
+                        <div class="border border-white/10 rounded-xl overflow-hidden">
+                            <button
+                                class="w-full p-6 text-left bg-white/5 hover:bg-white/10 transition-colors flex justify-between items-center"
+                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">
+                                <span class="font-bold text-white">Do I need coding skills to build?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform"></i>
+                            </button>
+                            <div class="hidden p-6 bg-[#0B0B15] text-gray-400 border-t border-white/10">
+                                No! Zyno is designed to help non-technical founders build their projects. However,
+                                having technical skills (verified by NFTs) gives you more governance power.
+                            </div>
+                        </div>
+                        <div class="border border-white/10 rounded-xl overflow-hidden">
+                            <button
+                                class="w-full p-6 text-left bg-white/5 hover:bg-white/10 transition-colors flex justify-between items-center"
+                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">
+                                <span class="font-bold text-white">When is the TGE?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform"></i>
+                            </button>
+                            <div class="hidden p-6 bg-[#0B0B15] text-gray-400 border-t border-white/10">
+                                The Token Generation Event (TGE) is planned for Q3 2025. Join our Discord for the latest
+                                announcements.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
         </main>
-    </div><!-- Close .main-wrapper -->
-
-    <!-- OLD SECTIONS REMOVED BELOW -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <section id="legacy-join" style="display:none;">
-        <div class="container">
-            <div class="section-header" style="text-align: center;">
-                <h2>Ready to Start Your Journey on Solana?</h2>
-                <p>Connect to the Internet Capital Market with an AI co-founder and a community of builders.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-[#020205] py-16 lg:ml-72" aria-label="Footer">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                            <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-display font-bold text-lg tracking-tight leading-none">Money Factory
+                                AI</span>
+                            <span class="text-xs text-gray-500">Venture Engine</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://x.com/MoneyFactoryAI" target="_blank"
+                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-mfai-primary transition-all"><i
+                                data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://github.com/moneyfactoryai" target="_blank"
+                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-mfai-primary transition-all"><i
+                                data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="https://discord.gg/shztvSg9" target="_blank"
+                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-mfai-primary transition-all"><i
+                                data-lucide="message-circle" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Platform Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="product.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Product</a></li>
+                        <li><a href="index.html#journey"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Journey</a></li>
+                        <li><a href="/terminal" class="text-gray-400 hover:text-white transition-colors text-sm">Zyno
+                                Terminal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="documentation_hub.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Documentation</a></li>
+                        <li><a href="docs.html" class="text-gray-400 hover:text-white transition-colors text-sm">API
+                                Docs</a></li>
+                        <li><a href="litepaper.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Litepaper</a></li>
+                        <li><a href="user_guide.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">User Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Community Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
+                    <ul class="space-y-3">
+                        <li><a href="token.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Token</a></li>
+                        <li><a href="investors.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">For Investors</a></li>
+                        <li><a href="https://discord.gg/shztvSg9" target="_blank"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Discord</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="glass-card" style="max-width: 800px; margin: 0 auto 3rem;">
-                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); text-align: center;">
-                    Whether you're sketching your first idea, re-architecting an existing business, or scouting the next
-                    wave of projects, MFAI gives you a single entry point:
-                </p>
-                <ul style="color: var(--text-secondary); line-height: 2; margin-top: 1.5rem;">
-                    <li><strong>Journey</strong> to learn and simulate</li>
-                    <li><strong>Zyno Terminal</strong> to design and orchestrate agents</li>
-                    <li><strong>DAO governance</strong> to shape what gets incubated</li>
-                    <li><strong>Launchpad and staking</strong> to align with the outcomes</li>
-                </ul>
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-white/5">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+                    <div class="text-gray-500 text-sm">
+                        &copy; 2025 Money Factory AI. Built on Solana.
+                    </div>
+                    <div class="flex gap-6 text-sm">
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Terms</a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Privacy</a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Disclaimer</a>
+                    </div>
+                </div>
             </div>
-
-            <div class="cta-group">
-                <a href="https://mfai.app" target="_blank" class="btn btn-primary">Launch Journey Simulator</a>
-                <a href="https://discord.gg/shztvSg9" target="_blank" class="btn btn-secondary">Join the DAO &amp;
-                    Community Channels</a>
-            </div>
-        </div>
-    </section>
-
-    </main>
-    </div><!-- Close .main-wrapper -->
-
-    <footer
-        style="background: var(--color-surface); padding: 2rem 0; border-top: 1px solid var(--color-border); margin-left: 280px;">
-        <div class="container">
-            <p style="text-align: center; color: var(--color-text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
-                &copy; 2025 Money Factory AI. Built on Solana. Version 1.0 - November 2025</p>
-            <p style="text-align: center; font-size: 0.9rem;">
-                <a href="index.html#home"
-                    style="color: var(--color-primary); margin: 0 1rem; text-decoration: none;">Home</a>
-                <a href="product.html"
-                    style="color: var(--color-primary); margin: 0 1rem; text-decoration: none;">Product</a>
-                <a href="documentation_hub.html"
-                    style="color: var(--color-primary); margin: 0 1rem; text-decoration: none;">Docs</a>
-                <a href="https://discord.gg/shztvSg9" target="_blank"
-                    style="color: var(--color-primary); margin: 0 1rem; text-decoration: none;">Discord</a>
-            </p>
-            <p style="text-align: center; font-size: 0.8rem; color: var(--color-text-secondary); margin-top: 1rem;">
-                <strong>Disclaimer:</strong> Nothing on this site constitutes financial or investment advice. Always do
-                your own research.
-            </p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = 90;
-                    const targetPosition = target.offsetTop - offset;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Reveal on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
             });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((element) => {
+            observer.observe(element);
         });
 
-        // Update active sidebar nav link on scroll
-        const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
-        const sections = document.querySelectorAll('section[id^="section-"], section[id="abstract"], section[id="appendix"]');
+        // Sidebar Active Link Logic
+        const sections = document.querySelectorAll('section[id]');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
 
-        function updateActiveSidebarLink() {
-            let currentSection = '';
-            const scrollPosition = window.pageYOffset + 150;
-
+        window.addEventListener('scroll', () => {
+            let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
                 }
             });
 
             sidebarLinks.forEach(link => {
                 link.classList.remove('active');
-                const href = link.getAttribute('href');
-                if (href === `#${currentSection}`) {
+                if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add('active');
                 }
             });
-        }
-
-        window.addEventListener('scroll', updateActiveSidebarLink);
-        updateActiveSidebarLink();
-
-        // Download PDF button functionality (visual only)
-        document.getElementById('downloadPdfBtn')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('PDF download functionality would be implemented in production.');
-        });
-
-        document.getElementById('downloadSectionBtn')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Section download functionality would be implemented in production.');
-        });
-
-        // Print page for litepaper
-        document.addEventListener('keydown', (e) => {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
-                // Native print will work with @media print CSS
-            }
         });
     </script>
 </body>
