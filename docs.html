@@ -26,17 +26,23 @@
                         display: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
+                        background: {
+                            primary: '#0A0A1F',
+                            secondary: '#13132B',
+                        },
+                        accent: {
+                            primary: '#A020F0',
+                            secondary: '#00E5FF',
+                        },
+                        text: {
+                            primary: '#FFFFFF',
+                            secondary: '#E0E0E0',
+                            muted: '#A0A0A0',
+                        },
                         solana: {
                             purple: '#9945FF',
                             green: '#14F195',
-                            dark: '#0B0B15',
-                            card: '#131324'
                         },
-                        mfai: {
-                            primary: '#6366F1',
-                            secondary: '#8B5CF6',
-                            accent: '#06B6D4',
-                        }
                     },
                     animation: {
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -61,8 +67,8 @@
                             '100%': { backgroundPosition: '100% 50%' }
                         },
                         glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.3)' },
-                            '100%': { boxShadow: '0 0 40px rgba(99, 102, 241, 0.6), 0 0 60px rgba(139, 92, 246, 0.4)' }
+                            '0%': { boxShadow: '0 0 20px rgba(160, 32, 240, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(160, 32, 240, 0.6), 0 0 60px rgba(0, 229, 255, 0.4)' }
                         },
                         slideUp: {
                             '0%': { opacity: '0', transform: 'translateY(30px)' },
@@ -76,8 +82,8 @@
 
     <style>
         body {
-            background-color: #050505;
-            color: #E2E8F0;
+            background-color: #0A0A1F;
+            color: #E0E0E0;
             overflow-x: hidden;
         }
 
@@ -87,37 +93,37 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #0B0B15;
+            background: #0A0A1F;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #333;
+            background: #13132B;
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #6366F1;
+            background: #A020F0;
         }
 
         /* Glassmorphism */
         .glass {
-            background: rgba(19, 19, 36, 0.7);
+            background: rgba(19, 19, 43, 0.7);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(160, 32, 240, 0.1);
         }
 
         .glass-card {
-            background: linear-gradient(180deg, rgba(30, 30, 50, 0.85) 0%, rgba(20, 20, 35, 0.7) 100%);
+            background: linear-gradient(180deg, rgba(19, 19, 43, 0.85) 0%, rgba(10, 10, 31, 0.7) 100%);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(160, 32, 240, 0.2);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .glass-card:hover {
-            border-color: rgba(99, 102, 241, 0.4);
+            border-color: rgba(160, 32, 240, 0.4);
             transform: translateY(-5px);
-            box-shadow: 0 20px 60px -10px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 20px 60px -10px rgba(160, 32, 240, 0.3);
         }
 
         /* Text Gradients */
@@ -129,7 +135,7 @@
         }
 
         .text-gradient-mfai {
-            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #06B6D4 100%);
+            background: linear-gradient(135deg, #A020F0 0%, #00E5FF 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -149,7 +155,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background: linear-gradient(90deg, #6366F1, #14F195);
+            background: linear-gradient(90deg, #A020F0, #00E5FF);
             transition: width 0.3s ease;
         }
 
@@ -178,100 +184,97 @@
         .sidebar-link {
             display: block;
             padding: 0.5rem 1rem;
-            color: #9CA3AF;
+            color: #A0A0A0;
             border-left: 2px solid transparent;
             transition: all 0.2s;
         }
 
         .sidebar-link:hover,
         .sidebar-link.active {
-            color: #ffffff;
-            background: rgba(99, 102, 241, 0.1);
-            border-left-color: #6366F1;
+            color: #FFFFFF;
+            background: rgba(160, 32, 240, 0.1);
+            border-left-color: #A020F0;
         }
     </style>
 </head>
 
-<body class="antialiased selection:bg-mfai-primary selection:text-white">
+<body class="bg-background-primary text-text-secondary antialiased selection:bg-accent-primary selection:text-white">
 
     <!-- Background Mesh -->
     <div class="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
         <div
-            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(99,102,241,0.12),transparent_30%)]">
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(160,32,240,0.1),transparent_30%)]">
         </div>
         <div
-            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(139,92,246,0.08),transparent_25%)]">
-        </div>
-        <div
-            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_80%,rgba(6,182,212,0.06),transparent_30%)]">
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(0,229,255,0.08),transparent_25%)]">
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 transition-all duration-300"
+    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300"
         aria-label="Main Navigation">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
                 <div
-                    class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-display font-bold text-xl tracking-tight leading-none">Money Factory AI</span>
-                    <span class="text-xs text-gray-400 font-sans">Venture Engine</span>
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money Factory AI</span>
+                    <span class="text-xs text-text-muted font-sans">Venture Engine</span>
                 </div>
             </a>
 
             <div class="hidden md:flex items-center gap-8" id="nav-links">
                 <a href="index.html#home"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
                 <a href="index.html#journey"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Journey</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
                 <a href="product.html"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Product</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
                 <a href="docs.html#zyno-overview"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Agents & API</a>
-                <a href="token.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Token</a>
+                    class="nav-link text-sm text-white transition-colors">Agents & API</a>
+                <a href="token.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
                 <a href="investors.html"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Investors</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
                 <a href="documentation_hub.html"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Docs</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
             </div>
 
             <div class="flex items-center gap-4">
                 <a href="litepaper.html"
-                    class="hidden md:flex items-center gap-1 text-sm text-gray-400 hover:text-white transition-colors">
+                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
                     <i data-lucide="file-text" class="w-4 h-4"></i>
                     Litepaper
                 </a>
                 <a href="/terminal"
-                    class="px-6 py-2.5 bg-gradient-to-r from-mfai-primary to-mfai-secondary border border-white/20 text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-mfai-primary/20 transition-all">
+                    class="px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-accent-primary/20 transition-all">
                     Access Terminal
                 </a>
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-toggle" class="md:hidden p-2 text-gray-400 hover:text-white transition-colors">
+                <button id="mobile-menu-toggle" class="md:hidden p-2 text-text-muted hover:text-white transition-colors">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-[#0B0B15] border-t border-white/10 p-6 space-y-4">
-            <a href="index.html#home" class="block text-gray-300 hover:text-white">Home</a>
-            <a href="index.html#journey" class="block text-gray-300 hover:text-white">Journey</a>
-            <a href="product.html" class="block text-gray-300 hover:text-white">Product</a>
-            <a href="token.html" class="block text-gray-300 hover:text-white">Token</a>
-            <a href="investors.html" class="block text-gray-300 hover:text-white">Investors</a>
-            <a href="documentation_hub.html" class="block text-gray-300 hover:text-white">Docs</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
+            <a href="index.html#home" class="block text-text-secondary hover:text-white">Home</a>
+            <a href="index.html#journey" class="block text-text-secondary hover:text-white">Journey</a>
+            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
+            <a href="token.html" class="block text-text-secondary hover:text-white">Token</a>
+            <a href="investors.html" class="block text-text-secondary hover:text-white">Investors</a>
+            <a href="documentation_hub.html" class="block text-text-secondary hover:text-white">Docs</a>
             <div class="pt-4 border-t border-white/10">
-                <p class="text-xs text-gray-500 mb-2 uppercase tracking-wider">Documentation</p>
-                <a href="#welcome" class="block text-sm text-gray-400 hover:text-white py-1">Welcome & Overview</a>
-                <a href="#journey" class="block text-sm text-gray-400 hover:text-white py-1">Your Journey with Zyno</a>
-                <a href="#zyno-interaction" class="block text-sm text-gray-400 hover:text-white py-1">Interacting with
+                <p class="text-xs text-text-muted mb-2 uppercase tracking-wider">Documentation</p>
+                <a href="#welcome" class="block text-sm text-text-muted hover:text-white py-1">Welcome & Overview</a>
+                <a href="#journey" class="block text-sm text-text-muted hover:text-white py-1">Your Journey with Zyno</a>
+                <a href="#zyno-interaction" class="block text-sm text-text-muted hover:text-white py-1">Interacting with
                     Zyno AI</a>
-                <a href="#workflow" class="block text-sm text-gray-400 hover:text-white py-1">Journey Workflow</a>
-                <a href="#dao" class="block text-sm text-gray-400 hover:text-white py-1">DAO Governance</a>
-                <a href="#tokenomics" class="block text-sm text-gray-400 hover:text-white py-1">Tokenomics</a>
+                <a href="#workflow" class="block text-sm text-text-muted hover:text-white py-1">Journey Workflow</a>
+                <a href="#dao" class="block text-sm text-text-muted hover:text-white py-1">DAO Governance</a>
+                <a href="#tokenomics" class="block text-sm text-text-muted hover:text-white py-1">Tokenomics</a>
             </div>
         </div>
     </nav>
@@ -279,10 +282,10 @@
     <div class="flex min-h-screen pt-20">
         <!-- Sidebar (Desktop) -->
         <aside
-            class="fixed left-0 top-20 h-[calc(100vh-5rem)] w-72 overflow-y-auto border-r border-white/10 bg-[#0B0B15]/95 backdrop-blur-xl hidden lg:block z-40">
+            class="fixed left-0 top-20 h-[calc(100vh-5rem)] w-72 overflow-y-auto border-r border-accent-primary/10 bg-background-primary/95 backdrop-blur-xl hidden lg:block z-40">
             <div class="p-6">
                 <div class="mb-6">
-                    <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Documentation</h5>
+                    <h5 class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3">Documentation</h5>
                     <nav class="space-y-1">
                         <a href="#welcome" class="sidebar-link active">Welcome & Overview</a>
                         <a href="#journey" class="sidebar-link">Your Journey with Zyno</a>
@@ -293,11 +296,11 @@
                     </nav>
                 </div>
 
-                <div class="bg-mfai-primary/10 rounded-xl p-4 border border-mfai-primary/20">
+                <div class="bg-accent-primary/10 rounded-xl p-4 border border-accent-primary/20">
                     <h6 class="text-sm font-bold text-white mb-2">Need Help?</h6>
-                    <p class="text-xs text-gray-400 mb-3">Join our Discord community for real-time support.</p>
+                    <p class="text-xs text-text-muted mb-3">Join our Discord community for real-time support.</p>
                     <a href="https://discord.gg/moneyfactoryai" target="_blank"
-                        class="block w-full py-2 text-center bg-mfai-primary/20 hover:bg-mfai-primary/30 text-mfai-primary text-xs font-bold rounded-lg transition-colors">
+                        class="block w-full py-2 text-center bg-accent-primary/20 hover:bg-accent-primary/30 text-accent-primary text-xs font-bold rounded-lg transition-colors">
                         Join Discord
                     </a>
                 </div>
@@ -312,13 +315,13 @@
                 <section id="welcome" class="mb-20 reveal-on-scroll">
                     <h1 class="text-4xl md:text-5xl font-bold font-display mb-6 text-white">Welcome to Money Factory AI
                     </h1>
-                    <p class="text-xl text-gray-400 leading-relaxed mb-8">
+                    <p class="text-xl text-text-secondary leading-relaxed mb-8">
                         Your complete guide to understanding and using the platform.
                     </p>
 
-                    <div class="bg-blue-500/10 border-l-4 border-blue-500 p-6 rounded-r-xl mb-8">
-                        <h3 class="text-lg font-bold text-blue-400 mb-2">📘 What is Money Factory AI?</h3>
-                        <p class="text-gray-300">
+                    <div class="bg-accent-secondary/10 border-l-4 border-accent-secondary p-6 rounded-r-xl mb-8">
+                        <h3 class="text-lg font-bold text-accent-secondary mb-2">📘 What is Money Factory AI?</h3>
+                        <p class="text-text-secondary">
                             <strong>Money Factory AI (MFAI)</strong> is your AI-powered co-founder that helps you learn
                             Web3, build projects, and access funding. Whether you're a complete beginner or an
                             experienced entrepreneur, our platform guides you step-by-step through your journey with
@@ -330,27 +333,27 @@
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
                         <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
                             <div
-                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-2">
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">
                                 17</div>
-                            <div class="text-sm text-gray-400">AI Agents</div>
+                            <div class="text-sm text-text-muted">AI Agents</div>
                         </div>
                         <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
                             <div
-                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-2">
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">
                                 4</div>
-                            <div class="text-sm text-gray-400">Journey Phases</div>
+                            <div class="text-sm text-text-muted">Journey Phases</div>
                         </div>
                         <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
                             <div
-                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-2">
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">
                                 6</div>
-                            <div class="text-sm text-gray-400">User Personas</div>
+                            <div class="text-sm text-text-muted">User Personas</div>
                         </div>
                         <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
                             <div
-                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-2">
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">
                                 100%</div>
-                            <div class="text-sm text-gray-400">AI Guidance</div>
+                            <div class="text-sm text-text-muted">AI Guidance</div>
                         </div>
                     </div>
                 </section>
@@ -362,7 +365,7 @@
 
                     <div class="bg-solana-green/10 border-l-4 border-solana-green p-6 rounded-r-xl mb-8">
                         <h3 class="text-lg font-bold text-solana-green mb-2">💡 Meet Zyno: Your AI Co-Founder</h3>
-                        <p class="text-gray-300">
+                        <p class="text-text-secondary">
                             Zyno is your personal AI guide throughout your journey. Think of Zyno as a knowledgeable
                             mentor who's available 24/7 to answer questions, provide guidance, evaluate your work, and
                             connect you with specialized experts when you need specific help.
@@ -372,11 +375,11 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="glass-card p-6 rounded-xl border border-white/10">
                             <div
-                                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-4">
+                                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
                                 01</div>
                             <h3 class="text-xl font-bold text-white mb-2">Phase 1: Learn & Earn</h3>
-                            <p class="text-gray-400 mb-4"><strong>Build your foundation</strong></p>
-                            <ul class="list-disc list-inside space-y-2 text-gray-400 text-sm">
+                            <p class="text-text-muted mb-4"><strong>Build your foundation</strong></p>
+                            <ul class="list-disc list-inside space-y-2 text-text-muted text-sm">
                                 <li>Complete interactive lessons</li>
                                 <li>Take quizzes to test knowledge</li>
                                 <li>Earn $MFAI tokens</li>
@@ -385,11 +388,11 @@
                         </div>
                         <div class="glass-card p-6 rounded-xl border border-white/10">
                             <div
-                                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-4">
+                                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
                                 02</div>
                             <h3 class="text-xl font-bold text-white mb-2">Phase 2: Build</h3>
-                            <p class="text-gray-400 mb-4"><strong>Turn your idea into reality</strong></p>
-                            <ul class="list-disc list-inside space-y-2 text-gray-400 text-sm">
+                            <p class="text-text-muted mb-4"><strong>Turn your idea into reality</strong></p>
+                            <ul class="list-disc list-inside space-y-2 text-text-muted text-sm">
                                 <li>Create business plans with AI</li>
                                 <li>Generate pitch decks</li>
                                 <li>Model finances with CFO Agent</li>
@@ -398,11 +401,11 @@
                         </div>
                         <div class="glass-card p-6 rounded-xl border border-white/10">
                             <div
-                                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-4">
+                                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
                                 03</div>
                             <h3 class="text-xl font-bold text-white mb-2">Phase 3: DAO Approval</h3>
-                            <p class="text-gray-400 mb-4"><strong>Get funded by the community</strong></p>
-                            <ul class="list-disc list-inside space-y-2 text-gray-400 text-sm">
+                            <p class="text-text-muted mb-4"><strong>Get funded by the community</strong></p>
+                            <ul class="list-disc list-inside space-y-2 text-text-muted text-sm">
                                 <li>Submit project for DAO review</li>
                                 <li>Community votes on proposal</li>
                                 <li>Receive incubation grants</li>
@@ -411,11 +414,11 @@
                         </div>
                         <div class="glass-card p-6 rounded-xl border border-white/10">
                             <div
-                                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green mb-4">
+                                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
                                 04</div>
                             <h3 class="text-xl font-bold text-white mb-2">Phase 4: Launch & Liquidity</h3>
-                            <p class="text-gray-400 mb-4"><strong>Go to market</strong></p>
-                            <ul class="list-disc list-inside space-y-2 text-gray-400 text-sm">
+                            <p class="text-text-muted mb-4"><strong>Go to market</strong></p>
+                            <ul class="list-disc list-inside space-y-2 text-text-muted text-sm">
                                 <li>Launch on bonding curve</li>
                                 <li>Instant liquidity via Collaterize</li>
                                 <li>Automatic DEX migration</li>
@@ -429,7 +432,7 @@
                 <section id="zyno-interaction" class="mb-20 reveal-on-scroll">
                     <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">
                         Interacting with Zyno AI</h2>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
+                    <p class="text-text-secondary mb-6 leading-relaxed">
                         Zyno is designed to be intuitive and helpful. You can interact with Zyno through the chat
                         interface in the bottom right corner or through the dedicated Terminal page.
                     </p>
@@ -439,22 +442,22 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <h5 class="font-bold text-white mb-2">Context Awareness</h5>
-                                <p class="text-sm text-gray-400">Zyno remembers your project details and previous
+                                <p class="text-sm text-text-muted">Zyno remembers your project details and previous
                                     conversations, so you don't have to repeat yourself.</p>
                             </div>
                             <div>
                                 <h5 class="font-bold text-white mb-2">Expert Routing</h5>
-                                <p class="text-sm text-gray-400">If you ask a specialized question (e.g., legal or
+                                <p class="text-sm text-text-muted">If you ask a specialized question (e.g., legal or
                                     technical), Zyno will bring in the relevant expert agent.</p>
                             </div>
                             <div>
                                 <h5 class="font-bold text-white mb-2">Proactive Suggestions</h5>
-                                <p class="text-sm text-gray-400">Zyno will suggest next steps and improvements based on
+                                <p class="text-sm text-text-muted">Zyno will suggest next steps and improvements based on
                                     your progress.</p>
                             </div>
                             <div>
                                 <h5 class="font-bold text-white mb-2">Real-time Generation</h5>
-                                <p class="text-sm text-gray-400">Zyno can generate documents, code snippets, and
+                                <p class="text-sm text-text-muted">Zyno can generate documents, code snippets, and
                                     diagrams instantly.</p>
                             </div>
                         </div>
@@ -465,13 +468,13 @@
                 <section id="workflow" class="mb-20 reveal-on-scroll">
                     <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Journey
                         Workflow</h2>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
+                    <p class="text-text-secondary mb-6 leading-relaxed">
                         The journey is designed to be iterative. You can move back and forth between phases as needed,
                         but you must complete specific milestones to unlock subsequent phases.
                     </p>
 
-                    <div class="bg-white/5 p-6 rounded-xl border border-white/10 text-center">
-                        <p class="text-gray-400 italic">
+                    <div class="bg-background-secondary p-6 rounded-xl border border-white/10 text-center">
+                        <p class="text-text-muted italic">
                             [Workflow Diagram Placeholder: Visualizing the flow from Idea -> Learn -> Build -> Launch]
                         </p>
                     </div>
@@ -481,25 +484,25 @@
                 <section id="dao" class="mb-20 reveal-on-scroll">
                     <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">DAO
                         Governance</h2>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
+                    <p class="text-text-secondary mb-6 leading-relaxed">
                         Money Factory AI is governed by its community. The DAO (Decentralized Autonomous Organization)
                         ensures that decisions are made transparently and democratically.
                     </p>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                         <div class="glass-card p-6 rounded-xl border border-white/10">
-                            <h4 class="text-xl font-bold text-solana-purple mb-2">Propose</h4>
-                            <p class="text-sm text-gray-400">Any member with sufficient voting power can submit a
+                            <h4 class="text-xl font-bold text-accent-primary mb-2">Propose</h4>
+                            <p class="text-sm text-text-muted">Any member with sufficient voting power can submit a
                                 proposal.</p>
                         </div>
                         <div class="glass-card p-6 rounded-xl border border-white/10">
-                            <h4 class="text-xl font-bold text-solana-purple mb-2">Vote</h4>
-                            <p class="text-sm text-gray-400">Members vote on proposals using their staked $MFAI and
+                            <h4 class="text-xl font-bold text-accent-primary mb-2">Vote</h4>
+                            <p class="text-sm text-text-muted">Members vote on proposals using their staked $MFAI and
                                 reputation.</p>
                         </div>
                         <div class="glass-card p-6 rounded-xl border border-white/10">
-                            <h4 class="text-xl font-bold text-solana-purple mb-2">Execute</h4>
-                            <p class="text-sm text-gray-400">Approved proposals are automatically executed by smart
+                            <h4 class="text-xl font-bold text-accent-primary mb-2">Execute</h4>
+                            <p class="text-sm text-text-muted">Approved proposals are automatically executed by smart
                                 contracts.</p>
                         </div>
                     </div>
@@ -509,7 +512,7 @@
                 <section id="tokenomics" class="mb-20 reveal-on-scroll">
                     <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Tokenomics
                     </h2>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
+                    <p class="text-text-secondary mb-6 leading-relaxed">
                         The $MFAI token captures the value created by the ecosystem. It is used for governance, staking,
                         and accessing premium features.
                     </p>
@@ -517,25 +520,25 @@
                     <div class="overflow-x-auto">
                         <table class="w-full text-left border-collapse">
                             <thead>
-                                <tr class="bg-white/5 border-b border-white/10">
+                                <tr class="bg-background-secondary border-b border-white/10">
                                     <th class="p-4 text-sm font-bold text-white uppercase">Utility</th>
                                     <th class="p-4 text-sm font-bold text-white uppercase">Description</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-gray-400">
-                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                            <tbody class="text-text-muted">
+                                <tr class="border-b border-white/5 hover:bg-background-secondary transition-colors">
                                     <td class="p-4 font-bold text-white">Governance</td>
                                     <td class="p-4">Vote on DAO proposals and project funding.</td>
                                 </tr>
-                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                <tr class="border-b border-white/5 hover:bg-background-secondary transition-colors">
                                     <td class="p-4 font-bold text-white">Staking</td>
                                     <td class="p-4">Earn yield and increase voting power.</td>
                                 </tr>
-                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                <tr class="border-b border-white/5 hover:bg-background-secondary transition-colors">
                                     <td class="p-4 font-bold text-white">Access</td>
                                     <td class="p-4">Unlock Zyno Pro features and advanced analytics.</td>
                                 </tr>
-                                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                <tr class="border-b border-white/5 hover:bg-background-secondary transition-colors">
                                     <td class="p-4 font-bold text-white">Launchpad</td>
                                     <td class="p-4">Participate in early-stage project launches.</td>
                                 </tr>
@@ -549,34 +552,34 @@
     </div>
 
     <!-- Footer -->
-    <footer class="border-t border-white/10 bg-[#020205] py-16 lg:ml-72" aria-label="Footer">
+    <footer class="border-t border-accent-primary/10 bg-background-primary py-16 lg:ml-72" aria-label="Footer">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <!-- Brand Column -->
                 <div class="md:col-span-1">
                     <div class="flex items-center gap-3 mb-4">
                         <div
-                            class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                            class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold text-xl">
                             <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                         </div>
                         <div class="flex flex-col">
-                            <span class="font-display font-bold text-lg tracking-tight leading-none">Money Factory
+                            <span class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money Factory
                                 AI</span>
-                            <span class="text-xs text-gray-500">Venture Engine</span>
+                            <span class="text-xs text-text-muted">Venture Engine</span>
                         </div>
                     </div>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                    <p class="text-text-muted text-sm leading-relaxed mb-6">
                         A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
                     </p>
                     <div class="flex gap-4">
                         <a href="https://x.com/MoneyFactoryAI" target="_blank"
-                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-mfai-primary transition-all"><i
+                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
                                 data-lucide="twitter" class="w-5 h-5"></i></a>
                         <a href="https://github.com/moneyfactoryai" target="_blank"
-                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-mfai-primary transition-all"><i
+                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
                                 data-lucide="github" class="w-5 h-5"></i></a>
                         <a href="https://discord.gg/shztvSg9" target="_blank"
-                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-mfai-primary transition-all"><i
+                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
                                 data-lucide="message-circle" class="w-5 h-5"></i></a>
                     </div>
                 </div>
@@ -586,12 +589,12 @@
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
                     <ul class="space-y-3">
                         <li><a href="index.html#home"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Home</a></li>
                         <li><a href="product.html"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Product</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
                         <li><a href="index.html#journey"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Journey</a></li>
-                        <li><a href="/terminal" class="text-gray-400 hover:text-white transition-colors text-sm">Zyno
+                                class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
+                        <li><a href="/terminal" class="text-text-muted hover:text-white transition-colors text-sm">Zyno
                                 Terminal</a></li>
                     </ul>
                 </div>
@@ -601,13 +604,13 @@
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
                     <ul class="space-y-3">
                         <li><a href="documentation_hub.html"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Documentation</a></li>
-                        <li><a href="docs.html" class="text-gray-400 hover:text-white transition-colors text-sm">API
+                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a></li>
+                        <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
                                 Docs</a></li>
                         <li><a href="litepaper.html"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Litepaper</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Litepaper</a></li>
                         <li><a href="user_guide.html"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">User Guide</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">User Guide</a></li>
                     </ul>
                 </div>
 
@@ -616,25 +619,25 @@
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
                     <ul class="space-y-3">
                         <li><a href="token.html"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Token</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
                         <li><a href="investors.html"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">For Investors</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a></li>
                         <li><a href="https://discord.gg/shztvSg9" target="_blank"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Discord</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Bottom Bar -->
-            <div class="pt-8 border-t border-white/5">
+            <div class="pt-8 border-t border-accent-primary/10">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
-                    <div class="text-gray-500 text-sm">
+                    <div class="text-text-muted text-sm">
                         &copy; 2025 Money Factory AI. Built on Solana.
                     </div>
                     <div class="flex gap-6 text-sm">
-                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Terms</a>
-                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Privacy</a>
-                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Disclaimer</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
                     </div>
                 </div>
             </div>

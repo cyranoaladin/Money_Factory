@@ -25,17 +25,23 @@
                         display: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
+                        background: {
+                            primary: '#0A0A1F',
+                            secondary: '#13132B',
+                        },
+                        accent: {
+                            primary: '#A020F0',
+                            secondary: '#00E5FF',
+                        },
+                        text: {
+                            primary: '#FFFFFF',
+                            secondary: '#E0E0E0',
+                            muted: '#A0A0A0',
+                        },
                         solana: {
                             purple: '#9945FF',
                             green: '#14F195',
-                            dark: '#0B0B15',
-                            card: '#131324'
                         },
-                        mfai: {
-                            primary: '#6366F1',
-                            secondary: '#8B5CF6',
-                            accent: '#06B6D4',
-                        }
                     },
                     animation: {
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -60,8 +66,8 @@
                             '100%': { backgroundPosition: '100% 50%' }
                         },
                         glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.3)' },
-                            '100%': { boxShadow: '0 0 40px rgba(99, 102, 241, 0.6), 0 0 60px rgba(139, 92, 246, 0.4)' }
+                            '0%': { boxShadow: '0 0 20px rgba(160, 32, 240, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(160, 32, 240, 0.6), 0 0 60px rgba(0, 229, 255, 0.4)' }
                         },
                         slideUp: {
                             '0%': { opacity: '0', transform: 'translateY(30px)' },
@@ -75,8 +81,8 @@
 
     <style>
         body {
-            background-color: #050505;
-            color: #E2E8F0;
+            background-color: #0A0A1F;
+            color: #E0E0E0;
             overflow-x: hidden;
         }
 
@@ -86,37 +92,37 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #0B0B15;
+            background: #0A0A1F;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #333;
+            background: #13132B;
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #6366F1;
+            background: #A020F0;
         }
 
         /* Glassmorphism */
         .glass {
-            background: rgba(19, 19, 36, 0.7);
+            background: rgba(19, 19, 43, 0.7);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(160, 32, 240, 0.1);
         }
 
         .glass-card {
-            background: linear-gradient(180deg, rgba(30, 30, 50, 0.85) 0%, rgba(20, 20, 35, 0.7) 100%);
+            background: linear-gradient(180deg, rgba(19, 19, 43, 0.85) 0%, rgba(10, 10, 31, 0.7) 100%);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(160, 32, 240, 0.2);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .glass-card:hover {
-            border-color: rgba(99, 102, 241, 0.4);
+            border-color: rgba(160, 32, 240, 0.4);
             transform: translateY(-5px);
-            box-shadow: 0 20px 60px -10px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 20px 60px -10px rgba(160, 32, 240, 0.3);
         }
 
         /* Text Gradients */
@@ -128,7 +134,7 @@
         }
 
         .text-gradient-mfai {
-            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #06B6D4 100%);
+            background: linear-gradient(135deg, #A020F0 0%, #00E5FF 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -148,7 +154,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background: linear-gradient(90deg, #6366F1, #14F195);
+            background: linear-gradient(90deg, #A020F0, #00E5FF);
             transition: width 0.3s ease;
         }
 
@@ -175,81 +181,77 @@
     </style>
 </head>
 
-<body class="antialiased selection:bg-mfai-primary selection:text-white">
+<body class="bg-background-primary text-text-secondary antialiased selection:bg-accent-primary selection:text-white">
 
-    <!-- Background Mesh -->
+    <!-- Dynamic Background Mesh -->
     <div class="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
         <div
-            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(99,102,241,0.12),transparent_30%)]">
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(160,32,240,0.1),transparent_30%)]">
         </div>
         <div
-            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(139,92,246,0.08),transparent_25%)]">
-        </div>
-        <div
-            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_80%,rgba(6,182,212,0.06),transparent_30%)]">
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(0,229,255,0.08),transparent_25%)]">
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 transition-all duration-300"
+    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300"
         aria-label="Main Navigation">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
                 <div
-                    class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-display font-bold text-xl tracking-tight leading-none">Money Factory AI</span>
-                    <span class="text-xs text-gray-400 font-sans">Venture Engine</span>
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money Factory AI</span>
+                    <span class="text-xs text-text-muted font-sans">Venture Engine</span>
                 </div>
             </a>
 
             <div class="hidden md:flex items-center gap-8" id="nav-links">
                 <a href="index.html#home"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
                 <a href="index.html#journey"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Journey</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
                 <a href="product.html"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Product</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
                 <a href="docs.html#zyno-overview"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Agents & API</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents & API</a>
                 <a href="token.html"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors active">Token</a>
+                    class="nav-link text-sm text-white transition-colors active">Token</a>
                 <a href="investors.html"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Investors</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
                 <a href="documentation_hub.html"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Docs</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
             </div>
 
             <div class="flex items-center gap-4">
                 <a href="litepaper.html"
-                    class="hidden md:flex items-center gap-1 text-sm text-gray-400 hover:text-white transition-colors">
+                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
                     <i data-lucide="file-text" class="w-4 h-4"></i>
                     Litepaper
                 </a>
                 <a href="/terminal"
-                    class="px-6 py-2.5 bg-gradient-to-r from-mfai-primary to-mfai-secondary border border-white/20 text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-mfai-primary/20 transition-all">
+                    class="px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-accent-primary/20 transition-all">
                     Access Terminal
                 </a>
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-toggle" class="md:hidden p-2 text-gray-400 hover:text-white transition-colors">
+                <button id="mobile-menu-toggle" class="md:hidden p-2 text-text-muted hover:text-white transition-colors">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-[#0B0B15] border-t border-white/10 p-6 space-y-4">
-            <a href="index.html#home" class="block text-gray-300 hover:text-white">Home</a>
-            <a href="index.html#journey" class="block text-gray-300 hover:text-white">Journey</a>
-            <a href="product.html" class="block text-gray-300 hover:text-white">Product</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
+            <a href="index.html#home" class="block text-text-secondary hover:text-white">Home</a>
+            <a href="index.html#journey" class="block text-text-secondary hover:text-white">Journey</a>
+            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
             <a href="token.html" class="block text-white font-medium">Token</a>
-            <a href="investors.html" class="block text-gray-300 hover:text-white">Investors</a>
-            <a href="documentation_hub.html" class="block text-gray-300 hover:text-white">Docs</a>
+            <a href="investors.html" class="block text-text-secondary hover:text-white">Investors</a>
+            <a href="documentation_hub.html" class="block text-text-secondary hover:text-white">Docs</a>
         </div>
     </nav>
-
     <!-- Main Content -->
     <main class="pt-32 pb-20 min-h-screen">
         <div class="container mx-auto px-6 max-w-5xl">
@@ -257,42 +259,42 @@
             <!-- Hero Section -->
             <section class="text-center mb-20 reveal-on-scroll">
                 <h1
-                    class="text-4xl md:text-6xl font-bold font-display mb-6 text-transparent bg-clip-text bg-gradient-to-r from-solana-purple to-solana-green">
+                    class="text-4xl md:text-6xl font-bold font-display mb-6 text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary">
                     Money Factory AI<br>Tokenomics & Governance
                 </h1>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
                     The $MFAI token drives the ecosystem through utility, governance, and value capture mechanisms.
                 </p>
             </section>
 
             <!-- Token Specifications -->
             <section class="mb-20 reveal-on-scroll">
-                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">$MFAI Token
+                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">$MFAI Token
                     Specifications</h2>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="glass-card p-8 rounded-2xl border border-white/10 text-center">
-                        <h4 class="text-sm text-gray-500 uppercase tracking-wider mb-2">Symbol</h4>
+                        <h4 class="text-sm text-text-muted uppercase tracking-wider mb-2">Symbol</h4>
                         <p class="text-3xl font-bold text-solana-green font-display">MFAI</p>
                     </div>
                     <div class="glass-card p-8 rounded-2xl border border-white/10 text-center">
-                        <h4 class="text-sm text-gray-500 uppercase tracking-wider mb-2">Name</h4>
+                        <h4 class="text-sm text-text-muted uppercase tracking-wider mb-2">Name</h4>
                         <p class="text-xl font-bold text-white">Money Factory AI</p>
                     </div>
                     <div class="glass-card p-8 rounded-2xl border border-white/10 text-center">
-                        <h4 class="text-sm text-gray-500 uppercase tracking-wider mb-2">Blockchain</h4>
+                        <h4 class="text-sm text-text-muted uppercase tracking-wider mb-2">Blockchain</h4>
                         <p class="text-xl font-bold text-white">Solana (SPL)</p>
                     </div>
                     <div class="glass-card p-8 rounded-2xl border border-white/10 text-center">
-                        <h4 class="text-sm text-gray-500 uppercase tracking-wider mb-2">Total Supply</h4>
+                        <h4 class="text-sm text-text-muted uppercase tracking-wider mb-2">Total Supply</h4>
                         <p class="text-xl font-bold text-white">1,000,000,000</p>
                     </div>
                     <div class="glass-card p-8 rounded-2xl border border-white/10 text-center">
-                        <h4 class="text-sm text-gray-500 uppercase tracking-wider mb-2">Decimals</h4>
+                        <h4 class="text-sm text-text-muted uppercase tracking-wider mb-2">Decimals</h4>
                         <p class="text-xl font-bold text-white">9</p>
                     </div>
                     <div class="glass-card p-8 rounded-2xl border border-white/10 text-center">
-                        <h4 class="text-sm text-gray-500 uppercase tracking-wider mb-2">TGE Price</h4>
+                        <h4 class="text-sm text-text-muted uppercase tracking-wider mb-2">TGE Price</h4>
                         <p class="text-xl font-bold text-white">$0.01</p>
                     </div>
                 </div>
@@ -300,9 +302,9 @@
 
             <!-- Token Distribution -->
             <section class="mb-20 reveal-on-scroll">
-                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Token
+                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">Token
                     Distribution</h2>
-                <p class="text-gray-400 mb-8 leading-relaxed">
+                <p class="text-text-secondary mb-8 leading-relaxed">
                     The $MFAI token distribution is designed to ensure long-term alignment between all ecosystem
                     participants:
                 </p>
@@ -311,139 +313,191 @@
                     <div class="glass-card p-6 rounded-xl border border-white/10 text-center">
                         <div class="text-4xl font-bold text-solana-green font-display mb-2">40%</div>
                         <div class="font-bold text-white text-sm mb-2">Community Rewards</div>
-                        <div class="text-xs text-gray-400">400M tokens for learning rewards, airdrops, and incentives
+                        <div class="text-xs text-text-muted">400M tokens for learning rewards, airdrops, and incentives
                         </div>
                     </div>
                     <div class="glass-card p-6 rounded-xl border border-white/10 text-center">
-                        <div class="text-4xl font-bold text-mfai-primary font-display mb-2">25%</div>
+                        <div class="text-4xl font-bold text-accent-primary font-display mb-2">25%</div>
                         <div class="font-bold text-white text-sm mb-2">Treasury & Ecosystem</div>
-                        <div class="text-xs text-gray-400">250M tokens for DAO governance and development</div>
+                        <div class="text-xs text-text-muted">250M tokens for DAO governance and development</div>
                     </div>
                     <div class="glass-card p-6 rounded-xl border border-white/10 text-center">
                         <div class="text-4xl font-bold text-solana-purple font-display mb-2">15%</div>
                         <div class="font-bold text-white text-sm mb-2">Team & Advisors</div>
-                        <div class="text-xs text-gray-400">150M tokens with 1-year cliff, 3-year vesting</div>
+                        <div class="text-xs text-text-muted">150M tokens with 1-year cliff, 3-year vesting</div>
                     </div>
                     <div class="glass-card p-6 rounded-xl border border-white/10 text-center">
-                        <div class="text-4xl font-bold text-mfai-accent font-display mb-2">10%</div>
+                        <div class="text-4xl font-bold text-accent-secondary font-display mb-2">10%</div>
                         <div class="font-bold text-white text-sm mb-2">Private Sale</div>
-                        <div class="text-xs text-gray-400">100M tokens with ~18 months linear vesting</div>
+                        <div class="text-xs text-text-muted">100M tokens with ~18 months linear vesting</div>
                     </div>
                     <div class="glass-card p-6 rounded-xl border border-white/10 text-center">
                         <div class="text-4xl font-bold text-white font-display mb-2">10%</div>
                         <div class="font-bold text-white text-sm mb-2">Public Sale (TGE)</div>
-                        <div class="text-xs text-gray-400">100M tokens unlocked at launch</div>
+                        <div class="text-xs text-text-muted">100M tokens unlocked at launch</div>
                     </div>
                 </div>
             </section>
 
             <!-- Token Utility -->
             <section class="mb-20 reveal-on-scroll">
-                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Token Utility
+                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">Token Utility
                 </h2>
-                <p class="text-gray-400 mb-8 leading-relaxed">
+                <p class="text-text-secondary mb-8 leading-relaxed">
                     The $MFAI token serves multiple functions within the ecosystem:
                 </p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div
                         class="glass-card p-8 rounded-2xl border border-white/10 text-center hover:border-solana-green/50 transition-colors">
-                        <div class="text-4xl mb-4">🎓</div>
+                        <div class="text-4xl mb-4 text-accent-secondary">🎓</div>
                         <h4 class="text-xl font-bold font-display mb-2 text-white">Learning Rewards</h4>
-                        <p class="text-sm text-gray-400">Earn 5-50 $MFAI per module completed in Journey</p>
+                        <p class="text-sm text-text-muted">Earn 5-50 $MFAI per module completed in Journey</p>
                     </div>
                     <div
                         class="glass-card p-8 rounded-2xl border border-white/10 text-center hover:border-solana-green/50 transition-colors">
-                        <div class="text-4xl mb-4">🖼️</div>
+                        <div class="text-4xl mb-4 text-accent-secondary">🖼️</div>
                         <h4 class="text-xl font-bold font-display mb-2 text-white">NFT Minting</h4>
-                        <p class="text-sm text-gray-400">Pay 10-100 $MFAI to mint Proof-of-Skill NFTs</p>
+                        <p class="text-sm text-text-muted">Pay 10-100 $MFAI to mint Proof-of-Skill NFTs</p>
                     </div>
                     <div
                         class="glass-card p-8 rounded-2xl border border-white/10 text-center hover:border-solana-green/50 transition-colors">
-                        <div class="text-4xl mb-4">🗳️</div>
+                        <div class="text-4xl mb-4 text-accent-secondary">🗳️</div>
                         <h4 class="text-xl font-bold font-display mb-2 text-white">Governance Staking</h4>
-                        <p class="text-sm text-gray-400">Lock $MFAI to gain voting power (minimum 100 tokens)</p>
+                        <p class="text-sm text-text-muted">Lock $MFAI to gain voting power (minimum 100 tokens)</p>
                     </div>
                     <div
                         class="glass-card p-8 rounded-2xl border border-white/10 text-center hover:border-solana-green/50 transition-colors">
-                        <div class="text-4xl mb-4">🚀</div>
+                        <div class="text-4xl mb-4 text-accent-secondary">🚀</div>
                         <h4 class="text-xl font-bold font-display mb-2 text-white">Launchpad Access</h4>
-                        <p class="text-sm text-gray-400">Stake 1,000+ $MFAI to submit projects for DAO review</p>
+                        <p class="text-sm text-text-muted">Stake 1,000+ $MFAI to submit projects for DAO review</p>
                     </div>
                     <div
                         class="glass-card p-8 rounded-2xl border border-white/10 text-center hover:border-solana-green/50 transition-colors">
-                        <div class="text-4xl mb-4">💳</div>
+                        <div class="text-4xl mb-4 text-accent-secondary">💳</div>
                         <h4 class="text-xl font-bold font-display mb-2 text-white">Zyno Pro Subscription</h4>
-                        <p class="text-sm text-gray-400">Pay 50 $MFAI/month for advanced features</p>
+                        <p class="text-sm text-text-muted">Pay 50 $MFAI/month for advanced features</p>
                     </div>
                     <div
                         class="glass-card p-8 rounded-2xl border border-white/10 text-center hover:border-solana-green/50 transition-colors">
-                        <div class="text-4xl mb-4">💰</div>
+                        <div class="text-4xl mb-4 text-accent-secondary">💰</div>
                         <h4 class="text-xl font-bold font-display mb-2 text-white">Neuro-Dividends™</h4>
-                        <p class="text-sm text-gray-400">Earn recurring rewards from ecosystem revenue</p>
+                        <p class="text-sm text-text-muted">Earn recurring rewards from ecosystem revenue</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Deflationary Mechanisms -->
-            <section class="mb-20 reveal-on-scroll">
-                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Deflationary
-                    Mechanisms</h2>
-                <p class="text-gray-400 mb-8 leading-relaxed">
-                    The $MFAI token implements several deflationary mechanisms to reduce circulating supply over time:
-                </p>
+                        <!-- Deflationary Mechanisms -->
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                    <div class="glass-card p-8 rounded-2xl border border-red-500/30 bg-red-500/5 text-center">
-                        <h4 class="text-lg font-bold font-display mb-2 text-red-400">NFT Minting</h4>
-                        <p class="text-sm text-gray-400">10% of $MFAI spent on Proof-of-Skill NFTs is burned</p>
-                    </div>
-                    <div class="glass-card p-8 rounded-2xl border border-red-500/30 bg-red-500/5 text-center">
-                        <h4 class="text-lg font-bold font-display mb-2 text-red-400">Zyno Pro Subscription</h4>
-                        <p class="text-sm text-gray-400">25% of monthly fees burned quarterly</p>
-                    </div>
-                    <div class="glass-card p-8 rounded-2xl border border-red-500/30 bg-red-500/5 text-center">
-                        <h4 class="text-lg font-bold font-display mb-2 text-red-400">Launchpad Fees</h4>
-                        <p class="text-sm text-gray-400">Projects pay 2% of raised capital in $MFAI, 15% burned</p>
-                    </div>
-                </div>
+                        <section class="mb-20 reveal-on-scroll">
 
-                <h3 class="text-2xl font-bold font-display mb-6 text-white">Cognitive Lock (Time-Locked Staking)</h3>
-                <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
-                    <table class="w-full text-left">
-                        <thead class="bg-white/5 text-gray-400 text-sm uppercase tracking-wider">
-                            <tr>
-                                <th class="p-4 font-medium">Lock Period</th>
-                                <th class="p-4 font-medium">Governance Weight Multiplier</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-white/5 text-gray-300">
-                            <tr>
-                                <td class="p-4">30 days</td>
-                                <td class="p-4 text-white font-bold">1.0x</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4">90 days</td>
-                                <td class="p-4 text-white font-bold">1.2x</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4">180 days</td>
-                                <td class="p-4 text-white font-bold">1.5x</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4">365 days</td>
-                                <td class="p-4 text-white font-bold">2.0x</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+                            <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">Deflationary
+
+                                Mechanisms</h2>
+
+                            <p class="text-text-secondary mb-8 leading-relaxed">
+
+                                The $MFAI token implements several deflationary mechanisms to reduce circulating supply over time:
+
+                            </p>
+
+            
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+
+                                <div class="glass-card p-8 rounded-2xl border border-red-500/30 bg-red-500/5 text-center">
+
+                                    <h4 class="text-lg font-bold font-display mb-2 text-red-400">NFT Minting</h4>
+
+                                    <p class="text-sm text-text-muted">10% of $MFAI spent on Proof-of-Skill NFTs is burned</p>
+
+                                </div>
+
+                                <div class="glass-card p-8 rounded-2xl border border-red-500/30 bg-red-500/5 text-center">
+
+                                    <h4 class="text-lg font-bold font-display mb-2 text-red-400">Zyno Pro Subscription</h4>
+
+                                    <p class="text-sm text-text-muted">25% of monthly fees burned quarterly</p>
+
+                                </div>
+
+                                <div class="glass-card p-8 rounded-2xl border border-red-500/30 bg-red-500/5 text-center">
+
+                                    <h4 class="text-lg font-bold font-display mb-2 text-red-400">Launchpad Fees</h4>
+
+                                    <p class="text-sm text-text-muted">Projects pay 2% of raised capital in $MFAI, 15% burned</p>
+
+                                </div>
+
+                            </div>
+
+            
+
+                            <h3 class="text-2xl font-bold font-display mb-6 text-white">Cognitive Lock (Time-Locked Staking)</h3>
+
+                            <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+
+                                <table class="w-full text-left">
+
+                                    <thead class="bg-background-secondary text-text-muted text-sm uppercase tracking-wider">
+
+                                        <tr>
+
+                                            <th class="p-4 font-medium">Lock Period</th>
+
+                                            <th class="p-4 font-medium">Governance Weight Multiplier</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody class="divide-y divide-white/5 text-text-secondary">
+
+                                        <tr>
+
+                                            <td class="p-4">30 days</td>
+
+                                            <td class="p-4 text-white font-bold">1.0x</td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td class="p-4">90 days</td>
+
+                                            <td class="p-4 text-white font-bold">1.2x</td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td class="p-4">180 days</td>
+
+                                            <td class="p-4 text-white font-bold">1.5x</td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td class="p-4">365 days</td>
+
+                                            <td class="p-4 text-white font-bold">2.0x</td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </section>
 
             <!-- Synaptic Governance -->
             <section class="mb-20 reveal-on-scroll">
-                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Synaptic
+                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">Synaptic
                     Governance</h2>
-                <p class="text-gray-400 mb-8 leading-relaxed">
+                <p class="text-text-secondary mb-8 leading-relaxed">
                     <strong class="text-white">Synaptic Governance</strong> is a merit-based system that rewards skills,
                     stake, and participation to prevent plutocracy and ensure builders have a voice.
                 </p>
@@ -451,23 +505,23 @@
                 <h3 class="text-2xl font-bold font-display mb-6 text-white">Voting Power Components</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                     <div class="glass-card p-8 rounded-2xl border border-white/10">
-                        <h4 class="text-xl font-bold font-display mb-2 text-solana-purple">Staked $MFAI</h4>
-                        <p class="text-sm text-gray-400">Direct economic alignment (1:1 ratio)</p>
+                        <h4 class="text-xl font-bold font-display mb-2 text-accent-primary">Staked $MFAI</h4>
+                        <p class="text-sm text-text-muted">Direct economic alignment (1:1 ratio)</p>
                     </div>
                     <div class="glass-card p-8 rounded-2xl border border-white/10">
-                        <h4 class="text-xl font-bold font-display mb-2 text-solana-purple">Proof-of-Skill NFTs</h4>
-                        <p class="text-sm text-gray-400">Proven competence multiplier (×50 per NFT)</p>
+                        <h4 class="text-xl font-bold font-display mb-2 text-accent-primary">Proof-of-Skill NFTs</h4>
+                        <p class="text-sm text-text-muted">Proven competence multiplier (×50 per NFT)</p>
                     </div>
                     <div class="glass-card p-8 rounded-2xl border border-white/10">
-                        <h4 class="text-xl font-bold font-display mb-2 text-solana-purple">Historical Participation</h4>
-                        <p class="text-sm text-gray-400">Long-term engagement reward (×0.5 score)</p>
+                        <h4 class="text-xl font-bold font-display mb-2 text-accent-primary">Historical Participation</h4>
+                        <p class="text-sm text-text-muted">Long-term engagement reward (×0.5 score)</p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
                         <h3 class="text-2xl font-bold font-display mb-6 text-white">Voting Mechanics</h3>
-                        <ul class="space-y-3 text-gray-400">
+                        <ul class="space-y-3 text-text-muted">
                             <li class="flex items-start gap-3">
                                 <div class="w-1.5 h-1.5 rounded-full bg-solana-green mt-2"></div>
                                 <span><strong class="text-white">Voting Period:</strong> 3 days after 7-day
@@ -492,7 +546,7 @@
                     </div>
                     <div>
                         <h3 class="text-2xl font-bold font-display mb-6 text-white">Guardrails</h3>
-                        <ul class="space-y-3 text-gray-400">
+                        <ul class="space-y-3 text-text-muted">
                             <li class="flex items-start gap-3">
                                 <div class="w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
                                 <span><strong class="text-white">Delegation Limits:</strong> Max 10% of total VP per
@@ -521,17 +575,17 @@
             <section class="text-center py-20">
                 <h2 class="text-3xl md:text-4xl font-bold font-display mb-6 text-white">Participate in the Ecosystem
                 </h2>
-                <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                <p class="text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
                     Start earning, staking, and governing with $MFAI tokens.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="docs.html"
-                        class="px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-bold rounded-xl transition-all flex items-center gap-2">
+                        class="px-8 py-4 bg-background-secondary border border-accent-primary/20 hover:bg-accent-primary/10 text-white font-bold rounded-xl transition-all flex items-center gap-2">
                         <i data-lucide="book-open" class="w-5 h-5"></i>
                         Documentation
                     </a>
                     <a href="investors.html"
-                        class="px-8 py-4 bg-gradient-to-r from-mfai-primary to-mfai-secondary hover:shadow-lg hover:shadow-mfai-primary/25 text-white font-bold rounded-xl transition-all flex items-center gap-2">
+                        class="px-8 py-4 bg-gradient-to-r from-accent-primary to-accent-secondary hover:shadow-lg hover:shadow-accent-primary/25 text-white font-bold rounded-xl transition-all flex items-center gap-2">
                         <i data-lucide="trending-up" class="w-5 h-5"></i>
                         For Investors
                     </a>
@@ -542,34 +596,34 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-white/10 bg-[#020205] py-16" aria-label="Footer">
+    <footer class="border-t border-accent-primary/10 bg-background-primary py-16" aria-label="Footer">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <!-- Brand Column -->
                 <div class="md:col-span-1">
                     <div class="flex items-center gap-3 mb-4">
                         <div
-                            class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                            class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold text-xl">
                             <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                         </div>
                         <div class="flex flex-col">
-                            <span class="font-display font-bold text-lg tracking-tight leading-none">Money Factory
+                            <span class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money Factory
                                 AI</span>
-                            <span class="text-xs text-gray-500">Venture Engine</span>
+                            <span class="text-xs text-text-muted">Venture Engine</span>
                         </div>
                     </div>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                    <p class="text-text-muted text-sm leading-relaxed mb-6">
                         A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
                     </p>
                     <div class="flex gap-4">
                         <a href="https://x.com/MoneyFactoryAI" target="_blank"
-                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-mfai-primary transition-all"><i
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
                                 data-lucide="twitter" class="w-5 h-5"></i></a>
                         <a href="https://github.com/moneyfactoryai" target="_blank"
-                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-mfai-primary transition-all"><i
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
                                 data-lucide="github" class="w-5 h-5"></i></a>
                         <a href="https://discord.gg/shztvSg9" target="_blank"
-                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-mfai-primary transition-all"><i
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
                                 data-lucide="message-circle" class="w-5 h-5"></i></a>
                     </div>
                 </div>
@@ -579,12 +633,12 @@
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
                     <ul class="space-y-3">
                         <li><a href="index.html#home"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Home</a></li>
                         <li><a href="product.html"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Product</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
                         <li><a href="index.html#journey"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Journey</a></li>
-                        <li><a href="/terminal" class="text-gray-400 hover:text-white transition-colors text-sm">Zyno
+                                class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
+                        <li><a href="/terminal" class="text-text-muted hover:text-white transition-colors text-sm">Zyno
                                 Terminal</a></li>
                     </ul>
                 </div>
@@ -594,13 +648,13 @@
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
                     <ul class="space-y-3">
                         <li><a href="documentation_hub.html"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Documentation</a></li>
-                        <li><a href="docs.html" class="text-gray-400 hover:text-white transition-colors text-sm">API
+                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a></li>
+                        <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
                                 Docs</a></li>
                         <li><a href="litepaper.html"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Litepaper</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Litepaper</a></li>
                         <li><a href="user_guide.html"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">User Guide</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">User Guide</a></li>
                     </ul>
                 </div>
 
@@ -609,25 +663,25 @@
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
                     <ul class="space-y-3">
                         <li><a href="token.html"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Token</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
                         <li><a href="investors.html"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">For Investors</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a></li>
                         <li><a href="https://discord.gg/shztvSg9" target="_blank"
-                                class="text-gray-400 hover:text-white transition-colors text-sm">Discord</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Bottom Bar -->
-            <div class="pt-8 border-t border-white/5">
+            <div class="pt-8 border-t border-accent-primary/10">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
-                    <div class="text-gray-500 text-sm">
+                    <div class="text-text-muted text-sm">
                         &copy; 2025 Money Factory AI. Built on Solana.
                     </div>
                     <div class="flex gap-6 text-sm">
-                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Terms</a>
-                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Privacy</a>
-                        <a href="#" class="text-gray-500 hover:text-white transition-colors">Disclaimer</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
                     </div>
                 </div>
             </div>
