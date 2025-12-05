@@ -6,179 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Factory AI</title>
     <meta name="description" content="Money Factory AI is a Solana-native venture engine.">
+    <link rel="icon" type="image/png" href="logo_mfai.png">
 
     <!-- Tailwind & Fonts -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind & Fonts -->
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        solana: {
-                            purple: '#9945FF',
-                            green: '#14F195',
-                            dark: '#0B0B15',
-                            card: '#131324'
-                        },
-                        mfai: {
-                            primary: '#6366F1',
-                            secondary: '#8B5CF6',
-                            accent: '#06B6D4',
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'spin-slow': 'spin 12s linear infinite',
-                        'draw': 'draw 2s ease-out forwards',
-                        'flow': 'flow 3s linear infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                        'slide-up': 'slideUp 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        draw: {
-                            '0%': { strokeDasharray: '1000', strokeDashoffset: '1000' },
-                            '100%': { strokeDashoffset: '0' }
-                        },
-                        flow: {
-                            '0%': { backgroundPosition: '0% 50%' },
-                            '100%': { backgroundPosition: '100% 50%' }
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.3)' },
-                            '100%': { boxShadow: '0 0 40px rgba(99, 102, 241, 0.6), 0 0 60px rgba(139, 92, 246, 0.4)' }
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            background-color: #050505;
-            color: #E2E8F0;
-            overflow-x: hidden;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0B0B15;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6366F1;
-        }
-
-        /* Glassmorphism */
-        .glass {
-            background: rgba(19, 19, 36, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .glass-card {
-            background: linear-gradient(180deg, rgba(30, 30, 50, 0.85) 0%, rgba(20, 20, 35, 0.7) 100%);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card:hover {
-            border-color: rgba(99, 102, 241, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px -10px rgba(99, 102, 241, 0.3);
-        }
-
-        /* Text Gradients */
-        .text-gradient-solana {
-            background: linear-gradient(90deg, #9945FF 0%, #14F195 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .text-gradient-mfai {
-            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #06B6D4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Nav Link */
-        .nav-link {
-            position: relative;
-            padding-bottom: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(90deg, #6366F1, #14F195);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .nav-link.active {
-            color: #ffffff;
-        }
-
-        /* Reveal on Scroll */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-
-        .reveal-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Sidebar Link Active State */
-        .sidebar-link.active {
-            background: rgba(99, 102, 241, 0.1);
-            border-left-color: #6366F1;
-            color: #ffffff;
-        }
     </style>
 </head>
 
@@ -219,6 +57,8 @@
                     class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Journey</a>
                 <a href="product.html"
                     class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Product</a>
+                <a href="roadmap.html"
+                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Roadmap</a>
                 <a href="docs.html#zyno-overview"
                     class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Agents & API</a>
                 <a href="token.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Token</a>
@@ -234,7 +74,7 @@
                     <i data-lucide="file-text" class="w-4 h-4"></i>
                     Litepaper
                 </a>
-                <a href="/terminal"
+                <a href="https://journey.mfai.app"
                     class="px-6 py-2.5 bg-gradient-to-r from-mfai-primary to-mfai-secondary border border-white/20 text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-mfai-primary/20 transition-all">
                     Access Terminal
                 </a>
@@ -250,6 +90,7 @@
             <a href="index.html#home" class="block text-gray-300 hover:text-white">Home</a>
             <a href="index.html#journey" class="block text-gray-300 hover:text-white">Journey</a>
             <a href="product.html" class="block text-gray-300 hover:text-white">Product</a>
+            <a href="roadmap.html" class="block text-gray-300 hover:text-white">Roadmap</a>
             <a href="token.html" class="block text-gray-300 hover:text-white">Token</a>
             <a href="investors.html" class="block text-gray-300 hover:text-white">Investors</a>
             <a href="documentation_hub.html" class="block text-gray-300 hover:text-white">Docs</a>
@@ -320,7 +161,10 @@
                                 class="text-gray-400 hover:text-white transition-colors text-sm">Product</a></li>
                         <li><a href="index.html#journey"
                                 class="text-gray-400 hover:text-white transition-colors text-sm">Journey</a></li>
-                        <li><a href="/terminal" class="text-gray-400 hover:text-white transition-colors text-sm">Zyno
+                        <li><a href="roadmap.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Roadmap</a></li>
+                        <li><a href="https://journey.mfai.app"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Zyno
                                 Terminal</a></li>
                     </ul>
                 </div>

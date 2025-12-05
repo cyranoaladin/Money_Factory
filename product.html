@@ -5,141 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Factory AI – Product | AEPO, AECO & Zyno Platform</title>
+    <link rel="icon" type="image/png" href="logo_mfai.png">
     <meta name="description"
         content="Discover the Money Factory AI platform: AEPO for individual pathways, AECO for cohort orchestration, and Zyno's multi-agent system.">
     <meta name="keywords" content="AEPO, AECO, Zyno, AI Agents, Solana, Web3, DAO, Money Factory AI">
     <meta name="author" content="Money Factory AI">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        background: {
-                            primary: '#0A0A1F',
-                            secondary: '#13132B',
-                        },
-                        accent: {
-                            primary: '#A020F0',
-                            secondary: '#00E5FF',
-                        },
-                        text: {
-                            primary: '#FFFFFF',
-                            secondary: '#E0E0E0',
-                            muted: '#A0A0A0',
-                        },
-                        solana: {
-                            purple: '#9945FF',
-                            green: '#14F195',
-                        },
-                    },
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            background-color: #0A0A1F;
-            color: #E0E0E0;
-        }
-
-        .glass {
-            background: rgba(19, 19, 43, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(160, 32, 240, 0.1);
-        }
-
-        .glass-card {
-            background: linear-gradient(180deg, rgba(19, 19, 43, 0.85) 0%, rgba(10, 10, 31, 0.7) 100%);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(160, 32, 240, 0.2);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card:hover {
-            border-color: rgba(160, 32, 240, 0.4);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px -10px rgba(160, 32, 240, 0.3);
-        }
-
-        .text-gradient-mfai {
-            background: linear-gradient(135deg, #A020F0 0%, #00E5FF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .text-gradient-solana {
-            background: linear-gradient(90deg, #9945FF 0%, #14F195 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-link {
-            position: relative;
-            padding-bottom: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(90deg, #A020F0, #00E5FF);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .cta-button {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .cta-button:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(160, 32, 240, 0.4);
-        }
-    </style>
 </head>
 
 <body class="bg-background-primary text-text-secondary antialiased selection:bg-accent-primary selection:text-white">
@@ -164,7 +43,8 @@
                     <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money Factory AI</span>
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money
+                        Factory AI</span>
                     <span class="text-xs text-text-muted font-sans">Venture Engine</span>
                 </div>
             </a>
@@ -176,9 +56,13 @@
                 <a href="index.html#journey"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
                 <a href="product.html" class="nav-link text-sm text-white transition-colors">Product</a>
+                <a href="roadmap.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
                 <a href="docs.html#zyno-overview"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents & API</a>
-                <a href="token.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents &
+                    API</a>
+                <a href="token.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
                 <a href="investors.html"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
                 <a href="documentation_hub.html"
@@ -197,7 +81,7 @@
                     <i data-lucide="book-open" class="w-4 h-4"></i>
                     Docs
                 </a>
-                <a href="/terminal"
+                <a href="https://journey.mfai.app"
                     class="cta-button px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10">
                     Access Terminal
                 </a>
@@ -211,12 +95,16 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-background-secondary/95 backdrop-blur-lg border-t border-accent-primary/10">
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-background-secondary/95 backdrop-blur-lg border-t border-accent-primary/10">
             <div class="container mx-auto px-6 py-4 space-y-3">
-                <a href="index.html#home" class="block py-2 text-text-secondary hover:text-white transition-colors">Home</a>
+                <a href="index.html#home"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Home</a>
                 <a href="index.html#journey"
                     class="block py-2 text-text-secondary hover:text-white transition-colors">Journey</a>
                 <a href="product.html" class="block py-2 text-white transition-colors">Product</a>
+                <a href="roadmap.html"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Roadmap</a>
                 <a href="docs.html#zyno-overview"
                     class="block py-2 text-text-secondary hover:text-white transition-colors">Agents & API</a>
                 <a href="token.html" class="block py-2 text-text-secondary hover:text-white transition-colors">Token</a>
@@ -237,11 +125,13 @@
                 <div
                     class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-primary/30 bg-accent-primary/10 backdrop-blur-sm mb-8">
                     <i data-lucide="layers" class="w-4 h-4 text-accent-secondary"></i>
-                    <span class="text-xs uppercase tracking-widest text-text-secondary font-semibold">The Money Factory AI
+                    <span class="text-xs uppercase tracking-widest text-text-secondary font-semibold">The Money Factory
+                        AI
                         Platform</span>
                 </div>
 
-                <h1 class="text-5xl md:text-7xl font-display font-black tracking-tight mb-8 leading-[1.1] text-text-primary">
+                <h1
+                    class="text-5xl md:text-7xl font-display font-black tracking-tight mb-8 leading-[1.1] text-text-primary">
                     Build, Learn & Launch<br>
                     <span class="text-gradient-mfai">with AI Orchestration</span>
                 </h1>
@@ -332,22 +222,26 @@
                         </h4>
                         <ul class="space-y-3 text-text-secondary">
                             <li class="flex items-start gap-3">
-                                <i data-lucide="arrow-right" class="w-5 h-5 text-accent-secondary mt-0.5 flex-shrink-0"></i>
+                                <i data-lucide="arrow-right"
+                                    class="w-5 h-5 text-accent-secondary mt-0.5 flex-shrink-0"></i>
                                 <span><strong class="text-white">Personalized Assessment:</strong> Zyno analyzes your
                                     skills, goals, and project idea</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <i data-lucide="arrow-right" class="w-5 h-5 text-accent-secondary mt-0.5 flex-shrink-0"></i>
+                                <i data-lucide="arrow-right"
+                                    class="w-5 h-5 text-accent-secondary mt-0.5 flex-shrink-0"></i>
                                 <span><strong class="text-white">Dynamic Path Generation:</strong> AI creates a custom
                                     roadmap with milestones and tasks</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <i data-lucide="arrow-right" class="w-5 h-5 text-accent-secondary mt-0.5 flex-shrink-0"></i>
-                                <span><strong class="text-white">Continuous Guidance:</strong> 17 specialized agents
+                                <i data-lucide="arrow-right"
+                                    class="w-5 h-5 text-accent-secondary mt-0.5 flex-shrink-0"></i>
+                                <span><strong class="text-white">Continuous Guidance:</strong> 24 specialized agents
                                     provide support at each phase</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <i data-lucide="arrow-right" class="w-5 h-5 text-accent-secondary mt-0.5 flex-shrink-0"></i>
+                                <i data-lucide="arrow-right"
+                                    class="w-5 h-5 text-accent-secondary mt-0.5 flex-shrink-0"></i>
                                 <span><strong class="text-white">Proof-of-Skill™:</strong> Earn verifiable credentials
                                     and $MFAI as you progress</span>
                             </li>
@@ -535,7 +429,7 @@
 
                     <!-- Agent Categories -->
                     <div class="mb-12">
-                        <h4 class="text-2xl font-bold text-white mb-8 text-center">17 Specialized AI Agents</h4>
+                        <h4 class="text-2xl font-bold text-white mb-8 text-center">24 Specialized AI Agents</h4>
 
                         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
                             <!-- Core Agents -->
@@ -557,44 +451,14 @@
 
                             <!-- Specialized Agents -->
                             <div class="glass-card p-4 rounded-xl text-center">
-                                <div class="text-2xl mb-2">⚖️</div>
-                                <div class="font-bold text-sm text-white">Legal</div>
-                                <div class="text-xs text-text-muted mt-1">Compliance</div>
+                                <div class="text-2xl mb-2">🧭</div>
+                                <div class="font-bold text-sm text-white">Guide</div>
+                                <div class="text-xs text-text-muted mt-1">Orientation</div>
                             </div>
                             <div class="glass-card p-4 rounded-xl text-center">
-                                <div class="text-2xl mb-2">📢</div>
-                                <div class="font-bold text-sm text-white">Marketing</div>
-                                <div class="text-xs text-text-muted mt-1">GTM Strategy</div>
-                            </div>
-                            <div class="glass-card p-4 rounded-xl text-center">
-                                <div class="text-2xl mb-2">📈</div>
-                                <div class="font-bold text-sm text-white">Growth</div>
-                                <div class="text-xs text-text-muted mt-1">Distribution</div>
-                            </div>
-                            <div class="glass-card p-4 rounded-xl text-center">
-                                <div class="text-2xl mb-2">🛡️</div>
-                                <div class="font-bold text-sm text-white">Risk</div>
-                                <div class="text-xs text-text-muted mt-1">Security</div>
-                            </div>
-                            <div class="glass-card p-4 rounded-xl text-center">
-                                <div class="text-2xl mb-2">🗳️</div>
-                                <div class="font-bold text-sm text-white">DAO</div>
-                                <div class="text-xs text-text-muted mt-1">Governance</div>
-                            </div>
-                            <div class="glass-card p-4 rounded-xl text-center">
-                                <div class="text-2xl mb-2">📊</div>
-                                <div class="font-bold text-sm text-white">Data Analyst</div>
-                                <div class="text-xs text-text-muted mt-1">Metrics</div>
-                            </div>
-                            <div class="glass-card p-4 rounded-xl text-center">
-                                <div class="text-2xl mb-2">👥</div>
-                                <div class="font-bold text-sm text-white">Community</div>
-                                <div class="text-xs text-text-muted mt-1">Engagement</div>
-                            </div>
-                            <div class="glass-card p-4 rounded-xl text-center">
-                                <div class="text-2xl mb-2">🔍</div>
-                                <div class="font-bold text-sm text-white">Auditor</div>
-                                <div class="text-xs text-text-muted mt-1">Code Security</div>
+                                <div class="text-2xl mb-2">👋</div>
+                                <div class="font-bold text-sm text-white">Onboarding</div>
+                                <div class="text-xs text-text-muted mt-1">Setup</div>
                             </div>
                             <div class="glass-card p-4 rounded-xl text-center">
                                 <div class="text-2xl mb-2">📚</div>
@@ -602,29 +466,99 @@
                                 <div class="text-xs text-text-muted mt-1">Learning</div>
                             </div>
                             <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🛠️</div>
+                                <div class="font-bold text-sm text-white">Builder</div>
+                                <div class="text-xs text-text-muted mt-1">Implementation</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🔧</div>
+                                <div class="font-bold text-sm text-white">Dev</div>
+                                <div class="text-xs text-text-muted mt-1">Troubleshooting</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
                                 <div class="text-2xl mb-2">🎯</div>
-                                <div class="font-bold text-sm text-white">Coach</div>
-                                <div class="text-xs text-text-muted mt-1">Guidance</div>
+                                <div class="font-bold text-sm text-white">Product</div>
+                                <div class="text-xs text-text-muted mt-1">Strategy</div>
                             </div>
                             <div class="glass-card p-4 rounded-xl text-center">
-                                <div class="text-2xl mb-2">🏛️</div>
-                                <div class="font-bold text-sm text-white">RWA</div>
-                                <div class="text-xs text-text-muted mt-1">Real Assets</div>
+                                <div class="text-2xl mb-2">🎨</div>
+                                <div class="font-bold text-sm text-white">Design</div>
+                                <div class="text-xs text-text-muted mt-1">UX/UI</div>
                             </div>
                             <div class="glass-card p-4 rounded-xl text-center">
-                                <div class="text-2xl mb-2">✅</div>
-                                <div class="font-bold text-sm text-white">Evaluator</div>
-                                <div class="text-xs text-text-muted mt-1">Assessment</div>
+                                <div class="text-2xl mb-2">🪙</div>
+                                <div class="font-bold text-sm text-white">Token</div>
+                                <div class="text-xs text-text-muted mt-1">SPL Mgmt</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🖼️</div>
+                                <div class="font-bold text-sm text-white">NFT</div>
+                                <div class="text-xs text-text-muted mt-1">Collections</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🗳️</div>
+                                <div class="font-bold text-sm text-white">DAO</div>
+                                <div class="text-xs text-text-muted mt-1">Governance</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">⚖️</div>
+                                <div class="font-bold text-sm text-white">Governance</div>
+                                <div class="text-xs text-text-muted mt-1">Voting</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">👥</div>
+                                <div class="font-bold text-sm text-white">Community</div>
+                                <div class="text-xs text-text-muted mt-1">Engagement</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">📈</div>
+                                <div class="font-bold text-sm text-white">Growth</div>
+                                <div class="text-xs text-text-muted mt-1">Marketing</div>
                             </div>
                             <div class="glass-card p-4 rounded-xl text-center">
                                 <div class="text-2xl mb-2">🔗</div>
-                                <div class="font-bold text-sm text-white">Integration</div>
-                                <div class="text-xs text-text-muted mt-1">Protocols</div>
+                                <div class="font-bold text-sm text-white">Protocol</div>
+                                <div class="text-xs text-text-muted mt-1">Architecture</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🛡️</div>
+                                <div class="font-bold text-sm text-white">Security</div>
+                                <div class="text-xs text-text-muted mt-1">Hardening</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🔍</div>
+                                <div class="font-bold text-sm text-white">Audit</div>
+                                <div class="text-xs text-text-muted mt-1">Smart Contracts</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">📜</div>
+                                <div class="font-bold text-sm text-white">Web3 Legal</div>
+                                <div class="text-xs text-text-muted mt-1">Compliance</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🎤</div>
+                                <div class="font-bold text-sm text-white">Pitch</div>
+                                <div class="text-xs text-text-muted mt-1">Storytelling</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">💼</div>
+                                <div class="font-bold text-sm text-white">Investor</div>
+                                <div class="text-xs text-text-muted mt-1">VC Feedback</div>
                             </div>
                             <div class="glass-card p-4 rounded-xl text-center">
                                 <div class="text-2xl mb-2">🚀</div>
-                                <div class="font-bold text-sm text-white">DevOps</div>
-                                <div class="text-xs text-text-muted mt-1">Infrastructure</div>
+                                <div class="font-bold text-sm text-white">Launchpad</div>
+                                <div class="text-xs text-text-muted mt-1">GTM Strategy</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🧠</div>
+                                <div class="font-bold text-sm text-white">Reflection</div>
+                                <div class="text-xs text-text-muted mt-1">Retrospectives</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🏆</div>
+                                <div class="font-bold text-sm text-white">Coach</div>
+                                <div class="text-xs text-text-muted mt-1">Development</div>
                             </div>
                         </div>
                     </div>
@@ -772,7 +706,7 @@
                         <i data-lucide="book-open" class="w-5 h-5 inline mr-2"></i>
                         Read the Docs
                     </a>
-                    <a href="/terminal"
+                    <a href="https://journey.mfai.app"
                         class="cta-button px-8 py-4 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-xl relative z-10">
                         <i data-lucide="terminal" class="w-5 h-5 inline mr-2"></i>
                         Access Zyno Terminal
@@ -794,7 +728,9 @@
                             <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                         </div>
                         <div class="flex flex-col">
-                            <span class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money Factory
+                            <span
+                                class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
+                                Factory
                                 AI</span>
                             <span class="text-xs text-text-muted">Venture Engine</span>
                         </div>
@@ -824,7 +760,8 @@
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
                     <ul class="space-y-3">
                         <li><a href="documentation_hub.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a>
+                        </li>
                         <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
                                 Docs</a></li>
                         <li><a href="litepaper.html"
@@ -843,7 +780,8 @@
                         <li><a href="token.html"
                                 class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
                         <li><a href="investors.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a>
+                        </li>
                         <li><a href="https://discord.gg/shztvSg9" target="_blank" rel="noopener"
                                 class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
                         <li><a href="https://x.com/MoneyFactoryAI" target="_blank" rel="noopener"

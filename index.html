@@ -7,7 +7,7 @@
     <title>Money Factory AI – Build on Solana with an AI Co-Founder | Venture Engine for the Internet Capital Market
     </title>
     <meta name="description"
-        content="Money Factory AI is a Solana-native venture engine. Zyno and its 17 AI agents guide you through a continuous Learn → Build → Govern → Launch journey.">
+        content="Money Factory AI is a Solana-native venture engine. Zyno and its 24 AI agents guide you through a continuous Learn → Build → Govern → Launch journey.">
     <meta name="keywords"
         content="Solana, AI Agents, Venture Engine, Web3, DAO, Bonding Curve, MFAI, Collaterize, Launchpad">
     <meta name="author" content="Money Factory AI">
@@ -17,7 +17,7 @@
     <meta property="og:url" content="https://moneyfactory.ai/">
     <meta property="og:title" content="Money Factory AI | Build on Solana with an AI Co-Founder">
     <meta property="og:description"
-        content="Launch your Web3 venture with 17 AI Agents. Zero code required. Programmable liquidity on Solana.">
+        content="Launch your Web3 venture with 24 AI Agents. Zero code required. Programmable liquidity on Solana.">
     <meta property="og:image" content="https://moneyfactory.ai/og-image.jpg">
 
     <!-- Twitter -->
@@ -25,344 +25,20 @@
     <meta property="twitter:url" content="https://moneyfactory.ai/">
     <meta property="twitter:title" content="Money Factory AI | Build on Solana with an AI Co-Founder">
     <meta property="twitter:description"
-        content="Launch your Web3 venture with 17 AI Agents. Zero code required. Programmable liquidity on Solana.">
+        content="Launch your Web3 venture with 24 AI Agents. Zero code required. Programmable liquidity on Solana.">
     <meta property="twitter:image" content="https://moneyfactory.ai/og-image.jpg">
 
     <!-- Favicon -->
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏭</text></svg>">
+    <link rel="icon" type="image/png" href="logo_mfai.png">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        background: {
-                            primary: '#0A0A1F',
-                            secondary: '#13132B',
-                        },
-                        accent: {
-                            primary: '#A020F0',
-                            secondary: '#00E5FF',
-                        },
-                        text: {
-                            primary: '#FFFFFF',
-                            secondary: '#E0E0E0',
-                            muted: '#A0A0A0',
-                        },
-                        solana: {
-                            purple: '#9945FF',
-                            green: '#14F195',
-                        },
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'spin-slow': 'spin 12s linear infinite',
-                        'draw': 'draw 2s ease-out forwards',
-                        'flow': 'flow 3s linear infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                        'slide-up': 'slideUp 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        draw: {
-                            '0%': { strokeDasharray: '1000', strokeDashoffset: '1000' },
-                            '100%': { strokeDashoffset: '0' }
-                        },
-                        flow: {
-                            '0%': { backgroundPosition: '0% 50%' },
-                            '100%': { backgroundPosition: '100% 50%' }
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(160, 32, 240, 0.3)' },
-                            '100%': { boxShadow: '0 0 40px rgba(160, 32, 240, 0.6), 0 0 60px rgba(0, 229, 255, 0.4)' }
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            background-color: #0A0A1F;
-            color: #E0E0E0;
-            overflow-x: hidden;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0A0A1F;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #13132B;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #A020F0;
-        }
-
-        /* Glassmorphism Enhanced */
-        .glass {
-            background: rgba(19, 19, 43, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(160, 32, 240, 0.1);
-        }
-
-        .glass-card {
-            background: linear-gradient(180deg, rgba(19, 19, 43, 0.85) 0%, rgba(10, 10, 31, 0.7) 100%);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(160, 32, 240, 0.2);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(160, 32, 240, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .glass-card:hover::before {
-            left: 100%;
-        }
-
-        .glass-card:hover {
-            border-color: rgba(160, 32, 240, 0.4);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px -10px rgba(160, 32, 240, 0.3);
-        }
-
-        /* Gradient Text Enhanced */
-        .text-gradient-solana {
-            background: linear-gradient(90deg, #9945FF 0%, #14F195 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .text-gradient-mfai {
-            background: linear-gradient(135deg, #A020F0 0%, #00E5FF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Nav Link Enhanced */
-        .nav-link {
-            position: relative;
-            padding-bottom: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(90deg, #A020F0, #00E5FF);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .nav-link.active {
-            color: #ffffff;
-        }
-
-        /* Animated Background Particles */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(160, 32, 240, 0.8), transparent);
-            border-radius: 50%;
-            animation: particleFloat 20s infinite;
-        }
-
-        @keyframes particleFloat {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0;
-            }
-
-            10% {
-                opacity: 1;
-            }
-
-            90% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translate(100px, -1000px) scale(0);
-                opacity: 0;
-            }
-        }
-
-        /* Stats Counter Animation */
-        .stat-number {
-            font-variant-numeric: tabular-nums;
-        }
-
-        /* Feature Card Hover Effect */
-        .feature-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .feature-card:hover {
-            transform: scale(1.05);
-        }
-
-        .feature-icon {
-            transition: all 0.3s ease;
-        }
-
-.feature-card:hover .feature-icon {
-            transform: rotate(5deg) scale(1.1);
-        }
-
-        /* Flow Animation for Lines */
-        .flow-line {
-            background: linear-gradient(90deg, transparent, #A020F0, #00E5FF, transparent);
-            background-size: 200% 100%;
-            animation: flow 3s linear infinite;
-        }
-
-        /* CTA Button Enhanced */
-        .cta-button {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .cta-button:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(160, 32, 240, 0.4);
-        }
-
-        /* Reveal on Scroll */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-
-        .reveal-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Terminal Typing Effect */
-        .typing-cursor::after {
-            content: '_';
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-
-            0%,
-            50% {
-                opacity: 1;
-            }
-
-            51%,
-            100% {
-                opacity: 0;
-            }
-        }
-
-        /* Progress Bar */
-        .progress-bar {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 30%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-            0% {
-                left: -30%;
-            }
-
-            100% {
-                left: 100%;
-            }
-        }
-    </style>
 </head>
 
 <body class="bg-background-primary text-text-secondary antialiased selection:bg-accent-primary selection:text-white">
@@ -387,19 +63,26 @@
                     <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money Factory AI</span>
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money
+                        Factory AI</span>
                     <span class="text-xs text-text-muted font-sans">Venture Engine</span>
                 </div>
             </a>
 
             <div class="hidden md:flex items-center gap-8" id="nav-links">
-                <a href="#home" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
-                <a href="#journey" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
+                <a href="#home"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
+                <a href="#journey"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
+                <a href="#roadmap"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
                 <a href="product.html"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
                 <a href="docs.html#zyno-overview"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents & API</a>
-                <a href="token.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents &
+                    API</a>
+                <a href="token.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
                 <a href="investors.html"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
                 <a href="documentation_hub.html"
@@ -417,7 +100,7 @@
                     <i data-lucide="book-open" class="w-4 h-4"></i>
                     Docs
                 </a>
-                <a href="/terminal"
+                <a href="https://journey.mfai.app"
                     class="cta-button px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10">
                     Access Terminal
                 </a>
@@ -432,7 +115,8 @@
                 <div
                     class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-primary/30 bg-accent-primary/10 backdrop-blur-sm mb-8 reveal-on-scroll animate-glow">
                     <img src="solana.svg" alt="Solana" class="w-4 h-4 animate-pulse">
-                    <span class="text-xs uppercase tracking-widest text-text-secondary font-semibold">Internet Capital Market
+                    <span class="text-xs uppercase tracking-widest text-text-secondary font-semibold">Internet Capital
+                        Market
                         · Powered by Solana</span>
                 </div>
 
@@ -444,9 +128,11 @@
 
                 <p
                     class="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto mb-6 leading-relaxed reveal-on-scroll font-light">
-                    Money Factory AI is a <strong class="text-text-primary font-semibold">Solana-native venture engine that
+                    Money Factory AI is a <strong class="text-text-primary font-semibold">Solana-native venture engine
+                        that
                         turns raw ideas into funded, AI-orchestrated businesses</strong>.<br>
-                    <span class="text-text-muted text-lg">Zyno and its 17 AI agents guide you through a continuous Learn →
+                    <span class="text-text-muted text-lg">Zyno and its 24 AI agents guide you through a continuous Learn
+                        →
                         Build → Govern → Launch journey.</span>
                 </p>
 
@@ -476,16 +162,18 @@
 
                 <!-- Enhanced CTA -->
                 <div class="max-w-xl mx-auto reveal-on-scroll">
-                    <div class="bg-background-secondary border border-accent-primary/20 p-3 rounded-2xl backdrop-blur-md shadow-2xl">
-                        <div class="flex flex-col sm:flex-row gap-3">
-                            <input type="email" placeholder="your@email.com"
+                    <div
+                        class="bg-background-secondary border border-accent-primary/20 p-3 rounded-2xl backdrop-blur-md shadow-2xl">
+                        <div id="email-capture-container" class="flex flex-col sm:flex-row gap-3">
+                            <input type="email" id="email-input" placeholder="your@email.com"
                                 class="flex-1 bg-white/10 border border-white/10 focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/50 text-white px-5 py-3.5 placeholder-text-muted outline-none rounded-xl transition-all"
                                 aria-label="Email Address">
-                            <button
-                                class="cta-button px-8 py-3.5 bg-gradient-to-r from-accent-primary to-accent-secondary rounded-xl font-bold text-white shadow-lg relative z-10 whitespace-nowrap">
+                            <button type="button" id="submit-button"
+                                class="cta-button px-8 py-3.5 bg-gradient-to-r from-accent-primary to-accent-secondary rounded-xl font-bold text-white shadow-lg relative z-10 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed">
                                 Start Your Journey on Solana →
                             </button>
                         </div>
+                        <div id="form-message" class="mt-3 text-sm p-2 rounded hidden" style="display: none;"></div>
                     </div>
                     <p class="text-xs text-text-muted mt-4">
                         <i data-lucide="lock" class="w-3 h-3 inline"></i>
@@ -499,7 +187,7 @@
                         <div class="group">
                             <div
                                 class="text-4xl md:text-5xl font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary stat-number group-hover:scale-110 transition-transform">
-                                17</div>
+                                24</div>
                             <div class="text-sm text-text-muted mt-2 uppercase tracking-wider">AI Agents</div>
                         </div>
                         <div class="group">
@@ -542,7 +230,8 @@
                     <p class="text-text-secondary text-lg max-w-3xl mx-auto leading-relaxed">
                         Whether you're a Web2 entrepreneur seeking to migrate, a Web3 builder with a fresh vision, an
                         early-stage investor,
-                        or simply eager to learn—Money Factory AI serves as your <strong class="text-text-primary">complete
+                        or simply eager to learn—Money Factory AI serves as your <strong
+                            class="text-text-primary">complete
                             gateway</strong>
                         to the decentralized economy with programmable liquidity powered by <strong
                             class="text-solana-green">Collaterize</strong>.
@@ -574,7 +263,7 @@
                         </div>
                         <h4 class="text-xl font-bold text-text-primary mb-3">Web3 Builders</h4>
                         <p class="text-text-secondary text-sm leading-relaxed mb-4">
-                            Ship your DeFi protocol, NFT project, DAO, or RWA with Zyno. 17 AI agents handle code,
+                            Ship your DeFi protocol, NFT project, DAO, or RWA with Zyno. 24 AI agents handle code,
                             audits, and liquidity. You retain creative control.
                         </p>
                         <div class="text-xs text-accent-secondary font-semibold">→ Build zero-code</div>
@@ -626,7 +315,7 @@
                         </div>
                         <h4 class="text-2xl font-bold text-text-primary mb-4">Agentic AI</h4>
                         <p class="text-text-secondary leading-relaxed">
-                            17 specialized agents orchestrated by Zyno. From Architect to CFO, each agent masters its
+                            24 specialized agents orchestrated by Zyno. From Architect to CFO, each agent masters its
                             domain to transform your vision into on-chain reality.
                         </p>
                         <div class="mt-6 flex flex-wrap gap-2">
@@ -637,7 +326,7 @@
                             <span
                                 class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-text-muted">CFO</span>
                             <span
-                                class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-text-muted">+14</span>
+                                class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-text-muted">+21</span>
                         </div>
                     </div>
 
@@ -674,7 +363,8 @@
                         </div>
                         <h4 class="text-2xl font-bold text-text-primary mb-4">Meritocratic DAO</h4>
                         <p class="text-text-secondary leading-relaxed">
-                            <strong class="text-text-primary">Synaptic Governance™</strong>. The community selects the best
+                            <strong class="text-text-primary">Synaptic Governance™</strong>. The community selects the
+                            best
                             projects based on verified on-chain skills and merit.
                         </p>
                         <div class="mt-6 flex items-center gap-3">
@@ -714,7 +404,8 @@
                             <!-- Flow Arrow -->
                             <div class="hidden md:block">
                                 <div class="flex flex-col items-center gap-2">
-                                    <i data-lucide="arrow-right" class="w-12 h-12 text-accent-primary animate-pulse"></i>
+                                    <i data-lucide="arrow-right"
+                                        class="w-12 h-12 text-accent-primary animate-pulse"></i>
                                     <span class="text-xs text-text-muted uppercase tracking-wider">Deployment</span>
                                 </div>
                             </div>
@@ -737,7 +428,8 @@
 
                         <div class="mt-10 pt-8 border-t border-white/10 text-center">
                             <p class="text-text-secondary text-sm leading-relaxed">
-                                Together, we unlock <strong class="text-text-primary">$100+ trillion</strong> in illiquid
+                                Together, we unlock <strong class="text-text-primary">$100+ trillion</strong> in
+                                illiquid
                                 assets
                                 (real estate, private equity, commodities) by making them <strong
                                     class="text-solana-green">programmable and tradable</strong> on Solana.
@@ -836,7 +528,8 @@
                             </div>
                             <h4 class="text-xl font-bold text-text-primary mb-3">DAO Vote</h4>
                             <p class="text-sm text-text-secondary leading-relaxed mb-4">
-                                <strong class="text-text-primary">Synaptic Governance™</strong>. The community votes on the
+                                <strong class="text-text-primary">Synaptic Governance™</strong>. The community votes on
+                                the
                                 best projects to incubate
                                 based on merit and on-chain reputation.
                             </p>
@@ -882,9 +575,567 @@
             </div>
         </section>
 
+        <!-- Roadmap Section Start -->
+        <section id="roadmap" class="py-24 relative overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+                <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-primary/10 rounded-full blur-[100px]"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-secondary/10 rounded-full blur-[100px]">
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <h2
+                        class="text-sm font-bold text-accent-secondary tracking-widest uppercase mb-4 flex items-center justify-center gap-2">
+                        <i data-lucide="milestone" class="w-4 h-4"></i>
+                        Roadmap
+                    </h2>
+                    <h3 class="text-4xl md:text-6xl font-display font-bold mb-6 text-text-primary">
+                        Building the <span class="text-gradient-mfai">Venture Engine</span>
+                    </h3>
+                    <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+                        From genesis to a category-defining AI venture ecosystem on Solana.
+                    </p>
+                </div>
+
+                <!-- Desktop Timeline View (Horizontal Scroll) -->
+                <div class="hidden lg:block relative">
+                    <!-- Connector Line -->
+                    <div class="absolute top-8 left-0 w-full h-1 bg-white/5 rounded-full">
+                        <div
+                            class="h-full bg-gradient-to-r from-accent-primary via-accent-secondary to-solana-green w-[60%] rounded-full relative">
+                            <div
+                                class="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)] animate-pulse">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Horizontal Scroll Container -->
+                    <div
+                        class="flex overflow-x-auto gap-8 pb-12 pt-16 snap-x snap-mandatory px-4 -mx-4 custom-scrollbar">
+
+                        <!-- Phase 0 -->
+                        <div class="min-w-[350px] snap-center">
+                            <div
+                                class="glass-card p-6 rounded-2xl h-full border-white/5 opacity-70 hover:opacity-100 transition-opacity">
+                                <div
+                                    class="absolute -top-12 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background-primary border-2 border-accent-primary flex items-center justify-center z-10">
+                                    <div class="w-3 h-3 bg-accent-primary rounded-full"></div>
+                                </div>
+                                <div class="mb-4">
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-white/5 text-xs font-semibold text-text-muted border border-white/10">Phase
+                                        0 · Genesis</span>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-text-muted">Q2–Q4 2024</span>
+                                        <span class="text-xs text-green-400 flex items-center gap-1"><i
+                                                data-lucide="check-circle" class="w-3 h-3"></i> Completed</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-bold text-text-primary mb-2">From raw idea to structured vision
+                                </h4>
+                                <ul class="space-y-3 mt-4">
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
+                                        <span>Initial concept & research</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
+                                        <span>Market and ecosystem study</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
+                                        <span>Strategy & architecture draft</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
+                                        <span>First landing, whitepaper v1 & tokenomics v1</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Phase 1 -->
+                        <div class="min-w-[350px] snap-center">
+                            <div class="glass-card p-6 rounded-2xl h-full border-accent-primary/30">
+                                <div
+                                    class="absolute -top-12 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background-primary border-2 border-accent-primary flex items-center justify-center z-10">
+                                    <div class="w-3 h-3 bg-accent-primary rounded-full"></div>
+                                </div>
+                                <div class="mb-4">
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-accent-primary/20 text-xs font-semibold text-accent-primary border border-accent-primary/30">Phase
+                                        1 · Foundation</span>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-text-muted">Q1–Q2 2025</span>
+                                        <span class="text-xs text-green-400 flex items-center gap-1"><i
+                                                data-lucide="check-circle" class="w-3 h-3"></i> Completed</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-bold text-text-primary mb-2">Turning the concept into a working
+                                    engine
+                                </h4>
+                                <ul class="space-y-3 mt-4">
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
+                                        <span>Zyno v1 (AI Co-Founder prototype)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
+                                        <span>Strategic partnership with T-Scop</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
+                                        <span>Paris Blockchain Week (TDeFi Track)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
+                                        <span>Money Factory AI LLC registration</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
+                                        <span>Apex Budapest x Collaterize partnership</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Phase 2 (Active) -->
+                        <div class="min-w-[350px] snap-center">
+                            <div
+                                class="glass-card p-6 rounded-2xl h-full border-solana-green/50 shadow-[0_0_30px_rgba(20,241,149,0.1)] relative overflow-visible">
+                                <div
+                                    class="absolute -top-12 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-background-primary border-2 border-solana-green flex items-center justify-center z-10 shadow-[0_0_15px_rgba(20,241,149,0.5)]">
+                                    <div class="w-4 h-4 bg-solana-green rounded-full animate-pulse"></div>
+                                </div>
+                                <div
+                                    class="absolute -top-3 right-4 px-3 py-1 bg-solana-green text-background-primary text-xs font-bold rounded-full animate-bounce">
+                                    CURRENT
+                                </div>
+                                <div class="mb-4">
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-solana-green/20 text-xs font-semibold text-solana-green border border-solana-green/30">Phase
+                                        2 · Productization</span>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-text-muted">Q3–Q4 2025</span>
+                                        <span class="text-xs text-solana-green flex items-center gap-1"><i
+                                                data-lucide="loader" class="w-3 h-3 animate-spin"></i> In Build</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-bold text-text-primary mb-2">From prototype to a full
+                                    Solana-native MVP
+                                </h4>
+                                <ul class="space-y-3 mt-4">
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
+                                        <span>MVP Architecture Finalization</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
+                                        <span>RAG & Knowledge Graph Implementation</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
+                                        <span>Builder Console & Journey UI</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
+                                        <span>Investor / Partner View</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
+                                        <span>Tokenomics 2.0 & Treasury Model</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Phase 3 -->
+                        <div class="min-w-[350px] snap-center">
+                            <div class="glass-card p-6 rounded-2xl h-full border-white/10">
+                                <div
+                                    class="absolute -top-12 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background-primary border-2 border-white/20 flex items-center justify-center z-10">
+                                    <div class="w-3 h-3 bg-white/20 rounded-full"></div>
+                                </div>
+                                <div class="mb-4">
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-white/5 text-xs font-semibold text-text-secondary border border-white/10">Phase
+                                        3 · Launch</span>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-text-muted">Dec 2025</span>
+                                        <span class="text-xs text-accent-secondary flex items-center gap-1"><i
+                                                data-lucide="rocket" class="w-3 h-3"></i> Upcoming</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-bold text-text-primary mb-2">Showing the engine to the Solana
+                                    world</h4>
+                                <ul class="space-y-3 mt-4">
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="circle"
+                                            class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
+                                        <span>Breakpoint Abu Dhabi 2025 – Public Reveal</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="circle"
+                                            class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
+                                        <span>Public Alpha of the MFAI Venture Engine</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="circle"
+                                            class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
+                                        <span>Early Ecosystem Deals & Pilots</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Phase 4 -->
+                        <div class="min-w-[350px] snap-center">
+                            <div class="glass-card p-6 rounded-2xl h-full border-white/10">
+                                <div
+                                    class="absolute -top-12 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background-primary border-2 border-white/20 flex items-center justify-center z-10">
+                                    <div class="w-3 h-3 bg-white/20 rounded-full"></div>
+                                </div>
+                                <div class="mb-4">
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-white/5 text-xs font-semibold text-text-secondary border border-white/10">Phase
+                                        4 · Scale</span>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-text-muted">2026</span>
+                                        <span class="text-xs text-text-muted flex items-center gap-1"><i
+                                                data-lucide="calendar" class="w-3 h-3"></i> Planned</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-bold text-text-primary mb-2">From alpha to repeatable venture
+                                    engine
+                                </h4>
+                                <ul class="space-y-3 mt-4">
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="circle"
+                                            class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
+                                        <span>H1 2026 – Closed Beta Cohorts</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="circle"
+                                            class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
+                                        <span>H1 2026 – First Production Launches</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="circle"
+                                            class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
+                                        <span>H2 2026 – SaaS Commercialization</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="circle"
+                                            class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
+                                        <span>H2 2026 – Governance & Token Event</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Phase 5 -->
+                        <div class="min-w-[350px] snap-center">
+                            <div
+                                class="glass-card p-6 rounded-2xl h-full border-white/5 bg-gradient-to-b from-white/5 to-transparent">
+                                <div
+                                    class="absolute -top-12 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background-primary border-2 border-white/10 flex items-center justify-center z-10">
+                                    <div class="w-3 h-3 bg-white/10 rounded-full"></div>
+                                </div>
+                                <div class="mb-4">
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-white/5 text-xs font-semibold text-text-muted border border-white/10">Phase
+                                        5 · Vision</span>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-text-muted">2027+</span>
+                                        <span class="text-xs text-text-muted flex items-center gap-1"><i
+                                                data-lucide="telescope" class="w-3 h-3"></i> Vision</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-bold text-text-primary mb-2">From product to category-defining
+                                    venture
+                                    engine</h4>
+                                <ul class="space-y-3 mt-4">
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="sparkles"
+                                            class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
+                                        <span>Scaling the MFAI Venture Engine</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="sparkles"
+                                            class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
+                                        <span>Ecosystem & Partnership Network</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="sparkles"
+                                            class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
+                                        <span>Education & Community Layers</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="sparkles"
+                                            class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
+                                        <span>Long-Term Vision</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Mobile Timeline View (Vertical Stack) -->
+                <div class="lg:hidden flex flex-col gap-8 relative">
+                    <!-- Vertical Line -->
+                    <div class="absolute top-0 left-8 h-full w-1 bg-white/10 rounded-full">
+                        <div
+                            class="w-full bg-gradient-to-b from-accent-primary via-accent-secondary to-solana-green h-[50%] rounded-full">
+                        </div>
+                    </div>
+
+                    <!-- Phase 0 -->
+                    <div class="relative pl-20">
+                        <div
+                            class="absolute left-6 top-8 -translate-x-1/2 w-6 h-6 rounded-full bg-background-primary border-2 border-accent-primary flex items-center justify-center z-10">
+                            <div class="w-2 h-2 bg-accent-primary rounded-full"></div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border-white/5 opacity-80">
+                            <div class="mb-2 flex flex-wrap gap-2 items-center">
+                                <span class="text-xs font-bold text-accent-primary uppercase tracking-wider">Phase 0 ·
+                                    Genesis</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-text-muted">Q2–Q4
+                                    2024</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-text-primary mb-2">From raw idea to structured vision</h4>
+                            <ul class="space-y-2 mt-3">
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
+                                    <span>Initial concept & research</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
+                                    <span>Market and ecosystem study</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
+                                    <span>Strategy & architecture draft</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
+                                    <span>First landing, whitepaper v1 & tokenomics v1</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Phase 1 -->
+                    <div class="relative pl-20">
+                        <div
+                            class="absolute left-6 top-8 -translate-x-1/2 w-6 h-6 rounded-full bg-background-primary border-2 border-accent-primary flex items-center justify-center z-10">
+                            <div class="w-2 h-2 bg-accent-primary rounded-full"></div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border-accent-primary/30">
+                            <div class="mb-2 flex flex-wrap gap-2 items-center">
+                                <span class="text-xs font-bold text-accent-primary uppercase tracking-wider">Phase 1 ·
+                                    Foundation</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-text-muted">Q1–Q2
+                                    2025</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-text-primary mb-2">Turning the concept into a working
+                                engine</h4>
+                            <ul class="space-y-2 mt-3">
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
+                                    <span>Zyno v1 (AI Co-Founder prototype)</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
+                                    <span>Strategic partnership with T-Scop</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
+                                    <span>Paris Blockchain Week (TDeFi Track)</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
+                                    <span>Money Factory AI LLC registration</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
+                                    <span>Apex Budapest x Collaterize partnership</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Phase 2 -->
+                    <div class="relative pl-20">
+                        <div
+                            class="absolute left-6 top-8 -translate-x-1/2 w-8 h-8 rounded-full bg-background-primary border-2 border-solana-green flex items-center justify-center z-10 shadow-[0_0_10px_rgba(20,241,149,0.5)]">
+                            <div class="w-3 h-3 bg-solana-green rounded-full animate-pulse"></div>
+                        </div>
+                        <div
+                            class="glass-card p-6 rounded-2xl border-solana-green/50 shadow-[0_0_20px_rgba(20,241,149,0.1)]">
+                            <div
+                                class="absolute -top-3 right-4 px-3 py-1 bg-solana-green text-background-primary text-[10px] font-bold rounded-full">
+                                CURRENT
+                            </div>
+                            <div class="mb-2 flex flex-wrap gap-2 items-center">
+                                <span class="text-xs font-bold text-solana-green uppercase tracking-wider">Phase 2 ·
+                                    Productization</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-text-muted">Q3–Q4
+                                    2025</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-text-primary mb-2">From prototype to a full Solana-native
+                                MVP</h4>
+                            <ul class="space-y-2 mt-3">
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
+                                    <span>MVP Architecture Finalization</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
+                                    <span>RAG & Knowledge Graph Implementation</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
+                                    <span>Builder Console & Journey UI</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
+                                    <span>Investor / Partner View</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
+                                    <span>Tokenomics 2.0 & Treasury Model</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3 -->
+                    <div class="relative pl-20">
+                        <div
+                            class="absolute left-6 top-8 -translate-x-1/2 w-6 h-6 rounded-full bg-background-primary border-2 border-white/20 flex items-center justify-center z-10">
+                            <div class="w-2 h-2 bg-white/20 rounded-full"></div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border-white/10">
+                            <div class="mb-2 flex flex-wrap gap-2 items-center">
+                                <span class="text-xs font-bold text-text-secondary uppercase tracking-wider">Phase 3 ·
+                                    Launch</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-text-muted">Dec 2025</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-text-primary mb-2">Showing the engine to the Solana world
+                            </h4>
+                            <ul class="space-y-2 mt-3">
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
+                                    <span>Breakpoint Abu Dhabi 2025 – Public Reveal</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
+                                    <span>Public Alpha of the MFAI Venture Engine</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
+                                    <span>Early Ecosystem Deals & Pilots</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Phase 4 -->
+                    <div class="relative pl-20">
+                        <div
+                            class="absolute left-6 top-8 -translate-x-1/2 w-6 h-6 rounded-full bg-background-primary border-2 border-white/20 flex items-center justify-center z-10">
+                            <div class="w-2 h-2 bg-white/20 rounded-full"></div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border-white/10">
+                            <div class="mb-2 flex flex-wrap gap-2 items-center">
+                                <span class="text-xs font-bold text-text-secondary uppercase tracking-wider">Phase 4 ·
+                                    Scale</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-text-muted">2026</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-text-primary mb-2">From alpha to repeatable venture engine
+                            </h4>
+                            <ul class="space-y-2 mt-3">
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
+                                    <span>H1 2026 – Closed Beta Cohorts</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
+                                    <span>H1 2026 – First Production Launches</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
+                                    <span>H2 2026 – SaaS Commercialization</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
+                                    <span>H2 2026 – Governance & Token Event</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Phase 5 -->
+                    <div class="relative pl-20">
+                        <div
+                            class="absolute left-6 top-8 -translate-x-1/2 w-6 h-6 rounded-full bg-background-primary border-2 border-white/10 flex items-center justify-center z-10">
+                            <div class="w-2 h-2 bg-white/10 rounded-full"></div>
+                        </div>
+                        <div
+                            class="glass-card p-6 rounded-2xl border-white/5 bg-gradient-to-b from-white/5 to-transparent">
+                            <div class="mb-2 flex flex-wrap gap-2 items-center">
+                                <span class="text-xs font-bold text-text-muted uppercase tracking-wider">Phase 5 ·
+                                    Vision</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-text-muted">2027+</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-text-primary mb-2">From product to category-defining
+                                venture
+                                engine</h4>
+                            <ul class="space-y-2 mt-3">
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
+                                    <span>Scaling the MFAI Venture Engine</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
+                                    <span>Ecosystem & Partnership Network</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
+                                    <span>Education & Community Layers</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
+                                    <span>Long-Term Vision</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- View Full Roadmap CTA -->
+                <div class="text-center mt-12">
+                    <a href="roadmap.html"
+                        class="inline-flex items-center gap-2 text-accent-secondary hover:text-white transition-colors font-semibold text-sm group">
+                        View full roadmap
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
         <!-- Zyno Terminal Reveal (Enhanced) -->
         <section id="terminal" class="py-32 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-b from-background-secondary via-background-secondary to-background-primary z-0"></div>
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-background-secondary via-background-secondary to-background-primary z-0">
+            </div>
 
             <div class="container mx-auto px-6 relative z-10">
                 <div class="flex flex-col lg:flex-row items-center gap-16">
@@ -959,7 +1210,8 @@
                         <div
                             class="rounded-2xl border border-accent-primary/20 bg-[#0f0f1a] overflow-hidden shadow-2xl shadow-accent-primary/50 transform hover:scale-[1.02] transition-transform duration-500">
                             <!-- Title Bar -->
-                            <div class="bg-background-secondary px-5 py-3 flex items-center gap-3 border-b border-white/10">
+                            <div
+                                class="bg-background-secondary px-5 py-3 flex items-center gap-3 border-b border-white/10">
                                 <div class="flex gap-2">
                                     <div
                                         class="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 transition-colors cursor-pointer">
@@ -1045,8 +1297,8 @@
                                                         class="text-cyan-400">$500k</span> (Collaterize)</div>
                                                 <div class="mb-1">> Distribution: Fair Launch (80% community)</div>
                                                 <div class="mt-2 pt-2 border-t border-white/10">
-                                                    <span class="text-text-muted">Generating Python simulation</span><span
-                                                        class="typing-cursor ml-1"></span>
+                                                    <span class="text-text-muted">Generating Python
+                                                        simulation</span><span class="typing-cursor ml-1"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1245,7 +1497,8 @@
         </section>
 
         <!-- Tokenomics Section (Enhanced) -->
-        <section id="tokenomics" class="py-32 border-y border-white/5 bg-gradient-to-b from-background-secondary to-background-primary">
+        <section id="tokenomics"
+            class="py-32 border-y border-white/5 bg-gradient-to-b from-background-secondary to-background-primary">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <!-- Left: Investor Pitch -->
@@ -1266,10 +1519,12 @@
                                     <i data-lucide="brain-circuit" class="w-7 h-7 text-white"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-xl font-bold text-text-primary mb-2">Capture Value via Proof-of-Skill™</h4>
+                                    <h4 class="text-xl font-bold text-text-primary mb-2">Capture Value via
+                                        Proof-of-Skill™</h4>
                                     <p class="text-text-secondary text-sm leading-relaxed">
                                         Every validated skill and launched project accrues value to the MFAI ecosystem.
-                                        We index <strong class="text-text-primary">human cognitive capital</strong>, not just
+                                        We index <strong class="text-text-primary">human cognitive capital</strong>, not
+                                        just
                                         speculation.
                                     </p>
                                 </div>
@@ -1296,10 +1551,12 @@
                                     <i data-lucide="flame" class="w-7 h-7 text-white"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-xl font-bold text-text-primary mb-2">Benefit from Deflationary Model</h4>
+                                    <h4 class="text-xl font-bold text-text-primary mb-2">Benefit from Deflationary Model
+                                    </h4>
                                     <p class="text-text-secondary text-sm leading-relaxed">
                                         Integrated burn mechanisms: 2% on transactions, 5% on project launch fees.
-                                        Maximum supply <strong class="text-text-primary">capped at 1 billion</strong> tokens.
+                                        Maximum supply <strong class="text-text-primary">capped at 1 billion</strong>
+                                        tokens.
                                     </p>
                                 </div>
                             </div>
@@ -1323,7 +1580,8 @@
                             class="absolute inset-0 bg-gradient-to-r from-accent-primary to-accent-secondary blur-[100px] opacity-20 -z-10">
                         </div>
 
-                        <div class="glass-card p-10 rounded-3xl border border-white/10 relative z-10 bg-background-secondary">
+                        <div
+                            class="glass-card p-10 rounded-3xl border border-white/10 relative z-10 bg-background-secondary">
                             <div class="flex justify-between items-center mb-10">
                                 <h4 class="text-3xl font-bold text-text-primary">$MFAI Token</h4>
                                 <div
@@ -1409,7 +1667,8 @@
                             <!-- Token Stats -->
                             <div class="grid grid-cols-2 gap-6 pt-8 border-t border-white/10">
                                 <div>
-                                    <div class="text-xs text-text-muted uppercase tracking-wider mb-2">Total Supply</div>
+                                    <div class="text-xs text-text-muted uppercase tracking-wider mb-2">Total Supply
+                                    </div>
                                     <div class="text-2xl font-bold font-display text-white">1 Billion</div>
                                 </div>
                                 <div>
@@ -1650,7 +1909,9 @@
                             <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                         </div>
                         <div class="flex flex-col">
-                            <span class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money Factory
+                            <span
+                                class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
+                                Factory
                                 AI</span>
                             <span class="text-xs text-text-muted">Venture Engine</span>
                         </div>
@@ -1692,7 +1953,10 @@
                                 class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
                         <li><a href="#journey"
                                 class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
-                        <li><a href="/terminal" class="text-text-muted hover:text-white transition-colors text-sm">Zyno
+                        <li><a href="roadmap.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Roadmap</a></li>
+                        <li><a href="https://journey.mfai.app"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno
                                 Terminal</a></li>
                     </ul>
                 </div>
@@ -1702,7 +1966,8 @@
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
                     <ul class="space-y-3">
                         <li><a href="documentation_hub.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a>
+                        </li>
                         <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
                                 Docs</a></li>
                         <li><a href="litepaper.html"
@@ -1721,7 +1986,8 @@
                         <li><a href="token.html"
                                 class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
                         <li><a href="investors.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a>
+                        </li>
                         <li><a href="https://discord.gg/shztvSg9" target="_blank" rel="noopener noreferrer"
                                 class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
                         <li><a href="https://x.com/MoneyFactoryAI" target="_blank" rel="noopener noreferrer"
@@ -1807,25 +2073,7 @@
             });
         });
 
-        // Email Form Handler (Placeholder)
-        const emailInputs = document.querySelectorAll('input[type="email"]');
-        emailInputs.forEach(input => {
-            const form = input.closest('div');
-            const button = form?.querySelector('button');
 
-            if (button) {
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const email = input.value;
-                    if (email && email.includes('@')) {
-                        alert(`Thank you! Your email ${email} has been added to the Alpha waitlist.`);
-                        input.value = '';
-                    } else {
-                        alert('Please enter a valid email.');
-                    }
-                });
-            }
-        });
 
         // Animated Stats Counter (Optional Enhancement)
         const animateCounter = (element, target) => {
@@ -1862,6 +2110,71 @@
         if (statsSection) {
             statsObserver.observe(statsSection);
         }
+    </script>
+    <script>
+        document.getElementById('submit-button').addEventListener('click', async function () {
+            const emailInput = document.getElementById('email-input');
+            const button = document.getElementById('submit-button');
+            const messageDiv = document.getElementById('form-message');
+            const email = emailInput.value;
+            let isSuccess = false;
+
+            if (!email || !email.includes('@')) {
+                messageDiv.textContent = 'Please enter a valid email address.';
+                messageDiv.className = 'mt-3 text-sm p-2 rounded text-red-400 bg-red-400/10 border border-red-400/20';
+                messageDiv.style.display = 'block';
+                return;
+            }
+
+            // Disable button
+            button.disabled = true;
+            button.textContent = 'Joining...';
+            messageDiv.style.display = 'none';
+
+            try {
+                // In production, this should be just '/api/subscribe' if proxied
+                // For local dev with separate ports or file protocol, we use the full URL
+                const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:')
+                    ? 'http://localhost:3001/api/subscribe'
+                    : '/api/subscribe';
+
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        source_page: 'index'
+                    }),
+                });
+
+                const data = await response.json();
+
+                messageDiv.style.display = 'block';
+
+                if (response.ok && data.success) {
+                    isSuccess = true;
+                    messageDiv.textContent = "You're on the list – thank you!";
+                    messageDiv.className = 'mt-3 text-sm p-2 rounded text-green-400 bg-green-400/10 border border-green-400/20';
+                    emailInput.value = '';
+                    button.textContent = 'Joined!';
+                } else {
+                    messageDiv.textContent = data.error || 'Something went wrong. Please try again.';
+                    messageDiv.className = 'mt-3 text-sm p-2 rounded text-red-400 bg-red-400/10 border border-red-400/20';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                messageDiv.style.display = 'block';
+                messageDiv.textContent = 'Network error. Please try again later.';
+                messageDiv.className = 'mt-3 text-sm p-2 rounded text-red-400 bg-red-400/10 border border-red-400/20';
+            } finally {
+                if (!isSuccess) {
+                    button.disabled = false;
+                    button.textContent = 'Start Your Journey on Solana →';
+                }
+            }
+        });
     </script>
 </body>
 

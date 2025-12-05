@@ -5,197 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Factory AI – Solana-Native Venture Engine Litepaper</title>
+    <link rel="icon" type="image/png" href="logo_mfai.png">
     <meta name="description"
         content="Money Factory AI Litepaper. Technical and economic overview of the Solana-native venture engine.">
 
     <!-- Tailwind & Fonts -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind & Fonts -->
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        background: {
-                            primary: '#0A0A1F',
-                            secondary: '#13132B',
-                        },
-                        accent: {
-                            primary: '#A020F0',
-                            secondary: '#00E5FF',
-                        },
-                        text: {
-                            primary: '#FFFFFF',
-                            secondary: '#E0E0E0',
-                            muted: '#A0A0A0',
-                        },
-                        solana: {
-                            purple: '#9945FF',
-                            green: '#14F195',
-                        },
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'spin-slow': 'spin 12s linear infinite',
-                        'draw': 'draw 2s ease-out forwards',
-                        'flow': 'flow 3s linear infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                        'slide-up': 'slideUp 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        draw: {
-                            '0%': { strokeDasharray: '1000', strokeDashoffset: '1000' },
-                            '100%': { strokeDashoffset: '0' }
-                        },
-                        flow: {
-                            '0%': { backgroundPosition: '0% 50%' },
-                            '100%': { backgroundPosition: '100% 50%' }
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(160, 32, 240, 0.3)' },
-                            '100%': { boxShadow: '0 0 40px rgba(160, 32, 240, 0.6), 0 0 60px rgba(0, 229, 255, 0.4)' }
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            background-color: #0A0A1F;
-            color: #E0E0E0;
-            overflow-x: hidden;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0A0A1F;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #13132B;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #A020F0;
-        }
-
-        /* Glassmorphism */
-        .glass {
-            background: rgba(19, 19, 43, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(160, 32, 240, 0.1);
-        }
-
-        .glass-card {
-            background: linear-gradient(180deg, rgba(19, 19, 43, 0.85) 0%, rgba(10, 10, 31, 0.7) 100%);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(160, 32, 240, 0.2);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card:hover {
-            border-color: rgba(160, 32, 240, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px -10px rgba(160, 32, 240, 0.3);
-        }
-
-        /* Text Gradients */
-        .text-gradient-solana {
-            background: linear-gradient(90deg, #9945FF 0%, #14F195 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .text-gradient-mfai {
-            background: linear-gradient(135deg, #A020F0 0%, #00E5FF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Nav Link */
-        .nav-link {
-            position: relative;
-            padding-bottom: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(90deg, #A020F0, #00E5FF);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .nav-link.active {
-            color: #ffffff;
-        }
-
-        /* Reveal on Scroll */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-
-        .reveal-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Sidebar Link Active State */
-        .sidebar-link {
-            display: block;
-            padding: 0.5rem 1rem;
-            color: #A0A0A0;
-            border-left: 2px solid transparent;
-            transition: all 0.2s;
-        }
-
-        .sidebar-link:hover,
-        .sidebar-link.active {
-            color: #FFFFFF;
-            background: rgba(160, 32, 240, 0.1);
-            border-left-color: #A020F0;
-        }
-    </style>
 </head>
 
 <body class="bg-background-primary text-text-secondary antialiased selection:bg-accent-primary selection:text-white">
@@ -220,7 +42,8 @@
                     <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money Factory AI</span>
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money
+                        Factory AI</span>
                     <span class="text-xs text-text-muted font-sans">Venture Engine</span>
                 </div>
             </a>
@@ -232,9 +55,13 @@
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
                 <a href="product.html"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
+                <a href="roadmap.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
                 <a href="docs.html#zyno-overview"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents & API</a>
-                <a href="token.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents &
+                    API</a>
+                <a href="token.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
                 <a href="investors.html"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
                 <a href="documentation_hub.html"
@@ -247,22 +74,25 @@
                     <i data-lucide="file-text" class="w-4 h-4"></i>
                     Litepaper
                 </a>
-                <a href="/terminal"
+                <a href="https://journey.mfai.app"
                     class="px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-accent-primary/20 transition-all">
                     Access Terminal
                 </a>
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-toggle" class="md:hidden p-2 text-text-muted hover:text-white transition-colors">
+                <button id="mobile-menu-toggle"
+                    class="md:hidden p-2 text-text-muted hover:text-white transition-colors">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
             <a href="index.html#home" class="block text-text-secondary hover:text-white">Home</a>
             <a href="index.html#journey" class="block text-text-secondary hover:text-white">Journey</a>
             <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
+            <a href="roadmap.html" class="block text-text-secondary hover:text-white">Roadmap</a>
             <a href="token.html" class="block text-text-secondary hover:text-white">Token</a>
             <a href="investors.html" class="block text-text-secondary hover:text-white">Investors</a>
             <a href="documentation_hub.html" class="block text-text-secondary hover:text-white">Docs</a>
@@ -320,7 +150,8 @@
                         A technical and economic overview of the Solana-native venture engine.
                     </p>
 
-                    <div class="mt-12 bg-background-secondary border-l-4 border-accent-primary p-8 rounded-r-xl text-left">
+                    <div
+                        class="mt-12 bg-background-secondary border-l-4 border-accent-primary p-8 rounded-r-xl text-left">
                         <p class="text-lg font-bold text-white mb-4">Executive Summary</p>
                         <p class="text-text-secondary mb-4">
                             Money Factory AI (MFAI) is a venture engine built on Solana that combines:
@@ -346,7 +177,8 @@
 
                 <!-- Introduction -->
                 <section id="introduction" class="mb-20 reveal-on-scroll">
-                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">1.
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        1.
                         Introduction & Problem Statement</h2>
 
                     <h3 class="text-2xl font-bold font-display mb-4 text-white">1.1 The Gap</h3>
@@ -379,7 +211,8 @@
 
                 <!-- Architecture -->
                 <section id="architecture" class="mb-20 reveal-on-scroll">
-                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">2.
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        2.
                         Architecture</h2>
                     <p class="text-text-secondary mb-6 leading-relaxed">
                         The MFAI architecture consists of three layers:
@@ -414,7 +247,8 @@
 
                 <!-- Journey Protocol -->
                 <section id="journey" class="mb-20 reveal-on-scroll">
-                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">3. Journey
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        3. Journey
                         Protocol</h2>
                     <p class="text-text-secondary mb-6 leading-relaxed">
                         The core user experience is the "Journey," a gamified 4-phase process:
@@ -457,7 +291,8 @@
 
                 <!-- Tokenomics -->
                 <section id="tokenomics" class="mb-20 reveal-on-scroll">
-                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">4.
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        4.
                         Tokenomics</h2>
                     <p class="text-text-secondary mb-6 leading-relaxed">
                         The $MFAI token is designed to capture value from the ecosystem's growth.
@@ -493,7 +328,8 @@
 
                 <!-- Launchpad -->
                 <section id="launchpad" class="mb-20 reveal-on-scroll">
-                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">5.
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        5.
                         Launchpad</h2>
                     <p class="text-text-secondary mb-6 leading-relaxed">
                         The MFAI Launchpad uses a <strong>Collaterize</strong> mechanism. Projects launch on a bonding
@@ -510,7 +346,8 @@
 
                 <!-- Risks & Roadmap -->
                 <section id="risks" class="mb-20 reveal-on-scroll">
-                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">6. Risks &
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        6. Risks &
                         Roadmap</h2>
 
                     <h3 class="text-2xl font-bold font-display mb-4 text-white">Risks</h3>
@@ -536,6 +373,12 @@
                             <div class="text-text-muted">Mobile App, Zyno Pro, Cross-chain Bridge</div>
                         </div>
                     </div>
+                    <div class="mt-8 text-center">
+                        <a href="roadmap.html"
+                            class="inline-flex items-center gap-2 text-accent-secondary hover:text-white transition-colors font-semibold text-sm group">
+                            Looking for the execution timeline? View the Roadmap →
+                        </a>
+                    </div>
                 </section>
 
             </div>
@@ -554,7 +397,9 @@
                             <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                         </div>
                         <div class="flex flex-col">
-                            <span class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money Factory
+                            <span
+                                class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
+                                Factory
                                 AI</span>
                             <span class="text-xs text-text-muted">Venture Engine</span>
                         </div>
@@ -585,7 +430,8 @@
                                 class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
                         <li><a href="index.html#journey"
                                 class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
-                        <li><a href="/terminal" class="text-text-muted hover:text-white transition-colors text-sm">Zyno
+                        <li><a href="https://journey.mfai.app"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno
                                 Terminal</a></li>
                     </ul>
                 </div>
@@ -595,7 +441,8 @@
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
                     <ul class="space-y-3">
                         <li><a href="documentation_hub.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a>
+                        </li>
                         <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
                                 Docs</a></li>
                         <li><a href="litepaper.html"
@@ -612,7 +459,8 @@
                         <li><a href="token.html"
                                 class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
                         <li><a href="investors.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a>
+                        </li>
                         <li><a href="https://discord.gg/shztvSg9" target="_blank"
                                 class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
                     </ul>
