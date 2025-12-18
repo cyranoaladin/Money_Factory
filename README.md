@@ -14,8 +14,8 @@ Money Factory AI is a comprehensive venture engine built exclusively for the Sol
 ### Key Features
 
 - **AEPO (AI-Enhanced Pathway Orchestration)** - Individual learning and building paths
-- **AECO (AI-Enhanced Cohort Orchestration)** - Group dynamics and cohort programs  
-- **Zyno Multi-Agent System** - 17 specialized AI agents for venture creation
+- **AECO (AI-Enhanced Cohort Orchestration)** - Group dynamics and cohort programs
+- **Zyno Multi-Agent System** - 24 specialized AI agents for venture creation
 - **Solana-Native Integration** - Deep integration with Solana ecosystem primitives
 - **Launch & Collaterize** - Bonding curves and liquidity mechanisms
 
@@ -96,7 +96,7 @@ landing_page_money_factory/
    ```bash
    # Python 3
    python -m http.server 8000
-   
+
    # Node.js (with http-server)
    npx http-server -p 8000
    ```

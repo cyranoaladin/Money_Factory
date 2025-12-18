@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Factory AI — Privacy</title>
+    <meta name="description" content="Money Factory AI privacy notice.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mfai.app/privacy.html">
+    <meta property="og:title" content="Money Factory AI — Privacy">
+    <meta property="og:description" content="Privacy notice for mfai.app.">
+    <meta property="og:image" content="https://mfai.app/og-image.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://mfai.app/og-image.jpg">
+
+    <link rel="icon" type="image/png" href="logo_mfai.png">
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-background-primary text-text-secondary antialiased selection:bg-accent-primary selection:text-white">
+    <div class="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(160,32,240,0.1),transparent_30%)]">
+        </div>
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(0,229,255,0.08),transparent_25%)]">
+        </div>
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300"
+        aria-label="Main Navigation">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
+                <div class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
+                    aria-hidden="true">
+                    <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money
+                        Factory AI</span>
+                    <span class="text-xs text-text-muted font-sans">Venture Engine</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html#home"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
+                <a href="documentation_hub.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="https://journey.mfai.app" target="_blank" rel="noopener"
+                    class="cta-button px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10">
+                    Access MVP
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 min-h-screen">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h1 class="text-4xl md:text-5xl font-bold font-display text-white mb-6">Privacy</h1>
+            <p class="text-text-secondary mb-8">
+                This notice describes how we handle basic data collected via this website.
+            </p>
+
+            <div class="glass-card p-8 rounded-2xl border border-white/10 space-y-6">
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-2">1) Waitlist emails</h2>
+                    <p class="text-text-muted text-sm leading-relaxed">
+                        If you join the waitlist, we store your email address and a source page identifier for
+                        communication about Money Factory AI updates.
+                    </p>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-2">2) Analytics</h2>
+                    <p class="text-text-muted text-sm leading-relaxed">
+                        We may add privacy-respecting analytics in the future to understand product usage and improve the
+                        experience. If we do, this notice will be updated.
+                    </p>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-2">3) Contact</h2>
+                    <p class="text-text-muted text-sm leading-relaxed">
+                        For privacy requests, contact <a class="text-accent-secondary hover:text-white transition-colors"
+                            href="mailto:contact@mfai.app">contact@mfai.app</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-accent-primary/10 bg-background-primary py-16" aria-label="Footer">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-text-muted">© 2025 Money Factory AI. Built on Solana.</p>
+                <div class="flex gap-6 text-sm">
+                    <a href="terms.html" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                    <a href="privacy.html" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                    <a href="disclaimer.html" class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>

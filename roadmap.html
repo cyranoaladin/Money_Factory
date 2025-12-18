@@ -5,10 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Factory AI – Roadmap</title>
+    <meta name="description"
+        content="Money Factory AI: The Solana-native venture engine. Learn, Build, Govern, Launch.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mfai.app/roadmap.html">
+    <meta property="og:title" content="Money Factory AI | Venture Engine">
+    <meta property="og:description" content="Launch your Web3 venture with 24 AI Agents. Zero code required.">
+    <meta property="og:image" content="https://mfai.app/og-image.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://mfai.app/og-image.jpg">
     <link rel="icon" type="image/png" href="logo_mfai.png">
 
     <link href="./dist/output.css" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,57 +30,57 @@
 <body class="bg-background-primary text-text-secondary antialiased pt-20">
 
     <!-- HEADER / NAVBAR -->
-    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 transition-all duration-300"
+    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300"
         aria-label="Main Navigation">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html#home" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
-                <div class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
+            <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
+                <div class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
                     aria-hidden="true">
                     <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-display font-bold text-xl tracking-tight leading-none">Money Factory AI</span>
-                    <span class="text-xs text-gray-400 font-sans">Venture Engine</span>
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money
+                        Factory AI</span>
+                    <span class="text-xs text-text-muted font-sans">Venture Engine</span>
                 </div>
             </a>
 
-            <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center gap-8" id="nav-links">
                 <a href="index.html#home"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
                 <a href="index.html#journey"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Journey</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
+                <a href="roadmap.html" class="nav-link text-sm text-white transition-colors">Roadmap</a>
                 <a href="product.html"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Product</a>
-                <a href="roadmap.html" class="nav-link text-sm text-white transition-colors active">Roadmap</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
                 <a href="docs.html#zyno-overview"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Agents & API</a>
-                <a href="token.html" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Token</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents &
+                    API</a>
+                <a href="token.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
                 <a href="investors.html"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Investors</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
                 <a href="documentation_hub.html"
-                    class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Docs</a>
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+
             </div>
 
-            <!-- Right Side Actions -->
             <div class="flex items-center gap-4">
                 <a href="litepaper.html"
-                    class="hidden md:flex items-center gap-1 text-sm text-gray-400 hover:text-white transition-colors">
+                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
                     <i data-lucide="file-text" class="w-4 h-4"></i>
                     Litepaper
                 </a>
                 <a href="documentation_hub.html"
-                    class="hidden md:flex items-center gap-1 text-sm text-gray-400 hover:text-white transition-colors">
+                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
                     <i data-lucide="book-open" class="w-4 h-4"></i>
                     Docs
                 </a>
                 <a href="https://journey.mfai.app"
-                    class="cta-button px-6 py-2.5 bg-gradient-to-r from-mfai-primary to-mfai-secondary border border-white/20 text-white font-bold rounded-lg text-sm relative z-10">
+                    class="cta-button px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10">
                     Access Terminal
                 </a>
-
-                <!-- Mobile Menu Toggle -->
-                <button id="mobile-menu-toggle" class="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
+                <button id="mobile-menu-toggle" class="md:hidden p-2 text-text-muted hover:text-white transition-colors"
                     aria-label="Toggle mobile menu">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
@@ -79,24 +88,16 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-lg border-t border-white/5">
-            <div class="container mx-auto px-6 py-4 space-y-3">
-                <a href="index.html#home" class="block py-2 text-gray-300 hover:text-white transition-colors">Home</a>
-                <a href="index.html#journey"
-                    class="block py-2 text-gray-300 hover:text-white transition-colors">Journey</a>
-                <a href="product.html" class="block py-2 text-gray-300 hover:text-white transition-colors">Product</a>
-                <a href="roadmap.html" class="block py-2 text-white transition-colors">Roadmap</a>
-                <a href="docs.html#zyno-overview"
-                    class="block py-2 text-gray-300 hover:text-white transition-colors">Agents
-                    & API</a>
-                <a href="token.html" class="block py-2 text-gray-300 hover:text-white transition-colors">Token</a>
-                <a href="investors.html"
-                    class="block py-2 text-gray-300 hover:text-white transition-colors">Investors</a>
-                <a href="documentation_hub.html"
-                    class="block py-2 text-gray-300 hover:text-white transition-colors">Docs</a>
-                <a href="litepaper.html"
-                    class="block py-2 text-gray-300 hover:text-white transition-colors">Litepaper</a>
-            </div>
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
+            <a href="index.html#home" class="block text-text-secondary hover:text-white">Home</a>
+            <a href="index.html#journey" class="block text-text-secondary hover:text-white">Journey</a>
+            <a href="roadmap.html" class="block text-text-secondary hover:text-white">Roadmap</a>
+            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
+            <a href="docs.html#zyno-overview" class="block text-text-secondary hover:text-white">Agents & API</a>
+            <a href="token.html" class="block text-text-secondary hover:text-white">Token</a>
+            <a href="investors.html" class="block text-text-secondary hover:text-white">Investors</a>
+            <a href="documentation_hub.html" class="block text-text-secondary hover:text-white">Docs</a>
         </div>
     </nav>
 
@@ -117,7 +118,7 @@
                     Roadmap
                 </h2>
                 <h3 class="text-4xl md:text-6xl font-display font-bold mb-6 text-text-primary">
-                    Building the <span class="text-gradient-mfai">Venture Engine</span>
+                    Roadmap — <span class="text-gradient-mfai">What’s Next for MFAI</span>
                 </h3>
                 <p class="text-text-secondary text-lg max-w-2xl mx-auto">
                     From genesis to a category-defining AI venture ecosystem on Solana.
@@ -139,260 +140,140 @@
                 <!-- Horizontal Scroll Container -->
                 <div class="flex overflow-x-auto gap-8 pb-12 pt-16 snap-x snap-mandatory px-4 -mx-4 custom-scrollbar">
 
-                    <!-- Phase 0 -->
+                    <!-- Phase 1: 2025 Foundation -->
                     <div class="min-w-[350px] snap-center">
-                        <div
-                            class="glass-card p-6 rounded-2xl h-full border-white/5 opacity-70 hover:opacity-100 transition-opacity">
+                        <div class="relative h-full">
                             <div
-                                class="absolute -top-12 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background-primary border-2 border-accent-primary flex items-center justify-center z-10">
-                                <div class="w-3 h-3 bg-accent-primary rounded-full"></div>
-                            </div>
-                            <div class="mb-4">
-                                <span
-                                    class="px-3 py-1 rounded-full bg-white/5 text-xs font-semibold text-text-muted border border-white/10">Phase
-                                    0 · Genesis</span>
-                                <div class="flex justify-between items-center mt-2">
-                                    <span class="text-xs text-text-muted">Q2–Q4 2024</span>
-                                    <span class="text-xs text-green-400 flex items-center gap-1"><i
-                                            data-lucide="check-circle" class="w-3 h-3"></i> Completed</span>
-                                </div>
-                            </div>
-                            <h4 class="text-xl font-bold text-text-primary mb-2">From raw idea to structured vision</h4>
-                            <ul class="space-y-3 mt-4">
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
-                                    <span>Initial concept & research</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
-                                    <span>Market and ecosystem study</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
-                                    <span>Strategy & architecture draft</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
-                                    <span>First landing, whitepaper v1 & tokenomics v1</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Phase 1 -->
-                    <div class="min-w-[350px] snap-center">
-                        <div class="glass-card p-6 rounded-2xl h-full border-accent-primary/30">
-                            <div
-                                class="absolute -top-12 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background-primary border-2 border-accent-primary flex items-center justify-center z-10">
-                                <div class="w-3 h-3 bg-accent-primary rounded-full"></div>
-                            </div>
-                            <div class="mb-4">
-                                <span
-                                    class="px-3 py-1 rounded-full bg-accent-primary/20 text-xs font-semibold text-accent-primary border border-accent-primary/30">Phase
-                                    1 · Foundation</span>
-                                <div class="flex justify-between items-center mt-2">
-                                    <span class="text-xs text-text-muted">Q1–Q2 2025</span>
-                                    <span class="text-xs text-green-400 flex items-center gap-1"><i
-                                            data-lucide="check-circle" class="w-3 h-3"></i> Completed</span>
-                                </div>
-                            </div>
-                            <h4 class="text-xl font-bold text-text-primary mb-2">Turning the concept into a working
-                                engine</h4>
-                            <ul class="space-y-3 mt-4">
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
-                                    <span>Zyno v1 (AI Co-Founder prototype)</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
-                                    <span>Strategic partnership with T-Scop</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
-                                    <span>Paris Blockchain Week (TDeFi Track)</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
-                                    <span>Money Factory AI LLC registration</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
-                                    <span>Apex Budapest x Collaterize partnership</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Phase 2 (Active) -->
-                    <div class="min-w-[350px] snap-center">
-                        <div
-                            class="glass-card p-6 rounded-2xl h-full border-solana-green/50 shadow-[0_0_30px_rgba(20,241,149,0.1)] relative overflow-visible">
-                            <div
-                                class="absolute -top-12 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-background-primary border-2 border-solana-green flex items-center justify-center z-10 shadow-[0_0_15px_rgba(20,241,149,0.5)]">
-                                <div class="w-4 h-4 bg-solana-green rounded-full animate-pulse"></div>
+                                class="absolute -top-12 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-background-primary border-2 border-accent-primary flex items-center justify-center z-10 shadow-[0_0_15px_rgba(160,32,240,0.5)]">
+                                <div class="w-4 h-4 bg-accent-primary rounded-full animate-pulse"></div>
                             </div>
                             <div
-                                class="absolute -top-3 right-4 px-3 py-1 bg-solana-green text-background-primary text-xs font-bold rounded-full animate-bounce">
+                                class="absolute -top-3 right-4 px-3 py-1 bg-accent-primary text-white text-xs font-bold rounded-full animate-bounce z-20">
                                 CURRENT
                             </div>
-                            <div class="mb-4">
-                                <span
-                                    class="px-3 py-1 rounded-full bg-solana-green/20 text-xs font-semibold text-solana-green border border-solana-green/30">Phase
-                                    2 · Productization</span>
-                                <div class="flex justify-between items-center mt-2">
-                                    <span class="text-xs text-text-muted">Q3–Q4 2025</span>
-                                    <span class="text-xs text-solana-green flex items-center gap-1"><i
-                                            data-lucide="loader" class="w-3 h-3 animate-spin"></i> In Build</span>
+                            <div
+                                class="glass-card p-6 rounded-2xl h-full border-accent-primary/50 shadow-[0_0_30px_rgba(160,32,240,0.1)] relative">
+                                <div class="mb-4">
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-accent-primary/20 text-xs font-semibold text-accent-primary border border-accent-primary/30">Phase
+                                        1 · Foundation</span>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-text-muted">2025</span>
+                                        <span class="text-xs text-accent-primary flex items-center gap-1"><i
+                                                data-lucide="loader" class="w-3 h-3 animate-spin"></i> Active</span>
+                                    </div>
                                 </div>
+                                <h4 class="text-xl font-bold text-text-primary mb-2">Establishing the Core Engine</h4>
+                                <ul class="space-y-3 mt-4">
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
+                                        <span>Zyno core refinement</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
+                                        <span>AEPO pathways live</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
+                                        <span>Credit system launch</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="check" class="w-4 h-4 text-accent-primary mt-0.5 shrink-0"></i>
+                                        <span>Early adopter Builder Pass rollout</span>
+                                    </li>
+                                </ul>
                             </div>
-                            <h4 class="text-xl font-bold text-text-primary mb-2">From prototype to a full Solana-native
-                                MVP</h4>
-                            <ul class="space-y-3 mt-4">
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
-                                    <span>MVP Architecture Finalization</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
-                                    <span>RAG & Knowledge Graph Implementation</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
-                                    <span>Builder Console & Journey UI</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
-                                    <span>Investor / Partner View</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
-                                    <span>Tokenomics 2.0 & Treasury Model</span>
-                                </li>
-                            </ul>
                         </div>
                     </div>
 
-                    <!-- Phase 3 -->
+                    <!-- Phase 2: 2026 Expansion -->
                     <div class="min-w-[350px] snap-center">
-                        <div class="glass-card p-6 rounded-2xl h-full border-white/10">
+                        <div class="relative h-full">
                             <div
                                 class="absolute -top-12 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background-primary border-2 border-white/20 flex items-center justify-center z-10">
                                 <div class="w-3 h-3 bg-white/20 rounded-full"></div>
                             </div>
-                            <div class="mb-4">
-                                <span
-                                    class="px-3 py-1 rounded-full bg-white/5 text-xs font-semibold text-text-secondary border border-white/10">Phase
-                                    3 · Launch</span>
-                                <div class="flex justify-between items-center mt-2">
-                                    <span class="text-xs text-text-muted">Dec 2025</span>
-                                    <span class="text-xs text-accent-secondary flex items-center gap-1"><i
-                                            data-lucide="rocket" class="w-3 h-3"></i> Upcoming</span>
+                            <div class="glass-card p-6 rounded-2xl h-full border-white/10">
+                                <div class="mb-4">
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-white/5 text-xs font-semibold text-text-secondary border border-white/10">Phase
+                                        2 · Product Expansion</span>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-text-muted">2026</span>
+                                        <span class="text-xs text-text-muted flex items-center gap-1"><i
+                                                data-lucide="calendar" class="w-3 h-3"></i> Planned</span>
+                                    </div>
                                 </div>
+                                <h4 class="text-xl font-bold text-text-primary mb-2">Scaling Teams & Governance</h4>
+                                <ul class="space-y-3 mt-4">
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="circle"
+                                            class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
+                                        <span>AECO full launch (team orchestration)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="circle"
+                                            class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
+                                        <span>DAO governance integration</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="circle"
+                                            class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
+                                        <span>Staking & early investor access tier 1</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="circle"
+                                            class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
+                                        <span>Launchpad alpha</span>
+                                    </li>
+                                </ul>
                             </div>
-                            <h4 class="text-xl font-bold text-text-primary mb-2">Showing the engine to the Solana world
-                            </h4>
-                            <ul class="space-y-3 mt-4">
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="circle"
-                                        class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
-                                    <span>Breakpoint Abu Dhabi 2025 – Public Reveal</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="circle"
-                                        class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
-                                    <span>Public Alpha of the MFAI Venture Engine</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="circle"
-                                        class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
-                                    <span>Early Ecosystem Deals & Pilots</span>
-                                </li>
-                            </ul>
                         </div>
                     </div>
 
-                    <!-- Phase 4 -->
+                    <!-- Phase 3: 2027+ Scale -->
                     <div class="min-w-[350px] snap-center">
-                        <div class="glass-card p-6 rounded-2xl h-full border-white/10">
-                            <div
-                                class="absolute -top-12 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background-primary border-2 border-white/20 flex items-center justify-center z-10">
-                                <div class="w-3 h-3 bg-white/20 rounded-full"></div>
-                            </div>
-                            <div class="mb-4">
-                                <span
-                                    class="px-3 py-1 rounded-full bg-white/5 text-xs font-semibold text-text-secondary border border-white/10">Phase
-                                    4 · Scale</span>
-                                <div class="flex justify-between items-center mt-2">
-                                    <span class="text-xs text-text-muted">2026</span>
-                                    <span class="text-xs text-text-muted flex items-center gap-1"><i
-                                            data-lucide="calendar" class="w-3 h-3"></i> Planned</span>
-                                </div>
-                            </div>
-                            <h4 class="text-xl font-bold text-text-primary mb-2">From alpha to repeatable venture engine
-                            </h4>
-                            <ul class="space-y-3 mt-4">
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="circle"
-                                        class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
-                                    <span>H1 2026 – Closed Beta Cohorts</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="circle"
-                                        class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
-                                    <span>H1 2026 – First Production Launches</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="circle"
-                                        class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
-                                    <span>H2 2026 – SaaS Commercialization</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="circle"
-                                        class="w-4 h-4 text-text-muted mt-0.5 shrink-0 text-[10px]"></i>
-                                    <span>H2 2026 – Governance & Token Event</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Phase 5 -->
-                    <div class="min-w-[350px] snap-center">
-                        <div
-                            class="glass-card p-6 rounded-2xl h-full border-white/5 bg-gradient-to-b from-white/5 to-transparent">
+                        <div class="relative h-full">
                             <div
                                 class="absolute -top-12 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-background-primary border-2 border-white/10 flex items-center justify-center z-10">
                                 <div class="w-3 h-3 bg-white/10 rounded-full"></div>
                             </div>
-                            <div class="mb-4">
-                                <span
-                                    class="px-3 py-1 rounded-full bg-white/5 text-xs font-semibold text-text-muted border border-white/10">Phase
-                                    5 · Vision</span>
-                                <div class="flex justify-between items-center mt-2">
-                                    <span class="text-xs text-text-muted">2027+</span>
-                                    <span class="text-xs text-text-muted flex items-center gap-1"><i
-                                            data-lucide="telescope" class="w-3 h-3"></i> Vision</span>
+                            <div
+                                class="glass-card p-6 rounded-2xl h-full border-white/5 bg-gradient-to-b from-white/5 to-transparent">
+                                <div class="mb-4">
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-white/5 text-xs font-semibold text-text-muted border border-white/10">Phase
+                                        3 · Scale & Ecosystem</span>
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-xs text-text-muted">2027+</span>
+                                        <span class="text-xs text-text-muted flex items-center gap-1"><i
+                                                data-lucide="telescope" class="w-3 h-3"></i> Vision</span>
+                                    </div>
                                 </div>
+                                <h4 class="text-xl font-bold text-text-primary mb-2">Ecosystem Growth</h4>
+                                <ul class="space-y-3 mt-4">
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="sparkles"
+                                            class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
+                                        <span>Governance DAO v2</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="sparkles"
+                                            class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
+                                        <span>Interop tooling (cross-chain)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="sparkles"
+                                            class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
+                                        <span>Enhanced analytics & premium signals</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-text-secondary">
+                                        <i data-lucide="sparkles"
+                                            class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
+                                        <span>Major partner integrations</span>
+                                    </li>
+                                </ul>
                             </div>
-                            <h4 class="text-xl font-bold text-text-primary mb-2">From product to category-defining
-                                venture engine</h4>
-                            <ul class="space-y-3 mt-4">
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="sparkles" class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
-                                    <span>Scaling the MFAI Venture Engine</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="sparkles" class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
-                                    <span>Ecosystem & Partnership Network</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="sparkles" class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
-                                    <span>Education & Community Layers</span>
-                                </li>
-                                <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                    <i data-lucide="sparkles" class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
-                                    <span>Long-Term Vision</span>
-                                </li>
-                            </ul>
                         </div>
                     </div>
 
@@ -408,124 +289,42 @@
                     </div>
                 </div>
 
-                <!-- Phase 0 -->
+                <!-- Phase 1: 2025 Foundation -->
                 <div class="relative pl-20">
                     <div
-                        class="absolute left-6 top-8 -translate-x-1/2 w-6 h-6 rounded-full bg-background-primary border-2 border-accent-primary flex items-center justify-center z-10">
-                        <div class="w-2 h-2 bg-accent-primary rounded-full"></div>
+                        class="absolute left-6 top-8 -translate-x-1/2 w-10 h-10 rounded-full bg-background-primary border-2 border-accent-primary flex items-center justify-center z-10 shadow-[0_0_15px_rgba(160,32,240,0.5)]">
+                        <div class="w-4 h-4 bg-accent-primary rounded-full animate-pulse"></div>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl border-white/5 opacity-80">
-                        <div class="mb-2 flex flex-wrap gap-2 items-center">
-                            <span class="text-xs font-bold text-accent-primary uppercase tracking-wider">Phase 0 ·
-                                Genesis</span>
-                            <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-text-muted">Q2–Q4 2024</span>
-                        </div>
-                        <h4 class="text-lg font-bold text-text-primary mb-2">From raw idea to structured vision</h4>
-                        <ul class="space-y-2 mt-3">
-                            <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
-                                <span>Initial concept & research</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
-                                <span>Market and ecosystem study</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
-                                <span>Strategy & architecture draft</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
-                                <span>First landing, whitepaper v1 & tokenomics v1</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Phase 1 -->
-                <div class="relative pl-20">
-                    <div
-                        class="absolute left-6 top-8 -translate-x-1/2 w-6 h-6 rounded-full bg-background-primary border-2 border-accent-primary flex items-center justify-center z-10">
-                        <div class="w-2 h-2 bg-accent-primary rounded-full"></div>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl border-accent-primary/30">
+                    <div class="glass-card p-6 rounded-2xl border-accent-primary/50 opacity-100">
                         <div class="mb-2 flex flex-wrap gap-2 items-center">
                             <span class="text-xs font-bold text-accent-primary uppercase tracking-wider">Phase 1 ·
                                 Foundation</span>
-                            <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-text-muted">Q1–Q2 2025</span>
+                            <span
+                                class="text-[10px] px-2 py-0.5 rounded bg-accent-primary/20 text-accent-primary">2025</span>
                         </div>
-                        <h4 class="text-lg font-bold text-text-primary mb-2">Turning the concept into a working engine
-                        </h4>
+                        <h4 class="text-lg font-bold text-text-primary mb-2">Establishing the Core Engine</h4>
                         <ul class="space-y-2 mt-3">
                             <li class="flex items-start gap-2 text-sm text-text-secondary">
                                 <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
-                                <span>Zyno v1 (AI Co-Founder prototype)</span>
+                                <span>Zyno core refinement</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-text-secondary">
                                 <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
-                                <span>Strategic partnership with T-Scop</span>
+                                <span>AEPO pathways live</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-text-secondary">
                                 <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
-                                <span>Paris Blockchain Week (TDeFi Track)</span>
+                                <span>Credit system launch</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-text-secondary">
                                 <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
-                                <span>Money Factory AI LLC registration</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <span class="w-1.5 h-1.5 rounded-full bg-accent-primary mt-1.5 shrink-0"></span>
-                                <span>Apex Budapest x Collaterize partnership</span>
+                                <span>Early adopter Builder Pass rollout</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Phase 2 -->
-                <div class="relative pl-20">
-                    <div
-                        class="absolute left-6 top-8 -translate-x-1/2 w-8 h-8 rounded-full bg-background-primary border-2 border-solana-green flex items-center justify-center z-10 shadow-[0_0_10px_rgba(20,241,149,0.5)]">
-                        <div class="w-3 h-3 bg-solana-green rounded-full animate-pulse"></div>
-                    </div>
-                    <div
-                        class="glass-card p-6 rounded-2xl border-solana-green/50 shadow-[0_0_20px_rgba(20,241,149,0.1)]">
-                        <div
-                            class="absolute -top-3 right-4 px-3 py-1 bg-solana-green text-background-primary text-[10px] font-bold rounded-full">
-                            CURRENT
-                        </div>
-                        <div class="mb-2 flex flex-wrap gap-2 items-center">
-                            <span class="text-xs font-bold text-solana-green uppercase tracking-wider">Phase 2 ·
-                                Productization</span>
-                            <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-text-muted">Q3–Q4 2025</span>
-                        </div>
-                        <h4 class="text-lg font-bold text-text-primary mb-2">From prototype to a full Solana-native MVP
-                        </h4>
-                        <ul class="space-y-2 mt-3">
-                            <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
-                                <span>MVP Architecture Finalization</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
-                                <span>RAG & Knowledge Graph Implementation</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
-                                <span>Builder Console & Journey UI</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
-                                <span>Investor / Partner View</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <i data-lucide="code" class="w-4 h-4 text-solana-green mt-0.5 shrink-0"></i>
-                                <span>Tokenomics 2.0 & Treasury Model</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Phase 3 -->
+                <!-- Phase 2: 2026 Expansion -->
                 <div class="relative pl-20">
                     <div
                         class="absolute left-6 top-8 -translate-x-1/2 w-6 h-6 rounded-full bg-background-primary border-2 border-white/20 flex items-center justify-center z-10">
@@ -533,64 +332,33 @@
                     </div>
                     <div class="glass-card p-6 rounded-2xl border-white/10">
                         <div class="mb-2 flex flex-wrap gap-2 items-center">
-                            <span class="text-xs font-bold text-text-secondary uppercase tracking-wider">Phase 3 ·
-                                Launch</span>
-                            <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-text-muted">Dec 2025</span>
-                        </div>
-                        <h4 class="text-lg font-bold text-text-primary mb-2">Showing the engine to the Solana world</h4>
-                        <ul class="space-y-2 mt-3">
-                            <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
-                                <span>Breakpoint Abu Dhabi 2025 – Public Reveal</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
-                                <span>Public Alpha of the MFAI Venture Engine</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
-                                <span>Early Ecosystem Deals & Pilots</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Phase 4 -->
-                <div class="relative pl-20">
-                    <div
-                        class="absolute left-6 top-8 -translate-x-1/2 w-6 h-6 rounded-full bg-background-primary border-2 border-white/20 flex items-center justify-center z-10">
-                        <div class="w-2 h-2 bg-white/20 rounded-full"></div>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl border-white/10">
-                        <div class="mb-2 flex flex-wrap gap-2 items-center">
-                            <span class="text-xs font-bold text-text-secondary uppercase tracking-wider">Phase 4 ·
-                                Scale</span>
+                            <span class="text-xs font-bold text-white uppercase tracking-wider">Phase 2 · Product
+                                Expansion</span>
                             <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-text-muted">2026</span>
                         </div>
-                        <h4 class="text-lg font-bold text-text-primary mb-2">From alpha to repeatable venture engine
-                        </h4>
+                        <h4 class="text-lg font-bold text-text-primary mb-2">Scaling Teams & Governance</h4>
                         <ul class="space-y-2 mt-3">
                             <li class="flex items-start gap-2 text-sm text-text-secondary">
                                 <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
-                                <span>H1 2026 – Closed Beta Cohorts</span>
+                                <span>AECO full launch (team orchestration)</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-text-secondary">
                                 <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
-                                <span>H1 2026 – First Production Launches</span>
+                                <span>DAO governance integration</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-text-secondary">
                                 <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
-                                <span>H2 2026 – SaaS Commercialization</span>
+                                <span>Staking & early investor access tier 1</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-text-secondary">
                                 <span class="w-1.5 h-1.5 rounded-full bg-white/20 mt-1.5 shrink-0"></span>
-                                <span>H2 2026 – Governance & Token Event</span>
+                                <span>Launchpad alpha</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Phase 5 -->
+                <!-- Phase 3: 2027+ Scale -->
                 <div class="relative pl-20">
                     <div
                         class="absolute left-6 top-8 -translate-x-1/2 w-6 h-6 rounded-full bg-background-primary border-2 border-white/10 flex items-center justify-center z-10">
@@ -598,28 +366,27 @@
                     </div>
                     <div class="glass-card p-6 rounded-2xl border-white/5 bg-gradient-to-b from-white/5 to-transparent">
                         <div class="mb-2 flex flex-wrap gap-2 items-center">
-                            <span class="text-xs font-bold text-text-muted uppercase tracking-wider">Phase 5 ·
-                                Vision</span>
+                            <span class="text-xs font-bold text-text-muted uppercase tracking-wider">Phase 3 · Scale &
+                                Ecosystem</span>
                             <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-text-muted">2027+</span>
                         </div>
-                        <h4 class="text-lg font-bold text-text-primary mb-2">From product to category-defining venture
-                            engine</h4>
+                        <h4 class="text-lg font-bold text-text-primary mb-2">Ecosystem Growth</h4>
                         <ul class="space-y-2 mt-3">
                             <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <i data-lucide="sparkles" class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
-                                <span>Scaling the MFAI Venture Engine</span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-white/10 mt-1.5 shrink-0"></span>
+                                <span>Governance DAO v2</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <i data-lucide="sparkles" class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
-                                <span>Ecosystem & Partnership Network</span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-white/10 mt-1.5 shrink-0"></span>
+                                <span>Interop tooling (cross-chain)</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <i data-lucide="sparkles" class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
-                                <span>Education & Community Layers</span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-white/10 mt-1.5 shrink-0"></span>
+                                <span>Enhanced analytics & premium signals</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-text-secondary">
-                                <i data-lucide="sparkles" class="w-4 h-4 text-accent-secondary mt-0.5 shrink-0"></i>
-                                <span>Long-Term Vision</span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-white/10 mt-1.5 shrink-0"></span>
+                                <span>Major partner integrations</span>
                             </li>
                         </ul>
                     </div>
@@ -627,104 +394,190 @@
 
             </div>
 
+            <!-- Strategic Milestones (Progress Bars) -->
+            <div class="mt-20 max-w-4xl mx-auto">
+                <h4 class="text-2xl font-bold text-white mb-8 text-center">Strategic Milestones</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Milestone 1 -->
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="font-bold text-text-primary">Zyno Kernel v1</span>
+                            <span class="text-xs text-solana-green font-bold">100%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-2">
+                            <div class="bg-solana-green h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <!-- Milestone 2 -->
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="font-bold text-text-primary">Credits System</span>
+                            <span class="text-xs text-solana-green font-bold">100%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-2">
+                            <div class="bg-solana-green h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <!-- Milestone 3 -->
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="font-bold text-text-primary">AEPO v1 (Pathways)</span>
+                            <span class="text-xs text-accent-primary font-bold">Live</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-2">
+                            <div class="bg-accent-primary h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <!-- Milestone 4 -->
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="font-bold text-text-primary">AECO (Cohorts)</span>
+                            <span class="text-xs text-accent-secondary font-bold">25%</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-2">
+                            <div class="bg-accent-secondary h-2 rounded-full" style="width: 25%"></div>
+                        </div>
+                    </div>
+                    <!-- Milestone 5 -->
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="font-bold text-text-primary">DAO Voting & Staking</span>
+                            <span class="text-xs text-text-muted font-bold">Pending</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-2">
+                            <div class="bg-white/10 h-2 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <!-- Milestone 6 -->
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="font-bold text-text-primary">Launchpad Public Beta</span>
+                            <span class="text-xs text-text-muted font-bold">Pending</span>
+                        </div>
+                        <div class="w-full bg-white/5 rounded-full h-2">
+                            <div class="bg-white/10 h-2 rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
     <!-- Roadmap Section End -->
 
     <!-- FOOTER -->
-    <footer class="bg-slate-950 border-t border-white/5 py-16">
+    <footer class="border-t border-accent-primary/10 bg-background-primary py-16" aria-label="Footer">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <!-- Brand Column -->
                 <div class="md:col-span-1">
                     <div class="flex items-center gap-3 mb-4">
                         <div
-                            class="w-10 h-10 bg-gradient-to-br from-mfai-primary via-mfai-secondary to-solana-green rounded-xl flex items-center justify-center">
+                            class="w-10 h-10 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-xl flex items-center justify-center text-white font-bold text-xl">
                             <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                         </div>
                         <div class="flex flex-col">
-                            <span class="font-display font-bold text-lg">Money Factory AI</span>
-                            <span class="text-xs text-gray-500">Venture Engine</span>
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">
+                                24</div>
+                            <div class="text-sm text-text-muted">AI Agents</div>
+                        </div>
+                        <div class="flex flex-col">
+                            <span
+                                class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
+                                Factory AI</span>
+                            <span class="text-xs text-text-muted">Venture Engine</span>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-400 leading-relaxed">
+                    <p class="text-text-muted text-sm leading-relaxed mb-6">
                         A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
                     </p>
+                    <div class="flex gap-4">
+                        <a href="https://x.com/Moneyfactoryai" target="_blank" rel="noopener"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://github.com/moneyfactoryai" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="https://discord.gg/shztvSg9" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="message-circle" class="w-5 h-5"></i></a>
+                    </div>
                 </div>
 
-                <!-- Quick Links -->
+                <!-- Platform Column -->
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
-                    <ul class="space-y-2">
+                    <ul class="space-y-3">
                         <li><a href="index.html#home"
-                                class="text-sm text-gray-400 hover:text-white transition-colors">Home</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Home</a></li>
                         <li><a href="product.html"
-                                class="text-sm text-gray-400 hover:text-white transition-colors">Product</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
                         <li><a href="index.html#journey"
-                                class="text-sm text-gray-400 hover:text-white transition-colors">Journey</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
                         <li><a href="https://journey.mfai.app"
-                                class="text-sm text-gray-400 hover:text-white transition-colors">Zyno
-                                Terminal</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno Terminal</a>
+                        </li>
                     </ul>
                 </div>
 
-                <!-- Resources -->
+                <!-- Resources Column -->
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
-                    <ul class="space-y-2">
+                    <ul class="space-y-3">
                         <li><a href="documentation_hub.html"
-                                class="text-sm text-gray-400 hover:text-white transition-colors">Documentation</a></li>
-                        <li><a href="docs.html" class="text-sm text-gray-400 hover:text-white transition-colors">API
+                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a>
+                        </li>
+                        <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
                                 Docs</a></li>
                         <li><a href="litepaper.html"
-                                class="text-sm text-gray-400 hover:text-white transition-colors">Litepaper</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Litepaper</a></li>
                         <li><a href="user_guide.html"
-                                class="text-sm text-gray-400 hover:text-white transition-colors">User
-                                Guide</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">User Guide</a></li>
                     </ul>
                 </div>
 
-                <!-- Community -->
+                <!-- Community Column -->
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
-                    <ul class="space-y-2">
+                    <ul class="space-y-3">
                         <li><a href="token.html"
-                                class="text-sm text-gray-400 hover:text-white transition-colors">Token</a>
-                        </li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
                         <li><a href="investors.html"
-                                class="text-sm text-gray-400 hover:text-white transition-colors">For
-                                Investors</a></li>
-                        <li><a href="https://discord.gg/moneyfactoryai" target="_blank" rel="noopener"
-                                class="text-sm text-gray-400 hover:text-white transition-colors">Discord</a></li>
-                        <li><a href="https://x.com/MoneyFactoryAI" target="_blank" rel="noopener"
-                                class="text-sm text-gray-400 hover:text-white transition-colors">Twitter</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a>
+                        </li>
+                        <li><a href="https://discord.gg/shztvSg9" target="_blank"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
+                        <li><a href="token.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm font-medium">Token
+                                Info</a></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Bottom Bar -->
-            <div class="pt-8 border-t border-white/5">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-sm text-gray-500">
+            <div class="pt-8 border-t border-accent-primary/10">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+                    <div class="text-text-muted text-sm">
                         © 2025 Money Factory AI. Built on Solana.
-                    </p>
-                    <div class="flex items-center gap-6">
-                        <a href="#" class="text-sm text-gray-500 hover:text-white transition-colors">Terms</a>
-                        <a href="#" class="text-sm text-gray-500 hover:text-white transition-colors">Privacy</a>
-                        <a href="#" class="text-sm text-gray-500 hover:text-white transition-colors">Disclaimer</a>
+                    </div>
+                    <div class="flex gap-6 text-sm">
+                        <a href="terms.html" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                        <a href="privacy.html" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                        <a href="disclaimer.html"
+                            class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
                     </div>
                 </div>
-                <p class="text-xs text-gray-600 mt-4 text-center md:text-left">
-                    <strong>Disclaimer:</strong> Nothing on this site constitutes financial or investment advice. Always
-                    do
-                    your own research.
-                </p>
             </div>
         </div>
     </footer>
 
     <script>
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
         document.getElementById('mobile-menu-toggle')?.addEventListener('click', function () {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');

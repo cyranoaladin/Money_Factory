@@ -1,0 +1,3140 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Factory AI – Product | AEPO, AECO & Zyno Platform</title>
+    <link rel="icon" type="image/png" href="logo_mfai.png">
+    <meta name="description"
+        content="Discover the Money Factory AI platform: AEPO for individual pathways, AECO for cohort orchestration, and Zyno's multi-agent system.">
+    <meta name="keywords" content="AEPO, AECO, Zyno, AI Agents, Solana, Web3, DAO, Money Factory AI">
+    <meta name="author" content="Money Factory AI">
+
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body class="bg-background-primary text-text-secondary antialiased selection:bg-accent-primary selection:text-white">
+
+    <!-- Dynamic Background -->
+    <div class="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(160,32,240,0.1),transparent_30%)]">
+        </div>
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(0,229,255,0.08),transparent_25%)]">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300"
+        aria-label="Main Navigation">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html#home" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
+                <div class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
+                    aria-hidden="true">
+                    <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money
+                        Factory AI</span>
+                    <span class="text-xs text-text-muted font-sans">Venture Engine</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-8" id="nav-links">
+                <a href="index.html#home"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
+                <a href="index.html#journey"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
+                <a href="product.html" class="nav-link text-sm text-white transition-colors">Product</a>
+                <a href="roadmap.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
+                <a href="docs.html#zyno-overview"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents &
+                    API</a>
+                <a href="token.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
+                <a href="investors.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
+                <a href="documentation_hub.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+            </div>
+
+            <!-- Right Side Actions -->
+            <div class="flex items-center gap-4">
+                <a href="litepaper.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    Litepaper
+                </a>
+                <a href="documentation_hub.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    Docs
+                </a>
+                <a href="https://journey.mfai.app"
+                    class="cta-button px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10">
+                    Access Terminal
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-toggle" class="md:hidden p-2 text-text-muted hover:text-white transition-colors"
+                    aria-label="Toggle mobile menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-background-secondary/95 backdrop-blur-lg border-t border-accent-primary/10">
+            <div class="container mx-auto px-6 py-4 space-y-3">
+                <a href="index.html#home"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Home</a>
+                <a href="index.html#journey"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Journey</a>
+                <a href="product.html" class="block py-2 text-white transition-colors">Product</a>
+                <a href="roadmap.html"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Roadmap</a>
+                <a href="docs.html#zyno-overview"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Agents & API</a>
+                <a href="token.html" class="block py-2 text-text-secondary hover:text-white transition-colors">Token</a>
+                <a href="investors.html"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Investors</a>
+                <a href="documentation_hub.html"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Docs</a>
+                <a href="litepaper.html"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Litepaper</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="py-32 relative overflow-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-primary/30 bg-accent-primary/10 backdrop-blur-sm mb-8">
+                    <i data-lucide="layers" class="w-4 h-4 text-accent-secondary"></i>
+                    <span class="text-xs uppercase tracking-widest text-text-secondary font-semibold">The Money Factory
+                        AI
+                        Platform</span>
+                </div>
+
+                <h1
+                    class="text-5xl md:text-7xl font-display font-black tracking-tight mb-8 leading-[1.1] text-text-primary">
+                    Build, Learn & Launch<br>
+                    <span class="text-gradient-mfai">with AI Orchestration</span>
+                </h1>
+
+                <p class="text-xl md:text-2xl text-text-secondary max-w-4xl mx-auto mb-12 leading-relaxed">
+                    Money Factory AI combines <strong class="text-white">AEPO</strong> (individual pathways),
+                    <strong class="text-white">AECO</strong> (cohort orchestration), and
+                    <strong class="text-white">Zyno</strong> (multi-agent kernel) to transform raw ideas into funded,
+                    AI-orchestrated businesses on Solana.
+                </p>
+            </div>
+        </section>
+
+        <!-- AEPO Section -->
+        <section id="aepo" class="py-20 bg-gradient-to-b from-transparent to-background-secondary">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2
+                            class="text-sm font-bold text-accent-primary tracking-widest uppercase mb-4 flex items-center justify-center gap-2">
+                            <i data-lucide="user" class="w-4 h-4"></i>
+                            AEPO
+                        </h2>
+                        <h3 class="text-4xl md:text-6xl font-display font-bold mb-6 text-text-primary">
+                            <span class="text-gradient-mfai">AI-Enhanced Pathway Orchestration</span>
+                        </h3>
+                        <p class="text-text-secondary text-lg max-w-3xl mx-auto leading-relaxed">
+                            AEPO orchestrates <strong class="text-white">individual learning and building
+                                paths</strong>.
+                            Each user gets a personalized journey through Discovery → Design → Prototype → Launch →
+                            Growth phases,
+                            guided by Zyno's AI agents.
+                        </p>
+                    </div>
+
+                    <!-- AEPO Journey Phases -->
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-12">
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                                <i data-lucide="search" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-text-primary mb-2">Discovery</h4>
+                            <p class="text-sm text-text-muted">Explore ideas, validate concepts, learn fundamentals</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                                <i data-lucide="pen-tool" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-text-primary mb-2">Design</h4>
+                            <p class="text-sm text-text-muted">Architecture, tokenomics, governance models</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                                <i data-lucide="code" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-text-primary mb-2">Prototype</h4>
+                            <p class="text-sm text-text-muted">Build MVP, test smart contracts, iterate</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                                <i data-lucide="rocket" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-text-primary mb-2">Launch</h4>
+                            <p class="text-sm text-text-muted">Deploy on Solana, activate liquidity</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl text-center">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                                <i data-lucide="trending-up" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-text-primary mb-2">Growth</h4>
+                            <p class="text-sm text-text-muted">Scale, optimize, expand community</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-2xl">
+                        <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-solana-green"></i>
+                            How AEPO Works
+                        </h4>
+                        <ul class="space-y-3 text-text-secondary">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="arrow-right"
+                                    class="w-5 h-5 text-accent-secondary mt-0.5 flex-shrink-0"></i>
+                                <span><strong class="text-white">Personalized Assessment:</strong> Zyno analyzes your
+                                    skills, goals, and project idea</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="arrow-right"
+                                    class="w-5 h-5 text-accent-secondary mt-0.5 flex-shrink-0"></i>
+                                <span><strong class="text-white">Dynamic Path Generation:</strong> AI creates a custom
+                                    roadmap with milestones and tasks</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="arrow-right"
+                                    class="w-5 h-5 text-accent-secondary mt-0.5 flex-shrink-0"></i>
+                                <span><strong class="text-white">Continuous Guidance:</strong> 24 specialized agents
+                                    provide support at each phase</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="arrow-right"
+                                    class="w-5 h-5 text-accent-secondary mt-0.5 flex-shrink-0"></i>
+                                <span><strong class="text-white">Proof-of-Skill™:</strong> Earn verifiable credentials
+                                    and $MFAI as you progress</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AECO Section -->
+        <section id="aeco" class="py-20 bg-background-secondary">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2
+                            class="text-sm font-bold text-solana-green tracking-widest uppercase mb-4 flex items-center justify-center gap-2">
+                            <i data-lucide="users" class="w-4 h-4"></i>
+                            AECO
+                        </h2>
+                        <h3 class="text-4xl md:text-6xl font-display font-bold mb-6 text-text-primary">
+                            <span class="text-gradient-solana">AI-Enhanced Cohort Orchestration</span>
+                        </h3>
+                        <p class="text-text-secondary text-lg max-w-3xl mx-auto leading-relaxed">
+                            AECO orchestrates <strong class="text-white">group dynamics and cohort programs</strong>.
+                            Perfect for bootcamps, accelerators, DAOs, and communities that want to launch projects
+                            together
+                            with shared milestones and cross-user feedback loops.
+                        </p>
+                    </div>
+
+                    <!-- AECO Features Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                        <div class="glass-card p-8 rounded-2xl">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="calendar" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-text-primary mb-3">Cohort Programs</h4>
+                            <p class="text-text-secondary leading-relaxed mb-4">
+                                Launch 8-12 week programs with synchronized milestones, group sessions, and peer
+                                reviews.
+                                Perfect for accelerators and educational initiatives.
+                            </p>
+                            <ul class="space-y-2 text-sm text-text-secondary">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Synchronized schedules
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Group workshops & sessions
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Peer feedback loops
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="glass-card p-8 rounded-2xl">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="git-branch" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-text-primary mb-3">Cross-User Dynamics</h4>
+                            <p class="text-text-secondary leading-relaxed mb-4">
+                                AI analyzes group interactions, identifies collaboration opportunities, and facilitates
+                                knowledge sharing between participants.
+                            </p>
+                            <ul class="space-y-2 text-sm text-text-secondary">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Smart team matching
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Skill complementarity
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Collaborative projects
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="glass-card p-8 rounded-2xl">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="target" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-text-primary mb-3">Shared Milestones</h4>
+                            <p class="text-text-secondary leading-relaxed mb-4">
+                                Define collective goals and track progress across the entire cohort.
+                                Celebrate wins together and maintain momentum.
+                            </p>
+                            <ul class="space-y-2 text-sm text-text-secondary">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Group objectives
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Progress dashboards
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Collective achievements
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="glass-card p-8 rounded-2xl">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-text-primary mb-3">Agent-Guided Sessions</h4>
+                            <p class="text-text-secondary leading-relaxed mb-4">
+                                Zyno agents facilitate group workshops, provide real-time feedback, and ensure
+                                every participant gets the support they need.
+                            </p>
+                            <ul class="space-y-2 text-sm text-text-secondary">
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Live AI facilitation
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Real-time Q&A
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-solana-green"></i>
+                                    Personalized support
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-2xl border-2 border-solana-green/30">
+                        <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="lightbulb" class="w-5 h-5 text-solana-green"></i>
+                            Use Cases for AECO
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-text-secondary">
+                            <div>
+                                <h5 class="font-bold text-white mb-2">Accelerators</h5>
+                                <p class="text-sm">Run structured programs with multiple startups, shared mentorship,
+                                    and demo days.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-2">DAO Initiatives</h5>
+                                <p class="text-sm">Coordinate community-driven projects with transparent governance and
+                                    collective decision-making.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-2">Educational Programs</h5>
+                                <p class="text-sm">Deliver bootcamps and courses with hands-on projects, peer learning,
+                                    and certification.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zyno Multi-Agent System -->
+        <section id="zyno" class="py-20 bg-gradient-to-b from-background-secondary to-transparent">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2
+                            class="text-sm font-bold text-accent-secondary tracking-widest uppercase mb-4 flex items-center justify-center gap-2">
+                            <i data-lucide="cpu" class="w-4 h-4"></i>
+                            Zyno
+                        </h2>
+                        <h3 class="text-4xl md:text-6xl font-display font-bold mb-6 text-text-primary">
+                            The <span class="text-gradient-mfai">Multi-Agent Orchestration Kernel</span>
+                        </h3>
+                        <p class="text-text-secondary text-lg max-w-3xl mx-auto leading-relaxed">
+                            Zyno is the layer that coordinates Builder, Growth, DAO, and other specialized agents.
+                            It powers both AEPO and AECO by routing tasks, accessing knowledge, and synthesizing
+                            responses into actionable UI blocks and artifacts.
+                        </p>
+                    </div>
+
+                    <!-- Agent Categories -->
+                    <div class="mb-12">
+                        <h4 class="text-2xl font-bold text-white mb-8 text-center">24 Specialized AI Agents</h4>
+
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+                            <!-- Core Agents -->
+                            <div class="glass-card p-4 rounded-xl text-center border-2 border-accent-primary/50">
+                                <div class="text-2xl mb-2">🏗️</div>
+                                <div class="font-bold text-sm text-white">Architect</div>
+                                <div class="text-xs text-text-muted mt-1">System Design</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center border-2 border-accent-primary/50">
+                                <div class="text-2xl mb-2">⚙️</div>
+                                <div class="font-bold text-sm text-white">Engineer</div>
+                                <div class="text-xs text-text-muted mt-1">Smart Contracts</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center border-2 border-accent-primary/50">
+                                <div class="text-2xl mb-2">💰</div>
+                                <div class="font-bold text-sm text-white">CFO</div>
+                                <div class="text-xs text-text-muted mt-1">Tokenomics</div>
+                            </div>
+
+                            <!-- Specialized Agents -->
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🧭</div>
+                                <div class="font-bold text-sm text-white">Guide</div>
+                                <div class="text-xs text-text-muted mt-1">Orientation</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">👋</div>
+                                <div class="font-bold text-sm text-white">Onboarding</div>
+                                <div class="text-xs text-text-muted mt-1">Setup</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">📚</div>
+                                <div class="font-bold text-sm text-white">Education</div>
+                                <div class="text-xs text-text-muted mt-1">Learning</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🛠️</div>
+                                <div class="font-bold text-sm text-white">Builder</div>
+                                <div class="text-xs text-text-muted mt-1">Implementation</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🔧</div>
+                                <div class="font-bold text-sm text-white">Dev</div>
+                                <div class="text-xs text-text-muted mt-1">Troubleshooting</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🎯</div>
+                                <div class="font-bold text-sm text-white">Product</div>
+                                <div class="text-xs text-text-muted mt-1">Strategy</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🎨</div>
+                                <div class="font-bold text-sm text-white">Design</div>
+                                <div class="text-xs text-text-muted mt-1">UX/UI</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🪙</div>
+                                <div class="font-bold text-sm text-white">Token</div>
+                                <div class="text-xs text-text-muted mt-1">SPL Mgmt</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🖼️</div>
+                                <div class="font-bold text-sm text-white">NFT</div>
+                                <div class="text-xs text-text-muted mt-1">Collections</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🗳️</div>
+                                <div class="font-bold text-sm text-white">DAO</div>
+                                <div class="text-xs text-text-muted mt-1">Governance</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">⚖️</div>
+                                <div class="font-bold text-sm text-white">Governance</div>
+                                <div class="text-xs text-text-muted mt-1">Voting</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">👥</div>
+                                <div class="font-bold text-sm text-white">Community</div>
+                                <div class="text-xs text-text-muted mt-1">Engagement</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">📈</div>
+                                <div class="font-bold text-sm text-white">Growth</div>
+                                <div class="text-xs text-text-muted mt-1">Marketing</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🔗</div>
+                                <div class="font-bold text-sm text-white">Protocol</div>
+                                <div class="text-xs text-text-muted mt-1">Architecture</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🛡️</div>
+                                <div class="font-bold text-sm text-white">Security</div>
+                                <div class="text-xs text-text-muted mt-1">Hardening</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🔍</div>
+                                <div class="font-bold text-sm text-white">Audit</div>
+                                <div class="text-xs text-text-muted mt-1">Smart Contracts</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">📜</div>
+                                <div class="font-bold text-sm text-white">Web3 Legal</div>
+                                <div class="text-xs text-text-muted mt-1">Compliance</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🎤</div>
+                                <div class="font-bold text-sm text-white">Pitch</div>
+                                <div class="text-xs text-text-muted mt-1">Storytelling</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">💼</div>
+                                <div class="font-bold text-sm text-white">Investor</div>
+                                <div class="text-xs text-text-muted mt-1">VC Feedback</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🚀</div>
+                                <div class="font-bold text-sm text-white">Launchpad</div>
+                                <div class="text-xs text-text-muted mt-1">GTM Strategy</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🧠</div>
+                                <div class="font-bold text-sm text-white">Reflection</div>
+                                <div class="text-xs text-text-muted mt-1">Retrospectives</div>
+                            </div>
+                            <div class="glass-card p-4 rounded-xl text-center">
+                                <div class="text-2xl mb-2">🏆</div>
+                                <div class="font-bold text-sm text-white">Coach</div>
+                                <div class="text-xs text-text-muted mt-1">Development</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- How Zyno Ties to AEPO/AECO -->
+                    <div class="glass-card p-10 rounded-3xl">
+                        <h4 class="text-2xl font-bold text-white mb-6 text-center">How Zyno Powers AEPO & AECO</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h5 class="font-bold text-lg text-accent-primary mb-3 flex items-center gap-2">
+                                    <i data-lucide="user" class="w-5 h-5"></i>
+                                    For AEPO (Individual Paths)
+                                </h5>
+                                <ul class="space-y-2 text-text-secondary text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Analyzes user intent and skills to create personalized roadmaps</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Routes tasks to the right specialized agent (Architect, CFO, etc.)</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Generates UI blocks, artifacts, and actionable next steps</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Tracks progress and adapts the journey dynamically</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg text-solana-green mb-3 flex items-center gap-2">
+                                    <i data-lucide="users" class="w-5 h-5"></i>
+                                    For AECO (Cohort Programs)
+                                </h5>
+                                <ul class="space-y-2 text-text-secondary text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Coordinates group schedules and shared milestones</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Facilitates peer feedback loops and collaboration</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Identifies team synergies and skill complementarity</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check"
+                                            class="w-4 h-4 text-solana-green mt-0.5 flex-shrink-0"></i>
+                                        <span>Provides real-time support during group sessions</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Pipeline Visualization -->
+        <section class="py-20 bg-background-secondary">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto text-center">
+                    <h3 class="text-3xl md:text-5xl font-display font-bold mb-12 text-text-primary">
+                        The Complete <span class="text-gradient-mfai">Journey Pipeline</span>
+                    </h3>
+
+                    <div class="glass-card p-10 rounded-3xl">
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                            <!-- Learn & Earn -->
+                            <div class="flex-1 text-center">
+                                <div
+                                    class="w-20 h-20 mx-auto bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl flex items-center justify-center mb-4">
+                                    <i data-lucide="graduation-cap" class="w-10 h-10 text-white"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-2">Learn & Earn</h4>
+                                <p class="text-sm text-text-muted">Complete modules, earn $MFAI and Proof-of-Skill NFTs
+                                </p>
+                            </div>
+
+                            <i data-lucide="arrow-right" class="w-8 h-8 text-accent-primary hidden md:block"></i>
+
+                            <!-- Build with Zyno -->
+                            <div class="flex-1 text-center">
+                                <div
+                                    class="w-20 h-20 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center mb-4">
+                                    <i data-lucide="cpu" class="w-10 h-10 text-white"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-2">Build with Zyno</h4>
+                                <p class="text-sm text-text-muted">Describe your project, get Project Canvas</p>
+                            </div>
+
+                            <i data-lucide="arrow-right" class="w-8 h-8 text-accent-primary hidden md:block"></i>
+
+                            <!-- DAO Approval -->
+                            <div class="flex-1 text-center">
+                                <div
+                                    class="w-20 h-20 mx-auto bg-gradient-to-br from-green-500 to-emerald-500 rounded-3xl flex items-center justify-center mb-4">
+                                    <i data-lucide="vote" class="w-10 h-10 text-white"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-2">DAO Approval</h4>
+                                <p class="text-sm text-text-muted">Submit to DAO with merit-based voting</p>
+                            </div>
+
+                            <i data-lucide="arrow-right" class="w-8 h-8 text-accent-primary hidden md:block"></i>
+
+                            <!-- Launch -->
+                            <div class="flex-1 text-center">
+                                <div
+                                    class="w-20 h-20 mx-auto bg-gradient-to-br from-solana-purple to-solana-green rounded-3xl flex items-center justify-center mb-4">
+                                    <i data-lucide="rocket" class="w-10 h-10 text-white"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-2">Launch</h4>
+                                <p class="text-sm text-text-muted">8-12 week incubation with Collaterize</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-32 relative overflow-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 text-text-primary">
+                    Ready to Start Your <span class="text-gradient-mfai">Journey</span>?
+                </h2>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto mb-12">
+                    Explore the technical details, read the documentation, or jump straight into the Zyno Terminal.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="documentation_hub.html"
+                        class="cta-button px-8 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-xl relative z-10">
+                        <i data-lucide="book-open" class="w-5 h-5 inline mr-2"></i>
+                        Read the Docs
+                    </a>
+                    <a href="https://journey.mfai.app"
+                        class="cta-button px-8 py-4 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-xl relative z-10">
+                        <i data-lucide="terminal" class="w-5 h-5 inline mr-2"></i>
+                        Access Zyno Terminal
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-accent-primary/10 bg-background-primary py-16" aria-label="Footer">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                            <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                        </div>
+                        <div class="flex flex-col">
+                            <span
+                                class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
+                                Factory
+                                AI</span>
+                            <span class="text-xs text-text-muted">Venture Engine</span>
+                        </div>
+                    </div>
+                    <p class="text-text-muted text-sm leading-relaxed mb-6">
+                        A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
+                    </p>
+                </div>
+
+                <!-- Platform Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="product.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
+                        <li><a href="index.html#journey"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
+                        <li><a href="/terminal" class="text-text-muted hover:text-white transition-colors text-sm">Zyno
+                                Terminal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="documentation_hub.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a>
+                        </li>
+                        <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
+                                Docs</a></li>
+                        <li><a href="litepaper.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Litepaper</a>
+                        </li>
+                        <li><a href="user_guide.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">User Guide</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Community Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
+                    <ul class="space-y-3">
+                        <li><a href="token.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
+                        <li><a href="investors.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a>
+                        </li>
+                        <li><a href="https://discord.gg/shztvSg9" target="_blank" rel="noopener"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
+                        <li><a href="https://x.com/MoneyFactoryAI" target="_blank" rel="noopener"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-accent-primary/10">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+                    <div class="text-text-muted text-sm">
+                        &copy; 2025 Money Factory AI. Built on Solana.
+                    </div>
+                    <div class="flex gap-6 text-sm">
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-600 text-center md:text-left">
+                    <strong>Disclaimer:</strong> Nothing on this site constitutes financial or investment advice. Always
+                    do your own research.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-toggle')?.addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const offset = 100;
+                        const targetPosition = target.offsetTop - offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Factory AI – Documentation Hub | Guides, API & Resources</title>
+    <link rel="icon" type="image/png" href="logo_mfai.png">
+    <meta name="description"
+        content="Comprehensive documentation for Money Factory AI: user guides, API references, technical specs, and learning resources.">
+    <meta name="keywords" content="Money Factory AI, Documentation, API, Guides, Zyno, Solana, Web3">
+
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body class="bg-background-primary text-text-secondary antialiased selection:bg-accent-primary selection:text-white">
+
+    <!-- Dynamic Background -->
+    <div class="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(160,32,240,0.1),transparent_30%)]">
+        </div>
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(0,229,255,0.08),transparent_25%)]">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300"
+        aria-label="Main Navigation">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html#home" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
+                <div class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
+                    aria-hidden="true">
+                    <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money
+                        Factory AI</span>
+                    <span class="text-xs text-text-muted font-sans">Venture Engine</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-8" id="nav-links">
+                <a href="index.html#home"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
+                <a href="index.html#journey"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
+                <a href="product.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
+                <a href="roadmap.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
+                <a href="docs.html#zyno-overview"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents &
+                    API</a>
+                <a href="token.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
+                <a href="investors.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
+                <a href="documentation_hub.html" class="nav-link text-sm text-white transition-colors">Docs</a>
+            </div>
+
+            <!-- Right Side Actions -->
+            <div class="flex items-center gap-4">
+                <a href="litepaper.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    Litepaper
+                </a>
+                <a href="https://journey.mfai.app"
+                    class="px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg transition-all">
+                    Access Terminal
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-toggle" class="md:hidden p-2 text-text-muted hover:text-white transition-colors"
+                    aria-label="Toggle mobile menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-background-secondary/95 backdrop-blur-lg border-t border-accent-primary/10">
+            <div class="container mx-auto px-6 py-4 space-y-3">
+                <a href="index.html#home"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Home</a>
+                <a href="index.html#journey"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Journey</a>
+                <a href="product.html"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Product</a>
+                <a href="roadmap.html"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Roadmap</a>
+                <a href="docs.html#zyno-overview"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Agents & API</a>
+                <a href="token.html" class="block py-2 text-text-secondary hover:text-white transition-colors">Token</a>
+                <a href="investors.html"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Investors</a>
+                <a href="documentation_hub.html" class="block py-2 text-white transition-colors">Docs</a>
+                <a href="litepaper.html"
+                    class="block py-2 text-text-secondary hover:text-white transition-colors">Litepaper</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="py-32 relative overflow-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-secondary/30 bg-accent-secondary/10 backdrop-blur-sm mb-8">
+                    <i data-lucide="book-open" class="w-4 h-4 text-accent-secondary"></i>
+                    <span class="text-xs uppercase tracking-widest text-text-secondary font-semibold">Documentation
+                        Hub</span>
+                </div>
+
+                <h1
+                    class="text-5xl md:text-7xl font-display font-black tracking-tight mb-8 leading-[1.1] text-text-primary">
+                    Everything You Need to<br>
+                    <span class="text-gradient-mfai">Build on Money Factory AI</span>
+                </h1>
+
+                <p class="text-xl md:text-2xl text-text-secondary max-w-4xl mx-auto mb-12 leading-relaxed">
+                    Comprehensive guides, API references, and resources to help you learn, build, and launch on Solana
+                    with AI orchestration.
+                </p>
+
+                <!-- Quick Search -->
+                <div class="max-w-2xl mx-auto mb-16">
+                    <div class="relative">
+                        <i data-lucide="search"
+                            class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-text-muted"></i>
+                        <input type="text" placeholder="Search documentation..."
+                            class="w-full pl-12 pr-4 py-4 bg-background-secondary border border-accent-primary/20 rounded-xl text-white placeholder-text-muted focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/50 outline-none transition-all">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Documentation Categories -->
+        <section class="py-20 bg-gradient-to-b from-transparent to-background-secondary">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+
+                    <!-- Getting Started -->
+                    <a href="user_guide.html" class="glass-card doc-card p-8 rounded-2xl block group">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="rocket" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Getting Started</h3>
+                        <p class="text-text-muted mb-6 leading-relaxed">
+                            New to Money Factory AI? Start here with our comprehensive user guide and onboarding
+                            tutorials.
+                        </p>
+                        <div class="flex items-center text-accent-secondary font-semibold text-sm">
+                            <span>Read Guide</span>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- Product Overview -->
+                    <a href="product.html" class="glass-card doc-card p-8 rounded-2xl block group">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="layers" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Product Overview</h3>
+                        <p class="text-text-muted mb-6 leading-relaxed">
+                            Understand AEPO, AECO, and Zyno's multi-agent orchestration system in detail.
+                        </p>
+                        <div class="flex items-center text-accent-secondary font-semibold text-sm">
+                            <span>Explore Platform</span>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- API Reference -->
+                    <a href="docs.html#zyno-overview" class="glass-card doc-card p-8 rounded-2xl block group">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="code" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">API Reference</h3>
+                        <p class="text-text-muted mb-6 leading-relaxed">
+                            Complete API documentation for Zyno agents, endpoints, data models, and error handling.
+                        </p>
+                        <div class="flex items-center text-accent-secondary font-semibold text-sm">
+                            <span>View API Docs</span>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- Zyno Agents -->
+                    <a href="zyno.html" class="glass-card doc-card p-8 rounded-2xl block group">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="cpu" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Zyno Agents</h3>
+                        <p class="text-text-muted mb-6 leading-relaxed">
+                            Deep dive into the 24 specialized AI agents: Architect, Engineer, CFO, and more.
+                        </p>
+                        <div class="flex items-center text-accent-secondary font-semibold text-sm">
+                            <span>Explore Agents</span>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- Launch & Collaterize -->
+                    <a href="launch_collaterize.html" class="glass-card doc-card p-8 rounded-2xl block group">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-solana-purple to-solana-green rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="trending-up" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Launch & Collaterize</h3>
+                        <p class="text-text-muted mb-6 leading-relaxed">
+                            Learn about bonding curves, liquidity mechanisms, and launching your project on Solana.
+                        </p>
+                        <div class="flex items-center text-accent-secondary font-semibold text-sm">
+                            <span>Learn More</span>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- Tokenomics -->
+                    <a href="token.html" class="glass-card doc-card p-8 rounded-2xl block group">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="coins" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Tokenomics</h3>
+                        <p class="text-text-muted mb-6 leading-relaxed">
+                            $MFAI token utility, distribution, governance, and Synaptic Governance mechanics.
+                        </p>
+                        <div class="flex items-center text-accent-secondary font-semibold text-sm">
+                            <span>View Tokenomics</span>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- For Investors -->
+                    <a href="investors.html" class="glass-card doc-card p-8 rounded-2xl block group">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="briefcase" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">For Investors</h3>
+                        <p class="text-text-muted mb-6 leading-relaxed">
+                            Investment thesis, business model, roadmap, and funding information.
+                        </p>
+                        <div class="flex items-center text-accent-secondary font-semibold text-sm">
+                            <span>Investor Brief</span>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- Roadmap -->
+                    <a href="roadmap.html" class="glass-card doc-card p-8 rounded-2xl block group">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="map" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Roadmap</h3>
+                        <p class="text-text-muted mb-6 leading-relaxed">
+                            Explore our development timeline, upcoming features, and strategic milestones.
+                        </p>
+                        <div class="flex items-center text-accent-secondary font-semibold text-sm">
+                            <span>View Roadmap</span>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- Litepaper -->
+                    <a href="litepaper.html" class="glass-card doc-card p-8 rounded-2xl block group">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="file-text" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Litepaper</h3>
+                        <p class="text-text-muted mb-6 leading-relaxed">
+                            Comprehensive overview of Money Factory AI's vision, technology, and ecosystem.
+                        </p>
+                        <div class="flex items-center text-accent-secondary font-semibold text-sm">
+                            <span>Read Litepaper</span>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </a>
+
+                    <!-- Technical Docs -->
+                    <a href="docs.html" class="glass-card doc-card p-8 rounded-2xl block group">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="terminal" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Technical Docs</h3>
+                        <p class="text-text-muted mb-6 leading-relaxed">
+                            In-depth technical documentation, architecture diagrams, and implementation guides.
+                        </p>
+                        <div class="flex items-center text-accent-secondary font-semibold text-sm">
+                            <span>Technical Specs</span>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Links Section -->
+        <section class="py-20 bg-background-secondary">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="text-3xl md:text-5xl font-display font-bold text-center mb-12 text-text-primary">
+                        Popular <span class="text-gradient-mfai">Resources</span>
+                    </h2>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Quick Link Card -->
+                        <div class="glass-card p-6 rounded-xl">
+                            <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                                <i data-lucide="play-circle" class="w-5 h-5 text-accent-secondary"></i>
+                                Quick Start Guides
+                            </h4>
+                            <ul class="space-y-3">
+                                <li>
+                                    <a href="user_guide.html#create-account"
+                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                        Create Your Account
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="user_guide.html#first-journey"
+                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                        Start Your First Journey
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="user_guide.html#zyno-terminal"
+                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                        Using Zyno Terminal
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Developer Resources -->
+                        <div class="glass-card p-6 rounded-xl">
+                            <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                                <i data-lucide="code-2" class="w-5 h-5 text-accent-secondary"></i>
+                                Developer Resources
+                            </h4>
+                            <ul class="space-y-3">
+                                <li>
+                                    <a href="docs.html#zyno-endpoints"
+                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                        API Endpoints
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="docs.html#zyno-data-models"
+                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                        Data Models
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="docs.html#zyno-errors"
+                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                        Error Handling
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Community -->
+                        <div class="glass-card p-6 rounded-xl">
+                            <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                                <i data-lucide="users" class="w-5 h-5 text-accent-secondary"></i>
+                                Community & Support
+                            </h4>
+                            <ul class="space-y-3">
+                                <li>
+                                    <a href="https://discord.gg/shztvSg9" target="_blank" rel="noopener"
+                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                        Join Discord Community
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/moneyfactoryai" target="_blank" rel="noopener"
+                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                        GitHub Repository
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://x.com/MoneyFactoryAI" target="_blank" rel="noopener"
+                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                        Follow on Twitter
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Updates -->
+                        <div class="glass-card p-6 rounded-xl">
+                            <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                                <i data-lucide="bell" class="w-5 h-5 text-accent-secondary"></i>
+                                Latest Updates
+                            </h4>
+                            <ul class="space-y-3">
+                                <li>
+                                    <a href="#"
+                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                        Changelog & Release Notes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                        Roadmap & Upcoming Features
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                        Migration Guides
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-32 relative overflow-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 text-text-primary">
+                    Can't Find What You're <span class="text-gradient-mfai">Looking For</span>?
+                </h2>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto mb-12">
+                    Our community is here to help. Join Discord or reach out to our support team.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://discord.gg/shztvSg9" target="_blank" rel="noopener"
+                        class="px-8 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-xl hover:bg-white/20 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        Ask the Community
+                    </a>
+                    <a href="/terminal"
+                        class="px-8 py-4 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-xl hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="terminal" class="w-5 h-5"></i>
+                        Try Zyno Terminal
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-accent-primary/10 bg-background-primary py-16" aria-label="Footer">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                            <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                        </div>
+                        <div class="flex flex-col">
+                            <span
+                                class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
+                                Factory
+                                AI</span>
+                            <span class="text-xs text-text-muted">Venture Engine</span>
+                        </div>
+                    </div>
+                    <p class="text-text-muted text-sm leading-relaxed mb-6">
+                        A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
+                    </p>
+                </div>
+
+                <!-- Platform Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="product.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
+                        <li><a href="index.html#journey"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
+                        <li><a href="https://journey.mfai.app"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno
+                                Terminal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="documentation_hub.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a>
+                        </li>
+                        <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
+                                Docs</a></li>
+                        <li><a href="litepaper.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Litepaper</a>
+                        </li>
+                        <li><a href="user_guide.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">User Guide</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Community Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
+                    <ul class="space-y-3">
+                        <li><a href="token.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
+                        <li><a href="investors.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a>
+                        </li>
+                        <li><a href="https://discord.gg/shztvSg9" target="_blank" rel="noopener"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
+                        <li><a href="https://x.com/MoneyFactoryAI" target="_blank" rel="noopener"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-accent-primary/10">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+                    <div class="text-text-muted text-sm">
+                        &copy; 2025 Money Factory AI. Built on Solana.
+                    </div>
+                    <div class="flex gap-6 text-sm">
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-600 text-center md:text-left">
+                    <strong>Disclaimer:</strong> Nothing on this site constitutes financial or investment advice. Always
+                    do your own research.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-toggle')?.addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body><!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Factory AI – Solana-Native Venture Engine Litepaper</title>
+    <link rel="icon" type="image/png" href="logo_mfai.png">
+    <meta name="description"
+        content="Money Factory AI Litepaper. Technical and economic overview of the Solana-native venture engine.">
+
+    <!-- Tailwind & Fonts -->
+    <!-- Tailwind & Fonts -->
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-background-primary text-text-secondary antialiased selection:bg-accent-primary selection:text-white">
+
+    <!-- Background Mesh -->
+    <div class="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(160,32,240,0.1),transparent_30%)]">
+        </div>
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(0,229,255,0.08),transparent_25%)]">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300"
+        aria-label="Main Navigation">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
+                <div
+                    class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money
+                        Factory AI</span>
+                    <span class="text-xs text-text-muted font-sans">Venture Engine</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8" id="nav-links">
+                <a href="index.html#home"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
+                <a href="index.html#journey"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
+                <a href="product.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
+                <a href="roadmap.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
+                <a href="docs.html#zyno-overview"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents &
+                    API</a>
+                <a href="token.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
+                <a href="investors.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
+                <a href="documentation_hub.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="litepaper.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-white font-bold transition-colors">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    Litepaper
+                </a>
+                <a href="https://journey.mfai.app"
+                    class="px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-accent-primary/20 transition-all">
+                    Access Terminal
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-toggle"
+                    class="md:hidden p-2 text-text-muted hover:text-white transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
+            <a href="index.html#home" class="block text-text-secondary hover:text-white">Home</a>
+            <a href="index.html#journey" class="block text-text-secondary hover:text-white">Journey</a>
+            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
+            <a href="roadmap.html" class="block text-text-secondary hover:text-white">Roadmap</a>
+            <a href="token.html" class="block text-text-secondary hover:text-white">Token</a>
+            <a href="investors.html" class="block text-text-secondary hover:text-white">Investors</a>
+            <a href="documentation_hub.html" class="block text-text-secondary hover:text-white">Docs</a>
+            <div class="pt-4 border-t border-white/10">
+                <p class="text-xs text-text-muted mb-2 uppercase tracking-wider">Litepaper Sections</p>
+                <a href="#introduction" class="block text-sm text-text-muted hover:text-white py-1">1. Introduction</a>
+                <a href="#architecture" class="block text-sm text-text-muted hover:text-white py-1">2. Architecture</a>
+                <a href="#journey" class="block text-sm text-text-muted hover:text-white py-1">3. Journey Protocol</a>
+                <a href="#tokenomics" class="block text-sm text-text-muted hover:text-white py-1">4. Tokenomics</a>
+                <a href="#launchpad" class="block text-sm text-text-muted hover:text-white py-1">5. Launchpad</a>
+                <a href="#risks" class="block text-sm text-text-muted hover:text-white py-1">6. Risks & Roadmap</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex min-h-screen pt-20">
+        <!-- Sidebar (Desktop) -->
+        <aside
+            class="fixed left-0 top-20 h-[calc(100vh-5rem)] w-72 overflow-y-auto border-r border-accent-primary/10 bg-background-primary/95 backdrop-blur-xl hidden lg:block z-40">
+            <div class="p-6">
+                <div class="mb-6">
+                    <h5 class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3">Litepaper</h5>
+                    <nav class="space-y-1">
+                        <a href="#introduction" class="sidebar-link active">1. Introduction</a>
+                        <a href="#architecture" class="sidebar-link">2. Architecture</a>
+                        <a href="#journey" class="sidebar-link">3. Journey Protocol</a>
+                        <a href="#tokenomics" class="sidebar-link">4. Tokenomics</a>
+                        <a href="#launchpad" class="sidebar-link">5. Launchpad</a>
+                        <a href="#risks" class="sidebar-link">6. Risks & Roadmap</a>
+                    </nav>
+                </div>
+
+                <div class="bg-accent-primary/10 rounded-xl p-4 border border-accent-primary/20">
+                    <h6 class="text-sm font-bold text-white mb-2">Download PDF</h6>
+                    <p class="text-xs text-text-muted mb-3">Get the full whitepaper for offline reading.</p>
+                    <button
+                        class="block w-full py-2 text-center bg-accent-primary/20 hover:bg-accent-primary/30 text-accent-primary text-xs font-bold rounded-lg transition-colors">
+                        Download Now
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 lg:ml-72 p-6 lg:p-12 w-full max-w-[100vw] overflow-x-hidden">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Header -->
+                <section class="mb-16 text-center reveal-on-scroll">
+                    <h1
+                        class="text-4xl md:text-6xl font-bold font-display mb-6 text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary">
+                        Money Factory AI<br>Litepaper
+                    </h1>
+                    <p class="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
+                        A technical and economic overview of the Solana-native venture engine.
+                    </p>
+
+                    <div
+                        class="mt-12 bg-background-secondary border-l-4 border-accent-primary p-8 rounded-r-xl text-left">
+                        <p class="text-lg font-bold text-white mb-4">Executive Summary</p>
+                        <p class="text-text-secondary mb-4">
+                            Money Factory AI (MFAI) is a venture engine built on Solana that combines:
+                        </p>
+                        <ul class="space-y-2 text-text-secondary">
+                            <li class="flex items-start gap-3">
+                                <span class="text-solana-green font-bold">→</span>
+                                <span><strong>Cognitive Activation Protocol:</strong> A 4-phase journey from learning to
+                                    launch.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-solana-green font-bold">→</span>
+                                <strong class="text-white">Zyno Agentic System:</strong> 24 AI agents orchestrating the
+                                building process.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-solana-green font-bold">→</span>
+                                <span><strong>Synaptic Governance:</strong> Merit-based DAO decision making.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Introduction -->
+                <section id="introduction" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        1.
+                        Introduction & Problem Statement</h2>
+
+                    <h3 class="text-2xl font-bold font-display mb-4 text-white">1.1 The Gap</h3>
+                    <p class="text-text-secondary mb-6 leading-relaxed">
+                        The Web3 ecosystem suffers from a "missing middle." While there are excellent tools for
+                        developers (IDEs, SDKs) and excellent liquidity venues (DEXs), there is no coherent
+                        infrastructure to guide a raw idea into a funded, launch-ready protocol.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <h4 class="text-xl font-bold text-accent-primary mb-2">Fragmentation</h4>
+                            <p class="text-sm text-text-muted">Builders must navigate 50+ disconnected tools and
+                                protocols.</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <h4 class="text-xl font-bold text-accent-primary mb-2">Opacity</h4>
+                            <p class="text-sm text-text-muted">Fundraising is network-dependent and slow (6-12 months).
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-bold font-display mb-4 text-white">1.2 Why Solana?</h3>
+                    <p class="text-text-secondary mb-6 leading-relaxed">
+                        MFAI is built exclusively on Solana to leverage its high throughput, low latency, and unified
+                        state. This enables real-time AI interactions and micro-transaction based incentives that would
+                        be impossible on other chains.
+                    </p>
+                </section>
+
+                <!-- Architecture -->
+                <section id="architecture" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        2.
+                        Architecture</h2>
+                    <p class="text-text-secondary mb-6 leading-relaxed">
+                        The MFAI architecture consists of three layers:
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="glass-card p-8 rounded-2xl border border-white/10">
+                            <h4 class="text-xl font-bold text-solana-green mb-2">Layer 1: The Cognitive Layer (AI)</h4>
+                            <p class="text-text-muted">
+                                Powered by Zyno, a multi-agent system using RAG (Retrieval-Augmented Generation) on a
+                                curated knowledge base of Solana documentation and successful business models.
+                            </p>
+                        </div>
+                        <div class="glass-card p-8 rounded-2xl border border-white/10">
+                            <h4 class="text-xl font-bold text-solana-green mb-2">Layer 2: The Governance Layer (DAO)
+                            </h4>
+                            <p class="text-text-muted">
+                                Synaptic Governance smart contracts that manage voting, proposal submission, and
+                                treasury allocation.
+                            </p>
+                        </div>
+                        <div class="glass-card p-8 rounded-2xl border border-white/10">
+                            <h4 class="text-xl font-bold text-solana-green mb-2">Layer 3: The Liquidity Layer (DeFi)
+                            </h4>
+                            <p class="text-text-muted">
+                                Automated Market Makers (AMMs) and bonding curves that provide instant liquidity for
+                                launched tokens.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Journey Protocol -->
+                <section id="journey" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        3. Journey
+                        Protocol</h2>
+                    <p class="text-text-secondary mb-6 leading-relaxed">
+                        The core user experience is the "Journey," a gamified 4-phase process:
+                    </p>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse mb-8">
+                            <thead>
+                                <tr class="bg-background-secondary border-b border-white/10">
+                                    <th class="p-4 text-sm font-bold text-white uppercase">Phase</th>
+                                    <th class="p-4 text-sm font-bold text-white uppercase">Activity</th>
+                                    <th class="p-4 text-sm font-bold text-white uppercase">Outcome</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-text-muted">
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 font-bold text-white">1. Learn</td>
+                                    <td class="p-4">Interactive modules</td>
+                                    <td class="p-4">$MFAI Rewards + Skill NFTs</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 font-bold text-white">2. Build</td>
+                                    <td class="p-4">Zyno collaboration</td>
+                                    <td class="p-4">Project Canvas (Whitepaper, Specs)</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 font-bold text-white">3. Approve</td>
+                                    <td class="p-4">DAO Voting</td>
+                                    <td class="p-4">Incubation Grant</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 font-bold text-white">4. Launch</td>
+                                    <td class="p-4">Bonding Curve</td>
+                                    <td class="p-4">Public Trading</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Tokenomics -->
+                <section id="tokenomics" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        4.
+                        Tokenomics</h2>
+                    <p class="text-text-secondary mb-6 leading-relaxed">
+                        The $MFAI token is designed to capture value from the ecosystem's growth.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4">Utility</h4>
+                            <ul class="space-y-2 text-text-muted">
+                                <li class="flex items-center gap-2"><i data-lucide="check"
+                                        class="w-4 h-4 text-solana-green"></i> Governance Voting</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check"
+                                        class="w-4 h-4 text-solana-green"></i> Staking for Yield</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check"
+                                        class="w-4 h-4 text-solana-green"></i> Access to Zyno Pro</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check"
+                                        class="w-4 h-4 text-solana-green"></i> Launchpad Participation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-4">Deflation</h4>
+                            <ul class="space-y-2 text-text-muted">
+                                <li class="flex items-center gap-2"><i data-lucide="flame"
+                                        class="w-4 h-4 text-red-500"></i> Buyback & Burn from Revenue</li>
+                                <li class="flex items-center gap-2"><i data-lucide="flame"
+                                        class="w-4 h-4 text-red-500"></i> NFT Minting Burn</li>
+                                <li class="flex items-center gap-2"><i data-lucide="flame"
+                                        class="w-4 h-4 text-red-500"></i> Unstaking Fees</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Launchpad -->
+                <section id="launchpad" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        5.
+                        Launchpad</h2>
+                    <p class="text-text-secondary mb-6 leading-relaxed">
+                        The MFAI Launchpad uses a <strong>Collaterize</strong> mechanism. Projects launch on a bonding
+                        curve. Once the curve is filled (market cap target reached), liquidity is automatically migrated
+                        to a DEX (e.g., Raydium) and locked.
+                    </p>
+                    <div class="p-6 rounded-xl border-l-4 border-solana-green bg-solana-green/10">
+                        <p class="text-text-secondary">
+                            <strong>Safety First:</strong> This mechanism prevents "rug pulls" by ensuring liquidity is
+                            locked and contract ownership is renounced or governed by the DAO.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Risks & Roadmap -->
+                <section id="risks" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        6. Risks &
+                        Roadmap</h2>
+
+                    <h3 class="text-2xl font-bold font-display mb-4 text-white">Risks</h3>
+                    <ul class="list-disc list-inside space-y-2 text-text-muted mb-8 pl-4">
+                        <li><strong>Smart Contract Risk:</strong> Bugs in the protocol code. Mitigated by audits.</li>
+                        <li><strong>Regulatory Risk:</strong> Changes in crypto regulations. Mitigated by DAO structure.
+                        </li>
+                        <li><strong>Market Risk:</strong> Volatility of SOL and the broader market.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold font-display mb-4 text-white">Roadmap</h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="w-24 font-bold text-accent-primary">Q2 2025</div>
+                            <div class="text-text-muted">Testnet Launch, Private Sale</div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-24 font-bold text-solana-green">Q3 2025</div>
+                            <div class="text-text-muted">Mainnet Launch, TGE, First Cohort</div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-24 font-bold text-white">Q4 2025</div>
+                            <div class="text-text-muted">Mobile App, Zyno Pro, Cross-chain Bridge</div>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <a href="roadmap.html"
+                            class="inline-flex items-center gap-2 text-accent-secondary hover:text-white transition-colors font-semibold text-sm group">
+                            Looking for the execution timeline? View the Roadmap →
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-accent-primary/10 bg-background-primary py-16 lg:ml-72" aria-label="Footer">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                            <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                        </div>
+                        <div class="flex flex-col">
+                            <span
+                                class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
+                                Factory
+                                AI</span>
+                            <span class="text-xs text-text-muted">Venture Engine</span>
+                        </div>
+                    </div>
+                    <p class="text-text-muted text-sm leading-relaxed mb-6">
+                        A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://x.com/MoneyFactoryAI" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://github.com/moneyfactoryai" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="https://discord.gg/shztvSg9" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="message-circle" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Platform Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="product.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
+                        <li><a href="index.html#journey"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
+                        <li><a href="https://journey.mfai.app"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno
+                                Terminal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="documentation_hub.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a>
+                        </li>
+                        <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
+                                Docs</a></li>
+                        <li><a href="litepaper.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Litepaper</a></li>
+                        <li><a href="user_guide.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">User Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Community Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
+                    <ul class="space-y-3">
+                        <li><a href="token.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
+                        <li><a href="investors.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a>
+                        </li>
+                        <li><a href="https://discord.gg/shztvSg9" target="_blank"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-accent-primary/10">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+                    <div class="text-text-muted text-sm">
+                        &copy; 2025 Money Factory AI. Built on Solana.
+                    </div>
+                    <div class="flex gap-6 text-sm">
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Reveal on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((element) => {
+            observer.observe(element);
+        });
+
+        // Sidebar Active Link Logic
+        const sections = document.querySelectorAll('section[id]');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body><!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Factory AI - For Investors | Investor Brief & Funding</title>
+    <link rel="icon" type="image/png" href="logo_mfai.png">
+    <meta name="description" content="Money Factory AI is a Solana-native venture engine. Investor Brief & Funding.">
+
+    <!-- Tailwind & Fonts -->
+    <!-- Tailwind & Fonts -->
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+</head>
+
+<body class="bg-background-primary text-text-secondary antialiased selection:bg-accent-primary selection:text-white">
+
+    <!-- Background Mesh -->
+    <div class="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(160,32,240,0.1),transparent_30%)]">
+        </div>
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(0,229,255,0.08),transparent_25%)]">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300"
+        aria-label="Main Navigation">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
+                <div
+                    class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money
+                        Factory AI</span>
+                    <span class="text-xs text-text-muted font-sans">Venture Engine</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8" id="nav-links">
+                <a href="index.html#home"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
+                <a href="index.html#journey"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
+                <a href="product.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
+                <a href="roadmap.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
+                <a href="docs.html#zyno-overview"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents &
+                    API</a>
+                <a href="token.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
+                <a href="investors.html" class="nav-link text-sm text-white transition-colors active">Investors</a>
+                <a href="documentation_hub.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="litepaper.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    Litepaper
+                </a>
+                <a href="https://journey.mfai.app"
+                    class="px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-accent-primary/20 transition-all">
+                    Access Terminal
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-toggle"
+                    class="md:hidden p-2 text-text-muted hover:text-white transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
+            <a href="index.html#home" class="block text-text-secondary hover:text-white">Home</a>
+            <a href="index.html#journey" class="block text-text-secondary hover:text-white">Journey</a>
+            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
+            <a href="roadmap.html" class="block text-text-secondary hover:text-white">Roadmap</a>
+            <a href="token.html" class="block text-text-secondary hover:text-white">Token</a>
+            <a href="investors.html" class="block text-white font-medium">Investors</a>
+            <a href="documentation_hub.html" class="block text-text-secondary hover:text-white">Docs</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-20 min-h-screen">
+        <div class="container mx-auto px-6 max-w-5xl">
+
+            <!-- Hero Section -->
+            <section class="text-center mb-20 reveal-on-scroll">
+                <h1
+                    class="text-4xl md:text-6xl font-bold font-display mb-6 text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary">
+                    Money Factory AI<br>For Investors
+                </h1>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
+                    A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
+                </p>
+            </section>
+
+            <!-- Investment Highlights -->
+            <section class="mb-20 reveal-on-scroll">
+                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                    Investment
+                    Highlights</h2>
+                <p class="text-text-secondary mb-6 leading-relaxed">
+                    Money Factory AI (MFAI) is a Solana-native <strong class="text-white">venture engine</strong> that
+                    turns ideas into launch-ready on-chain protocols, using a 24-agent AI system (Zyno) plus a
+                    "Y-Combinator on-chain" journey.:
+                </p>
+                <div class="bg-accent-primary/10 border border-accent-primary/30 rounded-xl p-6 mb-12 text-center">
+                    <p class="text-lg font-bold text-white">Learn → Build → DAO Approve → Launch & Liquidity</p>
+                    <div class="text-center mt-4">
+                        <a href="roadmap.html"
+                            class="inline-flex items-center gap-2 text-accent-secondary hover:text-white transition-colors font-semibold text-sm group">
+                            → See the full product roadmap
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-card p-8 rounded-2xl border border-white/10">
+                        <h4 class="text-xl font-bold font-display mb-3 text-accent-primary">Dual Revenue Model</h4>
+                        <p class="text-text-muted text-sm leading-relaxed">
+                            <strong class="text-white">SaaS subscriptions</strong> (Builder/Pro/Enterprise) in
+                            USD/USDC<br>
+                            <strong class="text-white">On-chain</strong> launchpad fees, bonding curves, DAO revenue
+                            shares
+                        </p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl border border-white/10">
+                        <h4 class="text-xl font-bold font-display mb-3 text-accent-primary">Fixed Supply & Deflationary
+                        </h4>
+                        <p class="text-text-muted text-sm leading-relaxed">
+                            1,000,000,000 $MFAI (SPL Token, 9 decimals, immutable supply)<br>
+                            Structured burn mechanisms + buyback program from fiat revenues
+                        </p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl border border-white/10">
+                        <h4 class="text-xl font-bold font-display mb-3 text-accent-primary">Initial Valuation</h4>
+                        <p class="text-text-muted text-sm leading-relaxed">
+                            TGE price: <strong class="text-white">$0.01</strong><br>
+                            Initial FDV: <strong class="text-white">$10M</strong><br>
+                            Initial circulating: 10% (100M tokens) → initial market cap: <strong
+                                class="text-white">$1M</strong>
+                        </p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl border border-white/10">
+                        <h4 class="text-xl font-bold font-display mb-3 text-accent-primary">Economics & Scaling</h4>
+                        <p class="text-text-muted text-sm leading-relaxed">
+                            Monthly cost base ~€36k (infra + team + ops)<br>
+                            Break-even at ~735 "Builder-equivalent" seats<br>
+                            Conservative Year 1 total revenues in the <strong class="text-white">mid-seven
+                                figures</strong>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Problem & Vision -->
+            <section class="mb-20 reveal-on-scroll">
+                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                    Problem &
+                    Vision</h2>
+
+                <h3 class="text-2xl font-bold font-display mb-6 text-white">Market Problem</h3>
+                <p class="text-text-secondary mb-6 leading-relaxed">
+                    The Web3 / Solana ecosystem suffers from a <strong class="text-white">fragmented and inefficient
+                        venture formation process</strong>:
+                </p>
+                <ul class="list-disc list-inside space-y-3 text-text-secondary mb-12 pl-4">
+                    <li>Builders must navigate <strong class="text-white">50+ tools, 20+ protocols</strong>, and
+                        inconsistent documentation</li>
+                    <li>Capital access remains <strong class="text-white">opaque, slow and network-dependent</strong>
+                        (6–12 month fundraising cycles)</li>
+                    <li>Zyno is your tireless co-founder, orchestrating 24 specialized agents to handle everything from
+                        tokenomics and legal to community and code.</li>
+                    <li>No coherent pipeline exists from <strong class="text-white">idea to launch</strong> with
+                        technical and governance support</li>
+                    <li>In practice, a majority of projects fail <strong class="text-white">before</strong> the mainnet,
+                        by execution friction rather than lack of merit</li>
+                </ul>
+
+                <h3 class="text-2xl font-bold font-display mb-6 text-white">Vision</h3>
+                <p class="text-text-secondary mb-6 leading-relaxed">
+                    <strong class="text-white">Money Factory AI</strong> aims to become the <strong
+                        class="text-white">"production layer" of the Internet Capital Market on Solana</strong>:
+                </p>
+                <ul class="list-disc list-inside space-y-3 text-text-secondary pl-4">
+                    <li>An <strong class="text-white">AI co-founder</strong> for every builder, orchestrating 24
+                        specialized agents</li>
+                    <li>A <strong class="text-white">structured journey</strong> of education, construction, governance
+                        and launch</li>
+                    <li>A <strong class="text-white">hub of incubation</strong> where the DAO filters, funds and
+                        supports the most solid projects</li>
+                    <li>A <strong class="text-white">programmatic portfolio</strong> of graduated protocols that
+                        sustainably feed the treasury and $MFAI holders</li>
+                </ul>
+            </section>
+
+            <!-- Product & Platform -->
+            <section class="mb-20 reveal-on-scroll">
+                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                    Product &
+                    Platform</h2>
+
+                <h3 class="text-2xl font-bold font-display mb-6 text-white">4-Phase Journey</h3>
+                <ul class="space-y-4 mb-12">
+                    <li class="flex items-start gap-3">
+                        <div
+                            class="w-6 h-6 rounded-full bg-solana-green/20 text-solana-green flex items-center justify-center text-xs font-bold mt-1">
+                            1</div>
+                        <p class="text-text-secondary"><strong class="text-white">Phase 1 – Learn & Earn</strong>:
+                            Modules,
+                            missions, earn $MFAI and Proof-of-Skill NFTs</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div
+                            class="w-6 h-6 rounded-full bg-solana-green/20 text-solana-green flex items-center justify-center text-xs font-bold mt-1">
+                            2</div>
+                        <p class="text-text-secondary"><strong class="text-white">Phase 2 – Build with Zyno</strong>:
+                            Describe
+                            your project, Zyno produces Project Canvas</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div
+                            class="w-6 h-6 rounded-full bg-solana-green/20 text-solana-green flex items-center justify-center text-xs font-bold mt-1">
+                            3</div>
+                        <p class="text-text-secondary"><strong class="text-white">Phase 3 – DAO Approval</strong>:
+                            Submit to
+                            DAO with voting power based on stake + skills</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div
+                            class="w-6 h-6 rounded-full bg-solana-green/20 text-solana-green flex items-center justify-center text-xs font-bold mt-1">
+                            4</div>
+                        <p class="text-text-secondary"><strong class="text-white">Phase 4 – Incubation &
+                                Launch</strong>: 8–12
+                            week program with Collaterize bonding curves</p>
+                    </li>
+                </ul>
+
+                <h3 class="text-2xl font-bold font-display mb-6 text-white">Zyno – Multi-Agent Orchestration Kernel</h3>
+                <div class="glass-card p-8 rounded-2xl border border-white/10">
+                    <p class="text-text-secondary mb-4"><strong class="text-white">Zyno</strong> is the multi-agent
+                        orchestration kernel that powers both AEPO and AECO:</p>
+                    <ul class="list-disc list-inside space-y-2 text-text-secondary pl-4">
+                        <li><strong class="text-white">AEPO (AI-Enhanced Pathway Orchestration)</strong> – Orchestrates
+                            individual learning and building paths</li>
+                        <li><strong class="text-white">AECO (AI-Enhanced Cohort Orchestration)</strong> – Orchestrates
+                            group dynamics and cohort programs</li>
+                        <li>Routes tasks to 24 specialized agents (Architect, Engineer, CFO, etc.)</li>
+                        <li>Accesses RAG knowledge base (Solana/Web3 documentation)</li>
+                        <li>Synthesizes responses into UI blocks and actionable artifacts</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Business Model -->
+            <section class="mb-20 reveal-on-scroll">
+                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                    Business Model
+                    & Revenues</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold font-display mb-6 text-white">Off-Chain Revenues (SaaS)</h3>
+                        <ul class="space-y-4">
+                            <li class="glass-card p-4 rounded-xl border border-white/5">
+                                <div class="font-bold text-white mb-1">Free</div>
+                                <div class="text-sm text-text-muted">Learning modules, limited Zyno, 1 project slot
+                                </div>
+                            </li>
+                            <li class="glass-card p-4 rounded-xl border border-accent-primary/30 bg-accent-primary/5">
+                                <div class="font-bold text-white mb-1">Builder – $49 / month</div>
+                                <div class="text-sm text-text-muted">Unlimited Zyno, 5 project slots, advanced agents
+                                </div>
+                            </li>
+                            <li class="glass-card p-4 rounded-xl border border-white/5">
+                                <div class="font-bold text-white mb-1">Pro – $149 / month</div>
+                                <div class="text-sm text-text-muted">Everything Builder + custom journeys, white-label
+                                    options</div>
+                            </li>
+                            <li class="glass-card p-4 rounded-xl border border-white/5">
+                                <div class="font-bold text-white mb-1">Enterprise – Custom</div>
+                                <div class="text-sm text-text-muted">Dedicated agents, on-premise, specific integrations
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold font-display mb-6 text-white">On-Chain Revenues</h3>
+                        <ul class="space-y-4">
+                            <li class="glass-card p-4 rounded-xl border border-white/5">
+                                <div class="font-bold text-white mb-1">Fixed Launch Fee</div>
+                                <div class="text-sm text-text-muted">Typically $25k (USDC or $MFAI)</div>
+                            </li>
+                            <li class="glass-card p-4 rounded-xl border border-white/5">
+                                <div class="font-bold text-white mb-1">Success Fee</div>
+                                <div class="text-sm text-text-muted">2–5% of raise (in project tokens, vested)</div>
+                            </li>
+                            <li class="glass-card p-4 rounded-xl border border-white/5">
+                                <div class="font-bold text-white mb-1">Bonding Curve Fees</div>
+                                <div class="text-sm text-text-muted">1–3% per trade (shared: treasury, creators, LPs)
+                                </div>
+                            </li>
+                            <li class="glass-card p-4 rounded-xl border border-white/5">
+                                <div class="font-bold text-white mb-1">DAO Governance Revenues</div>
+                                <div class="text-sm text-text-muted">Potential revenue shares (5–10%), appreciation of
+                                    tokens held by treasury</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Token Design -->
+            <section class="mb-20 reveal-on-scroll">
+                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">Token
+                    Design
+                </h2>
+
+                <div class="glass-card p-8 rounded-2xl border border-white/10 mb-12">
+                    <h3 class="text-2xl font-bold font-display mb-6 text-white">Token Specifications</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div>
+                            <div class="text-xs text-text-muted uppercase tracking-wider mb-1">Token</div>
+                            <div class="text-lg font-bold text-white">$MFAI</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-text-muted uppercase tracking-wider mb-1">Blockchain</div>
+                            <div class="text-lg font-bold text-white">Solana</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-text-muted uppercase tracking-wider mb-1">Total Supply</div>
+                            <div class="text-lg font-bold text-white">1 Billion</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-text-muted uppercase tracking-wider mb-1">TGE Price</div>
+                            <div class="text-lg font-bold text-white">$0.01</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold font-display mb-6 text-white">Allocation & Distribution</h3>
+                <div class="space-y-4 mb-12">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 text-right font-bold text-solana-green">40%</div>
+                        <div class="flex-1 h-4 bg-background-secondary rounded-full overflow-hidden">
+                            <div class="h-full bg-solana-green w-[40%]"></div>
+                        </div>
+                        <div class="w-48 text-sm text-text-muted">Community Rewards</div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 text-right font-bold text-accent-primary">25%</div>
+                        <div class="flex-1 h-4 bg-background-secondary rounded-full overflow-hidden">
+                            <div class="h-full bg-accent-primary w-[25%]"></div>
+                        </div>
+                        <div class="w-48 text-sm text-text-muted">Treasury & Ecosystem</div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 text-right font-bold text-solana-purple">15%</div>
+                        <div class="flex-1 h-4 bg-background-secondary rounded-full overflow-hidden">
+                            <div class="h-full bg-solana-purple w-[15%]"></div>
+                        </div>
+                        <div class="w-48 text-sm text-text-muted">Team & Advisors</div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 text-right font-bold text-accent-secondary">10%</div>
+                        <div class="flex-1 h-4 bg-background-secondary rounded-full overflow-hidden">
+                            <div class="h-full bg-accent-secondary w-[10%]"></div>
+                        </div>
+                        <div class="w-48 text-sm text-text-muted">Private Sale</div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 text-right font-bold text-white">10%</div>
+                        <div class="flex-1 h-4 bg-background-secondary rounded-full overflow-hidden">
+                            <div class="h-full bg-white w-[10%]"></div>
+                        </div>
+                        <div class="w-48 text-sm text-text-muted">Public Sale (TGE)</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Roadmap -->
+            <section class="mb-20 reveal-on-scroll">
+                <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                    Roadmap &
+                    Funding</h2>
+
+                <div class="relative border-l-2 border-accent-primary/20 ml-4 space-y-12">
+                    <div class="relative pl-8">
+                        <div
+                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent-primary border-4 border-background-primary">
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Q2 2025</h4>
+                        <p class="text-text-muted">Testnet Zyno deployment, Private sale, Community building</p>
+                    </div>
+                    <div class="relative pl-8">
+                        <div
+                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-solana-green border-4 border-background-primary">
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Q3 2025</h4>
+                        <p class="text-text-muted">TGE at $0.01, DEX listings (Raydium, Orca), First 10 Collaterize
+                            projects</p>
+                    </div>
+                    <div class="relative pl-8">
+                        <div
+                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-4 border-background-primary">
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Q4 2025</h4>
+                        <p class="text-text-muted">Zyno Pro launch, Mobile app (iOS + Android), First Neuro-Dividends™
+                        </p>
+                    </div>
+                    <div class="relative pl-8">
+                        <div
+                            class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-600 border-4 border-background-primary">
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">2026+</h4>
+                        <p class="text-text-muted">100+ graduated projects, Proof-of-Skill standard, White-label
+                            licensing
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-12 glass-card p-8 rounded-2xl border border-white/10">
+                    <h3 class="text-2xl font-bold font-display mb-6 text-white">Funding & Use of Proceeds</h3>
+                    <p class="text-text-muted mb-6">Target: <strong class="text-white">$2M – $5M</strong> in private
+                        round
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-text-muted">
+                        <div class="flex justify-between border-b border-white/5 pb-2">
+                            <span>Product & Engineering</span>
+                            <span class="text-white font-bold">40%</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/5 pb-2">
+                            <span>Go-To-Market</span>
+                            <span class="text-white font-bold">25%</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/5 pb-2">
+                            <span>Liquidity Reserve</span>
+                            <span class="text-white font-bold">20%</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/5 pb-2">
+                            <span>Compliance & Legal</span>
+                            <span class="text-white font-bold">10%</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/5 pb-2">
+                            <span>Miscellaneous</span>
+                            <span class="text-white font-bold">5%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="text-center py-20">
+                <h2 class="text-3xl md:text-4xl font-bold font-display mb-6 text-white">Ready to explore the
+                    opportunity?</h2>
+                <p class="text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
+                    Download the litepaper or join our community to learn more about the Internet Capital Market vision.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="litepaper.html"
+                        class="px-8 py-4 bg-background-secondary border border-accent-primary/20 hover:bg-accent-primary/10 text-white font-bold rounded-xl transition-all flex items-center gap-2">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                        Read Litepaper
+                    </a>
+                    <a href="https://discord.gg/moneyfactoryai"
+                        class="px-8 py-4 bg-gradient-to-r from-accent-primary to-accent-secondary hover:shadow-lg hover:shadow-accent-primary/25 text-white font-bold rounded-xl transition-all flex items-center gap-2">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        Join Discord Community
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-accent-primary/10 bg-background-primary py-16" aria-label="Footer">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                            <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                        </div>
+                        <div class="flex flex-col">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">
+                                24</div>
+                            <div class="text-sm text-text-muted">AI Agents</div>
+                        </div>
+                        <div class="flex flex-col">
+                            <span
+                                class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
+                                Factory
+                                AI</span>
+                            <span class="text-xs text-text-muted">Venture Engine</span>
+                        </div>
+                    </div>
+                    <p class="text-text-muted text-sm leading-relaxed mb-6">
+                        A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://x.com/MoneyFactoryAI" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://github.com/moneyfactoryai" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="https://discord.gg/shztvSg9" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="message-circle" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Platform Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="product.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
+                        <li><a href="index.html#journey"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
+                        <li><a href="https://journey.mfai.app"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno
+                                Terminal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="documentation_hub.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a>
+                        </li>
+                        <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
+                                Docs</a></li>
+                        <li><a href="litepaper.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Litepaper</a></li>
+                        <li><a href="user_guide.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">User Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Community Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
+                    <ul class="space-y-3">
+                        <li><a href="token.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
+                        <li><a href="investors.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a>
+                        </li>
+                        <li><a href="https://discord.gg/shztvSg9" target="_blank"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-accent-primary/10">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+                    <div class="text-text-muted text-sm">
+                        &copy; 2025 Money Factory AI. Built on Solana.
+                    </div>
+                    <div class="flex gap-6 text-sm">
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Reveal on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+</body><!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide – Investors & Community on Money Factory AI</title>
+    <link rel="icon" type="image/png" href="logo_mfai.png">
+    <meta name="description"
+        content="Comprehensive user guide for Money Factory AI. Learn about the ecosystem, Zyno, and the 4-phase journey.">
+
+    <!-- Tailwind & Fonts -->
+    <!-- Tailwind & Fonts -->
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-background-primary text-text-secondary antialiased selection:bg-accent-primary selection:text-white">
+
+    <!-- Background Mesh -->
+    <div class="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(160,32,240,0.1),transparent_30%)]">
+        </div>
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(0,229,255,0.08),transparent_25%)]">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300"
+        aria-label="Main Navigation">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
+                <div
+                    class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money
+                        Factory AI</span>
+                    <span class="text-xs text-text-muted font-sans">Venture Engine</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8" id="nav-links">
+                <a href="index.html#home"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
+                <a href="index.html#journey"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
+                <a href="product.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
+                <a href="roadmap.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
+                <a href="docs.html#zyno-overview"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents &
+                    API</a>
+                <a href="token.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
+                <a href="investors.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
+                <a href="documentation_hub.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="litepaper.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    Litepaper
+                </a>
+                <a href="https://journey.mfai.app"
+                    class="px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-accent-primary/20 transition-all">
+                    Access Terminal
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-toggle"
+                    class="md:hidden p-2 text-text-muted hover:text-white transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
+            <a href="index.html#home" class="block text-text-secondary hover:text-white">Home</a>
+            <a href="index.html#journey" class="block text-text-secondary hover:text-white">Journey</a>
+            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
+            <a href="roadmap.html" class="block text-text-secondary hover:text-white">Roadmap</a>
+            <a href="token.html" class="block text-text-secondary hover:text-white">Token</a>
+            <a href="investors.html" class="block text-text-secondary hover:text-white">Investors</a>
+            <a href="documentation_hub.html" class="block text-text-secondary hover:text-white">Docs</a>
+            <div class="pt-4 border-t border-accent-primary/10">
+                <p class="text-xs text-text-muted mb-2 uppercase tracking-wider">On this page</p>
+                <a href="#intro" class="block text-sm text-text-muted hover:text-white py-1">Introduction</a>
+                <a href="#vision" class="block text-sm text-text-muted hover:text-white py-1">Vision & Mission</a>
+                <a href="#journey" class="block text-sm text-text-muted hover:text-white py-1">The 4-Phase Journey</a>
+                <a href="#zyno" class="block text-sm text-text-muted hover:text-white py-1">Zyno: The AI Engine</a>
+                <a href="#token" class="block text-sm text-text-muted hover:text-white py-1">Tokenomics ($MFAI)</a>
+                <a href="#governance" class="block text-sm text-text-muted hover:text-white py-1">Governance</a>
+                <a href="#faq" class="block text-sm text-text-muted hover:text-white py-1">FAQ</a>
+            </div>
+        </div>
+    </nav>
+    <div class="flex min-h-screen pt-20">
+        <!-- Sidebar (Desktop) -->
+        <aside
+            class="fixed left-0 top-20 h-[calc(100vh-5rem)] w-72 overflow-y-auto border-r border-accent-primary/10 bg-background-secondary/95 backdrop-blur-xl hidden lg:block z-40">
+            <div class="p-6">
+                <div class="mb-6">
+                    <h5 class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3">User Guide</h5>
+                    <nav class="space-y-1">
+                        <a href="#intro" class="sidebar-link active">Introduction</a>
+                        <a href="#vision" class="sidebar-link">Vision & Mission</a>
+                        <a href="#journey" class="sidebar-link">The 4-Phase Journey</a>
+                        <a href="#zyno" class="sidebar-link">Zyno: The AI Engine</a>
+                        <a href="#token" class="sidebar-link">Tokenomics ($MFAI)</a>
+                        <a href="#governance" class="sidebar-link">Governance</a>
+                        <a href="#faq" class="sidebar-link">FAQ</a>
+                    </nav>
+                </div>
+
+                <div class="bg-accent-primary/10 rounded-xl p-4 border border-accent-primary/20">
+                    <h6 class="text-sm font-bold text-white mb-2">Need Help?</h6>
+                    <p class="text-xs text-text-muted mb-3">Join our Discord community for real-time support.</p>
+                    <a href="https://discord.gg/shztvSg9" target="_blank"
+                        class="block w-full py-2 text-center bg-accent-primary/20 hover:bg-accent-primary/30 text-accent-primary text-xs font-bold rounded-lg transition-colors">
+                        Join Discord
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 lg:ml-72 p-6 lg:p-12 w-full max-w-[100vw] overflow-x-hidden">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Introduction -->
+                <section id="intro" class="mb-20 reveal-on-scroll">
+                    <h1 class="text-4xl md:text-5xl font-bold font-display mb-6 text-white">User Guide</h1>
+                    <p class="text-xl text-text-secondary leading-relaxed mb-8">
+                        Welcome to the Money Factory AI User Guide. This document provides a comprehensive overview of
+                        the ecosystem, designed for investors, community members, and builders.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">
+                                24</div>
+                            <div class="text-sm text-text-muted">Specialized AI Agents</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">
+                                4</div>
+                            <div class="text-sm text-text-muted">Phase Journey</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">
+                                DAO</div>
+                            <div class="text-sm text-text-muted">Community Governed</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Vision -->
+                <section id="vision" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        Vision &
+                        Mission</h2>
+                    <div class="bg-accent-primary/5 border-l-4 border-accent-primary p-6 rounded-r-xl mb-8">
+                        <h3 class="text-lg font-bold text-accent-primary mb-2 uppercase tracking-wider">The Problem</h3>
+                        <p class="text-text-secondary">
+                            The Web3 venture formation process is fragmented, inefficient, and opaque. Builders struggle
+                            with tooling overload, while investors face high risks and slow capital deployment.
+                        </p>
+                    </div>
+
+                    <p class="text-text-secondary mb-6 leading-relaxed">
+                        Money Factory AI aims to be the <strong>"Production Layer"</strong> of the Internet Capital
+                        Market on Solana. We provide:
+                    </p>
+                    <ul class="space-y-3 text-text-secondary mb-8">
+                        <li class="flex items-start gap-3 bg-background-secondary p-4 rounded-lg">
+                            <span class="text-solana-green font-bold">→</span>
+                            <span>An <strong>AI Co-Founder</strong> for every builder (Zyno).</span>
+                        </li>
+                        <li class="flex items-start gap-3 bg-background-secondary p-4 rounded-lg">
+                            <span class="text-solana-green font-bold">→</span>
+                            <span>A <strong>Structured Journey</strong> from idea to liquidity.</span>
+                        </li>
+                        <li class="flex items-start gap-3 bg-background-secondary p-4 rounded-lg">
+                            <span class="text-solana-green font-bold">→</span>
+                            <span>A <strong>Meritocratic DAO</strong> that filters and funds the best projects.</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Journey -->
+                <section id="journey" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        The
+                        4-Phase Journey</h2>
+
+                    <div class="space-y-6">
+                        <div
+                            class="glass-card p-8 rounded-2xl border border-white/10 hover:border-solana-green/50 transition-colors">
+                            <div
+                                class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
+                                Phase 1: Learn & Earn</div>
+                            <p class="text-text-muted">
+                                Users complete educational modules on Solana, DeFi, and Web3. They earn $MFAI tokens and
+                                Proof-of-Skill NFTs for their achievements.
+                            </p>
+                        </div>
+                        <div
+                            class="glass-card p-8 rounded-2xl border border-white/10 hover:border-solana-green/50 transition-colors">
+                            <div
+                                class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
+                                Phase 2: Build with Zyno</div>
+                            <p class="text-text-muted">
+                                Builders interact with Zyno to define their project. Zyno generates a "Project Canvas" –
+                                a comprehensive blueprint including technical specs, tokenomics, and roadmap.
+                            </p>
+                        </div>
+                        <div
+                            class="glass-card p-8 rounded-2xl border border-white/10 hover:border-solana-green/50 transition-colors">
+                            <div
+                                class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
+                                Phase 3: DAO Approval</div>
+                            <p class="text-text-muted">
+                                Projects are submitted to the DAO. Stakers and experts (NFT holders) vote on which
+                                projects to incubate. Approved projects receive initial support.
+                            </p>
+                        </div>
+                        <div
+                            class="glass-card p-8 rounded-2xl border border-white/10 hover:border-solana-green/50 transition-colors">
+                            <div
+                                class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
+                                Phase 4: Launch & Liquidity</div>
+                            <p class="text-text-muted">
+                                Projects undergo an incubation period and then launch via Collaterize bonding curves,
+                                ensuring instant liquidity and fair price discovery.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Zyno -->
+                <section id="zyno" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        Zyno: The
+                        AI Engine</h2>
+                    <p class="text-text-secondary mb-6 leading-relaxed">
+                        Zyno is the multi-agent orchestration kernel at the heart of Money Factory AI. It coordinates 24
+                        specialized agents to assist builders.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <h4 class="text-xl font-bold text-solana-green mb-2">AEPO</h4>
+                            <p class="text-sm text-text-muted">AI-Enhanced Pathway Orchestration. Guides individual
+                                users
+                                through personalized learning and building paths.</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <h4 class="text-xl font-bold text-solana-green mb-2">AECO</h4>
+                            <p class="text-sm text-text-muted">AI-Enhanced Cohort Orchestration. Manages group dynamics,
+                                hackathons, and cohort-based programs.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tokenomics -->
+                <section id="token" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        Tokenomics
+                        ($MFAI)</h2>
+                    <p class="text-text-secondary mb-6 leading-relaxed">
+                        The $MFAI token is the fuel of the ecosystem. It is used for rewards, governance, and access to
+                        premium features.
+                    </p>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-background-secondary border-b border-accent-primary/10">
+                                    <th class="p-4 text-sm font-bold text-white uppercase">Metric</th>
+                                    <th class="p-4 text-sm font-bold text-white uppercase">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-text-muted">
+                                <tr
+                                    class="border-b border-accent-primary/10 hover:bg-background-secondary transition-colors">
+                                    <td class="p-4">Total Supply</td>
+                                    <td class="p-4">1,000,000,000 (1 Billion)</td>
+                                </tr>
+                                <tr
+                                    class="border-b border-accent-primary/10 hover:bg-background-secondary transition-colors">
+                                    <td class="p-4">Blockchain</td>
+                                    <td class="p-4">Solana (SPL)</td>
+                                </tr>
+                                <tr
+                                    class="border-b border-accent-primary/10 hover:bg-background-secondary transition-colors">
+                                    <td class="p-4">TGE Price</td>
+                                    <td class="p-4">$0.01</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-8">
+                        <a href="token.html"
+                            class="text-accent-primary hover:text-white font-bold flex items-center gap-2 transition-colors">
+                            View Full Tokenomics <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Governance -->
+                <section id="governance" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        Governance
+                    </h2>
+                    <p class="text-text-secondary mb-6 leading-relaxed">
+                        Money Factory AI uses <strong>Synaptic Governance</strong>, a merit-based system. Voting power
+                        is derived from:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-text-muted mb-6 pl-4">
+                        <li><strong>Staked $MFAI</strong> (1:1 ratio)</li>
+                        <li><strong>Proof-of-Skill NFTs</strong> (Multiplier based on expertise)</li>
+                        <li><strong>Participation Score</strong> (Reward for active engagement)</li>
+                    </ul>
+                </section>
+
+                <!-- FAQ -->
+                <section id="faq" class="mb-20 reveal-on-scroll">
+                    <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
+                        FAQ</h2>
+
+                    <div class="space-y-4">
+                        <div class="border border-accent-primary/20 rounded-xl overflow-hidden">
+                            <button
+                                class="w-full p-6 text-left bg-background-secondary hover:bg-accent-primary/10 transition-colors flex justify-between items-center"
+                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">
+                                <span class="font-bold text-white">How do I start earning $MFAI?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-text-muted transition-transform"></i>
+                            </button>
+                            <div
+                                class="hidden p-6 bg-background-primary text-text-muted border-t border-accent-primary/20">
+                                You can start earning by completing the "Learn & Earn" modules in the Journey section.
+                                Connect your wallet and start the first mission.
+                            </div>
+                        </div>
+                        <div class="border border-accent-primary/20 rounded-xl overflow-hidden">
+                            <button
+                                class="w-full p-6 text-left bg-background-secondary hover:bg-accent-primary/10 transition-colors flex justify-between items-center"
+                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">
+                                <span class="font-bold text-white">Do I need coding skills to build?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-text-muted transition-transform"></i>
+                            </button>
+                            <div
+                                class="hidden p-6 bg-background-primary text-text-muted border-t border-accent-primary/20">
+                                No! Zyno is designed to help non-technical founders build their projects. However,
+                                having technical skills (verified by NFTs) gives you more governance power.
+                            </div>
+                        </div>
+                        <div class="border border-accent-primary/20 rounded-xl overflow-hidden">
+                            <button
+                                class="w-full p-6 text-left bg-background-secondary hover:bg-accent-primary/10 transition-colors flex justify-between items-center"
+                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">
+                                <span class="font-bold text-white">When is the TGE?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-text-muted transition-transform"></i>
+                            </button>
+                            <div
+                                class="hidden p-6 bg-background-primary text-text-muted border-t border-accent-primary/20">
+                                The Token Generation Event (TGE) is planned for Q3 2025. Join our Discord for the latest
+                                announcements.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-accent-primary/10 bg-background-primary py-16 lg:ml-72" aria-label="Footer">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                            <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                        </div>
+                        <div class="flex flex-col">
+                            <span
+                                class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
+                                Factory
+                                AI</span>
+                            <span class="text-xs text-text-muted">Venture Engine</span>
+                        </div>
+                    </div>
+                    <p class="text-text-muted text-sm leading-relaxed mb-6">
+                        A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://x.com/MoneyFactoryAI" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://github.com/moneyfactoryai" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="https://discord.gg/shztvSg9" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="message-circle" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Platform Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="product.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
+                        <li><a href="index.html#journey"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
+                        <li><a href="https://journey.mfai.app"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno
+                                Terminal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="documentation_hub.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a>
+                        </li>
+                        <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
+                                Docs</a></li>
+                        <li><a href="litepaper.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Litepaper</a></li>
+                        <li><a href="user_guide.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">User Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Community Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
+                    <ul class="space-y-3">
+                        <li><a href="token.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
+                        <li><a href="investors.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a>
+                        </li>
+                        <li><a href="https://discord.gg/shztvSg9" target="_blank"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-accent-primary/10">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+                    <div class="text-text-muted text-sm">
+                        &copy; 2025 Money Factory AI. Built on Solana.
+                    </div>
+                    <div class="flex gap-6 text-sm">
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                        <a href="#" class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Reveal on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((element) => {
+            observer.observe(element);
+        });
+
+        // Sidebar Active Link Logic
+        const sections = document.querySelectorAll('section[id]');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,723 @@
+<!-- LTeX: enabled=false -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Factory AI – Developer Experience | Zyno API & SDKs</title>
+    <link rel="icon" type="image/png" href="logo_mfai.png">
+    <meta name="description"
+        content="Build on Money Factory AI: Access Zyno API, SDKs, and developer tools to integrate AI orchestration into your Web3 applications.">
+    <meta name="keywords" content="Money Factory AI, Developers, API, SDK, Zyno, Solana, Web3, Integration">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mfai.app/developers.html">
+    <meta property="og:image" content="https://mfai.app/og-image.jpg">
+    <meta property="og:title" content="Money Factory AI Developers | Zyno API & SDKs">
+    <meta property="og:description"
+        content="Build on Money Factory AI. Integrate Zyno Agents, access REST APIs, and use our SDKs to launch projects programmatically.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Money Factory AI Developers | Zyno API & SDKs">
+    <meta property="twitter:description"
+        content="Build on Money Factory AI. Integrate Zyno Agents, access REST APIs, and use our SDKs.">
+    <meta property="twitter:image" content="https://mfai.app/og-image.jpg">
+
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Money Factory AI Developer Experience",
+      "description": "Developer resources, API documentation, and SDKs for building on Money Factory AI.",
+      "url": "https://mfai.app/developers.html"
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-background-primary text-text-secondary antialiased selection:bg-accent-primary selection:text-white">
+
+    <!-- Dynamic Background -->
+    <div class="fixed inset-0 z-[-1] w-full h-full pointer-events-none">
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(160,32,240,0.1),transparent_30%)]">
+        </div>
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_30%,rgba(0,229,255,0.08),transparent_25%)]">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300"
+        aria-label="Main Navigation">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
+                <div class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
+                    aria-hidden="true">
+                    <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money
+                        Factory AI</span>
+                    <span class="text-xs text-text-muted font-sans">Venture Engine</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8" id="nav-links">
+                <a href="index.html#home"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
+                <a href="index.html#journey"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
+                <a href="roadmap.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
+                <a href="product.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
+                <a href="docs.html#zyno-overview"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents &
+                    API</a>
+                <a href="token.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
+                <a href="investors.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
+                <a href="documentation_hub.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="litepaper.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    Litepaper
+                </a>
+                <a href="documentation_hub.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    Docs
+                </a>
+                <a href="https://journey.mfai.app"
+                    class="cta-button px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10">
+                    Access Terminal
+                </a>
+                <button id="mobile-menu-toggle" class="md:hidden p-2 text-text-muted hover:text-white transition-colors"
+                    aria-label="Toggle mobile menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
+            <a href="index.html#home" class="block text-text-secondary hover:text-white">Home</a>
+            <a href="index.html#journey" class="block text-text-secondary hover:text-white">Journey</a>
+            <a href="roadmap.html" class="block text-text-secondary hover:text-white">Roadmap</a>
+            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
+            <a href="docs.html#zyno-overview" class="block text-text-secondary hover:text-white">Agents & API</a>
+            <a href="token.html" class="block text-text-secondary hover:text-white">Token</a>
+            <a href="investors.html" class="block text-text-secondary hover:text-white">Investors</a>
+            <a href="documentation_hub.html" class="block text-text-secondary hover:text-white">Docs</a>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <div class="container mx-auto px-6 mt-6">
+            <div class="alert alert-warning text-sm">
+                ⚠️ Developer APIs are currently under <strong>active development</strong> (Testnet). Reach out for early
+                access to Zyno API or
+                SDK.
+            </div>
+        </div>
+        <!-- Hero Section -->
+        <section class="py-32 relative overflow-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-solana-green/30 bg-solana-green/10 backdrop-blur-sm mb-8">
+                    <i data-lucide="code-2" class="w-4 h-4 text-solana-green"></i>
+                    <span class="text-xs uppercase tracking-widest text-text-secondary font-semibold">Developer
+                        Experience</span>
+                </div>
+
+                <h1
+                    class="text-4xl md:text-7xl font-display font-black tracking-tight mb-8 leading-[1.1] text-text-primary">
+                    Build the Future with<br>
+                    <span class="text-gradient-solana">Zyno API & SDKs</span>
+                </h1>
+
+                <p class="text-xl md:text-2xl text-text-secondary max-w-4xl mx-auto mb-12 leading-relaxed">
+                    Integrate the power of <strong class="text-white">24 AI Agents</strong> directly into your dApps.
+                    Orchestrate launches, generate contracts, and manage DAOs programmatically.
+                </p>
+
+                <!-- Hero Image -->
+                <div class="mb-12 max-w-5xl mx-auto">
+                    <div
+                        class="glass-card p-2 rounded-xl border border-white/10 bg-[#1e1e1e]/50 overflow-hidden shadow-2xl">
+                        <img src="./images/Developer_use_cases.webp"
+                            alt="Web3 developer dashboard with smart contract editor and token deployment panel"
+                            class="w-full h-auto rounded-lg shadow-lg" loading="eager">
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#api-reference"
+                        class="px-8 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-xl hover:bg-white/20 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="book" class="w-5 h-5"></i>
+                        Read API Docs
+                    </a>
+                    <a href="#early-access"
+                        class="px-8 py-4 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-xl hover:bg-white/20 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                        Get Early Access
+                    </a>
+                </div>
+                <div class="mt-4 flex justify-center">
+                    <a href="https://github.com/moneyfactoryai" target="_blank"
+                        class="text-sm text-text-muted hover:text-white flex items-center gap-1 transition-colors">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        View on GitHub (Open Beta)
+                    </a>
+                </div>
+                <div class="mt-4">
+                    <div class="mt-8 flex justify-center gap-4 text-xs text-text-muted">
+                        <div
+                            class="flex items-center gap-2 px-3 py-1.5 bg-background-secondary rounded-full border border-white/5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-solana-blue animate-pulse"></span>
+                            Python SDK <img src="./images/coming_soon.webp" alt="Coming Soon"
+                                class="h-4 w-auto inline-block">
+                        </div>
+                        <div
+                            class="flex items-center gap-2 px-3 py-1.5 bg-background-secondary rounded-full border border-white/5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-solana-blue animate-pulse"></span>
+                            TypeScript SDK <img src="./images/coming_soon.webp" alt="Coming Soon"
+                                class="h-4 w-auto inline-block">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Overview -->
+        <section id="api-reference" class="py-20 bg-background-secondary border-t border-accent-primary/10">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-display font-bold mb-6 text-white">
+                        The <span class="text-gradient-mfai">Zyno Architecture</span>
+                    </h2>
+                    <p class="text-text-secondary max-w-2xl mx-auto">
+                        A RESTful interface to the Money Factory AI orchestration kernel.
+                    </p>
+                </div>
+
+                <!-- Zyno Agent Playground (Mock) -->
+                <div class="mb-20 glass-card p-2 rounded-xl border border-white/10 bg-[#1e1e1e] overflow-hidden">
+                    <div class="flex items-center px-4 py-2 border-b border-white/10 bg-[#2d2d2d]">
+                        <span class="text-xs text-text-muted mr-4">Playground</span>
+                        <div class="flex gap-1">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                    </div>
+                    <div class="p-6 font-mono text-sm grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="text-solana-green mb-2">// Request: Initialize Project (AEPO)</div>
+                            <div class="text-blue-400">POST <span class="text-white">/v1/projects/init</span></div>
+                            <pre class="text-text-secondary mt-2 overflow-x-auto whitespace-pre-wrap break-all">
+{
+  "project_name": "DeFi Aggregator",
+  "founder_wallet": "8xqt...3k2a",
+  "pathway": "AEPO",
+  "agents": ["ARCHITECT", "ENGINEER"]
+}</pre>
+                        </div>
+                        <div class="border-l border-white/10 pl-8">
+                            <div class="text-accent-secondary mb-2">// Response: 200 OK</div>
+                            <pre class="text-green-300 overflow-x-auto whitespace-pre-wrap break-all">
+{
+  "project_id": "proj_99283",
+  "status": "active",
+  "credits_deducted": 5,
+  "next_step": "roadmap_generation"
+}</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mb-10">
+                    <h3 class="text-2xl font-bold text-white mb-4">Core Endpoints</h3>
+                    <!-- Endpoint 1 -->
+                    <div class="glass-card p-8 rounded-2xl border border-white/10">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs font-mono rounded">POST</span>
+                            <span class="text-white font-mono text-sm break-all">/v1/projects/launch</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Initiate Launch</h4>
+                        <p class="text-sm text-text-muted mb-4">
+                            Trigger the AEPO launch sequence programmatically. Generates initial smart contracts and
+                            tokenomics models.
+                        </p>
+                    </div>
+
+                    <!-- Endpoint 2 -->
+                    <div class="glass-card p-8 rounded-2xl border border-white/10">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs font-mono rounded">GET</span>
+                            <span class="text-white font-mono text-sm break-all">/v1/agents/status</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Agent Status</h4>
+                        <p class="text-sm text-text-muted mb-4">
+                            Retrieve the current activity status of assigned agents (Architect, CFO, Engineer) for a
+                            specific project.
+                        </p>
+                    </div>
+
+                    <!-- Endpoint 3 -->
+                    <div class="glass-card p-8 rounded-2xl border border-white/10">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span
+                                class="px-2 py-1 bg-yellow-500/20 text-yellow-400 text-xs font-mono rounded">POST</span>
+                            <span class="text-white font-mono text-sm break-all">/v1/dao/propose</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Submit Proposal</h4>
+                        <p class="text-sm text-text-muted mb-4">
+                            Submit a new governance proposal to the Money Factory DAO on behalf of a user address.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </div>
+        </div>
+        </div>
+        </section>
+
+        <!-- Use Cases for Developers -->
+        <section class="py-20 bg-background-primary">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold font-display text-white mb-6">Use Cases for Developers</h2>
+                    <p class="text-text-secondary max-w-2xl mx-auto mb-10">
+                        Explore how Zyno's API and SDKs can power your next Web3 product.
+                    </p>
+                    <div
+                        class="glass-card p-4 rounded-xl border border-white/10 bg-[#1e1e1e]/50 overflow-hidden shadow-2xl max-w-4xl mx-auto">
+                        <img src="./images/Developer_use_cases_products.png"
+                            alt="Developer use cases diagram for Web3 products and services"
+                            class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Verified Agent Templates Section -->
+        <section class="py-20 bg-background-secondary border-t border-accent-primary/10">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                    <div>
+                        <h2 class="text-3xl font-bold font-display text-white mb-2">Verified Agent Templates</h2>
+                        <p class="text-text-secondary">Pre-configured agent setups for common Web3 launch patterns.</p>
+                    </div>
+                    <!-- View All button placeholder -->
+                    <button
+                        class="hidden md:flex items-center gap-2 text-sm text-accent-primary hover:text-white transition-colors">
+                        View All Templates <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Template 1 -->
+                    <div
+                        class="glass-card p-6 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-colors cursor-pointer group">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3 bg-blue-500/10 rounded-lg text-blue-400">
+                                <i data-lucide="bot" class="w-6 h-6"></i>
+                            </div>
+                            <span
+                                class="px-2 py-1 bg-white/5 rounded text-[10px] text-text-muted uppercase font-bold border border-white/5">AEPO</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent-primary transition-colors">
+                            DeFi Protocol Launcher</h3>
+                        <p class="text-sm text-text-muted mb-4 line-clamp-2">
+                            Standard configuration for launching a liquid token with automated vesting and yield farming
+                            contracts.
+                        </p>
+                        <div class="flex items-center gap-3 text-xs text-text-secondary">
+                            <span class="flex items-center gap-1"><i data-lucide="users" class="w-3 h-3"></i> 3
+                                Agents</span>
+                            <span class="flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3"></i> ~45
+                                Credits</span>
+                        </div>
+                    </div>
+
+                    <!-- Template 2 -->
+                    <div
+                        class="glass-card p-6 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-colors cursor-pointer group">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-3 bg-purple-500/10 rounded-lg text-purple-400">
+                                <i data-lucide="globe" class="w-6 h-6"></i>
+                            </div>
+                            <span
+                                class="px-2 py-1 bg-white/5 rounded text-[10px] text-text-muted uppercase font-bold border border-white/5">AECO</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent-primary transition-colors">
+                            DAO Governance Suite</h3>
+                        <p class="text-sm text-text-muted mb-4 line-clamp-2">
+                            Full governance setup including multi-signature treasury, voting dashboard, and proposal
+                            bots.
+                        </p>
+                        <div class="flex items-center gap-3 text-xs text-text-secondary">
+                            <span class="flex items-center gap-1"><i data-lucide="users" class="w-3 h-3"></i> 5
+                                Agents</span>
+                            <span class="flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3"></i> ~80
+                                Credits</span>
+                        </div>
+                    </div>
+
+                    <!-- Template 3 -->
+                    <div
+                        class="glass-card p-6 rounded-xl border border-white/10 border-dashed bg-white/5 flex flex-col items-center justify-center text-center">
+                        <div class="p-4 rounded-full bg-white/5 mb-4 group-hover:bg-white/10 transition-colors">
+                            <i data-lucide="plus" class="w-6 h-6 text-text-muted"></i>
+                        </div>
+                        <span class="text-sm font-bold text-text-muted">Create Custom Template</span>
+                        <span class="text-xs text-text-muted/50 mt-1">Coming Soon</span>
+                    </div>
+                </div>
+
+                <div class="mt-10 mb-10">
+                    <img src="./images/Developer_use_cases.png" alt="Developer AI template agent mapping"
+                        class="w-full max-w-3xl mx-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </section>
+
+        <!-- Credit Usage Logs (Placeholder) -->
+        <section class="py-20 bg-background-primary/50 relative overflow-hidden">
+            <!-- Background Grid -->
+            <div class="absolute inset-0 z-0 opacity-10"
+                style="background-image: radial-gradient(#a020f0 1px, transparent 1px); background-size: 30px 30px;">
+            </div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col md:flex-row items-center justify-between mb-12">
+                    <div>
+                        <h3 class="text-3xl font-display font-bold text-white mb-2">Credit Usage Logs</h3>
+                        <p class="text-text-muted">Monitor your API consumption and Agent spend in real-time.</p>
+                    </div>
+                    <div>
+                        <img src="./images/coming_soon.png" alt="Coming soon - development in progress"
+                            class="w-24 mx-auto opacity-70 mt-4">
+                    </div>
+                </div>
+
+                <!-- Mock Table -->
+                <div class="glass-card rounded-xl border border-white/10 overflow-hidden">
+                    <table class="w-full text-left text-sm text-text-secondary">
+                        <thead class="bg-white/5 text-text-muted text-xs uppercase">
+                            <tr>
+                                <th class="p-4">Timestamp</th>
+                                <th class="p-4">Endpoint</th>
+                                <th class="p-4">Agent</th>
+                                <th class="p-4 text-right">Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5">
+                            <tr class="opacity-50">
+                                <td class="p-4 font-mono text-xs">2025-10-24 14:02:11</td>
+                                <td class="p-4">/v1/contracts/deploy</td>
+                                <td class="p-4">Engineer</td>
+                                <td class="p-4 text-right text-red-400">-20 Credits</td>
+                            </tr>
+                            <tr class="opacity-30">
+                                <td class="p-4 font-mono text-xs">2025-10-24 13:45:00</td>
+                                <td class="p-4">/v1/tokenomics/sim</td>
+                                <td class="p-4">CFO</td>
+                                <td class="p-4 text-right text-red-400">-15 Credits</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="p-4 text-center text-xs text-text-muted border-t border-white/5">
+                        Live logging dashboard in development.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SDKs & Tools Placeholder -->
+        <section id="early-access" class="py-20 bg-background-primary">
+            <div class="container mx-auto px-6">
+                <div
+                    class="glass-card p-12 rounded-3xl border border-dashed border-white/10 bg-white/5 text-center max-w-4xl mx-auto">
+                    <div
+                        class="w-20 h-20 bg-accent-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="package" class="w-10 h-10 text-accent-primary"></i>
+                    </div>
+                    <h3 class="text-3xl font-display font-bold text-white mb-4">SDKs & CLI Coming Soon</h3>
+                    <p class="text-text-secondary text-lg mb-8 max-w-2xl mx-auto">
+                        We are building TypeScript and Python SDKs to make integrating Zyno even easier.
+                        Sign up for early access to the <strong class="text-solana-green">Money Factory CLI</strong>.
+                    </p>
+
+                    <form class="max-w-md mx-auto flex gap-2" aria-label="Developer early access form">
+                        <input id="dev-email-input" type="email" inputmode="email" autocomplete="email"
+                            placeholder="Enter your email"
+                            class="flex-1 bg-background-primary border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent-primary">
+                        <button id="dev-submit-button" type="button"
+                            class="px-6 py-3 bg-accent-primary text-white font-bold rounded-xl hover:bg-accent-secondary transition-colors">
+                            Notify Me
+                        </button>
+                    </form>
+                    <div id="dev-form-message" class="text-sm mt-3 text-text-muted" aria-live="polite"></div>
+                    <div class="mt-6">
+                        <a href="https://discord.gg/shztvSg9" target="_blank" rel="noopener"
+                            class="text-sm text-text-muted hover:text-white underline">
+                            Or join the Developer Discord for updates →
+                        </a>
+                    </div>
+
+                    <!-- MVP links -->
+                    <div class="mt-10 max-w-3xl mx-auto">
+                        <div class="text-xs uppercase tracking-widest text-text-muted mb-3">MVP (Testnet) — Try it now</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <a href="https://journey.mfai.app/playground" target="_blank" rel="noopener"
+                                class="px-5 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-sm hover:bg-white/10 transition-all flex items-center justify-between">
+                                <span>Playground</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 text-text-muted"></i>
+                            </a>
+                            <a href="https://journey.mfai.app/zyno" target="_blank" rel="noopener"
+                                class="px-5 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-sm hover:bg-white/10 transition-all flex items-center justify-between">
+                                <span>Zyno Console</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 text-text-muted"></i>
+                            </a>
+                            <a href="https://journey.mfai.app/journeys" target="_blank" rel="noopener"
+                                class="px-5 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-sm hover:bg-white/10 transition-all flex items-center justify-between">
+                                <span>Journeys Catalogue</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 text-text-muted"></i>
+                            </a>
+                            <a href="https://journey.mfai.app/guide" target="_blank" rel="noopener"
+                                class="px-5 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-bold text-sm hover:bg-white/10 transition-all flex items-center justify-between">
+                                <span>Platform Guide</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 text-text-muted"></i>
+                            </a>
+                        </div>
+                        <p class="text-xs text-text-muted mt-4">
+                            Heads up: this is a testnet/devnet MVP. APIs and UX may change as we iterate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-20 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">Ready to Contribute?</h2>
+            <p class="text-text-secondary mb-8">
+                Money Factory AI is open to contributors. Check out our open issues.
+            </p>
+            <a href="https://github.com/moneyfactoryai"
+                class="inline-flex items-center gap-2 text-accent-primary hover:text-white transition-colors font-bold">
+                Go to GitHub (Open Beta) <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-accent-primary/10 bg-background-primary py-16" aria-label="Footer">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                            <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                        </div>
+                        <div class="flex flex-col">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">
+                                24</div>
+                            <div class="text-sm text-text-muted">AI Agents</div>
+                        </div>
+                        <div class="flex flex-col">
+                            <span
+                                class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
+                                Factory AI</span>
+                            <span class="text-xs text-text-muted">Venture Engine</span>
+                        </div>
+                    </div>
+                    <p class="text-text-muted text-sm leading-relaxed mb-6">
+                        A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://x.com/Moneyfactoryai" target="_blank" rel="noopener"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://github.com/moneyfactoryai" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="https://discord.gg/shztvSg9" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="message-circle" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Platform Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="product.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
+                        <li><a href="index.html#journey"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
+                        <li><a href="https://journey.mfai.app"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno Terminal</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="documentation_hub.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a>
+                        </li>
+                        <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
+                                Docs</a></li>
+                        <li><a href="litepaper.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Litepaper</a></li>
+                        <li><a href="user_guide.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">User Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Community Column -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
+                    <ul class="space-y-3">
+                        <li><a href="token.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
+                        <li><a href="investors.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a>
+                        </li>
+                        <li><a href="https://discord.gg/shztvSg9" target="_blank"
+                                class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
+                        <li><a href="token.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm font-medium">Token
+                                Info</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-accent-primary/10">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+                    <div class="text-text-muted text-sm">
+                        © 2025 Money Factory AI. Built on Solana.
+                    </div>
+                    <div class="flex gap-6 text-sm">
+                        <a href="terms.html" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                        <a href="privacy.html" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                        <a href="disclaimer.html"
+                            class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+        document.getElementById('mobile-menu-toggle')?.addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Image Fallback Script
+        document.querySelectorAll('img').forEach(img => {
+            img.onerror = function () {
+                this.onerror = null;
+                this.src = './images/coming_soon.png';
+                this.alt = 'Image not found - Coming Soon';
+                this.className += ' opacity-70'; // stylistic touch
+            };
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const emailInput = document.getElementById('dev-email-input');
+            const submitButton = document.getElementById('dev-submit-button');
+            const messageDiv = document.getElementById('dev-form-message');
+
+            const SUBSCRIBE_ENDPOINT = window.MFAI_SUBSCRIBE_ENDPOINT || '/api/subscribe';
+
+            const validateEmail = (email) => {
+                return typeof email === 'string' && email.includes('@') && email.length >= 5;
+            };
+
+            const submit = async () => {
+                if (!emailInput || !submitButton || !messageDiv) return;
+                const email = emailInput.value.trim();
+
+                if (!validateEmail(email)) {
+                    messageDiv.textContent = 'Please enter a valid email address.';
+                    messageDiv.className = 'text-sm mt-3 text-red-400';
+                    return;
+                }
+
+                submitButton.disabled = true;
+                const originalText = submitButton.textContent;
+                submitButton.textContent = 'Submitting...';
+                messageDiv.textContent = '';
+                messageDiv.className = 'text-sm mt-3 text-text-muted';
+
+                try {
+                    const res = await fetch(SUBSCRIBE_ENDPOINT, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email, source_page: 'developers.html#early-access' }),
+                    });
+                    const data = await res.json().catch(() => null);
+                    if (!res.ok) throw new Error(data?.error || `Request failed (${res.status})`);
+
+                    messageDiv.textContent = data?.message || 'Thanks! We’ll email you when the SDK/CLI is ready.';
+                    messageDiv.className = 'text-sm mt-3 text-solana-green';
+                    emailInput.value = '';
+                    submitButton.textContent = 'Submitted';
+                } catch (err) {
+                    console.error('Subscribe error:', err);
+                    messageDiv.textContent = 'Could not submit right now. Please try again later.';
+                    messageDiv.className = 'text-sm mt-3 text-red-400';
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalText || 'Notify Me';
+                }
+            };
+
+            submitButton?.addEventListener('click', submit);
+            emailInput?.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') submit();
+            });
+        });
+    </script>
+</body>
+
+</html>

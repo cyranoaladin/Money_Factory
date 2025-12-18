@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Factory AI – Solana-Native Venture Engine Litepaper</title>
+    <meta name="description" content="Money Factory AI: The Solana-native venture engine. Learn, Build, Govern, Launch.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mfai.app/litepaper.html">
+    <meta property="og:title" content="Money Factory AI | Venture Engine">
+    <meta property="og:description" content="Launch your Web3 venture with 24 AI Agents. Zero code required.">
+    <meta property="og:image" content="https://mfai.app/og-image.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://mfai.app/og-image.jpg">
     <link rel="icon" type="image/png" href="logo_mfai.png">
     <meta name="description"
         content="Money Factory AI Litepaper. Technical and economic overview of the Solana-native venture engine.">
@@ -12,7 +20,7 @@
     <!-- Tailwind & Fonts -->
     <!-- Tailwind & Fonts -->
     <link href="./dist/output.css" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -33,78 +41,58 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300"
-        aria-label="Main Navigation">
+    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300" aria-label="Main Navigation">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
-                <div
-                    class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <div class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300" aria-hidden="true">
                     <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money
-                        Factory AI</span>
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money Factory AI</span>
                     <span class="text-xs text-text-muted font-sans">Venture Engine</span>
                 </div>
             </a>
 
             <div class="hidden md:flex items-center gap-8" id="nav-links">
-                <a href="index.html#home"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
-                <a href="index.html#journey"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
-                <a href="product.html"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
-                <a href="roadmap.html"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
-                <a href="docs.html#zyno-overview"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents &
-                    API</a>
-                <a href="token.html"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
-                <a href="investors.html"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
-                <a href="documentation_hub.html"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+                <a href="index.html#home" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
+                <a href="index.html#journey" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
+                <a href="roadmap.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
+                <a href="product.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
+                <a href="docs.html#zyno-overview" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents & API</a>
+                <a href="token.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
+                <a href="investors.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
+                <a href="documentation_hub.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="litepaper.html"
-                    class="hidden md:flex items-center gap-1 text-sm text-white font-bold transition-colors">
+                <a href="litepaper.html" class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
                     <i data-lucide="file-text" class="w-4 h-4"></i>
                     Litepaper
                 </a>
-                <a href="https://journey.mfai.app"
-                    class="px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-accent-primary/20 transition-all">
+                <a href="documentation_hub.html" class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    Docs
+                </a>
+                <a href="https://journey.mfai.app" class="cta-button px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10">
                     Access Terminal
                 </a>
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-toggle"
-                    class="md:hidden p-2 text-text-muted hover:text-white transition-colors">
+                <button id="mobile-menu-toggle" class="md:hidden p-2 text-text-muted hover:text-white transition-colors" aria-label="Toggle mobile menu">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
+        <div id="mobile-menu" class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
             <a href="index.html#home" class="block text-text-secondary hover:text-white">Home</a>
             <a href="index.html#journey" class="block text-text-secondary hover:text-white">Journey</a>
-            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
             <a href="roadmap.html" class="block text-text-secondary hover:text-white">Roadmap</a>
+            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
+            <a href="docs.html#zyno-overview" class="block text-text-secondary hover:text-white">Agents & API</a>
             <a href="token.html" class="block text-text-secondary hover:text-white">Token</a>
             <a href="investors.html" class="block text-text-secondary hover:text-white">Investors</a>
             <a href="documentation_hub.html" class="block text-text-secondary hover:text-white">Docs</a>
-            <div class="pt-4 border-t border-white/10">
-                <p class="text-xs text-text-muted mb-2 uppercase tracking-wider">Litepaper Sections</p>
-                <a href="#introduction" class="block text-sm text-text-muted hover:text-white py-1">1. Introduction</a>
-                <a href="#architecture" class="block text-sm text-text-muted hover:text-white py-1">2. Architecture</a>
-                <a href="#journey" class="block text-sm text-text-muted hover:text-white py-1">3. Journey Protocol</a>
-                <a href="#tokenomics" class="block text-sm text-text-muted hover:text-white py-1">4. Tokenomics</a>
-                <a href="#launchpad" class="block text-sm text-text-muted hover:text-white py-1">5. Launchpad</a>
-                <a href="#risks" class="block text-sm text-text-muted hover:text-white py-1">6. Risks & Roadmap</a>
-            </div>
         </div>
     </nav>
 
@@ -138,6 +126,10 @@
 
         <!-- Main Content -->
         <main class="flex-1 lg:ml-72 p-6 lg:p-12 w-full max-w-[100vw] overflow-x-hidden">
+            <div class="alert alert-info text-sm mb-6">
+                📄 This Litepaper outlines the future state of Money Factory AI. It describes concepts that are
+                currently in development and not yet live on-chain.
+            </div>
             <div class="max-w-4xl mx-auto">
 
                 <!-- Header -->
@@ -221,10 +213,15 @@
                     <div class="space-y-6">
                         <div class="glass-card p-8 rounded-2xl border border-white/10">
                             <h4 class="text-xl font-bold text-solana-green mb-2">Layer 1: The Cognitive Layer (AI)</h4>
-                            <p class="text-text-muted">
-                                Powered by Zyno, a multi-agent system using RAG (Retrieval-Augmented Generation) on a
-                                curated knowledge base of Solana documentation and successful business models.
+                            <p class="text-text-muted mb-3">
+                                Powered by <strong>Zyno</strong>, the multi-agent system that intelligently orchestrates
+                                the user journey via:
                             </p>
+                            <ul class="text-sm text-text-muted space-y-1 pl-2">
+                                <li>• <strong>AEPO</strong> (AI-Enhanced Pathway Orchestration) for individual roadmaps.
+                                </li>
+                                <li>• <strong>AECO</strong> (AI-Enhanced Cohort Orchestration) for group dynamics.</li>
+                            </ul>
                         </div>
                         <div class="glass-card p-8 rounded-2xl border border-white/10">
                             <h4 class="text-xl font-bold text-solana-green mb-2">Layer 2: The Governance Layer (DAO)
@@ -386,21 +383,21 @@
     </div>
 
     <!-- Footer -->
-    <footer class="border-t border-accent-primary/10 bg-background-primary py-16 lg:ml-72" aria-label="Footer">
+    <footer class="border-t border-accent-primary/10 bg-background-primary py-16" aria-label="Footer">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <!-- Brand Column -->
                 <div class="md:col-span-1">
                     <div class="flex items-center gap-3 mb-4">
-                        <div
-                            class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                        <div class="w-10 h-10 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-xl flex items-center justify-center text-white font-bold text-xl">
                             <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                         </div>
                         <div class="flex flex-col">
-                            <span
-                                class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
-                                Factory
-                                AI</span>
+                            <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">24</div>
+                            <div class="text-sm text-text-muted">AI Agents</div>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money Factory AI</span>
                             <span class="text-xs text-text-muted">Venture Engine</span>
                         </div>
                     </div>
@@ -408,15 +405,9 @@
                         A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
                     </p>
                     <div class="flex gap-4">
-                        <a href="https://x.com/MoneyFactoryAI" target="_blank"
-                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
-                                data-lucide="twitter" class="w-5 h-5"></i></a>
-                        <a href="https://github.com/moneyfactoryai" target="_blank"
-                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
-                                data-lucide="github" class="w-5 h-5"></i></a>
-                        <a href="https://discord.gg/shztvSg9" target="_blank"
-                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
-                                data-lucide="message-circle" class="w-5 h-5"></i></a>
+                        <a href="https://x.com/Moneyfactoryai" target="_blank" rel="noopener" class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://github.com/moneyfactoryai" target="_blank" class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="https://discord.gg/shztvSg9" target="_blank" class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i data-lucide="message-circle" class="w-5 h-5"></i></a>
                     </div>
                 </div>
 
@@ -424,15 +415,10 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
                     <ul class="space-y-3">
-                        <li><a href="index.html#home"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Home</a></li>
-                        <li><a href="product.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
-                        <li><a href="index.html#journey"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
-                        <li><a href="https://journey.mfai.app"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno
-                                Terminal</a></li>
+                        <li><a href="index.html#home" class="text-text-muted hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="product.html" class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
+                        <li><a href="index.html#journey" class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
+                        <li><a href="https://journey.mfai.app" class="text-text-muted hover:text-white transition-colors text-sm">Zyno Terminal</a></li>
                     </ul>
                 </div>
 
@@ -440,15 +426,10 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
                     <ul class="space-y-3">
-                        <li><a href="documentation_hub.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a>
-                        </li>
-                        <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
-                                Docs</a></li>
-                        <li><a href="litepaper.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Litepaper</a></li>
-                        <li><a href="user_guide.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">User Guide</a></li>
+                        <li><a href="documentation_hub.html" class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a></li>
+                        <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API Docs</a></li>
+                        <li><a href="litepaper.html" class="text-text-muted hover:text-white transition-colors text-sm">Litepaper</a></li>
+                        <li><a href="user_guide.html" class="text-text-muted hover:text-white transition-colors text-sm">User Guide</a></li>
                     </ul>
                 </div>
 
@@ -456,13 +437,10 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
                     <ul class="space-y-3">
-                        <li><a href="token.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
-                        <li><a href="investors.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a>
-                        </li>
-                        <li><a href="https://discord.gg/shztvSg9" target="_blank"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
+                        <li><a href="token.html" class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
+                        <li><a href="investors.html" class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a></li>
+                        <li><a href="https://discord.gg/shztvSg9" target="_blank" class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
+                        <li><a href="token.html" class="text-text-muted hover:text-white transition-colors text-sm font-medium">Token Info</a></li>
                     </ul>
                 </div>
             </div>
@@ -471,12 +449,13 @@
             <div class="pt-8 border-t border-accent-primary/10">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
                     <div class="text-text-muted text-sm">
-                        &copy; 2025 Money Factory AI. Built on Solana.
+                        © 2025 Money Factory AI. Built on Solana.
                     </div>
                     <div class="flex gap-6 text-sm">
-                        <a href="#" class="text-text-muted hover:text-white transition-colors">Terms</a>
-                        <a href="#" class="text-text-muted hover:text-white transition-colors">Privacy</a>
-                        <a href="#" class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
+                        <a href="terms.html" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                        <a href="privacy.html" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                        <a href="disclaimer.html"
+                            class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
                     </div>
                 </div>
             </div>
@@ -484,7 +463,11 @@
     </footer>
 
     <script>
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
 
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-toggle');

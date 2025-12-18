@@ -11,7 +11,7 @@
     <!-- Tailwind & Fonts -->
     <!-- Tailwind & Fonts -->
     <link href="./dist/output.css" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -139,7 +139,7 @@
                         A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
                     </p>
                     <div class="flex gap-4">
-                        <a href="https://x.com/MoneyFactoryAI" target="_blank"
+                        <a href="https://x.com/Moneyfactoryai" target="_blank" rel="noopener"
                             class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-mfai-primary transition-all"><i
                                 data-lucide="twitter" class="w-5 h-5"></i></a>
                         <a href="https://github.com/moneyfactoryai" target="_blank"
@@ -202,7 +202,7 @@
             <div class="pt-8 border-t border-white/5">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
                     <div class="text-gray-500 text-sm">
-                        &copy; 2025 Money Factory AI. Built on Solana.
+                        © 2025 Money Factory AI. Built on Solana.
                     </div>
                     <div class="flex gap-6 text-sm">
                         <a href="#" class="text-gray-500 hover:text-white transition-colors">Terms</a>
@@ -215,7 +215,11 @@
     </footer>
 
     <script>
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
 
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-toggle');

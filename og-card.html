@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:image" content="https://mfai.app/og-image.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Build on Solana with an AI Co‑Founder" />
+  <meta property="og:description"
+    content="24 AI agents orchestrated by Zyno to help founders go from idea → on‑chain MVP." />
+  <title>MFAI — Testnet MVP Social Card (1200×630)</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0A0A1F;
+      --white: #ffffff;
+      --text: #E0E0E0;
+      --muted: #A0A0A0;
+      --purple: #A020F0;
+      --cyan: #00E5FF;
+      --solana: #14F195;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .card {
+      width: 1200px;
+      height: 630px;
+      padding: 72px;
+      box-sizing: border-box;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(160, 32, 240, 0.15), transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(0, 229, 255, 0.12), transparent 60%),
+        var(--bg);
+      color: var(--white);
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .left-column {
+      width: 62%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+    }
+
+    .brand .name {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .badge {
+      background: var(--solana);
+      color: var(--bg);
+      padding: 8px 14px;
+      font-size: 16px;
+      font-weight: 800;
+      border-radius: 999px;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .title {
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-size: 68px;
+      font-weight: 800;
+      line-height: 1.05;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+      margin: 0;
+      max-width: 44ch;
+    }
+
+    .bullets {
+      font-size: 22px;
+      color: var(--muted);
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer {
+      font-size: 18px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      margin-top: auto;
+      white-space: nowrap;
+    }
+
+    .right-column {
+      width: 36%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .orb {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--purple), var(--cyan), var(--solana), var(--purple));
+      filter: blur(2px) brightness(1.1);
+      box-shadow: 0 0 60px rgba(255, 255, 255, 0.10);
+      transform: rotate(20deg);
+    }
+
+    .chips {
+      position: absolute;
+      bottom: 40px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .chip {
+      background: rgba(255, 255, 255, 0.10);
+      color: var(--text);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .spacer-sm {
+      height: 12px;
+    }
+
+    .spacer-md {
+      height: 18px;
+    }
+
+    .spacer-lg {
+      height: 22px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="left-column">
+      <div>
+        <div class="brand">
+          <img src="logo_mfai.png" alt="Money Factory AI Logo">
+          <div class="name">MONEY FACTORY AI</div>
+        </div>
+        <div class="spacer-sm"></div>
+        <div class="badge">TESTNET MVP • BUILDING IN PUBLIC</div>
+      </div>
+
+      <div>
+        <h1 class="title">Build on Solana with an AI Co‑Founder</h1>
+        <div class="spacer-md"></div>
+        <p class="subtitle">24 AI agents orchestrated by Zyno to help founders go from idea → on‑chain MVP.</p>
+        <div class="spacer-lg"></div>
+        <div class="bullets">
+          <div>• Learn → Build → Govern → Launch</div>
+          <div>• Testnet only (no token live)</div>
+          <div>• journey.mfai.app (MVP)</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>mfai.app</div>
+        <div>X: @Moneyfactoryai • Telegram: MoneyFacoryAI_Portal</div>
+      </div>
+    </div>
+
+    <div class="right-column">
+      <div class="orb"></div>
+      <div class="chips">
+        <div class="chip">Zyno</div>
+        <div class="chip">24 Agents</div>
+        <div class="chip">Solana-native</div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

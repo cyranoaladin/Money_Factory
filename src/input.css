@@ -8,6 +8,25 @@
   }
 }
 
+@layer components {
+  /* Alert Components */
+  .alert {
+    @apply p-4 rounded-lg border mb-6 backdrop-blur-sm flex items-start gap-3;
+  }
+  
+  .alert-info {
+    @apply bg-blue-500/10 border-blue-500/20 text-blue-200;
+  }
+  
+  .alert-warning {
+    @apply bg-yellow-500/10 border-yellow-500/20 text-yellow-200;
+  }
+  
+  .alert-danger {
+    @apply bg-red-500/10 border-red-500/20 text-red-200;
+  }
+}
+
 @layer utilities {
 
   /* Custom Scrollbar */

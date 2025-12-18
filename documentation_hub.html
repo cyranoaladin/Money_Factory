@@ -1,3 +1,4 @@
+<!-- LTeX: enabled=false -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
@@ -10,8 +11,29 @@
         content="Comprehensive documentation for Money Factory AI: user guides, API references, technical specs, and learning resources.">
     <meta name="keywords" content="Money Factory AI, Documentation, API, Guides, Zyno, Solana, Web3">
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mfai.app/documentation_hub.html">
+    <meta property="og:title" content="Documentation Hub | Money Factory AI">
+    <meta property="og:description"
+        content="Guides, resources, and API references for building and launching on Money Factory AI.">
+    <meta property="og:image" content="https://mfai.app/og-image.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://mfai.app/og-image.jpg">
+
     <link href="./dist/output.css" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Money Factory AI Documentation Hub",
+      "description": "Central hub for all Money Factory AI documentation, including user guides, API references, and tokenomics.",
+      "url": "https://mfai.app/documentation_hub.html"
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -36,7 +58,7 @@
     <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300"
         aria-label="Main Navigation">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html#home" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
+            <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
                 <div class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
                     aria-hidden="true">
                     <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
@@ -48,16 +70,15 @@
                 </div>
             </a>
 
-            <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center gap-8" id="nav-links">
                 <a href="index.html#home"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
                 <a href="index.html#journey"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
-                <a href="product.html"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
                 <a href="roadmap.html"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
+                <a href="product.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
                 <a href="docs.html#zyno-overview"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents &
                     API</a>
@@ -66,21 +87,24 @@
                 <a href="investors.html"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
                 <a href="documentation_hub.html" class="nav-link text-sm text-white transition-colors">Docs</a>
+
             </div>
 
-            <!-- Right Side Actions -->
             <div class="flex items-center gap-4">
                 <a href="litepaper.html"
                     class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
                     <i data-lucide="file-text" class="w-4 h-4"></i>
                     Litepaper
                 </a>
+                <a href="documentation_hub.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    Docs
+                </a>
                 <a href="https://journey.mfai.app"
-                    class="px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg transition-all">
+                    class="cta-button px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10">
                     Access Terminal
                 </a>
-
-                <!-- Mobile Menu Toggle -->
                 <button id="mobile-menu-toggle" class="md:hidden p-2 text-text-muted hover:text-white transition-colors"
                     aria-label="Toggle mobile menu">
                     <i data-lucide="menu" class="w-6 h-6"></i>
@@ -90,29 +114,26 @@
 
         <!-- Mobile Menu -->
         <div id="mobile-menu"
-            class="hidden md:hidden bg-background-secondary/95 backdrop-blur-lg border-t border-accent-primary/10">
-            <div class="container mx-auto px-6 py-4 space-y-3">
-                <a href="index.html#home"
-                    class="block py-2 text-text-secondary hover:text-white transition-colors">Home</a>
-                <a href="index.html#journey"
-                    class="block py-2 text-text-secondary hover:text-white transition-colors">Journey</a>
-                <a href="product.html"
-                    class="block py-2 text-text-secondary hover:text-white transition-colors">Product</a>
-                <a href="roadmap.html"
-                    class="block py-2 text-text-secondary hover:text-white transition-colors">Roadmap</a>
-                <a href="docs.html#zyno-overview"
-                    class="block py-2 text-text-secondary hover:text-white transition-colors">Agents & API</a>
-                <a href="token.html" class="block py-2 text-text-secondary hover:text-white transition-colors">Token</a>
-                <a href="investors.html"
-                    class="block py-2 text-text-secondary hover:text-white transition-colors">Investors</a>
-                <a href="documentation_hub.html" class="block py-2 text-white transition-colors">Docs</a>
-                <a href="litepaper.html"
-                    class="block py-2 text-text-secondary hover:text-white transition-colors">Litepaper</a>
-            </div>
+            class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
+            <a href="index.html#home" class="block text-text-secondary hover:text-white">Home</a>
+            <a href="index.html#journey" class="block text-text-secondary hover:text-white">Journey</a>
+            <a href="roadmap.html" class="block text-text-secondary hover:text-white">Roadmap</a>
+            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
+            <a href="docs.html#zyno-overview" class="block text-text-secondary hover:text-white">Agents & API</a>
+            <a href="token.html" class="block text-text-secondary hover:text-white">Token</a>
+            <a href="investors.html" class="block text-text-secondary hover:text-white">Investors</a>
+            <a href="documentation_hub.html" class="block text-text-secondary hover:text-white">Docs</a>
         </div>
     </nav>
 
     <main class="pt-20">
+        <div class="container mx-auto px-6 mt-6">
+            <div
+                class="notice info text-sm mx-auto max-w-4xl p-4 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-200 text-center">
+                ℹ️ This documentation reflects our product roadmap and features under active development. No
+                services are yet live on mainnet.
+            </div>
+        </div>
         <!-- Hero Section -->
         <section class="py-32 relative overflow-hidden">
             <div class="container mx-auto px-6 text-center">
@@ -130,7 +151,8 @@
                 </h1>
 
                 <p class="text-xl md:text-2xl text-text-secondary max-w-4xl mx-auto mb-12 leading-relaxed">
-                    Comprehensive guides, API references, and resources to help you learn, build, and launch on Solana
+                    Comprehensive guides, API references, and resources to help you learn, build, and launch on
+                    Solana
                     with AI orchestration.
                 </p>
 
@@ -177,7 +199,9 @@
                         </div>
                         <h3 class="text-2xl font-bold text-white mb-3">Product Overview</h3>
                         <p class="text-text-muted mb-6 leading-relaxed">
-                            Understand AEPO, AECO, and Zyno's multi-agent orchestration system in detail.
+                            Understand AEPO (Individual Pathways), AECO (Cohort Orchestration), and Zyno's
+                            multi-agent
+                            orchestration system in detail.
                         </p>
                         <div class="flex items-center text-accent-secondary font-semibold text-sm">
                             <span>Explore Platform</span>
@@ -288,22 +312,30 @@
                         </div>
                     </a>
 
-                    <!-- Litepaper -->
-                    <a href="litepaper.html" class="glass-card doc-card p-8 rounded-2xl block group">
+                    <!-- Litepaper & Deck -->
+                    <div class="glass-card doc-card p-8 rounded-2xl block group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-50">
+                            <i data-lucide="download" class="w-6 h-6 text-white/20"></i>
+                        </div>
                         <div
                             class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <i data-lucide="file-text" class="w-8 h-8 text-white"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Litepaper</h3>
+                        <h3 class="text-2xl font-bold text-white mb-3">Resources</h3>
                         <p class="text-text-muted mb-6 leading-relaxed">
-                            Comprehensive overview of Money Factory AI's vision, technology, and ecosystem.
+                            Download the official Litepaper and Pitch Deck to understand the full vision.
                         </p>
-                        <div class="flex items-center text-accent-secondary font-semibold text-sm">
-                            <span>Read Litepaper</span>
-                            <i data-lucide="arrow-right"
-                                class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        <div class="flex flex-col gap-3">
+                            <a href="litepaper.html" target="_blank"
+                                class="flex items-center justify-center gap-2 w-full py-3 bg-white/10 hover:bg-white/20 border border-white/10 rounded-lg text-white text-sm font-bold transition-all">
+                                <i data-lucide="file" class="w-4 h-4"></i> Litepaper (Web)
+                            </a>
+                            <a href="pitch_deck.html" target="_blank"
+                                class="flex items-center justify-center gap-2 w-full py-3 bg-accent-primary/20 hover:bg-accent-primary/30 border border-accent-primary/50 rounded-lg text-white text-sm font-bold transition-all">
+                                <i data-lucide="download" class="w-4 h-4"></i> Pitch Deck (PDF)
+                            </a>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- Technical Docs -->
                     <a href="docs.html" class="glass-card doc-card p-8 rounded-2xl block group">
@@ -396,96 +428,799 @@
                             </ul>
                         </div>
 
-                        <!-- Community -->
+                        <!-- Community & Support -->
                         <div class="glass-card p-6 rounded-xl">
                             <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
                                 <i data-lucide="users" class="w-5 h-5 text-accent-secondary"></i>
                                 Community & Support
                             </h4>
-                            <ul class="space-y-3">
-                                <li>
-                                    <a href="https://discord.gg/shztvSg9" target="_blank" rel="noopener"
-                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
-                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                                        Join Discord Community
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://github.com/moneyfactoryai" target="_blank" rel="noopener"
-                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
-                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                                        GitHub Repository
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://x.com/MoneyFactoryAI" target="_blank" rel="noopener"
-                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
-                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                                        Follow on Twitter
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Updates -->
-                        <div class="glass-card p-6 rounded-xl">
-                            <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                                <i data-lucide="bell" class="w-5 h-5 text-accent-secondary"></i>
-                                Latest Updates
-                            </h4>
-                            <ul class="space-y-3">
-                                <li>
-                                    <a href="#"
-                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
-                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                                        Changelog & Release Notes
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
-                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                                        Roadmap & Upcoming Features
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="text-text-muted hover:text-white transition-colors flex items-center gap-2 text-sm">
-                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                                        Migration Guides
-                                    </a>
-                                </li>
-                            </ul>
+                            <p class="text-sm text-text-muted mb-4">Join our community for real-time support and
+                                governance.</p>
+                            <div class="flex gap-4">
+                                <a href="https://discord.gg/shztvSg9" target="_blank"
+                                    class="p-2 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors">
+                                    <i data-lucide="message-circle" class="w-5 h-5 text-accent-secondary"></i>
+                                </a>
+                                <a href="https://x.com/Moneyfactoryai" target="_blank" rel="noopener"
+                                    class="p-2 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors">
+                                    <i data-lucide="twitter" class="w-5 h-5 text-accent-secondary"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="py-32 relative overflow-hidden">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 text-text-primary">
-                    Can't Find What You're <span class="text-gradient-mfai">Looking For</span>?
-                </h2>
-                <p class="text-xl text-text-secondary max-w-2xl mx-auto mb-12">
-                    Our community is here to help. Join Discord or reach out to our support team.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://discord.gg/shztvSg9" target="_blank" rel="noopener"
-                        class="px-8 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-xl hover:bg-white/20 transition-all flex items-center justify-center gap-2">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i>
-                        Ask the Community
-                    </a>
-                    <a href="/terminal"
-                        class="px-8 py-4 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-xl hover:shadow-lg transition-all flex items-center justify-center gap-2">
-                        <i data-lucide="terminal" class="w-5 h-5"></i>
-                        Try Zyno Terminal
-                    </a>
-                </div>
-            </div>
-        </section>
+        <!-- Removing the massive corrupted nested duplicate block -->
+        <div style="display:none !important;">
+            <div class="flex flex-col lg:flex-row gap-12">
+
+                <!-- Mobile Sidebar Toggle -->
+                <button id="docs-menu-toggle"
+                    class="lg:hidden w-full mb-8 px-5 py-4 bg-background-secondary border border-accent-primary/20 rounded-xl flex items-center justify-between text-white font-bold hover:bg-white/5 transition-all">
+                    <span>Documentation Navigation</span>
+                    <i data-lucide="chevron-down"
+                        class="w-5 h-5 text-accent-secondary transition-transform duration-300" id="docs-menu-icon"></i>
+                </button>
+
+                <!-- Sticky Sidebar -->
+                <aside id="docs-sidebar"
+                    class="w-full lg:w-64 flex-shrink-0 hidden lg:block transition-all duration-300">
+                    <div class="sticky top-24 space-y-8">
+                        <div>
+                            <h5 class="text-xs font-bold text-text-muted uppercase tracking-wider mb-4">
+                                Documentation</h5>
+                            <ul class="space-y-2 border-l border-white/10 ml-1">
+                                <li><a href="#categories"
+                                        class="block pl-4 text-sm text-white border-l-2 border-accent-primary -ml-[1px]">Overview</a>
+                                </li>
+                                <li><a href="#tutorials"
+                                        class="block pl-4 text-sm text-text-muted hover:text-white transition-colors border-l-2 border-transparent hover:border-white/20 -ml-[1px]">Tutorials</a>
+                                </li>
+                                <li><a href="#glossary"
+                                        class="block pl-4 text-sm text-text-muted hover:text-white transition-colors border-l-2 border-transparent hover:border-white/20 -ml-[1px]">Glossary</a>
+                                </li>
+                                <li><a href="#faq"
+                                        class="block pl-4 text-sm text-text-muted hover:text-white transition-colors border-l-2 border-transparent hover:border-white/20 -ml-[1px]">FAQ</a>
+                                </li>
+                                <li><a href="#resources"
+                                        class="block pl-4 text-sm text-text-muted hover:text-white transition-colors border-l-2 border-transparent hover:border-white/20 -ml-[1px]">Resources</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h5 class="text-xs font-bold text-text-muted uppercase tracking-wider mb-4">
+                                Developer Hub</h5>
+                            <ul class="space-y-2 border-l border-white/10 ml-1">
+                                <li><a href="developers.html"
+                                        class="block pl-4 text-sm text-text-muted hover:text-white transition-colors border-l-2 border-transparent hover:border-white/20 -ml-[1px]">API
+                                        Reference</a></li>
+                                <li><a href="#sdks"
+                                        class="block pl-4 text-sm text-text-muted hover:text-white transition-colors border-l-2 border-transparent hover:border-white/20 -ml-[1px]">SDKs
+                                        & Tools</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="flex-1 min-w-0">
+
+                    <!-- Categories Grid -->
+                    <section id="categories" class="mb-20">
+                        <h2 class="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">
+                            Browse by Category</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Getting Started -->
+                            <a href="user_guide.html"
+                                class="glass-card p-6 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-all group">
+                                <div
+                                    class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 text-blue-400 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="rocket" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Getting Started
+                                </h3>
+                                <p class="text-sm text-text-muted mb-4">User guides and
+                                    onboarding
+                                    flow.</p>
+                                <span class="text-xs text-accent-secondary font-bold flex items-center">Read
+                                    Guide <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></span>
+                            </a>
+
+                            <!-- Product Overview -->
+                            <a href="product.html"
+                                class="glass-card p-6 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-all group">
+                                <div
+                                    class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4 text-purple-400 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="layers" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Product Overview
+                                </h3>
+                                <p class="text-sm text-text-muted mb-4">Deep dive into AEPO &
+                                    AECO.
+                                </p>
+                                <span class="text-xs text-accent-secondary font-bold flex items-center">Explore
+                                    <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></span>
+                            </a>
+
+                            <!-- API Reference -->
+                            <a href="developers.html"
+                                class="glass-card p-6 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-all group">
+                                <div
+                                    class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4 text-green-400 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="code" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Developer API</h3>
+                                <p class="text-sm text-text-muted mb-4">Endpoints and
+                                    integration.
+                                </p>
+                                <span class="text-xs text-accent-secondary font-bold flex items-center">View
+                                    Docs <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></span>
+                            </a>
+
+                            <!-- Tokenomics -->
+                            <a href="token.html"
+                                class="glass-card p-6 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-all group">
+                                <div
+                                    class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-4 text-yellow-400 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="coins" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-white mb-2">Tokenomics</h3>
+                                <p class="text-sm text-text-muted mb-4">$MFAI utility and
+                                    staking.
+                                </p>
+                                <span class="text-xs text-accent-secondary font-bold flex items-center">Read
+                                    More <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></span>
+                            </a>
+
+                            <!-- SDKs & Tools (Added Category) -->
+                            <a href="developers.html"
+                                class="glass-card p-6 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-all group"
+                                id="sdks">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div
+                                        class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                                        <i data-lucide="box" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold text-white">SDKs & CLI</h3>
+                                        <p class="text-sm text-accent-secondary font-bold">
+                                            Coming Q3</p>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-text-muted mb-4">
+                                    Official Python & TypeScript SDKs for programmatic access to
+                                    Zyno Agents.
+                                    Command Line Interface for rapid project scaffolding.
+                                </p>
+                                <span
+                                    class="text-xs text-text-muted flex flex-col items-center gap-2 border-t border-white/5 pt-4">
+                                    <span class="flex items-center gap-2">
+                                        <span class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></span>
+                                        Development in progress
+                                    </span>
+                                    <img src="./images/coming_soon.png" alt="Coming soon - development in progress"
+                                        class="w-24 mx-auto opacity-70 mt-4">
+                                </span>
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- Tutorials -->
+                    <section id="tutorials" class="mb-20">
+                        <h2 class="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">
+                            Tutorials & Guides</h2>
+                        <div class="space-y-4">
+                            <div
+                                class="glass-card p-6 rounded-xl border border-white/10 flex flex-col md:flex-row gap-6 items-center">
+                                <div
+                                    class="w-full md:w-1/3 h-40 bg-black/40 rounded-lg border border-white/5 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+                                    <div
+                                        class="absolute inset-0 bg-accent-primary/10 group-hover:bg-accent-primary/20 transition-colors">
+                                    </div>
+                                    <i data-lucide="play-circle"
+                                        class="w-12 h-12 text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span
+                                            class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 text-[10px] font-bold uppercase">Beginner</span>
+                                        <span class="text-xs text-text-muted">5 min read</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-white mb-2">How to Stake
+                                        $MFAI
+                                        for DAO Access</h3>
+                                    <p class="text-sm text-text-muted mb-4">Step-by-step guide
+                                        on
+                                        connecting your Phantom wallet, acquiring $MFAI, and
+                                        staking
+                                        to unlock governance tiers.</p>
+                                    <a href="#" class="text-sm text-accent-primary hover:text-white font-bold">Start
+                                        Tutorial →</a>
+                                </div>
+                            </div>
+
+                            <div
+                                class="glass-card p-6 rounded-xl border border-white/10 flex flex-col md:flex-row gap-6 items-center">
+                                <div
+                                    class="w-full md:w-1/3 h-40 bg-black/40 rounded-lg border border-white/5 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+                                    <div
+                                        class="absolute inset-0 bg-green-500/10 group-hover:bg-green-500/20 transition-colors">
+                                    </div>
+                                    <i data-lucide="play-circle"
+                                        class="w-12 h-12 text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span
+                                            class="px-2 py-0.5 rounded bg-green-500/20 text-green-400 text-[10px] font-bold uppercase">Intermediate</span>
+                                        <span class="text-xs text-text-muted">10 min read</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-white mb-2">Submitting
+                                        Your
+                                        First Project (AEPO)</h3>
+                                    <p class="text-sm text-text-muted mb-4">Learn how to
+                                        configure
+                                        your project parameters, select Zyno agents, and
+                                        initiate
+                                        the launch sequence.</p>
+                                    <a href="#" class="text-sm text-accent-primary hover:text-white font-bold">Start
+                                        Tutorial →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Glossary -->
+                    <section id="glossary" class="mb-20">
+                        <h2 class="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">
+                            Glossary of Terms</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div
+                                class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                <dt class="font-bold text-white mb-1">Staking (Simulated)</dt>
+                                <dd class="text-sm text-text-muted">Locking Testnet $MFAI to
+                                    access builder tools and governance rights on the Testnet.
+                                </dd>
+                            </div>
+                            <div
+                                class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                <dt class="font-bold text-white mb-1">Token ($MFAI)</dt>
+                                <dd class="text-sm text-text-muted">The utility token of Money
+                                    Factory AI (currently on Solana Devnet/Testnet).</dd>
+                            </div>
+                            <div
+                                class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                <dt class="font-bold text-white mb-1">AEPO</dt>
+                                <dd class="text-sm text-text-muted">Automated Entity Public
+                                    Offering. A solo founder pathway where Zyno agents act as
+                                    your
+                                    dedicated co-founders.</dd>
+                            </div>
+                            <div
+                                class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                <dt class="font-bold text-white mb-1">AECO</dt>
+                                <dd class="text-sm text-text-muted">Automated Entity Cohort
+                                    Offering. A collaborative team mode where Zyno orchestrates
+                                    dynamics between multiple humans and agents.</dd>
+                            </div>
+                            <div
+                                class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                <dt class="font-bold text-white mb-1">Signal Score</dt>
+                                <dd class="text-sm text-text-muted">A dynamic quality metric
+                                    (0-100)
+                                    assigned to projects based on code audits, roadmap progress,
+                                    and
+                                    community traction.</dd>
+                            </div>
+                            <div
+                                class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                <dt class="font-bold text-white mb-1">DAO Proposal</dt>
+                                <dd class="text-sm text-text-muted">A simulated governance
+                                    request
+                                    submitted
+                                    to MFAI holders to unlock Testnet funding or change protocol
+                                    parameters.
+                                </dd>
+                            </div>
+                            <div
+                                class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                <dt class="font-bold text-white mb-1">Proof-of-Skill</dt>
+                                <dd class="text-sm text-text-muted">NFT-based credentials
+                                    verifying
+                                    a user's on-chain contributions and expertise within the
+                                    ecosystem.</dd>
+                            </div>
+                            <div
+                                class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                <dt class="font-bold text-white mb-1">Launchpad</dt>
+                                <dd class="text-sm text-text-muted">The final stage where
+                                    validated
+                                    projects deploy their token and liquidity pools on Solana
+                                    (Testnet).
+                                </dd>
+                            </div>
+                            <div
+                                class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                <dt class="font-bold text-white mb-1">Synaptic Governance</dt>
+                                <dd class="text-sm text-text-muted">The DAO decision-making
+                                    framework weighted by Testnet token stake and activity
+                                    (Signal
+                                    Score).
+                                </dd>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- FAQ -->
+                    <section id="faq" class="mb-20">
+                        <h2 class="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">
+                            Frequently Asked Questions</h2>
+                        <div class="space-y-4">
+                            <!-- FAQ Item 1 -->
+                            <div class="glass-card p-6 rounded-xl border border-white/5 hover:border-accent-primary/30 transition-all cursor-pointer group"
+                                onclick="toggleFAQ(this)">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4
+                                        class="font-bold text-white group-hover:text-accent-secondary transition-colors">
+                                        What is the difference between AEPO and AECO?</h4>
+                                    <i data-lucide="chevron-down"
+                                        class="w-5 h-5 text-text-muted transition-transform duration-300"></i>
+                                </div>
+                                <div
+                                    class="hidden text-text-secondary text-sm leading-relaxed mt-4 pt-4 border-t border-white/10 faq-content">
+                                    AEPO is designed for solo founders or singular projects,
+                                    providing dedicated AI agents. AECO is for cohorts/teams,
+                                    emphasizing collaboration and shared milestones.
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 2 -->
+                            <div class="glass-card p-6 rounded-xl border border-white/5 hover:border-accent-primary/30 transition-all cursor-pointer group"
+                                onclick="toggleFAQ(this)">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4
+                                        class="font-bold text-white group-hover:text-accent-secondary transition-colors">
+                                        How do I access the builder tools?</h4>
+                                    <i data-lucide="chevron-down"
+                                        class="w-5 h-5 text-text-muted transition-transform duration-300"></i>
+                                </div>
+                                <div
+                                    class="hidden text-text-secondary text-sm leading-relaxed mt-4 pt-4 border-t border-white/10 faq-content">
+                                    amount
+                                    of Testnet $MFAI tokens. Once verified, you can access the
+                                    Zyno
+                                    Terminal.
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 3 -->
+                            <div class="glass-card p-6 rounded-xl border border-white/5 hover:border-accent-primary/30 transition-all cursor-pointer group"
+                                onclick="toggleFAQ(this)">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4
+                                        class="font-bold text-white group-hover:text-accent-secondary transition-colors">
+                                        Where can I see the roadmap?</h4>
+                                    <i data-lucide="chevron-down"
+                                        class="w-5 h-5 text-text-muted transition-transform duration-300"></i>
+                                </div>
+                                <div
+                                    class="hidden text-text-secondary text-sm leading-relaxed mt-4 pt-4 border-t border-white/10 faq-content">
+                                    The roadmap is detailed on our <a href="roadmap.html"
+                                        class="text-accent-primary">Roadmap page</a>. We update
+                                    it
+                                    quarterly based on DAO governance votes.
+                                </div>
+                            </div>
+                            <div class="glass-card p-6 rounded-xl border border-white/5 hover:border-accent-primary/30 transition-all cursor-pointer group"
+                                onclick="toggleFAQ(this)">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4
+                                        class="font-bold text-white group-hover:text-accent-secondary transition-colors">
+                                        What is a Zyno Credit?</h4>
+                                    <i data-lucide="chevron-down"
+                                        class="w-5 h-5 text-text-muted transition-transform duration-300"></i>
+                                </div>
+                                <div
+                                    class="hidden text-text-secondary text-sm leading-relaxed mt-4 pt-4 border-t border-white/10 faq-content">
+                                    1 Zyno Credit (Testnet) ≈ $0.50 USD (Simulated). Credits are
+                                    used to pay AI agents
+                                    for
+                                    specific deliverables like generating white papers, auditing
+                                    smart contracts, or modeling tokenomics.
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Resources -->
+                    <section id="resources" class="mb-20">
+                        <h2 class="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">
+                            Downloads & Resources</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <a href="#"
+                                class="bg-background-secondary p-6 rounded-xl border border-white/10 flex items-center justify-between hover:bg-white/5 transition-colors group">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center text-red-400">
+                                        <i data-lucide="file-text" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white">Litepaper v1.1</h4>
+                                        <p class="text-xs text-text-muted">PDF • 2.4 MB</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="download"
+                                    class="w-5 h-5 text-text-muted group-hover:text-white transition-colors"></i>
+                            </a>
+
+                            <a href="#"
+                                class="bg-background-secondary p-6 rounded-xl border border-white/10 flex items-center justify-between hover:bg-white/5 transition-colors group">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400">
+                                        <i data-lucide="presentation" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white">Pitch Deck</h4>
+                                        <p class="text-xs text-text-muted">PDF • 5.1 MB</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="download"
+                                    class="w-5 h-5 text-text-muted group-hover:text-white transition-colors"></i>
+                            </a>
+                        </div>
+
+                        <!-- Detailed Documentation Hub Sections -->
+                        <section class="py-12 border-t border-white/5 bg-background-primary">
+                            <div class="container mx-auto px-6">
+                                <div class="flex flex-col lg:flex-row gap-12">
+
+                                    <!-- Mobile Sidebar Toggle -->
+                                    <button id="docs-menu-toggle"
+                                        class="lg:hidden w-full mb-8 px-5 py-4 bg-background-secondary border border-accent-primary/20 rounded-xl flex items-center justify-between text-white font-bold hover:bg-white/5 transition-all">
+                                        <span>Documentation Navigation</span>
+                                        <i data-lucide="chevron-down"
+                                            class="w-5 h-5 text-accent-secondary transition-transform duration-300"
+                                            id="docs-menu-icon"></i>
+                                    </button>
+
+                                    <!-- Sticky Sidebar -->
+                                    <aside id="docs-sidebar"
+                                        class="w-full lg:w-64 flex-shrink-0 hidden lg:block transition-all duration-300">
+                                        <div class="sticky top-24 space-y-8">
+                                            <div>
+                                                <h5
+                                                    class="text-xs font-bold text-text-muted uppercase tracking-wider mb-4">
+                                                    Documentation</h5>
+                                                <ul class="space-y-2 border-l border-white/10 ml-1">
+                                                    <li><a href="#categories"
+                                                            class="block pl-4 text-sm text-white border-l-2 border-accent-primary -ml-[1px]">Overview</a>
+                                                    </li>
+                                                    <li><a href="#tutorials"
+                                                            class="block pl-4 text-sm text-text-muted hover:text-white transition-colors border-l-2 border-transparent hover:border-white/20 -ml-[1px]">Tutorials</a>
+                                                    </li>
+                                                    <li><a href="#glossary"
+                                                            class="block pl-4 text-sm text-text-muted hover:text-white transition-colors border-l-2 border-transparent hover:border-white/20 -ml-[1px]">Glossary</a>
+                                                    </li>
+                                                    <li><a href="#faq"
+                                                            class="block pl-4 text-sm text-text-muted hover:text-white transition-colors border-l-2 border-transparent hover:border-white/20 -ml-[1px]">FAQ</a>
+                                                    </li>
+                                                    <li><a href="#resources"
+                                                            class="block pl-4 text-sm text-text-muted hover:text-white transition-colors border-l-2 border-transparent hover:border-white/20 -ml-[1px]">Resources</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div>
+                                                <h5
+                                                    class="text-xs font-bold text-text-muted uppercase tracking-wider mb-4">
+                                                    Developer Hub</h5>
+                                                <ul class="space-y-2 border-l border-white/10 ml-1">
+                                                    <li><a href="developers.html"
+                                                            class="block pl-4 text-sm text-text-muted hover:text-white transition-colors border-l-2 border-transparent hover:border-white/20 -ml-[1px]">API
+                                                            Reference</a></li>
+                                                    <li><a href="#sdks"
+                                                            class="block pl-4 text-sm text-text-muted hover:text-white transition-colors border-l-2 border-transparent hover:border-white/20 -ml-[1px]">SDKs
+                                                            & Tools</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </aside>
+
+                                    <!-- Content Area -->
+                                    <div class="flex-1 min-w-0">
+                                        <!-- Categories Grid -->
+                                        <section id="categories" class="mb-20">
+                                            <h2
+                                                class="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">
+                                                Browse by Category</h2>
+                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                <!-- Getting Started -->
+                                                <a href="user_guide.html"
+                                                    class="glass-card p-6 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-all group">
+                                                    <div
+                                                        class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 text-blue-400 group-hover:scale-110 transition-transform">
+                                                        <i data-lucide="rocket" class="w-6 h-6"></i>
+                                                    </div>
+                                                    <h3 class="text-lg font-bold text-white mb-2">Getting Started
+                                                    </h3>
+                                                    <p class="text-sm text-text-muted mb-4">User guides and
+                                                        onboarding flow.</p>
+                                                    <span
+                                                        class="text-xs text-accent-secondary font-bold flex items-center">Read
+                                                        Guide <i data-lucide="arrow-right"
+                                                            class="w-3 h-3 ml-1"></i></span>
+                                                </a>
+
+                                                <!-- Product Overview -->
+                                                <a href="product.html"
+                                                    class="glass-card p-6 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-all group">
+                                                    <div
+                                                        class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4 text-purple-400 group-hover:scale-110 transition-transform">
+                                                        <i data-lucide="layers" class="w-6 h-6"></i>
+                                                    </div>
+                                                    <h3 class="text-lg font-bold text-white mb-2">Product Overview
+                                                    </h3>
+                                                    <p class="text-sm text-text-muted mb-4">Deep dive into AEPO &
+                                                        AECO.</p>
+                                                    <span
+                                                        class="text-xs text-accent-secondary font-bold flex items-center">Explore
+                                                        <i data-lucide="arrow-right" class="w-3 h-3 ml-1"></i></span>
+                                                </a>
+
+                                                <!-- Developer API -->
+                                                <a href="developers.html"
+                                                    class="glass-card p-6 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-all group">
+                                                    <div
+                                                        class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4 text-green-400 group-hover:scale-110 transition-transform">
+                                                        <i data-lucide="code" class="w-6 h-6"></i>
+                                                    </div>
+                                                    <h3 class="text-lg font-bold text-white mb-2">Developer API</h3>
+                                                    <p class="text-sm text-text-muted mb-4">Endpoints and
+                                                        integration.</p>
+                                                    <span
+                                                        class="text-xs text-accent-secondary font-bold flex items-center">View
+                                                        Docs <i data-lucide="arrow-right"
+                                                            class="w-3 h-3 ml-1"></i></span>
+                                                </a>
+
+                                                <!-- Tokenomics -->
+                                                <a href="token.html"
+                                                    class="glass-card p-6 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-all group">
+                                                    <div
+                                                        class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-4 text-yellow-400 group-hover:scale-110 transition-transform">
+                                                        <i data-lucide="coins" class="w-6 h-6"></i>
+                                                    </div>
+                                                    <h3 class="text-lg font-bold text-white mb-2">Tokenomics</h3>
+                                                    <p class="text-sm text-text-muted mb-4">$MFAI utility and
+                                                        staking.</p>
+                                                    <span
+                                                        class="text-xs text-accent-secondary font-bold flex items-center">Read
+                                                        More <i data-lucide="arrow-right"
+                                                            class="w-3 h-3 ml-1"></i></span>
+                                                </a>
+                                            </div>
+                                        </section>
+
+                                        <!-- Tutorials -->
+                                        <section id="tutorials" class="mb-20">
+                                            <h2
+                                                class="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">
+                                                Tutorials & Guides</h2>
+                                            <div class="space-y-4">
+                                                <div
+                                                    class="glass-card p-6 rounded-xl border border-white/10 flex flex-col md:flex-row gap-6 items-center">
+                                                    <div
+                                                        class="w-full md:w-1/3 h-40 bg-black/40 rounded-lg border border-white/5 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+                                                        <div
+                                                            class="absolute inset-0 bg-accent-primary/10 group-hover:bg-accent-primary/20 transition-colors">
+                                                        </div>
+                                                        <i data-lucide="play-circle"
+                                                            class="w-12 h-12 text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+                                                    </div>
+                                                    <div class="flex-1">
+                                                        <div class="flex items-center gap-2 mb-2">
+                                                            <span
+                                                                class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 text-[10px] font-bold uppercase">Beginner</span>
+                                                            <span class="text-xs text-text-muted">5 min read</span>
+                                                        </div>
+                                                        <h3 class="text-xl font-bold text-white mb-2">How to Stake
+                                                            $MFAI for DAO
+                                                            Access</h3>
+                                                        <p class="text-sm text-text-muted mb-4">Step-by-step guide
+                                                            on connecting
+                                                            your Phantom wallet, acquiring $MFAI, and staking to
+                                                            unlock governance
+                                                            tiers.</p>
+                                                        <a href="#"
+                                                            class="text-sm text-accent-primary hover:text-white font-bold">Start
+                                                            Tutorial →</a>
+                                                    </div>
+                                                </div>
+
+                                                <div
+                                                    class="glass-card p-6 rounded-xl border border-white/10 flex flex-col md:flex-row gap-6 items-center">
+                                                    <div
+                                                        class="w-full md:w-1/3 h-40 bg-black/40 rounded-lg border border-white/5 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+                                                        <div
+                                                            class="absolute inset-0 bg-green-500/10 group-hover:bg-green-500/20 transition-colors">
+                                                        </div>
+                                                        <i data-lucide="play-circle"
+                                                            class="w-12 h-12 text-white opacity-80 group-hover:scale-110 transition-transform"></i>
+                                                    </div>
+                                                    <div class="flex-1">
+                                                        <div class="flex items-center gap-2 mb-2">
+                                                            <span
+                                                                class="px-2 py-0.5 rounded bg-green-500/20 text-green-400 text-[10px] font-bold uppercase">Intermediate</span>
+                                                            <span class="text-xs text-text-muted">10 min read</span>
+                                                        </div>
+                                                        <h3 class="text-xl font-bold text-white mb-2">Submitting
+                                                            Your First Project
+                                                            (AEPO)</h3>
+                                                        <p class="text-sm text-text-muted mb-4">Learn how to
+                                                            configure your project
+                                                            parameters, select Zyno agents, and initiate the launch
+                                                            sequence.</p>
+                                                        <a href="#"
+                                                            class="text-sm text-accent-primary hover:text-white font-bold">Start
+                                                            Tutorial →</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <!-- Glossary -->
+                                        <section id="glossary" class="mb-20">
+                                            <h2
+                                                class="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">
+                                                Glossary of Terms</h2>
+                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                <div
+                                                    class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                                    <dt class="font-bold text-white mb-1">Staking (Simulated)</dt>
+                                                    <dd class="text-sm text-text-muted">Locking Testnet $MFAI to
+                                                        access builder tools
+                                                        and governance rights on the Testnet.</dd>
+                                                </div>
+                                                <div
+                                                    class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                                    <dt class="font-bold text-white mb-1">Token ($MFAI)</dt>
+                                                    <dd class="text-sm text-text-muted">The utility token of Money
+                                                        Factory AI
+                                                        (currently on Solana Devnet/Testnet).</dd>
+                                                </div>
+                                                <div
+                                                    class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                                    <dt class="font-bold text-white mb-1">AEPO</dt>
+                                                    <dd class="text-sm text-text-muted">Automated Entity Public
+                                                        Offering. A solo
+                                                        founder pathway where Zyno agents act as your dedicated
+                                                        co-founders.</dd>
+                                                </div>
+                                                <div
+                                                    class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                                    <dt class="font-bold text-white mb-1">AECO</dt>
+                                                    <dd class="text-sm text-text-muted">Automated Entity Cohort
+                                                        Offering. A
+                                                        collaborative team mode where Zyno orchestrates dynamics
+                                                        between multiple
+                                                        humans and agents.</dd>
+                                                </div>
+                                                <div
+                                                    class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                                    <dt class="font-bold text-white mb-1">Signal Score</dt>
+                                                    <dd class="text-sm text-text-muted">A dynamic quality metric
+                                                        (0-100) assigned to
+                                                        projects based on code audits, roadmap progress, and
+                                                        community traction.
+                                                    </dd>
+                                                </div>
+                                                <div
+                                                    class="p-4 bg-white/5 rounded-lg border border-white/5 hover:border-accent-primary/30 transition-colors">
+                                                    <dt class="font-bold text-white mb-1">DAO Proposal</dt>
+                                                    <dd class="text-sm text-text-muted">A simulated governance
+                                                        request submitted to
+                                                        MFAI holders to unlock Testnet funding or change protocol
+                                                        parameters.</dd>
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <!-- FAQ -->
+                                        <section id="faq" class="mb-20">
+                                            <h2
+                                                class="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">
+                                                Frequently Asked Questions</h2>
+                                            <div class="space-y-4">
+                                                <div class="glass-card p-6 rounded-xl border border-white/5 hover:border-accent-primary/30 transition-all cursor-pointer group"
+                                                    onclick="toggleFAQ(this)">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <h4
+                                                            class="font-bold text-white group-hover:text-accent-secondary transition-colors">
+                                                            What is the difference between AEPO and AECO?</h4>
+                                                        <i data-lucide="chevron-down"
+                                                            class="w-5 h-5 text-text-muted transition-transform duration-300"></i>
+                                                    </div>
+                                                    <div
+                                                        class="hidden text-text-secondary text-sm leading-relaxed mt-4 pt-4 border-t border-white/10 faq-content">
+                                                        AEPO is designed for solo founders or singular projects,
+                                                        providing dedicated
+                                                        AI agents. AECO is for cohorts/teams, emphasizing
+                                                        collaboration and shared
+                                                        milestones.
+                                                    </div>
+                                                </div>
+                                                <div class="glass-card p-6 rounded-xl border border-white/5 hover:border-accent-primary/30 transition-all cursor-pointer group"
+                                                    onclick="toggleFAQ(this)">
+                                                    <div class="flex justify-between items-center mb-2">
+                                                        <h4
+                                                            class="font-bold text-white group-hover:text-accent-secondary transition-colors">
+                                                            How do I access the builder tools?</h4>
+                                                        <i data-lucide="chevron-down"
+                                                            class="w-5 h-5 text-text-muted transition-transform duration-300"></i>
+                                                    </div>
+                                                    <div
+                                                        class="hidden text-text-secondary text-sm leading-relaxed mt-4 pt-4 border-t border-white/10 faq-content">
+                                                        To access our full developer suite on Testnet, you must
+                                                        stake a minimum
+                                                        amount of Testnet $MFAI tokens. Once verified, you can
+                                                        access the Zyno
+                                                        Terminal.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <!-- Downloads -->
+                                        <section id="resources" class="mb-20">
+                                            <h2
+                                                class="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">
+                                                Downloads & Resources</h2>
+                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                <a href="#"
+                                                    class="bg-background-secondary p-6 rounded-xl border border-white/10 flex items-center justify-between hover:bg-white/5 transition-colors group">
+                                                    <div class="flex items-center gap-4">
+                                                        <div
+                                                            class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center text-red-400">
+                                                            <i data-lucide="file-text" class="w-6 h-6"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h4 class="font-bold text-white">Litepaper v1.1</h4>
+                                                            <p class="text-xs text-text-muted">PDF • 2.4 MB</p>
+                                                        </div>
+                                                    </div>
+                                                    <i data-lucide="download"
+                                                        class="w-5 h-5 text-text-muted group-hover:text-white transition-colors"></i>
+                                                </a>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
     </main>
+
+    <style>
+        .active .faq-content {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 
     <!-- Footer -->
     <footer class="border-t border-accent-primary/10 bg-background-primary py-16" aria-label="Footer">
@@ -499,16 +1234,33 @@
                             <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                         </div>
                         <div class="flex flex-col">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">
+                                24</div>
+                            <div class="text-sm text-text-muted">AI Agents</div>
+                        </div>
+                        <div class="flex flex-col">
                             <span
                                 class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
-                                Factory
-                                AI</span>
+                                Factory AI</span>
                             <span class="text-xs text-text-muted">Venture Engine</span>
                         </div>
                     </div>
                     <p class="text-text-muted text-sm leading-relaxed mb-6">
                         A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
                     </p>
+                    <div class="flex gap-4">
+                                <a href="https://x.com/Moneyfactoryai" target="_blank" rel="noopener"
+                        <a href="https://x.com/Moneyfactoryai" target="_blank" rel="noopener"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://github.com/moneyfactoryai" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="https://discord.gg/shztvSg9" target="_blank"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                                data-lucide="message-circle" class="w-5 h-5"></i></a>
+                    </div>
                 </div>
 
                 <!-- Platform Column -->
@@ -522,8 +1274,8 @@
                         <li><a href="index.html#journey"
                                 class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
                         <li><a href="https://journey.mfai.app"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno
-                                Terminal</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno Terminal</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -554,10 +1306,11 @@
                         <li><a href="investors.html"
                                 class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a>
                         </li>
-                        <li><a href="https://discord.gg/shztvSg9" target="_blank" rel="noopener"
+                        <li><a href="https://discord.gg/shztvSg9" target="_blank"
                                 class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
-                        <li><a href="https://x.com/MoneyFactoryAI" target="_blank" rel="noopener"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Twitter</a></li>
+                        <li><a href="token.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm font-medium">Token
+                                Info</a></li>
                     </ul>
                 </div>
             </div>
@@ -566,30 +1319,113 @@
             <div class="pt-8 border-t border-accent-primary/10">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
                     <div class="text-text-muted text-sm">
-                        &copy; 2025 Money Factory AI. Built on Solana.
+                        © 2025 Money Factory AI. Built on Solana.
                     </div>
                     <div class="flex gap-6 text-sm">
-                        <a href="#" class="text-text-muted hover:text-white transition-colors">Terms</a>
-                        <a href="#" class="text-text-muted hover:text-white transition-colors">Privacy</a>
-                        <a href="#" class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
+                        <a href="terms.html" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                        <a href="privacy.html" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                        <a href="disclaimer.html"
+                            class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
                     </div>
                 </div>
-                <p class="text-xs text-gray-600 text-center md:text-left">
-                    <strong>Disclaimer:</strong> Nothing on this site constitutes financial or investment advice. Always
-                    do your own research.
-                </p>
             </div>
         </div>
     </footer>
 
     <script>
         // Initialize Lucide icons
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
 
         // Mobile menu toggle
         document.getElementById('mobile-menu-toggle')?.addEventListener('click', function () {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Image Fallback Script
+        document.querySelectorAll('img').forEach(img => {
+            img.onerror = function () {
+                this.onerror = null;
+                this.src = './images/coming_soon.png';
+                this.alt = 'Image not found - Coming Soon';
+                this.className += ' opacity-70';
+            };
+        });
+
+        // Docs Sidebar toggle (Mobile)
+        document.getElementById('docs-menu-toggle')?.addEventListener('click', function () {
+            const sidebar = document.getElementById('docs-sidebar');
+            const icon = document.getElementById('docs-menu-icon');
+
+            sidebar.classList.toggle('hidden');
+
+            // Rotate icon
+            if (sidebar.classList.contains('hidden')) {
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+
+        // FAQ Toggle Logic
+        function toggleFAQ(element) {
+            // Toggle active state for arrow rotation or styling
+            element.classList.toggle('active');
+
+            // Find the content div
+            const content = element.querySelector('.faq-content');
+            const icon = element.querySelector('i[data-lucide="chevron-down"]');
+
+            if (content) {
+                content.classList.toggle('hidden');
+
+                // Animation for content
+                if (!content.classList.contains('hidden')) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    content.style.opacity = '1';
+                    // Rotate icon
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                } else {
+                    content.style.maxHeight = '0';
+                    content.style.opacity = '0';
+                    if (icon) icon.style.transform = 'rotate(0deg)';
+                }
+            }
+        }
+
+        // Sidebar Intersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    const sidebarLinks = document.querySelectorAll('#docs-sidebar a');
+
+                    sidebarLinks.forEach(link => {
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('text-white', 'border-accent-primary');
+                            link.classList.remove('text-text-muted', 'border-transparent');
+                        } else if (link.getAttribute('href').startsWith('#')) {
+                            link.classList.remove('text-white', 'border-accent-primary');
+                            link.classList.add('text-text-muted', 'border-transparent');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section[id]').forEach((section) => {
+            observer.observe(section);
         });
     </script>
 </body>
+
+</html>

@@ -5,14 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Guide – Investors & Community on Money Factory AI</title>
-    <link rel="icon" type="image/png" href="logo_mfai.png">
     <meta name="description"
-        content="Comprehensive user guide for Money Factory AI. Learn about the ecosystem, Zyno, and the 4-phase journey.">
+        content="Money Factory AI: The Solana-native venture engine. Learn, Build, Prove, Activate, Scale (MVP testnet/devnet).">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mfai.app/user_guide.html">
+    <meta property="og:title" content="Money Factory AI | Venture Engine">
+    <meta property="og:description" content="Launch your Web3 venture with 24 AI Agents. Zero code required.">
+    <meta property="og:image" content="https://mfai.app/og-image.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://mfai.app/og-image.jpg">
+    <link rel="icon" type="image/png" href="logo_mfai.png">
+    <!-- Note: keep a single canonical description above -->
 
     <!-- Tailwind & Fonts -->
     <!-- Tailwind & Fonts -->
     <link href="./dist/output.css" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -33,79 +41,58 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300"
-        aria-label="Main Navigation">
+    <nav class="fixed top-0 w-full z-50 glass border-b border-accent-primary/10 transition-all duration-300" aria-label="Main Navigation">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
-                <div
-                    class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <div class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300" aria-hidden="true">
                     <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money
-                        Factory AI</span>
+                    <span class="font-display font-bold text-xl tracking-tight leading-none text-text-primary">Money Factory AI</span>
                     <span class="text-xs text-text-muted font-sans">Venture Engine</span>
                 </div>
             </a>
 
             <div class="hidden md:flex items-center gap-8" id="nav-links">
-                <a href="index.html#home"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
-                <a href="index.html#journey"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
-                <a href="product.html"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
-                <a href="roadmap.html"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
-                <a href="docs.html#zyno-overview"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents &
-                    API</a>
-                <a href="token.html"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
-                <a href="investors.html"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
-                <a href="documentation_hub.html"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+                <a href="index.html#home" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
+                <a href="index.html#journey" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
+                <a href="roadmap.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
+                <a href="product.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
+                <a href="docs.html#zyno-overview" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Agents & API</a>
+                <a href="token.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
+                <a href="investors.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
+                <a href="documentation_hub.html" class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="litepaper.html"
-                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
+                <a href="litepaper.html" class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
                     <i data-lucide="file-text" class="w-4 h-4"></i>
                     Litepaper
                 </a>
-                <a href="https://journey.mfai.app"
-                    class="px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-accent-primary/20 transition-all">
+                <a href="documentation_hub.html" class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    Docs
+                </a>
+                <a href="https://journey.mfai.app" class="cta-button px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10">
                     Access Terminal
                 </a>
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-toggle"
-                    class="md:hidden p-2 text-text-muted hover:text-white transition-colors">
+                <button id="mobile-menu-toggle" class="md:hidden p-2 text-text-muted hover:text-white transition-colors" aria-label="Toggle mobile menu">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
+        <div id="mobile-menu" class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
             <a href="index.html#home" class="block text-text-secondary hover:text-white">Home</a>
             <a href="index.html#journey" class="block text-text-secondary hover:text-white">Journey</a>
-            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
             <a href="roadmap.html" class="block text-text-secondary hover:text-white">Roadmap</a>
+            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
+            <a href="docs.html#zyno-overview" class="block text-text-secondary hover:text-white">Agents & API</a>
             <a href="token.html" class="block text-text-secondary hover:text-white">Token</a>
             <a href="investors.html" class="block text-text-secondary hover:text-white">Investors</a>
             <a href="documentation_hub.html" class="block text-text-secondary hover:text-white">Docs</a>
-            <div class="pt-4 border-t border-accent-primary/10">
-                <p class="text-xs text-text-muted mb-2 uppercase tracking-wider">On this page</p>
-                <a href="#intro" class="block text-sm text-text-muted hover:text-white py-1">Introduction</a>
-                <a href="#vision" class="block text-sm text-text-muted hover:text-white py-1">Vision & Mission</a>
-                <a href="#journey" class="block text-sm text-text-muted hover:text-white py-1">The 4-Phase Journey</a>
-                <a href="#zyno" class="block text-sm text-text-muted hover:text-white py-1">Zyno: The AI Engine</a>
-                <a href="#token" class="block text-sm text-text-muted hover:text-white py-1">Tokenomics ($MFAI)</a>
-                <a href="#governance" class="block text-sm text-text-muted hover:text-white py-1">Governance</a>
-                <a href="#faq" class="block text-sm text-text-muted hover:text-white py-1">FAQ</a>
-            </div>
         </div>
     </nav>
     <div class="flex min-h-screen pt-20">
@@ -118,7 +105,7 @@
                     <nav class="space-y-1">
                         <a href="#intro" class="sidebar-link active">Introduction</a>
                         <a href="#vision" class="sidebar-link">Vision & Mission</a>
-                        <a href="#journey" class="sidebar-link">The 4-Phase Journey</a>
+                        <a href="#journey" class="sidebar-link">The 5-Phase Journey (MVP)</a>
                         <a href="#zyno" class="sidebar-link">Zyno: The AI Engine</a>
                         <a href="#token" class="sidebar-link">Tokenomics ($MFAI)</a>
                         <a href="#governance" class="sidebar-link">Governance</a>
@@ -208,24 +195,32 @@
                 <section id="journey" class="mb-20 reveal-on-scroll">
                     <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-accent-primary/20 pb-4">
                         The
-                        4-Phase Journey</h2>
+                        5-Phase Journey (MVP)</h2>
+
+                    <div class="notice info text-sm mb-8 p-4 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-200">
+                        ℹ️ <strong class="text-white">MVP reality check:</strong> the live journey UI is on
+                        <a class="underline text-white" href="https://journey.mfai.app/journeys" target="_blank" rel="noopener">journey.mfai.app</a>.
+                        Wallet sign-in uses <strong class="text-white">SIWS</strong>. Proof-of-skill minting is a
+                        <strong class="text-white">devnet flow</strong>, and Collaterize is currently delivered as a
+                        <strong class="text-white">simulation</strong>.
+                    </div>
 
                     <div class="space-y-6">
                         <div
                             class="glass-card p-8 rounded-2xl border border-white/10 hover:border-solana-green/50 transition-colors">
                             <div
                                 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
-                                Phase 1: Learn & Earn</div>
+                                Phase 1: Learn</div>
                             <p class="text-text-muted">
-                                Users complete educational modules on Solana, DeFi, and Web3. They earn $MFAI tokens and
-                                Proof-of-Skill NFTs for their achievements.
+                                Users complete educational modules on Solana, DeFi, and Web3. The MVP focuses on XP,
+                                artifacts, and progressive unlocking.
                             </p>
                         </div>
                         <div
                             class="glass-card p-8 rounded-2xl border border-white/10 hover:border-solana-green/50 transition-colors">
                             <div
                                 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
-                                Phase 2: Build with Zyno</div>
+                                Phase 2: Build</div>
                             <p class="text-text-muted">
                                 Builders interact with Zyno to define their project. Zyno generates a "Project Canvas" –
                                 a comprehensive blueprint including technical specs, tokenomics, and roadmap.
@@ -235,20 +230,29 @@
                             class="glass-card p-8 rounded-2xl border border-white/10 hover:border-solana-green/50 transition-colors">
                             <div
                                 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
-                                Phase 3: DAO Approval</div>
+                                Phase 3: Prove</div>
                             <p class="text-text-muted">
-                                Projects are submitted to the DAO. Stakers and experts (NFT holders) vote on which
-                                projects to incubate. Approved projects receive initial support.
+                                Submit missions and deliverables for evaluation. If eligible, users can mint a
+                                Proof-of-skill NFT on devnet as an on-chain credential.
                             </p>
                         </div>
                         <div
                             class="glass-card p-8 rounded-2xl border border-white/10 hover:border-solana-green/50 transition-colors">
                             <div
                                 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
-                                Phase 4: Launch & Liquidity</div>
+                                Phase 4: Activate</div>
                             <p class="text-text-muted">
-                                Projects undergo an incubation period and then launch via Collaterize bonding curves,
-                                ensuring instant liquidity and fair price discovery.
+                                Participate in governance simulations, proposals, and community activation flows.
+                            </p>
+                        </div>
+                        <div
+                            class="glass-card p-8 rounded-2xl border border-white/10 hover:border-solana-green/50 transition-colors">
+                            <div
+                                class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
+                                Phase 5: Scale</div>
+                            <p class="text-text-muted">
+                                Run launch & liquidity simulations (Collaterize), refine tokenomics/governance, and
+                                prepare for mainnet readiness.
                             </p>
                         </div>
                     </div>
@@ -267,14 +271,16 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                         <div class="glass-card p-6 rounded-xl border border-white/10">
                             <h4 class="text-xl font-bold text-solana-green mb-2">AEPO</h4>
-                            <p class="text-sm text-text-muted">AI-Enhanced Pathway Orchestration. Guides individual
-                                users
-                                through personalized learning and building paths.</p>
+                            <p class="text-sm text-text-muted mb-2">AI-Enhanced Pathway Orchestration</p>
+                            <p class="text-sm text-text-secondary">The engine for <strong>individual pathways</strong>.
+                                It creates a personalized roadmap based on your skills and goals, guiding you from idea
+                                to launch.</p>
                         </div>
                         <div class="glass-card p-6 rounded-xl border border-white/10">
                             <h4 class="text-xl font-bold text-solana-green mb-2">AECO</h4>
-                            <p class="text-sm text-text-muted">AI-Enhanced Cohort Orchestration. Manages group dynamics,
-                                hackathons, and cohort-based programs.</p>
+                            <p class="text-sm text-text-muted mb-2">AI-Enhanced Cohort Orchestration</p>
+                            <p class="text-sm text-text-secondary">The system for <strong>cohorts and groups</strong>.
+                                It manages shared milestones and synchronized progress for bootcamps and DAO teams.</p>
                         </div>
                     </div>
                 </section>
@@ -351,6 +357,48 @@
                             <button
                                 class="w-full p-6 text-left bg-background-secondary hover:bg-accent-primary/10 transition-colors flex justify-between items-center"
                                 onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">
+                                <span class="font-bold text-white">What is AEPO and how does it help me?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-text-muted transition-transform"></i>
+                            </button>
+                            <div
+                                class="hidden p-6 bg-background-primary text-text-muted border-t border-accent-primary/20">
+                                AEPO (AI-Enhanced Pathway Orchestration) creates a <strong>personalized roadmap</strong>
+                                for you. It analyzes your goals and skills to generate specific milestones, which Zyno's
+                                agents then help you execute.
+                            </div>
+                        </div>
+                        <div class="border border-accent-primary/20 rounded-xl overflow-hidden">
+                            <button
+                                class="w-full p-6 text-left bg-background-secondary hover:bg-accent-primary/10 transition-colors flex justify-between items-center"
+                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">
+                                <span class="font-bold text-white">Difference between AEPO and AECO?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-text-muted transition-transform"></i>
+                            </button>
+                            <div
+                                class="hidden p-6 bg-background-primary text-text-muted border-t border-accent-primary/20">
+                                AEPO is for <strong>individuals</strong> (solo builders), creating custom pathways. AECO
+                                is for <strong>groups</strong> (cohorts), orchestrating shared goals and synchronized
+                                progress for teams and bootcamps.
+                            </div>
+                        </div>
+                        <div class="border border-accent-primary/20 rounded-xl overflow-hidden">
+                            <button
+                                class="w-full p-6 text-left bg-background-secondary hover:bg-accent-primary/10 transition-colors flex justify-between items-center"
+                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">
+                                <span class="font-bold text-white">How does Zyno manage groups vs solo?</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-text-muted transition-transform"></i>
+                            </button>
+                            <div
+                                class="hidden p-6 bg-background-primary text-text-muted border-t border-accent-primary/20">
+                                Zyno uses AEPO to guide individuals through the 5-phase MVP journey and AECO to coordinate
+                                group dynamics, ensuring both solo and team-based users get the right support at the
+                                right time.
+                            </div>
+                        </div>
+                        <div class="border border-accent-primary/20 rounded-xl overflow-hidden">
+                            <button
+                                class="w-full p-6 text-left bg-background-secondary hover:bg-accent-primary/10 transition-colors flex justify-between items-center"
+                                onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180');">
                                 <span class="font-bold text-white">How do I start earning $MFAI?</span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-text-muted transition-transform"></i>
                             </button>
@@ -394,21 +442,21 @@
     </div>
 
     <!-- Footer -->
-    <footer class="border-t border-accent-primary/10 bg-background-primary py-16 lg:ml-72" aria-label="Footer">
+    <footer class="border-t border-accent-primary/10 bg-background-primary py-16" aria-label="Footer">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <!-- Brand Column -->
                 <div class="md:col-span-1">
                     <div class="flex items-center gap-3 mb-4">
-                        <div
-                            class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                        <div class="w-10 h-10 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-xl flex items-center justify-center text-white font-bold text-xl">
                             <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                         </div>
                         <div class="flex flex-col">
-                            <span
-                                class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
-                                Factory
-                                AI</span>
+                            <div class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">24</div>
+                            <div class="text-sm text-text-muted">AI Agents</div>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money Factory AI</span>
                             <span class="text-xs text-text-muted">Venture Engine</span>
                         </div>
                     </div>
@@ -416,15 +464,9 @@
                         A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
                     </p>
                     <div class="flex gap-4">
-                        <a href="https://x.com/MoneyFactoryAI" target="_blank"
-                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
-                                data-lucide="twitter" class="w-5 h-5"></i></a>
-                        <a href="https://github.com/moneyfactoryai" target="_blank"
-                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
-                                data-lucide="github" class="w-5 h-5"></i></a>
-                        <a href="https://discord.gg/shztvSg9" target="_blank"
-                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
-                                data-lucide="message-circle" class="w-5 h-5"></i></a>
+                        <a href="https://x.com/Moneyfactoryai" target="_blank" rel="noopener" class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://github.com/moneyfactoryai" target="_blank" class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="https://discord.gg/shztvSg9" target="_blank" class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i data-lucide="message-circle" class="w-5 h-5"></i></a>
                     </div>
                 </div>
 
@@ -432,15 +474,10 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Platform</h4>
                     <ul class="space-y-3">
-                        <li><a href="index.html#home"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Home</a></li>
-                        <li><a href="product.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
-                        <li><a href="index.html#journey"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
-                        <li><a href="https://journey.mfai.app"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno
-                                Terminal</a></li>
+                        <li><a href="index.html#home" class="text-text-muted hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="product.html" class="text-text-muted hover:text-white transition-colors text-sm">Product</a></li>
+                        <li><a href="index.html#journey" class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
+                        <li><a href="https://journey.mfai.app" class="text-text-muted hover:text-white transition-colors text-sm">Zyno Terminal</a></li>
                     </ul>
                 </div>
 
@@ -448,15 +485,10 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Resources</h4>
                     <ul class="space-y-3">
-                        <li><a href="documentation_hub.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a>
-                        </li>
-                        <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API
-                                Docs</a></li>
-                        <li><a href="litepaper.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Litepaper</a></li>
-                        <li><a href="user_guide.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">User Guide</a></li>
+                        <li><a href="documentation_hub.html" class="text-text-muted hover:text-white transition-colors text-sm">Documentation</a></li>
+                        <li><a href="docs.html" class="text-text-muted hover:text-white transition-colors text-sm">API Docs</a></li>
+                        <li><a href="litepaper.html" class="text-text-muted hover:text-white transition-colors text-sm">Litepaper</a></li>
+                        <li><a href="user_guide.html" class="text-text-muted hover:text-white transition-colors text-sm">User Guide</a></li>
                     </ul>
                 </div>
 
@@ -464,13 +496,10 @@
                 <div>
                     <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Community</h4>
                     <ul class="space-y-3">
-                        <li><a href="token.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
-                        <li><a href="investors.html"
-                                class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a>
-                        </li>
-                        <li><a href="https://discord.gg/shztvSg9" target="_blank"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
+                        <li><a href="token.html" class="text-text-muted hover:text-white transition-colors text-sm">Token</a></li>
+                        <li><a href="investors.html" class="text-text-muted hover:text-white transition-colors text-sm">For Investors</a></li>
+                        <li><a href="https://discord.gg/shztvSg9" target="_blank" class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
+                        <li><a href="token.html" class="text-text-muted hover:text-white transition-colors text-sm font-medium">Token Info</a></li>
                     </ul>
                 </div>
             </div>
@@ -479,12 +508,13 @@
             <div class="pt-8 border-t border-accent-primary/10">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
                     <div class="text-text-muted text-sm">
-                        &copy; 2025 Money Factory AI. Built on Solana.
+                        © 2025 Money Factory AI. Built on Solana.
                     </div>
                     <div class="flex gap-6 text-sm">
-                        <a href="#" class="text-text-muted hover:text-white transition-colors">Terms</a>
-                        <a href="#" class="text-text-muted hover:text-white transition-colors">Privacy</a>
-                        <a href="#" class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
+                        <a href="terms.html" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                        <a href="privacy.html" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                        <a href="disclaimer.html"
+                            class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
                     </div>
                 </div>
             </div>
@@ -492,7 +522,11 @@
     </footer>
 
     <script>
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
 
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-toggle');

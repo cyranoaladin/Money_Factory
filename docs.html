@@ -9,10 +9,20 @@
     <meta name="description"
         content="Complete user guide for Money Factory AI. Learn about the ecosystem, Zyno, and the 5-phase journey.">
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mfai.app/docs.html">
+    <meta property="og:title" content="User Guide & Documentation | Money Factory AI">
+    <meta property="og:description"
+        content="Complete user guide for Money Factory AI. Learn about the ecosystem, Zyno, and the 5-phase journey.">
+    <meta property="og:image" content="https://mfai.app/og-image.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://mfai.app/og-image.jpg">
+
     <!-- Tailwind & Fonts -->
     <!-- Tailwind & Fonts -->
     <link href="./dist/output.css" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -37,8 +47,8 @@
         aria-label="Main Navigation">
         <div class="container mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3 group" aria-label="Money Factory AI Home">
-                <div
-                    class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <div class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold font-display text-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
+                    aria-hidden="true">
                     <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
                 </div>
                 <div class="flex flex-col">
@@ -53,10 +63,10 @@
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Home</a>
                 <a href="index.html#journey"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Journey</a>
-                <a href="product.html"
-                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
                 <a href="roadmap.html"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Roadmap</a>
+                <a href="product.html"
+                    class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Product</a>
                 <a href="docs.html#zyno-overview" class="nav-link text-sm text-white transition-colors">Agents & API</a>
                 <a href="token.html"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Token</a>
@@ -64,6 +74,7 @@
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Investors</a>
                 <a href="documentation_hub.html"
                     class="nav-link text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+
             </div>
 
             <div class="flex items-center gap-4">
@@ -72,13 +83,17 @@
                     <i data-lucide="file-text" class="w-4 h-4"></i>
                     Litepaper
                 </a>
+                <a href="documentation_hub.html"
+                    class="hidden md:flex items-center gap-1 text-sm text-text-muted hover:text-text-primary transition-colors">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    Docs
+                </a>
                 <a href="https://journey.mfai.app"
-                    class="px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10 hover:shadow-lg hover:shadow-accent-primary/20 transition-all">
+                    class="cta-button px-6 py-2.5 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-lg text-sm relative z-10">
                     Access Terminal
                 </a>
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-toggle"
-                    class="md:hidden p-2 text-text-muted hover:text-white transition-colors">
+                <button id="mobile-menu-toggle" class="md:hidden p-2 text-text-muted hover:text-white transition-colors"
+                    aria-label="Toggle mobile menu">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
@@ -89,22 +104,12 @@
             class="hidden md:hidden bg-background-secondary border-t border-accent-primary/10 p-6 space-y-4">
             <a href="index.html#home" class="block text-text-secondary hover:text-white">Home</a>
             <a href="index.html#journey" class="block text-text-secondary hover:text-white">Journey</a>
-            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
             <a href="roadmap.html" class="block text-text-secondary hover:text-white">Roadmap</a>
+            <a href="product.html" class="block text-text-secondary hover:text-white">Product</a>
+            <a href="docs.html#zyno-overview" class="block text-text-secondary hover:text-white">Agents & API</a>
             <a href="token.html" class="block text-text-secondary hover:text-white">Token</a>
             <a href="investors.html" class="block text-text-secondary hover:text-white">Investors</a>
             <a href="documentation_hub.html" class="block text-text-secondary hover:text-white">Docs</a>
-            <div class="pt-4 border-t border-white/10">
-                <p class="text-xs text-text-muted mb-2 uppercase tracking-wider">Documentation</p>
-                <a href="#welcome" class="block text-sm text-text-muted hover:text-white py-1">Welcome & Overview</a>
-                <a href="#journey" class="block text-sm text-text-muted hover:text-white py-1">Your Journey with
-                    Zyno</a>
-                <a href="#zyno-interaction" class="block text-sm text-text-muted hover:text-white py-1">Interacting with
-                    Zyno AI</a>
-                <a href="#workflow" class="block text-sm text-text-muted hover:text-white py-1">Journey Workflow</a>
-                <a href="#dao" class="block text-sm text-text-muted hover:text-white py-1">DAO Governance</a>
-                <a href="#tokenomics" class="block text-sm text-text-muted hover:text-white py-1">Tokenomics</a>
-            </div>
         </div>
     </nav>
 
@@ -118,7 +123,7 @@
                     <nav class="space-y-1">
                         <a href="#welcome" class="sidebar-link active">Welcome & Overview</a>
                         <a href="#journey" class="sidebar-link">Your Journey with Zyno</a>
-                        <a href="#zyno-interaction" class="sidebar-link">Interacting with Zyno AI</a>
+                        <a href="#zyno-overview" class="sidebar-link">Agents & API (Zyno)</a>
                         <a href="#workflow" class="sidebar-link">Journey Workflow</a>
                         <a href="#dao" class="sidebar-link">DAO Governance</a>
                         <a href="#tokenomics" class="sidebar-link">Tokenomics</a>
@@ -128,7 +133,7 @@
                 <div class="bg-accent-primary/10 rounded-xl p-4 border border-accent-primary/20">
                     <h6 class="text-sm font-bold text-white mb-2">Need Help?</h6>
                     <p class="text-xs text-text-muted mb-3">Join our Discord community for real-time support.</p>
-                    <a href="https://discord.gg/moneyfactoryai" target="_blank"
+                    <a href="https://discord.gg/shztvSg9" target="_blank" rel="noopener"
                         class="block w-full py-2 text-center bg-accent-primary/20 hover:bg-accent-primary/30 text-accent-primary text-xs font-bold rounded-lg transition-colors">
                         Join Discord
                     </a>
@@ -138,6 +143,10 @@
 
         <!-- Main Content -->
         <main class="flex-1 lg:ml-72 p-6 lg:p-12 w-full max-w-[100vw] overflow-x-hidden">
+            <div class="notice info text-sm mb-6 p-4 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-200">
+                ℹ️ This documentation reflects our product roadmap and features under active development. No services
+                are yet live on mainnet.
+            </div>
             <div class="max-w-4xl mx-auto">
 
                 <!-- Welcome -->
@@ -169,7 +178,7 @@
                         <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
                             <div
                                 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">
-                                4</div>
+                                5</div>
                             <div class="text-sm text-text-muted">Journey Phases</div>
                         </div>
                         <div class="glass-card p-6 rounded-2xl border border-white/10 text-center">
@@ -201,18 +210,25 @@
                         </p>
                     </div>
 
+                    <div class="notice info text-sm mb-8 p-4 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-200">
+                        ℹ️ <strong class="text-white">MVP reality check:</strong> the live journey UI is on
+                        <a class="underline text-white" href="https://journey.mfai.app/journeys" target="_blank" rel="noopener">journey.mfai.app/journeys</a>.
+                        Wallet auth uses <strong class="text-white">SIWS</strong> (Sign-In With Solana). Proof-of-skill minting and launch mechanics are available as
+                        <strong class="text-white">devnet/testnet flows</strong>.
+                    </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="glass-card p-6 rounded-xl border border-white/10">
                             <div
                                 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
                                 01</div>
-                            <h3 class="text-xl font-bold text-white mb-2">Phase 1: Learn & Earn</h3>
+                            <h3 class="text-xl font-bold text-white mb-2">Phase 1: Learn</h3>
                             <p class="text-text-muted mb-4"><strong>Build your foundation</strong></p>
                             <ul class="list-disc list-inside space-y-2 text-text-muted text-sm">
                                 <li>Complete interactive lessons</li>
                                 <li>Take quizzes to test knowledge</li>
-                                <li>Earn $MFAI tokens</li>
-                                <li>Mint NFT badges</li>
+                                <li>Earn XP (MVP)</li>
+                                <li>Unlock learning artifacts</li>
                             </ul>
                         </div>
                         <div class="glass-card p-6 rounded-xl border border-white/10">
@@ -232,35 +248,226 @@
                             <div
                                 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
                                 03</div>
-                            <h3 class="text-xl font-bold text-white mb-2">Phase 3: DAO Approval</h3>
-                            <p class="text-text-muted mb-4"><strong>Get funded by the community</strong></p>
+                            <h3 class="text-xl font-bold text-white mb-2">Phase 3: Prove</h3>
+                            <p class="text-text-muted mb-4"><strong>Validate your skills</strong></p>
                             <ul class="list-disc list-inside space-y-2 text-text-muted text-sm">
-                                <li>Submit project for DAO review</li>
-                                <li>Community votes on proposal</li>
-                                <li>Receive incubation grants</li>
-                                <li>Gain launchpad access</li>
+                                <li>Submit missions for evaluation</li>
+                                <li>Get multi-axis scoring & feedback</li>
+                                <li>Proof-of-skill minting (devnet)</li>
+                                <li>Track progress & achievements</li>
                             </ul>
                         </div>
                         <div class="glass-card p-6 rounded-xl border border-white/10">
                             <div
                                 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
                                 04</div>
-                            <h3 class="text-xl font-bold text-white mb-2">Phase 4: Launch & Liquidity</h3>
-                            <p class="text-text-muted mb-4"><strong>Go to market</strong></p>
+                            <h3 class="text-xl font-bold text-white mb-2">Phase 4: Activate</h3>
+                            <p class="text-text-muted mb-4"><strong>Engage governance & community</strong></p>
                             <ul class="list-disc list-inside space-y-2 text-text-muted text-sm">
-                                <li>Launch on bonding curve</li>
-                                <li>Instant liquidity via Collaterize</li>
-                                <li>Automatic DEX migration</li>
-                                <li>Live protocol status</li>
+                                <li>DAO simulations & voting (MVP)</li>
+                                <li>Access gating via passes (roadmap)</li>
+                                <li>Knowledge Vault resources</li>
+                                <li>Support & guidance via Zyno</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <div
+                                class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-4">
+                                05</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Phase 5: Scale</h3>
+                            <p class="text-text-muted mb-4"><strong>Iterate, launch simulations, and grow</strong></p>
+                            <ul class="list-disc list-inside space-y-2 text-text-muted text-sm">
+                                <li>Launch & liquidity simulations (Collaterize)</li>
+                                <li>Refine tokenomics & governance</li>
+                                <li>Export artifacts and reports</li>
+                                <li>Prepare for mainnet readiness</li>
                             </ul>
                         </div>
                     </div>
                 </section>
 
-                <!-- Zyno Interaction -->
-                <section id="zyno-interaction" class="mb-20 reveal-on-scroll">
+                <!-- Zyno Overview -->
+                <section id="zyno-overview" class="mb-20 reveal-on-scroll">
                     <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">
-                        Interacting with Zyno AI</h2>
+                        Zyno AI & Orchestration</h2>
+
+                    <p class="text-text-secondary mb-8 leading-relaxed">
+                        <strong>Zyno</strong> is the multi-agent system that powers the Money Factory AI ecosystem. It
+                        acts as the central nervous system, orchestrating 24 specialized agents (like Atomic Architect,
+                        Quantum CFO, and Governance Guardian) to guide users from concept to launch.
+                    </p>
+
+                    <div class="mb-12">
+                        <h3 class="text-xl font-bold text-white mb-6">Zyno Agent Typologies</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Strategy Agents -->
+                            <div class="glass-card p-6 rounded-xl border border-white/10">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                                        <i data-lucide="brain-circuit" class="w-5 h-5 text-blue-400"></i>
+                                    </div>
+                                    <h4 class="font-bold text-white">Strategy & Research</h4>
+                                </div>
+                                <ul class="space-y-2 text-sm text-text-secondary">
+                                    <li>• <strong class="text-white">Visionary:</strong> Concept validation</li>
+                                    <li>• <strong class="text-white">Analyst:</strong> Market trends & comp analysis
+                                    </li>
+                                    <li>• <strong class="text-white">Planner:</strong> Roadmap generation</li>
+                                </ul>
+                            </div>
+
+                            <!-- Technical Agents -->
+                            <div class="glass-card p-6 rounded-xl border border-white/10">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
+                                        <i data-lucide="code-2" class="w-5 h-5 text-green-400"></i>
+                                    </div>
+                                    <h4 class="font-bold text-white">Engineering</h4>
+                                </div>
+                                <ul class="space-y-2 text-sm text-text-secondary">
+                                    <li>• <strong class="text-white">Architect:</strong> System design & tech stack</li>
+                                    <li>• <strong class="text-white">Rust Ace:</strong> Smart contract generation</li>
+                                    <li>• <strong class="text-white">Auditor:</strong> Security analysis (Pre-audit)
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Financial Agents -->
+                            <div class="glass-card p-6 rounded-xl border border-white/10">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-10 h-10 rounded-lg bg-yellow-500/20 flex items-center justify-center">
+                                        <i data-lucide="calculator" class="w-5 h-5 text-yellow-400"></i>
+                                    </div>
+                                    <h4 class="font-bold text-white">Finance & Legal</h4>
+                                </div>
+                                <ul class="space-y-2 text-sm text-text-secondary">
+                                    <li>• <strong class="text-white">Quantum CFO:</strong> Tokenomics modeling</li>
+                                    <li>• <strong class="text-white">Legal Guardian:</strong> Compliance checks
+                                        (Simulated)</li>
+                                    <li>• <strong class="text-white">Treasury:</strong> Budget management</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Architecture Diagram (Interactive Flow) -->
+                    <div class="mb-10 flex flex-col gap-6">
+                        <!-- AEPO Flow -->
+                        <div
+                            class="bg-background-primary/50 p-6 rounded-xl border border-white/5 hover:border-accent-primary/30 transition-all group">
+                            <div class="flex items-center gap-4 mb-4">
+                                <span class="bg-accent-secondary/20 p-2 rounded-lg"><i data-lucide="user"
+                                        class="w-6 h-6 text-accent-secondary"></i></span>
+                                <h5 class="text-lg font-bold text-white">AEPO Flow (Solo)</h5>
+                            </div>
+                            <div class="flex flex-col md:flex-row items-center gap-4 text-sm text-text-muted">
+                                <div class="flex-1 bg-white/5 p-3 rounded-lg text-center border border-white/5 group-hover:border-accent-secondary/50 transition-colors cursor-help"
+                                    title="Example: Zain, a solo founder with an idea for a DeFi bot.">
+                                    Users (Solo)</div>
+                                <i data-lucide="arrow-right"
+                                    class="w-4 h-4 md:w-6 md:h-6 text-accent-secondary animate-pulse"></i>
+                                <div class="flex-1 bg-white/5 p-3 rounded-lg text-center border border-white/5 group-hover:border-accent-secondary/50 transition-colors cursor-help"
+                                    title="Zyno Agents generate the Smart Contract, Whitepaper, and Tokenomics automatically.">
+                                    AI Agents (Build)</div>
+                                <i data-lucide="arrow-right"
+                                    class="w-4 h-4 md:w-6 md:h-6 text-accent-secondary animate-pulse"></i>
+                                <div class="flex-1 bg-white/5 p-3 rounded-lg text-center border border-white/5 group-hover:border-accent-secondary/50 transition-colors cursor-help"
+                                    title="The project is deployed to the Solana blockchain via the Money Factory Launchpad.">
+                                    Launchpad</div>
+                            </div>
+                            <p class="text-xs text-text-muted mt-4 italic">
+                                For Individuals: AEPO analyzes your specific skills and project goals to create a custom
+                                roadmap. It dynamically assigns tasks to agents—need a whitepaper? The Research Agent
+                                writes it.
+                            </p>
+                        </div>
+
+                        <!-- AECO Flow -->
+                        <div
+                            class="bg-background-primary/50 p-6 rounded-xl border border-white/5 hover:border-solana-purple/30 transition-all group">
+                            <div class="flex items-center gap-4 mb-4">
+                                <span class="bg-solana-purple/20 p-2 rounded-lg"><i data-lucide="users"
+                                        class="w-6 h-6 text-solana-purple"></i></span>
+                                <h5 class="text-lg font-bold text-white">AECO Flow (Team)</h5>
+                            </div>
+                            <div class="flex flex-col md:flex-row items-center gap-4 text-sm text-text-muted">
+                                <div class="flex-1 bg-white/5 p-3 rounded-lg text-center border border-white/5 group-hover:border-solana-purple/50 transition-colors cursor-help"
+                                    title="Example: Team Kura, a group of 3 builders creating a DAO.">
+                                    Squad (Team)</div>
+                                <i data-lucide="arrow-right"
+                                    class="w-4 h-4 md:w-6 md:h-6 text-solana-purple animate-pulse"></i>
+                                <div class="flex-1 bg-white/5 p-3 rounded-lg text-center border border-white/5 group-hover:border-solana-purple/50 transition-colors cursor-help"
+                                    title="Agents facilitate governance votes, treasury management, and collaborative tasks.">
+                                    Collaboration (Governance)</div>
+                                <i data-lucide="arrow-right"
+                                    class="w-4 h-4 md:w-6 md:h-6 text-solana-purple animate-pulse"></i>
+                                <div class="flex-1 bg-white/5 p-3 rounded-lg text-center border border-white/5 group-hover:border-solana-purple/50 transition-colors cursor-help"
+                                    title="The ecosystem is launched with shared ownership and on-chain governance.">
+                                    Ecosystem Launch</div>
+                            </div>
+                            <p class="text-xs text-text-muted mt-4 italic">
+                                For Teams: AECO manages group dynamics, synchronizes milestones across a team, and
+                                facilitates voting on key decisions.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Credits & Access -->
+                    <h3 class="text-2xl font-bold text-white mb-4">Credits & Access Model</h3>
+                    <div class="bg-background-secondary p-6 rounded-xl border border-white/10 mb-8">
+                        <ul class="space-y-4 text-text-secondary">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="coins" class="w-5 h-5 text-yellow-400 mt-1"></i>
+                                <div>
+                                    <strong class="text-white">Zyno Credits:</strong>
+                                    <p class="text-sm mt-1">
+                                        Every interaction with an AI agent consumes credits. Simple Q&A costs less;
+                                        generating a full smart contract audit costs more. Users can top up credits
+                                        using $MFAI or SOL.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="ticket" class="w-5 h-5 text-accent-secondary mt-1"></i>
+                                <div>
+                                    <strong class="text-white">Builder Tier:</strong>
+                                    <p class="text-sm mt-1">
+                                        Holders of the Builder Pass or sufficient $MFAI stake utilize a higher tier,
+                                        unlocking advanced agents (e.g., Senior Architect, Legal Compliance) and faster
+                                        process times.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-white mb-4">Sample Use Cases</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <h4 class="font-bold text-white mb-2">Solo Founder (AEPO)</h4>
+                            <p class="text-sm text-text-muted mb-2"><strong>Goal:</strong> Launch a DeFi prediction
+                                market.</p>
+                            <p class="text-sm text-text-secondary">
+                                User interacts with Zyno to define the idea. AEPO generates a 4-week roadmap.
+                                Week 1: Market research agent validates demand.
+                                Week 2: Tokenomics agent models the economy.
+                                Week 3: Engineer agent codes the MVP.
+                            </p>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl border border-white/10">
+                            <h4 class="font-bold text-white mb-2">DAO Team (AECO)</h4>
+                            <p class="text-sm text-text-muted mb-2"><strong>Goal:</strong> Govern a community treasury.
+                            </p>
+                            <p class="text-sm text-text-secondary">
+                                AECO sets up a shared dashboard. Zyno facilitates weekly governance calls, summarizes
+                                proposals, and tracks voting deadlines. The "CFO Agent" provides monthly treasury
+                                reports
+                                to all members automatically.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-white mb-4">Interacting with Zyno</h3>
                     <p class="text-text-secondary mb-6 leading-relaxed">
                         Zyno is designed to be intuitive and helpful. You can interact with Zyno through the chat
                         interface in the bottom right corner or through the dedicated Terminal page.
@@ -303,10 +510,69 @@
                         but you must complete specific milestones to unlock subsequent phases.
                     </p>
 
-                    <div class="bg-background-secondary p-6 rounded-xl border border-white/10 text-center">
-                        <p class="text-text-muted italic">
-                            [Workflow Diagram Placeholder: Visualizing the flow from Idea -> Learn -> Build -> Launch]
-                        </p>
+                    <div class="bg-background-secondary p-8 rounded-xl border border-white/10">
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative">
+                            <!-- Step 1: Idea -->
+                            <div class="flex flex-col items-center text-center z-10">
+                                <div
+                                    class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-purple-500/20">
+                                    <i data-lucide="lightbulb" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-white mb-1">1. Idea</h4>
+                                <p class="text-xs text-text-muted">Raw Concept</p>
+                            </div>
+
+                            <!-- Arrow -->
+                            <div
+                                class="hidden md:block flex-1 border-t-2 border-dashed border-white/10 relative -top-8">
+                                <i data-lucide="chevron-right"
+                                    class="w-6 h-6 text-text-muted absolute top-1/2 -translate-y-1/2 right-0 -mr-3 bg-background-secondary rounded-full"></i>
+                            </div>
+
+                            <!-- Step 2: Learn -->
+                            <div class="flex flex-col items-center text-center z-10">
+                                <div
+                                    class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-blue-500/20">
+                                    <i data-lucide="book-open" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-white mb-1">2. Learn</h4>
+                                <p class="text-xs text-text-muted">Earn & Skill Up</p>
+                            </div>
+
+                            <!-- Arrow -->
+                            <div
+                                class="hidden md:block flex-1 border-t-2 border-dashed border-white/10 relative -top-8">
+                                <i data-lucide="chevron-right"
+                                    class="w-6 h-6 text-text-muted absolute top-1/2 -translate-y-1/2 right-0 -mr-3 bg-background-secondary rounded-full"></i>
+                            </div>
+
+                            <!-- Step 3: Build -->
+                            <div class="flex flex-col items-center text-center z-10">
+                                <div
+                                    class="w-16 h-16 bg-gradient-to-br from-accent-primary to-pink-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-accent-primary/20">
+                                    <i data-lucide="hammer" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-white mb-1">3. Build</h4>
+                                <p class="text-xs text-text-muted">AI-Assisted Dev</p>
+                            </div>
+
+                            <!-- Arrow -->
+                            <div
+                                class="hidden md:block flex-1 border-t-2 border-dashed border-white/10 relative -top-8">
+                                <i data-lucide="chevron-right"
+                                    class="w-6 h-6 text-text-muted absolute top-1/2 -translate-y-1/2 right-0 -mr-3 bg-background-secondary rounded-full"></i>
+                            </div>
+
+                            <!-- Step 4: Launch -->
+                            <div class="flex flex-col items-center text-center z-10">
+                                <div
+                                    class="w-16 h-16 bg-gradient-to-br from-solana-green to-emerald-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-solana-green/20">
+                                    <i data-lucide="rocket" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-white mb-1">4. Launch</h4>
+                                <p class="text-xs text-text-muted">DAO & Liquidity</p>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -343,7 +609,8 @@
                     <h2 class="text-3xl font-bold font-display mb-8 text-white border-b border-white/10 pb-4">Tokenomics
                     </h2>
                     <p class="text-text-secondary mb-6 leading-relaxed">
-                        The $MFAI token captures the value created by the ecosystem. It is used for governance, staking,
+                        The $MFAI token captures the value created by the ecosystem. It is used for simulated
+                        governance, staking,
                         and accessing premium features.
                     </p>
 
@@ -358,19 +625,19 @@
                             <tbody class="text-text-muted">
                                 <tr class="border-b border-white/5 hover:bg-background-secondary transition-colors">
                                     <td class="p-4 font-bold text-white">Governance</td>
-                                    <td class="p-4">Vote on DAO proposals and project funding.</td>
+                                    <td class="p-4">Vote on simulated DAO proposals and project funding.</td>
                                 </tr>
                                 <tr class="border-b border-white/5 hover:bg-background-secondary transition-colors">
                                     <td class="p-4 font-bold text-white">Staking</td>
-                                    <td class="p-4">Earn yield and increase voting power.</td>
+                                    <td class="p-4">Earn simulated yield and increase voting power (Devnet).</td>
                                 </tr>
                                 <tr class="border-b border-white/5 hover:bg-background-secondary transition-colors">
                                     <td class="p-4 font-bold text-white">Access</td>
-                                    <td class="p-4">Unlock Zyno Pro features and advanced analytics.</td>
+                                    <td class="p-4">Unlock Zyno Pro Preview features and advanced analytics.</td>
                                 </tr>
                                 <tr class="border-b border-white/5 hover:bg-background-secondary transition-colors">
                                     <td class="p-4 font-bold text-white">Launchpad</td>
-                                    <td class="p-4">Participate in early-stage project launches.</td>
+                                    <td class="p-4">Participate in early-stage simulated project launches.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -389,14 +656,19 @@
                 <div class="md:col-span-1">
                     <div class="flex items-center gap-3 mb-4">
                         <div
-                            class="w-10 h-10 bg-gradient-to-br from-accent-primary via-accent-secondary to-solana-green rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                            class="w-10 h-10 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-xl flex items-center justify-center text-white font-bold text-xl">
                             <img src="logo_mfai.png" alt="MFAI" class="w-6 h-6 object-contain">
+                        </div>
+                        <div class="flex flex-col">
+                            <div
+                                class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary mb-2">
+                                24</div>
+                            <div class="text-sm text-text-muted">AI Agents</div>
                         </div>
                         <div class="flex flex-col">
                             <span
                                 class="font-display font-bold text-lg tracking-tight leading-none text-text-primary">Money
-                                Factory
-                                AI</span>
+                                Factory AI</span>
                             <span class="text-xs text-text-muted">Venture Engine</span>
                         </div>
                     </div>
@@ -404,14 +676,14 @@
                         A Solana-native venture engine that turns raw ideas into funded, AI-orchestrated businesses.
                     </p>
                     <div class="flex gap-4">
-                        <a href="https://x.com/MoneyFactoryAI" target="_blank"
-                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                        <a href="https://x.com/Moneyfactoryai" target="_blank" rel="noopener"
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
                                 data-lucide="twitter" class="w-5 h-5"></i></a>
                         <a href="https://github.com/moneyfactoryai" target="_blank"
-                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
                                 data-lucide="github" class="w-5 h-5"></i></a>
                         <a href="https://discord.gg/shztvSg9" target="_blank"
-                            class="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
+                            class="w-10 h-10 bg-background-secondary border border-accent-primary/20 rounded-lg flex items-center justify-center text-text-muted hover:text-white hover:border-accent-primary transition-all"><i
                                 data-lucide="message-circle" class="w-5 h-5"></i></a>
                     </div>
                 </div>
@@ -427,8 +699,8 @@
                         <li><a href="index.html#journey"
                                 class="text-text-muted hover:text-white transition-colors text-sm">Journey</a></li>
                         <li><a href="https://journey.mfai.app"
-                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno
-                                Terminal</a></li>
+                                class="text-text-muted hover:text-white transition-colors text-sm">Zyno Terminal</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -459,6 +731,9 @@
                         </li>
                         <li><a href="https://discord.gg/shztvSg9" target="_blank"
                                 class="text-text-muted hover:text-white transition-colors text-sm">Discord</a></li>
+                        <li><a href="token.html"
+                                class="text-text-muted hover:text-white transition-colors text-sm font-medium">Token
+                                Info</a></li>
                     </ul>
                 </div>
             </div>
@@ -467,12 +742,13 @@
             <div class="pt-8 border-t border-accent-primary/10">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
                     <div class="text-text-muted text-sm">
-                        &copy; 2025 Money Factory AI. Built on Solana.
+                        © 2025 Money Factory AI. Built on Solana.
                     </div>
                     <div class="flex gap-6 text-sm">
-                        <a href="#" class="text-text-muted hover:text-white transition-colors">Terms</a>
-                        <a href="#" class="text-text-muted hover:text-white transition-colors">Privacy</a>
-                        <a href="#" class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
+                        <a href="terms.html" class="text-text-muted hover:text-white transition-colors">Terms</a>
+                        <a href="privacy.html" class="text-text-muted hover:text-white transition-colors">Privacy</a>
+                        <a href="disclaimer.html"
+                            class="text-text-muted hover:text-white transition-colors">Disclaimer</a>
                     </div>
                 </div>
             </div>
@@ -480,7 +756,11 @@
     </footer>
 
     <script>
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
 
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
@@ -491,6 +771,16 @@
                 mobileMenu.classList.toggle('hidden');
             });
         }
+
+        // Image Fallback Script
+        document.querySelectorAll('img').forEach(img => {
+            img.onerror = function () {
+                this.onerror = null;
+                this.src = './images/coming_soon.png';
+                this.alt = 'Image not found - Coming Soon';
+                this.className += ' opacity-70';
+            };
+        });
 
         // Reveal on Scroll
         const observer = new IntersectionObserver((entries) => {
